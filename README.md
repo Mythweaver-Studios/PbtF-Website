@@ -1,13 +1,15 @@
 # Project Structure
 
-├── 404.html          - Error Page
-├── codex.html        - Hero Codex
-├── credits.html      - Info about our game studio(ProjectPMU) & credits towards everyone involved in the creation of Project PMU.
-├── game.html         - Showing off the game's features, basic information, and download portal.
-├── index.html        - Everything in one but minimal. Also showing latest patch notes.
-├── patch_notes.html  - Latest game patches.
-├── streamers.html    - Showing off all the streamers live playing the game.
-├── README.md         - c;
+├── 404.html            - Error Page
+├── codex.html          - Hero Codex
+├── credits.html        - Info about our game studio(ProjectPMU) & credits towards everyone involved in the creation of Project PMU.
+├── game.html           - Showing off the game's features, basic information, and download portal.
+├── index.html          - Everything in one but minimal. Also showing latest patch notes.
+├── patch_notes.html    - Latest game patches.
+├── privacy_policy.html - Yeah.
+├── streamers.html      - Showing off all the streamers live playing the game.
+├── tos.html            - Terms of servics
+├── README.md           - c;
 └── assets/
     ├── css/
     │   ├── 404.css
