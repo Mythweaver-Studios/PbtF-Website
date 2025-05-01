@@ -2,6 +2,7 @@
 import React from 'react';
 // Import shared styles :D
 import '../components/Default.css';
+import { Link } from 'react-router-dom';
 
 function Home() { 
   return (
@@ -19,7 +20,7 @@ function Home() {
           <a href="#home" className="nav-link active">Home</a> {/* Active link style */}
           <a href="#news" className="nav-link">News</a>
           <a href="#characters" className="nav-link">Characters</a>
-          <a href="#explore" className="nav-link">Explore</a>
+          <Link to="/explore" className="nav-link">Explore</Link>
           <a href="#more" className="nav-link">More</a>
         </nav>
         {/* Login and Download actions */}
