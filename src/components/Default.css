@@ -1,0 +1,276 @@
+/* /src/components/Default.css */
+
+/* Basic reset and default body styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #fff; /* Default page background */
+}
+
+/* Container for the whole page - uses flexbox for layout */
+.homepage-container {
+  display: flex;
+  flex-direction: column; /* Stack header, main, footer vertically */
+  min-height: 100vh; /* Ensure it takes at least full screen height */
+}
+
+/* Header section styles */
+.header {
+  display: flex; /* Arrange items horizontally */
+  justify-content: space-between; /* Space out logo, nav, auth */
+  align-items: center; /* Vertically align items in the middle */
+  padding: 15px 40px; /* Top/bottom and left/right padding */
+  background-color: #f8f9fa; /* Light grey background */
+  border-bottom: 1px solid #e0e0e0; /* Subtle line below header */
+  flex-shrink: 0; /* Prevent header from shrinking if content grows */
+  position: relative; /* Positioning context for children */
+  z-index: 10; /* Keep header above other content */
+}
+
+/* Logo container */
+.logo-container {
+  flex-basis: 100px; /* Suggested width for the logo area */
+}
+
+/* Circular logo placeholder */
+.logo-placeholder {
+  background-color: #6a6aff; /* Blue color */
+  color: white;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%; /* Makes it a circle */
+  display: flex;
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Navigation links container */
+.navigation {
+  display: flex; /* Arrange links horizontally */
+  gap: 30px; /* Space between each nav link */
+  justify-content: center; /* Center the group of links */
+  flex-grow: 1; /* Allow nav to take up available space */
+  margin: 0 20px; /* Prevent touching logo/auth */
+}
+
+/* Individual navigation link style */
+.nav-link {
+  text-decoration: none; /* Remove underline */
+  color: #333; /* Default text color */
+  padding: 8px 0; /* Padding above/below text */
+  font-weight: 500;
+  position: relative; /* For the active indicator */
+  transition: color 0.2s ease; /* Smooth color change on hover */
+  white-space: nowrap; /* Prevent link text from wrapping */
+}
+
+/* Hover effect for nav links */
+.nav-link:hover {
+  color: #000; /* Darker color on hover */
+}
+
+/* Style for the currently active nav link */
+.nav-link.active {
+  color: #000;
+  font-weight: bold;
+}
+
+/* Underline for the active nav link */
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; /* Position below the text */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #333; /* Underline color */
+}
+
+/* Container for Login/Download buttons */
+.auth-actions {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  gap: 20px; /* Space between login and download */
+  flex-basis: 180px; /* Suggested width */
+  justify-content: flex-end; /* Push items to the right */
+}
+
+/* Login link style */
+.login-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+/* Hover effect for login link */
+.login-link:hover { 
+  color: #000;
+}
+
+/* Shared styles for all download buttons */
+.download-button {
+  background-color: #4a4aff; /* Blue background!!!!!!!!!!!!!!!!!!!!!! */
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background-color 0.2s ease; /* Smooth background change */
+  white-space: nowrap; /* Prevent button text wrapping */
+}
+
+/* Hover effect for download buttons */
+.download-button:hover {
+  background-color: #3535d3; /* Darker blue on hover */
+}
+
+/* Main content area (below header) */
+.main-content {
+  flex-grow: 1; /* Allow this section to fill remaining vertical space */
+  display: flex; /* Use flexbox for child alignment (hero section) */
+}
+
+/* Hero section styles (purple area) */
+.hero-section {
+  width: 100%; /* Take full width */
+  flex-grow: 1; /* Fill vertical space within main-content */
+  display: flex;
+  flex-direction: column; /* Stack heading and buttons vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  background-color: #8a84e2; /* Background color */
+  color: white; /* Text color */
+  padding: 50px 20px; /* Inner spacing */
+  text-align: center;
+  box-sizing: border-box; /* Include padding in height calculation */
+}
+
+/* Main heading style */
+.main-heading {
+  font-size: 2.8rem; /* Large font size */
+  margin-top: 0;
+  margin-bottom: 30px;
+  max-width: 650px; /* Limit width on large screens */
+  line-height: 1.3;
+}
+
+/* Container for platform download buttons */
+.platform-buttons {
+  display: flex;
+  gap: 20px; /* Space between buttons */
+}
+
+/* Specific style adjustments for platform buttons (if needed) */
+.platform-button {
+   padding: 12px 30px; /* Slightly larger padding */
+}
+
+/* --- Media Queries for Responsive Design --- */
+
+/* Styles for screens <= 992px (Smaller desktops / Large tablets) */
+@media (max-width: 992px) {
+  .header {
+    padding: 15px 20px; /* Reduce header padding */
+  }
+  .navigation {
+    gap: 20px; /* Reduce space between nav links */
+  }
+  .auth-actions {
+    gap: 15px;
+    flex-basis: 160px; /* Adjust width */
+  }
+  .main-heading {
+    font-size: 2.4rem; /* Reduce heading size */
+  }
+}
+
+
+/* Styles for screens <= 768px (Tablets and below) */
+@media (max-width: 768px) {
+  /* Allow header items to wrap onto multiple lines */
+  .header {
+    flex-wrap: wrap;
+    justify-content: center; /* Center items when wrapped */
+    padding: 10px 15px;
+  }
+
+  /* Center logo when header wraps */
+  .logo-container {
+     flex-basis: auto;
+     margin-bottom: 10px;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+  }
+
+  /* Adjust navigation layout for smaller screens */
+  .navigation {
+     order: 3; /* Change visual order */
+     width: 100%;
+     justify-content: center;
+     margin-top: 10px;
+     gap: 15px;
+     flex-wrap: wrap; /* Allow links to wrap */
+  }
+
+  /* Adjust auth actions layout for smaller screens */
+  .auth-actions {
+    order: 2; /* Change visual order */
+    flex-basis: auto;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .nav-link.active::after {
+    bottom: 0px; /* Adjust underline position */
+  }
+
+  .main-heading {
+    font-size: 2rem; /* Smaller heading */
+  }
+  /* Stack platform buttons vertically */
+  .platform-buttons {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center; /* Center buttons */
+  }
+  /* Give platform buttons a fixed width */
+  .platform-button {
+    width: 180px;
+  }
+}
+
+/* Styles for screens <= 480px (Mobile phones) */
+@media (max-width: 480px) {
+   .header {
+     padding: 10px; /* Minimal header padding */
+   }
+   .navigation {
+     gap: 10px; /* Further reduce nav link gap */
+   }
+   /* Reduce nav link font size and padding */
+   .nav-link {
+     font-size: 0.9rem;
+     padding: 5px 0;
+   }
+   .main-heading {
+     font-size: 1.7rem; /* Smallest heading size */
+   }
+   /* Reduce button padding and font size */
+    .download-button {
+      padding: 8px 20px;
+      font-size: 13px;
+    }
+   /* Adjust platform button width and padding : LUZNIGHT c:*/
+   .platform-button {
+     width: 160px;
+     padding: 10px 25px;
+   }
+}
