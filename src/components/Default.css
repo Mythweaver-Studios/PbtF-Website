@@ -1,23 +1,33 @@
 /* /src/components/Default.css */
 
 /* Basic reset and default body styles */
-body {
+body, html {
   margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.6;
   background-color: #fff; /* Default page background */
   color: #333; /* Default text color */
 }
 
-/* Container for the whole page - uses flexbox for layout */
-.homepage-container,
-.characters-page {
+/* --- App Layout Styles --- */
+.app-layout {
   display: flex;
-  flex-direction: column; /* Stack header, main, footer vertically */
-  min-height: 100vh; /* Ensure it takes at least full screen height */
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
 }
 
-/* Header section styles */
+.page-content {
+  flex-grow: 1; /* Allows content area to fill available space */
+  display: flex; /* Use flex for main content alignment */
+  flex-direction: column; /* Stack elements within page-content */
+}
+
+/* --- Header Styles (Now used by NavBar.jsx) --- */
 .header {
   display: flex; /* Arrange items horizontally */
   justify-content: space-between; /* Space out logo, nav, auth */
@@ -25,17 +35,21 @@ body {
   padding: 15px 40px; /* Top/bottom and left/right padding */
   background-color: #f8f9fa; /* Light grey background */
   border-bottom: 1px solid #e0e0e0; /* Subtle line below header */
-  flex-shrink: 0; /* Prevent header from shrinking if content grows */
-  position: relative; /* Positioning context for children */
+  flex-shrink: 0; /* Prevent header from shrinking */
+  position: relative; /* Positioning context */
   z-index: 10; /* Keep header above other content */
 }
 
-/* Logo container */
 .logo-container {
-  flex-basis: 100px; /* Suggested width for the logo area */
+  flex-basis: 100px; /* Suggested width */
 }
 
-/* Circular logo placeholder */
+/* Make logo placeholder clickable */
+.logo-placeholder-link {
+  display: inline-block; /* Prevents link default block behavior */
+  text-decoration: none; /* Remove link underline */
+}
+
 .logo-placeholder {
   background-color: #6a6aff; /* Blue color */
   color: white;
@@ -49,7 +63,6 @@ body {
   font-size: 14px;
 }
 
-/* Navigation links container */
 .navigation {
   display: flex; /* Arrange links horizontally */
   gap: 30px; /* Space between each nav link */
@@ -58,7 +71,6 @@ body {
   margin: 0 20px; /* Prevent touching logo/auth */
 }
 
-/* Individual navigation link style */
 .nav-link {
   text-decoration: none; /* Remove underline */
   color: #333; /* Default text color */
@@ -69,29 +81,27 @@ body {
   white-space: nowrap; /* Prevent link text from wrapping */
 }
 
-/* Hover effect for nav links */
 .nav-link:hover {
   color: #000; /* Darker color on hover */
 }
 
-/* Style for the currently active nav link */
 .nav-link.active {
   color: #000;
   font-weight: bold;
 }
 
-/* Underline for the active nav link */
+/* Underline for the active nav link - using ::after */
 .nav-link.active::after {
   content: '';
   position: absolute;
   bottom: -2px; /* Position below the text */
   left: 0;
   width: 100%;
-  height: 2px;
+  height: 3px; /* Slightly thicker underline */
   background-color: #333; /* Underline color */
 }
 
-/* Container for Login/Download buttons */
+
 .auth-actions {
   display: flex;
   align-items: center; /* Align items vertically */
@@ -100,7 +110,6 @@ body {
   justify-content: flex-end; /* Push items to the right */
 }
 
-/* Login link style */
 .login-link {
   text-decoration: none;
   color: #333;
@@ -108,14 +117,13 @@ body {
   white-space: nowrap; /* Prevent wrapping */
 }
 
-/* Hover effect for login link */
-.login-link:hover { 
+.login-link:hover {
   color: #000;
 }
 
 /* Shared styles for all download buttons */
 .download-button {
-  background-color: #4a4aff; /* Blue background!!!!!!!!!!!!!!!!!!!!!! */
+  background-color: #4a4aff; /* Blue background */
   color: white;
   border: none;
   padding: 10px 25px;
@@ -127,154 +135,216 @@ body {
   white-space: nowrap; /* Prevent button text wrapping */
 }
 
-/* Hover effect for download buttons */
 .download-button:hover {
   background-color: #3535d3; /* Darker blue on hover */
 }
 
-/* Main content area (below header) */
+/* --- Page Specific Content Styles --- */
+
+/* Main content area within a page */
+/* This class is now applied to the <main> tag WITHIN each page component */
 .main-content {
-  flex-grow: 1; /* Allow this section to fill remaining vertical space */
-  display: flex; /* Use flexbox for child alignment (hero section) */
+  flex-grow: 1; /* Allow main content of page to fill space within .page-content */
+  display: flex;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Hero section styles (purple area) */
-.hero-section {
-  width: 100%; /* Take full width */
-  flex-grow: 1; /* Fill vertical space within main-content */
-  display: flex;
-  flex-direction: column; /* Stack heading and buttons vertically */
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
-  background-color: #8a84e2; /* Background color */
-  color: white; /* Text color */
-  padding: 50px 20px; /* Inner spacing */
-  text-align: center;
-  box-sizing: border-box; /* Include padding in height calculation */
+/* --- Home Page Specific Styles --- */
+.main-content.home-view {
+  flex-direction: column; /* Let hero section control its content */
 }
 
-/* Main heading style */
+.hero-section {
+  width: 100%;
+  flex-grow: 1; /* Fill available vertical space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #8a84e2;
+  color: #333;
+  padding: 50px 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
 .main-heading {
-  font-size: 2.8rem; /* Large font size */
+  font-size: 2.8rem;
   margin-top: 0;
   margin-bottom: 30px;
-  max-width: 650px; /* Limit width on large screens */
+  max-width: 650px;
   line-height: 1.3;
+  color: #333;
 }
 
-/* Container for platform download buttons */
 .platform-buttons {
   display: flex;
-  gap: 20px; /* Space between buttons */
+  gap: 20px;
 }
 
-/* Specific style adjustments for platform buttons (if needed) */
 .platform-button {
-   padding: 12px 30px; /* Slightly larger padding */
+   padding: 12px 30px;
+   /* Inherits base style from .download-button */
 }
 
-/* --- Media Queries for Responsive Design --- */
+/* --- Characters Page Specific Styles --- */
+.main-content.character-view {
+  background-color: #8a84e2;
+  padding: 30px 40px;
+  align-items: center;
+  justify-content: center;
+}
 
-/* Styles for screens <= 992px (Smaller desktops / Large tablets) */
+.character-content-wrapper {
+  display: flex;
+  align-items: stretch;
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 450px;
+}
+
+.world-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex-shrink: 0;
+  width: 220px;
+  justify-content: center;
+}
+
+.world-button {
+  background-color: #3b3bff;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.world-button:hover {
+  background-color: #2a2ad4;
+}
+
+.world-button.active {
+  background-color: #1e1e9e;
+  font-weight: bold;
+  transform: scale(1.03);
+}
+
+.character-details-card {
+  flex-grow: 1;
+  background-color: #706db5;
+  border-radius: 10px;
+  padding: 30px 40px;
+  display: flex;
+  gap: 30px;
+  color: #ffffff; /* Adjusted default text color */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.character-info {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.va-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff; /* White text */
+  margin-bottom: 5px;
+}
+
+.character-name-heading {
+  font-size: 2.8rem;
+  color: #ffffff; /* White text */
+  margin: 0 0 15px 0;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.character-description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #ffffff; /* White text */
+  flex-grow: 1;
+}
+
+.character-image-placeholder {
+  flex: 1;
+  background-color: #a09cdc;
+  border-radius: 8px;
+  min-height: 300px;
+  align-self: stretch;
+}
+
+.navigation-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: 300;
+  cursor: pointer;
+  flex-shrink: 0;
+  width: 50px;
+  user-select: none;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.navigation-arrow:hover {
+  opacity: 1;
+}
+
+
+/* --- Media Queries (Excluding Mobile Phone <= 480px) --- */
+
+/* Screens <= 992px */
 @media (max-width: 992px) {
-  .header {
-    padding: 15px 20px; /* Reduce header padding */
-  }
-  .navigation {
-    gap: 20px; /* Reduce space between nav links */
-  }
-  .auth-actions {
-    gap: 15px;
-    flex-basis: 160px; /* Adjust width */
-  }
-  .main-heading {
-    font-size: 2.4rem; /* Reduce heading size */
-  }
+  .header { padding: 15px 20px; }
+  .navigation { gap: 20px; }
+  .auth-actions { gap: 15px; flex-basis: 160px; }
+
+  .main-heading { font-size: 2.4rem; } /* Home */
+
+  /* Characters */
+  .main-content.character-view { padding: 20px; }
+  .character-content-wrapper { gap: 20px; }
+  .world-selector { width: 180px; }
+  .character-details-card { padding: 25px 30px; gap: 20px;}
+  .character-name-heading { font-size: 2.4rem; }
+  .character-description { font-size: 0.9rem; }
 }
 
 
-/* Styles for screens <= 768px (Tablets and below) */
+/* Screens <= 768px */
 @media (max-width: 768px) {
-  /* Allow header items to wrap onto multiple lines */
-  .header {
-    flex-wrap: wrap;
-    justify-content: center; /* Center items when wrapped */
-    padding: 10px 15px;
-  }
+  .header { flex-wrap: wrap; justify-content: center; padding: 10px 15px; }
+  .logo-container { flex-basis: auto; margin-bottom: 10px; width: 100%; display: flex; justify-content: center; }
+  .navigation { order: 3; width: 100%; justify-content: center; margin-top: 10px; gap: 15px; flex-wrap: wrap; }
+  .auth-actions { order: 2; flex-basis: auto; width: 100%; justify-content: center; margin-bottom: 10px; }
+  .nav-link.active::after { bottom: 0px; height: 2px; }
 
-  /* Center logo when header wraps */
-  .logo-container {
-     flex-basis: auto;
-     margin-bottom: 10px;
-     width: 100%;
-     display: flex;
-     justify-content: center;
-  }
+  /* Home */
+  .main-heading { font-size: 2rem; }
+  .platform-buttons { flex-direction: column; gap: 15px; align-items: center; }
+  .platform-button { width: 180px; }
 
-  /* Adjust navigation layout for smaller screens */
-  .navigation {
-     order: 3; /* Change visual order */
-     width: 100%;
-     justify-content: center;
-     margin-top: 10px;
-     gap: 15px;
-     flex-wrap: wrap; /* Allow links to wrap */
-  }
-
-  /* Adjust auth actions layout for smaller screens */
-  .auth-actions {
-    order: 2; /* Change visual order */
-    flex-basis: auto;
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-
-  .nav-link.active::after {
-    bottom: 0px; /* Adjust underline position */
-  }
-
-  .main-heading {
-    font-size: 2rem; /* Smaller heading */
-  }
-  /* Stack platform buttons vertically */
-  .platform-buttons {
-    flex-direction: column;
-    gap: 15px;
-    align-items: center; /* Center buttons */
-  }
-  /* Give platform buttons a fixed width */
-  .platform-button {
-    width: 180px;
-  }
-}
-
-/* Styles for screens <= 480px (Mobile phones) */
-@media (max-width: 480px) {
-   .header {
-     padding: 10px; /* Minimal header padding */
-   }
-   .navigation {
-     gap: 10px; /* Further reduce nav link gap */
-   }
-   /* Reduce nav link font size and padding */
-   .nav-link {
-     font-size: 0.9rem;
-     padding: 5px 0;
-   }
-   .main-heading {
-     font-size: 1.7rem; /* Smallest heading size */
-   }
-   /* Reduce button padding and font size */
-    .download-button {
-      padding: 8px 20px;
-      font-size: 13px;
-    }
-   /* Adjust platform button width and padding : LUZNIGHT c:*/
-   .platform-button {
-     width: 160px;
-     padding: 10px 25px;
-   }
+  /* Characters */
+  .main-content.character-view { padding: 15px; }
+  .character-content-wrapper { flex-direction: column; gap: 20px; align-items: center; min-height: unset; }
+  .world-selector { width: 90%; max-width: 400px; flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .world-button { flex: 1 1 120px; padding: 12px 15px; font-size: 0.9rem;}
+  .character-details-card { flex-direction: column; padding: 20px; width: 90%; max-width: 500px; }
+  .character-image-placeholder { min-height: 200px; order: -1; width: 100%; flex: unset; }
+  .character-info { flex: unset; }
+  .character-name-heading { font-size: 2rem; }
+  .navigation-arrow { display: none; }
 }
