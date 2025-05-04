@@ -11,7 +11,6 @@ import News from './pages/News';
 
 // Placeholder components for routes not yet built
 const More = () => <div>More Page Content</div>;
-const Login = () => <div style={{ padding: '50px', textAlign: 'center' }}>Login Page Content</div>; // Added padding for visibility
 
 function App() {
   return (
