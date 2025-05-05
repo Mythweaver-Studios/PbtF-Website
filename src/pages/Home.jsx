@@ -1,31 +1,52 @@
 // src/pages/Home.jsx
 import React from 'react';
-// Import shared styles :D - Still needed for page-specific content
-import '../components/Default.css';
-// Removed Link and useLocation imports as NavBar handles them
+import NavBar from '../components/NavBar';
+import MediaLinks from '../components/MediaLinks';
+// Home uses the default styles from Default.css imported in App.jsx
 
 function Home() {
-  // No need for location or active link logic here anymore
-
   return (
-    // No need for the overall `.homepage-container` if Layout handles structure
-    // The main content for the Home page specifically
-    <main className="main-content home-view">
-      {/* Hero section with background and main call to action */}
-      <div className="hero-section">
-        {/* Main headline */}
-        <h1 className="main-heading">
-          Available on Multiple Platforms - Download Now!
-        </h1>
-        {/* Download buttons for different platforms */}
-        <div className="platform-buttons">
-          <button className="download-button platform-button">Android</button>
-          <button className="download-button platform-button">PC</button>
-          <button className="download-button platform-button">iOS</button>
+    // Use the general page container class
+    <div className="page-container">
+      {/* Header remains specific to Home */}
+      <header className="home-header">
+        <NavBar />
+        <MediaLinks />
+      </header>
+      {/* Content structure remains specific to Home */}
+      <main className="home-content">
+        <div className="content-left">
+          {/* Title uses custom font via CSS */}
+          <h1>Crownless</h1>
+          {/* Removed h2 subtitle */}
+          <p>
+           Crownless: The Beginning is a tactical survival game where you control the fate of summoned heroes battling through a ruthless tower of trials. No retries. No revives. Just consequences
+          </p>
+          {/* Button layout updated for two rows */}
+          <div className="action-buttons">
+            {/* Row 1: Beta Signup (Primary Style) & Watch Trailer (Secondary Style) */}
+            <div className="button-row-top">
+              {/* Beta Signup as Primary (White button) */}
+              <button className="btn btn-primary">
+                 {/* Optional: Add an icon if desired for Beta Signup */}
+                 Beta Signup
+              </button>
+              {/* Watch Trailer as Secondary (Transparent button) */}
+              <button className="btn btn-secondary">
+                 Watch Trailer
+              </button>
+            </div>
+            {/* Row 2: Add to Wishlist (Using Secondary Style for consistency) */}
+            <button className="btn btn-tertiary">
+              Add to Wishlist
+            </button>
+          </div>
         </div>
-      </div>
-    </main>
-    // Footer is handled by Layout if implemented there
+        <div className="content-right">
+          {/* Empty right side, relies on background */}
+        </div>
+      </main>
+    </div>
   );
 }
 

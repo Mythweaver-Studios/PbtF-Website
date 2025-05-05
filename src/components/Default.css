@@ -1,350 +1,349 @@
-/* /src/components/Default.css */
+/* src/components/Default.css */
 
-/* Basic reset and default body styles */
-body, html {
+/* --- Font Definition --- */
+@font-face {
+  font-family: 'EternalFont'; /* Define a name for the font */
+  src: url('../assets/fonts/Eternal.ttf') format('truetype'); /* Path relative to CSS file */
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* Basic Reset & Defaults */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  height: 100%;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif; /* Default fallback font */
+  /* Diagonal background split */
+  background: linear-gradient(135deg, #2b3035 50%, #212529 50%); /* Dark theme */
+  color: #ffffff; /* Default text color */
   line-height: 1.6;
-  background-color: #fff; /* Default page background */
-  color: #333; /* Default text color */
+  min-height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-/* --- App Layout Styles --- */
-.app-layout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Full viewport height */
-}
-
-.page-content {
-  flex-grow: 1; /* Allows content area to fill available space */
-  display: flex; /* Use flex for main content alignment */
-  flex-direction: column; /* Stack elements within page-content */
-}
-
-/* --- Header Styles (Now used by NavBar.jsx) --- */
-.header {
-  display: flex; /* Arrange items horizontally */
-  justify-content: space-between; /* Space out logo, nav, auth */
-  align-items: center; /* Vertically align items in the middle */
-  padding: 15px 40px; /* Top/bottom and left/right padding */
-  background-color: #f8f9fa; /* Light grey background */
-  border-bottom: 1px solid #e0e0e0; /* Subtle line below header */
-  flex-shrink: 0; /* Prevent header from shrinking */
-  position: relative; /* Positioning context */
-  z-index: 10; /* Keep header above other content */
-}
-
-.logo-container {
-  flex-basis: 100px; /* Suggested width */
-}
-
-/* Make logo placeholder clickable */
-.logo-placeholder-link {
-  display: inline-block; /* Prevents link default block behavior */
-  text-decoration: none; /* Remove link underline */
-}
-
-.logo-placeholder {
-  background-color: #6a6aff; /* Blue color */
-  color: white;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%; /* Makes it a circle */
-  display: flex;
-  justify-content: center; /* Center text horizontally */
-  align-items: center; /* Center text vertically */
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.navigation {
-  display: flex; /* Arrange links horizontally */
-  gap: 30px; /* Space between each nav link */
-  justify-content: center; /* Center the group of links */
-  flex-grow: 1; /* Allow nav to take up available space */
-  margin: 0 20px; /* Prevent touching logo/auth */
-}
-
-.nav-link {
-  text-decoration: none; /* Remove underline */
-  color: #333; /* Default text color */
-  padding: 8px 0; /* Padding above/below text */
-  font-weight: 500;
-  position: relative; /* For the active indicator */
-  transition: color 0.2s ease; /* Smooth color change on hover */
-  white-space: nowrap; /* Prevent link text from wrapping */
-}
-
-.nav-link:hover {
-  color: #000; /* Darker color on hover */
-}
-
-.nav-link.active {
-  color: #000;
-  font-weight: bold;
-}
-
-/* Underline for the active nav link - using ::after */
-.nav-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: -2px; /* Position below the text */
-  left: 0;
-  width: 100%;
-  height: 3px; /* Slightly thicker underline */
-  background-color: #333; /* Underline color */
-}
-
-
-.auth-actions {
-  display: flex;
-  align-items: center; /* Align items vertically */
-  gap: 20px; /* Space between login and download */
-  flex-basis: 180px; /* Suggested width */
-  justify-content: flex-end; /* Push items to the right */
-}
-
-.login-link {
+a {
+  color: inherit;
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  white-space: nowrap; /* Prevent wrapping */
 }
 
-.login-link:hover {
-  color: #000;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-/* Shared styles for all download buttons */
-.download-button {
-  background-color: #4a4aff; /* Blue background */
-  color: white;
-  border: none;
-  padding: 10px 25px;
-  border-radius: 20px; /* Rounded corners */
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 14px;
-  transition: background-color 0.2s ease; /* Smooth background change */
-  white-space: nowrap; /* Prevent button text wrapping */
-}
-
-.download-button:hover {
-  background-color: #3535d3; /* Darker blue on hover */
-}
-
-/* --- Page Specific Content Styles --- */
-
-/* Main content area within a page */
-/* This class is now applied to the <main> tag WITHIN each page component */
-.main-content {
-  flex-grow: 1; /* Allow main content of page to fill space within .page-content */
-  display: flex;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* --- Home Page Specific Styles --- */
-.main-content.home-view {
-  flex-direction: column; /* Let hero section control its content */
-}
-
-.hero-section {
-  width: 100%;
-  flex-grow: 1; /* Fill available vertical space */
+/* General Page Container */
+.page-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header area */
+.home-header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  background-color: #8a84e2;
-  color: #333;
-  padding: 50px 20px;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.main-heading {
-  font-size: 2.8rem;
-  margin-top: 0;
-  margin-bottom: 30px;
-  max-width: 650px;
-  line-height: 1.3;
-  color: #333;
-}
-
-.platform-buttons {
-  display: flex;
-  gap: 20px;
-}
-
-.platform-button {
-   padding: 12px 30px;
-   /* Inherits base style from .download-button */
-}
-
-/* --- Characters Page Specific Styles --- */
-.main-content.character-view {
-  background-color: #8a84e2;
-  padding: 30px 40px;
-  align-items: center;
-  justify-content: center;
-}
-
-.character-content-wrapper {
-  display: flex;
-  align-items: stretch;
-  gap: 30px;
   width: 100%;
-  max-width: 1200px;
-  min-height: 450px;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 10;
 }
 
-.world-selector {
+/* Main content area */
+.home-content {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-  flex-shrink: 0;
-  width: 220px;
-  justify-content: center;
-}
-
-.world-button {
-  background-color: #3b3bff;
-  color: white;
-  border: none;
-  padding: 15px 20px;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 500;
-  text-align: center;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-.world-button:hover {
-  background-color: #2a2ad4;
-}
-
-.world-button.active {
-  background-color: #1e1e9e;
-  font-weight: bold;
-  transform: scale(1.03);
-}
-
-.character-details-card {
-  flex-grow: 1;
-  background-color: #706db5;
-  border-radius: 10px;
-  padding: 30px 40px;
-  display: flex;
-  gap: 30px;
-  color: #ffffff; /* Adjusted default text color */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.character-info {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-}
-
-.va-name {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #ffffff; /* White text */
-  margin-bottom: 5px;
-}
-
-.character-name-heading {
-  font-size: 2.8rem;
-  color: #ffffff; /* White text */
-  margin: 0 0 15px 0;
-  line-height: 1.2;
-  font-weight: bold;
-}
-
-.character-description {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: #ffffff; /* White text */
-  flex-grow: 1;
-}
-
-.character-image-placeholder {
   flex: 1;
-  background-color: #a09cdc;
-  border-radius: 8px;
-  min-height: 300px;
-  align-self: stretch;
+  align-items: center;
+  position: relative;
+  z-index: 5;
 }
 
-.navigation-arrow {
+.content-left {
+  flex-basis: 50%;
+  max-width: 600px;
+  z-index: 5;
+}
+
+.content-right {
+  flex-basis: 50%;
+  height: 100%;
+  position: relative;
+}
+
+/* Text Styling */
+.content-left h1 {
+  font-family: 'EternalFont', sans-serif; /* Apply custom font, with fallback */
+  font-size: 4.5rem; /* Adjust size if needed for the custom font */
+  margin-bottom: 1.5rem; /* Adjusted margin */
+  font-weight: normal; /* Use font's default weight or specify */
+  color: #ffffff;
+  letter-spacing: 1px; /* Optional: Adjust spacing for custom font */
+}
+
+.content-left p {
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+  color: #e9ecef;
+  max-width: 90%;
+}
+
+/* --- Button Styles Reverted to Original Pill Design --- */
+.action-buttons {
   display: flex;
+  flex-direction: column; /* Stack rows vertically */
+  gap: 1rem; /* Space between rows */
+  width: 100%; /* Ensure container takes available width */
+  max-width: 450px; /* Optional: constrain max width */
+}
+
+/* Style for the top row container */
+.button-row-top {
+  display: flex;
+  gap: 1rem; /* Space between buttons in the top row */
+  width: 100%;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 50px; /* Reverted to pill shape */
+  font-size: 1rem; /* Reverted font size */
+  font-weight: 500; /* Reverted font weight */
+  text-transform: none; /* Reverted text transform */
+  letter-spacing: normal; /* Reverted letter spacing */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 3rem;
-  font-weight: 300;
-  cursor: pointer;
-  flex-shrink: 0;
-  width: 50px;
-  user-select: none;
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
+  text-align: center;
+  /* Remove flex grow/shrink properties by default */
+  flex: 0 1 auto;
 }
 
-.navigation-arrow:hover {
-  opacity: 1;
+/* Primary button (Beta Signup - White Pill) */
+.btn-primary {
+  background-color: #ffffff;
+  color: #212529; /* Dark text on white button */
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2); /* Subtle glow */
+  /* Allow buttons in the top row to share space */
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.btn-primary:hover {
+  background-color: #f1f3f5;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Secondary button (Watch Trailer - Transparent Pill) */
+.btn-secondary {
+  background-color: transparent;
+  color: #ffffff;
+  border-color: #dee2e6; /* Light grey border */
+  /* Allow buttons in the top row to share space */
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle background on hover */
+  border-color: #ffffff;
+}
+
+/* Tertiary button (Add to Wishlist - also Transparent Pill like Secondary) */
+.btn-tertiary {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #adb5bd; /* Use slightly dimmer border */
+  width: 100%; /* Make tertiary button full width */
+  /* Remove flex-grow from tertiary */
+  flex-grow: 0;
+}
+
+.btn-tertiary:hover {
+  background-color: rgba(255, 255, 255, 0.05); /* Very subtle hover */
+  border-color: #dee2e6; /* Brighter border on hover */
 }
 
 
-/* --- Media Queries (Excluding Mobile Phone <= 480px) --- */
+/* NavBar Styles */
+.main-nav {
+  display: flex;
+  gap: 2.5rem;
+}
 
-/* Screens <= 992px */
+.main-nav a {
+  color: #ced4da;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+  position: relative;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: #ffffff;
+}
+
+.main-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+}
+
+
+/* Media Links Styles */
+.media-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.media-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  color: #212529;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.media-links a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+.media-links a img {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* Responsive Adjustments */
 @media (max-width: 992px) {
-  .header { padding: 15px 20px; }
-  .navigation { gap: 20px; }
-  .auth-actions { gap: 15px; flex-basis: 160px; }
-
-  .main-heading { font-size: 2.4rem; } /* Home */
-
-  /* Characters */
-  .main-content.character-view { padding: 20px; }
-  .character-content-wrapper { gap: 20px; }
-  .world-selector { width: 180px; }
-  .character-details-card { padding: 25px 30px; gap: 20px;}
-  .character-name-heading { font-size: 2.4rem; }
-  .character-description { font-size: 0.9rem; }
+  .page-container {
+    padding: 2rem;
+  }
+  .home-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .content-left {
+     flex-basis: auto;
+     width: 100%;
+     max-width: 700px;
+     margin-bottom: 3rem;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+  }
+  .content-right {
+    display: none;
+  }
+  .action-buttons {
+     margin-left: auto;
+     margin-right: auto;
+  }
+   .content-left h1 {
+      font-size: 3.8rem; /* Adjust responsive size for custom font */
+   }
 }
 
-
-/* Screens <= 768px */
 @media (max-width: 768px) {
-  .header { flex-wrap: wrap; justify-content: center; padding: 10px 15px; }
-  .logo-container { flex-basis: auto; margin-bottom: 10px; width: 100%; display: flex; justify-content: center; }
-  .navigation { order: 3; width: 100%; justify-content: center; margin-top: 10px; gap: 15px; flex-wrap: wrap; }
-  .auth-actions { order: 2; flex-basis: auto; width: 100%; justify-content: center; margin-bottom: 10px; }
-  .nav-link.active::after { bottom: 0px; height: 2px; }
+  .home-header {
+     margin-bottom: 3rem;
+  }
+  .main-nav {
+    gap: 1.5rem;
+  }
+  .main-nav a {
+    font-size: 1rem;
+  }
+  .media-links {
+    gap: 0.75rem;
+  }
+   .media-links a {
+      width: 32px;
+      height: 32px;
+   }
+   .media-links a img {
+      width: 18px;
+      height: 18px;
+   }
+   .content-left h1 {
+      font-size: 3rem; /* Adjust responsive size for custom font */
+   }
+   .content-left p {
+      font-size: 0.95rem;
+   }
+   .btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem; /* Reverted font size adjustment */
+   }
+   .action-buttons {
+       max-width: 90%;
+   }
+}
 
-  /* Home */
-  .main-heading { font-size: 2rem; }
-  .platform-buttons { flex-direction: column; gap: 15px; align-items: center; }
-  .platform-button { width: 180px; }
+@media (max-width: 480px) {
+   .page-container {
+      padding: 1.5rem;
+   }
+   .home-header {
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+   }
 
-  /* Characters */
-  .main-content.character-view { padding: 15px; }
-  .character-content-wrapper { flex-direction: column; gap: 20px; align-items: center; min-height: unset; }
-  .world-selector { width: 90%; max-width: 400px; flex-direction: row; flex-wrap: wrap; justify-content: center; }
-  .world-button { flex: 1 1 120px; padding: 12px 15px; font-size: 0.9rem;}
-  .character-details-card { flex-direction: column; padding: 20px; width: 90%; max-width: 500px; }
-  .character-image-placeholder { min-height: 200px; order: -1; width: 100%; flex: unset; }
-  .character-info { flex: unset; }
-  .character-name-heading { font-size: 2rem; }
-  .navigation-arrow { display: none; }
+   .main-nav {
+      order: 2;
+      gap: 1rem;
+      justify-content: center;
+      width: 100%;
+      flex-wrap: wrap;
+   }
+   .media-links {
+       order: 1;
+   }
+   .content-left h1 {
+      font-size: 2.5rem; /* Adjust responsive size for custom font */
+   }
+   .content-left p {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+   }
+   .action-buttons {
+     width: 100%;
+     max-width: 300px; /* Constrain width on small screens */
+   }
+   /* Stack top row buttons on smallest screens */
+   .button-row-top {
+     flex-direction: column;
+     gap: 1rem; /* Add gap when stacked */
+   }
+   /* Make top buttons full width when stacked */
+   .btn-primary, .btn-secondary {
+       flex-grow: 0; /* Reset grow */
+       width: 100%;
+   }
 }
