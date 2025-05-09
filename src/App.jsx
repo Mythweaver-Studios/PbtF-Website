@@ -1,5 +1,5 @@
 // src/App.jsx
-import "./components/Default.css";
+import "./components/Default.css"; // Default.css is no longer imported globally
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home/Home";

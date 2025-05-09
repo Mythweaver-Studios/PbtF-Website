@@ -1,14 +1,6 @@
 /* src/components/Default.css */
-
-/* --- Font Definition --- */
-@font-face {
-  font-family: 'EternalFont';
-  /* Define a name for the font */
-  src: url('../assets/fonts/Eternal.ttf') format('truetype');
-  /* Path relative to CSS file */
-  font-weight: normal;
-  font-style: normal;
-}
+/* This file now contains global resets, body styles, and styles for shared components like NavBar and MediaLinks. */
+/* Page-specific styles (like for Home) should be in their own SCSS/CSS files. */
 
 /* Basic Reset & Defaults */
 *,
@@ -23,9 +15,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
   /* Default fallback font */
-  /* Diagonal background split */
   background: linear-gradient(135deg, #2b3035 50%, #212529 50%);
-  /* Dark theme */
+  /* Dark theme diagonal background */
   color: #ffffff;
   /* Default text color */
   line-height: 1.6;
@@ -44,199 +35,55 @@ img {
   display: block;
 }
 
-/* General Page Container */
-.page-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 2rem 4rem;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Header area */
-.home-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 4rem;
-  position: relative;
-  z-index: 10;
-}
-
-/* Main content area */
-.home-content {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  position: relative;
-  z-index: 5;
-}
-
-.content-left {
-  flex-basis: 50%;
-  max-width: 600px;
-  z-index: 5;
-}
-
-.content-right {
-  flex-basis: 50%;
-  height: 100%;
-  position: relative;
-}
-
-/* Text Styling */
-.content-left h1 {
-  font-family: 'EternalFont', sans-serif;
-  /* Apply custom font, with fallback */
-  font-size: 4.5rem;
-  /* Adjust size if needed for the custom font */
-  margin-bottom: 1.5rem;
-  /* Adjusted margin */
-  font-weight: normal;
-  /* Use font's default weight or specify */
-  color: #ffffff;
-  letter-spacing: 1px;
-  /* Optional: Adjust spacing for custom font */
-}
-
-.content-left p {
-  font-size: 1rem;
-  margin-bottom: 2.5rem;
-  color: #e9ecef;
-  max-width: 90%;
-}
-
-/* --- Button Styles Reverted to Original Pill Design --- */
-.action-buttons {
-  display: flex;
-  flex-direction: column;
-  /* Stack rows vertically */
-  gap: 1rem;
-  /* Space between rows */
-  width: 100%;
-  /* Ensure container takes available width */
-  max-width: 450px;
-  /* Optional: constrain max width */
-}
-
-/* Style for the top row container */
-.button-row-top {
-  display: flex;
-  gap: 1rem;
-  /* Space between buttons in the top row */
-  width: 100%;
-}
-
-.btn {
-  padding: 0.75rem 1.5rem;
-  border: 1px solid transparent;
-  border-radius: 50px;
-  /* Reverted to pill shape */
-  font-size: 1rem;
-  /* Reverted font size */
-  font-weight: 500;
-  /* Reverted font weight */
-  text-transform: none;
-  /* Reverted text transform */
-  letter-spacing: normal;
-  /* Reverted letter spacing */
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  /* Remove flex grow/shrink properties by default */
-  flex: 0 1 auto;
-}
-
-/* Primary button (Beta Signup - White Pill) */
-.btn-primary {
-  background-color: #ffffff;
-  color: #212529;
-  /* Dark text on white button */
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-  /* Subtle glow */
-  /* Allow buttons in the top row to share space */
-  flex-grow: 1;
-  min-width: 0;
-}
-
-.btn-primary:hover {
-  background-color: #f1f3f5;
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
-}
-
-/* Secondary button (Watch Trailer - Transparent Pill) */
-.btn-secondary {
-  background-color: transparent;
-  color: #ffffff;
-  border-color: #dee2e6;
-  /* Light grey border */
-  /* Allow buttons in the top row to share space */
-  flex-grow: 1;
-  min-width: 0;
-}
-
-.btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  /* Subtle background on hover */
-  border-color: #ffffff;
-}
-
-/* Tertiary button (Add to Wishlist - also Transparent Pill like Secondary) */
-.btn-tertiary {
-  background-color: transparent;
-  color: #ffffff;
-  border: 1px solid #adb5bd;
-  /* Use slightly dimmer border */
-  width: 100%;
-  /* Make tertiary button full width */
-  /* Remove flex-grow from tertiary */
-  flex-grow: 0;
-}
-
-.btn-tertiary:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  /* Very subtle hover */
-  border-color: #dee2e6;
-  /* Brighter border on hover */
-}
-
-
-/* NavBar Styles */
+/* NavBar Styles (shared component) */
 .main-nav {
   display: flex;
-  gap: 2.5rem;
+  gap: 2.5rem; /* Spacing between nav items */
 }
 
-.main-nav a {
+.main-nav a.nav-item { /* Targeting the NavLink component */
   color: #ced4da;
   font-size: 1.1rem;
   font-weight: 500;
-  transition: color 0.2s ease-in-out;
-  position: relative;
+  position: relative; /* For pseudo-element positioning */
+  padding-bottom: 8px; /* Space for the animated underline */
+  transition: color 0.3s ease-in-out;
 }
 
-.main-nav a:hover,
-.main-nav a.active {
-  color: #ffffff;
+.main-nav a.nav-item span { /* Inner span for text lift effect */
+  display: inline-block; /* Allows transform */
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-.main-nav a.active::after {
+.main-nav a.nav-item::after { /* Underline pseudo-element */
   content: '';
   position: absolute;
-  bottom: -5px;
-  left: 0;
+  bottom: 0;
+  left: 50%; /* Start from center */
   width: 100%;
   height: 2px;
   background-color: #ffffff;
+  transform: translateX(-50%) scaleX(0); /* Initially hidden and centered */
+  transform-origin: center; /* Animation origin */
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1); /* Smooth animation for underline */
+}
+
+.main-nav a.nav-item:hover,
+.main-nav a.nav-item.active {
+  color: #ffffff; /* Brighter color on hover/active */
+}
+
+.main-nav a.nav-item:hover span {
+  transform: translateY(-3px); /* Lift text slightly */
+}
+
+.main-nav a.nav-item:hover::after,
+.main-nav a.nav-item.active::after {
+  transform: translateX(-50%) scaleX(1); /* Expand underline to full width */
 }
 
 
-/* Media Links Styles */
+/* Media Links Styles (shared component) */
 .media-links {
   display: flex;
   align-items: center;
@@ -251,7 +98,7 @@ img {
   height: 36px;
   background-color: #ffffff;
   border-radius: 50%;
-  color: #212529;
+  color: #212529; /* Icon color */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
@@ -267,55 +114,27 @@ img {
 }
 
 
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-  .page-container {
-    padding: 2rem;
-  }
-
-  .home-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .content-left {
-    flex-basis: auto;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .content-right {
-    display: none;
-  }
-
-  .action-buttons {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .content-left h1 {
-    font-size: 3.8rem;
-    /* Adjust responsive size for custom font */
-  }
-}
-
+/* Responsive Adjustments for Shared Components */
 @media (max-width: 768px) {
-  .home-header {
-    margin-bottom: 3rem;
-  }
-
+  /* NavBar responsive */
   .main-nav {
     gap: 1.5rem;
   }
 
-  .main-nav a {
+  .main-nav a.nav-item {
     font-size: 1rem;
+    padding-bottom: 6px; /* Adjust padding for smaller size */
   }
 
+  .main-nav a.nav-item::after {
+    height: 1.5px; /* Thinner underline for smaller screens */
+  }
+
+  .main-nav a.nav-item:hover span {
+    transform: translateY(-2px); /* Less lift for smaller text */
+  }
+
+  /* MediaLinks responsive */
   .media-links {
     gap: 0.75rem;
   }
@@ -329,78 +148,24 @@ img {
     width: 18px;
     height: 18px;
   }
-
-  .content-left h1 {
-    font-size: 3rem;
-    /* Adjust responsive size for custom font */
-  }
-
-  .content-left p {
-    font-size: 0.95rem;
-  }
-
-  .btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-    /* Reverted font size adjustment */
-  }
-
-  .action-buttons {
-    max-width: 90%;
-  }
 }
 
 @media (max-width: 480px) {
-  .page-container {
-    padding: 1.5rem;
-  }
-
-  .home-header {
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
+  /* Example of how shared components might be ordered if their container becomes flex-column */
+  /* This depends on the page-specific SCSS (e.g., Home.scss .home-header becoming flex-direction: column) */
   .main-nav {
-    order: 2;
+    order: 2; /* Default order if parent is column */
     gap: 1rem;
     justify-content: center;
     width: 100%;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allow nav items to wrap */
+  }
+
+  .main-nav a.nav-item {
+    font-size: 0.95rem; /* Further adjust font size */
   }
 
   .media-links {
-    order: 1;
-  }
-
-  .content-left h1 {
-    font-size: 2.5rem;
-    /* Adjust responsive size for custom font */
-  }
-
-  .content-left p {
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .action-buttons {
-    width: 100%;
-    max-width: 300px;
-    /* Constrain width on small screens */
-  }
-
-  /* Stack top row buttons on smallest screens */
-  .button-row-top {
-    flex-direction: column;
-    gap: 1rem;
-    /* Add gap when stacked */
-  }
-
-  /* Make top buttons full width when stacked */
-  .btn-primary,
-  .btn-secondary {
-    flex-grow: 0;
-    /* Reset grow */
-    width: 100%;
+    order: 1; /* Default order if parent is column */
   }
 }

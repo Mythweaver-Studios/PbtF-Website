@@ -1,6 +1,4 @@
 // src/components/MediaLinks.jsx
-import React from "react";
-
 // Import SVG files as modules or use direct paths
 import InstagramIconPath from "../assets/MiniMediaNavbar/Instagram.svg";
 import RedditIconPath from "../assets/MiniMediaNavbar/Reddit.svg";
@@ -10,12 +8,12 @@ function MediaLinks() {
   return (
     <div className="media-links">
       {/* Use img tags to display the SVG files */}
-      <a href="#" aria-label="Instagram">
+      <a href="https://discord.gg/pmu" aria-label="Instagram">
         {" "}
         {/* Placeholder link */}
         <img src={InstagramIconPath} alt="Instagram Icon" />
       </a>
-      <a href="#" aria-label="Reddit">
+      <a href="https://discord.gg/pmu" aria-label="Reddit">
         {" "}
         {/* Placeholder link */}
         <img src={RedditIconPath} alt="Reddit Icon" />

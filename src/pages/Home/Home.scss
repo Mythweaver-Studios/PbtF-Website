@@ -1,0 +1,248 @@
+/* src/pages/Home/Home.scss */
+
+/* --- Font Definition --- */
+@font-face {
+    font-family: 'EternalFont';
+    /* Define a name for the font */
+    src: url('../../assets/fonts/Eternal.ttf') format('truetype');
+    /* Path relative to this SCSS file (src/pages/Home/Home.scss) to src/assets/fonts/ */
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* General Page Container for Home */
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+    // Background is now handled by body in Default.css or a global stylesheet
+  }
+  
+  /* Header area specific to Home */
+  .home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* Main content area specific to Home */
+  .home-content {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+  }
+  
+  .content-left {
+    flex-basis: 50%;
+    max-width: 600px;
+    z-index: 5;
+  }
+  
+  .content-right {
+    flex-basis: 50%;
+    height: 100%;
+    position: relative;
+    // Relies on body background or a specific background image if added
+  }
+  
+  /* Text Styling for Home page */
+  .content-left h1 {
+    font-family: 'EternalFont', sans-serif;
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: normal;
+    color: #ffffff;
+    letter-spacing: 1px;
+  }
+  
+  .content-left p { // General paragraph styling in this section
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+    color: #e9ecef;
+    max-width: 90%;
+  }
+
+  // Specific style for the game pitch paragraph
+  .content-left p.game-pitch {
+    font-family: sans-serif; // Use custom game font
+    // Strong tag in JSX handles bolding
+    // Other properties (size, color, margin) inherited from .content-left p
+  }
+  
+  /* --- Button Styles for Home page --- */
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 450px;
+  }
+  
+  .button-row-top {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .btn {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid transparent;
+    border-radius: 50px; // Pill shape
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: normal;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 0 1 auto;
+  }
+  
+  .btn-primary {
+    background-color: #ffffff;
+    color: #212529;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    flex-grow: 1;
+    min-width: 0;
+  }
+  
+  .btn-primary:hover {
+    background-color: #f1f3f5;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+  }
+  
+  .btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #dee2e6;
+    flex-grow: 1;
+    min-width: 0;
+  }
+  
+  .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+  }
+  
+  .btn-tertiary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #adb5bd;
+    width: 100%;
+    flex-grow: 0;
+  }
+  
+  .btn-tertiary:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: #dee2e6;
+  }
+  
+  
+  /* Responsive Adjustments for Home page */
+  @media (max-width: 992px) {
+    .page-container {
+      padding: 2rem;
+    }
+  
+    .home-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .content-left {
+      flex-basis: auto;
+      width: 100%;
+      max-width: 700px;
+      margin-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .content-right {
+      display: none; // Hide on smaller screens for this layout
+    }
+  
+    .action-buttons {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .content-left h1 {
+      font-size: 3.8rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .home-header {
+      margin-bottom: 3rem;
+      // NavBar and MediaLinks inside .home-header will get their styles from Default.css or their own component CSS
+    }
+  
+    .content-left h1 {
+      font-size: 3rem;
+    }
+  
+    .content-left p { // This will also apply to p.game-pitch unless overridden for responsiveness
+      font-size: 0.95rem;
+    }
+  
+    .btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
+  
+    .action-buttons {
+      max-width: 90%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .page-container {
+      padding: 1.5rem;
+    }
+  
+    .home-header {
+      flex-direction: column; // Stack NavBar and MediaLinks
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      // .main-nav and .media-links within this will use their own ordering if specified (e.g. in Default.css)
+    }
+  
+    .content-left h1 {
+      font-size: 2.5rem;
+    }
+  
+    .content-left p { // This will also apply to p.game-pitch
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    .action-buttons {
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    .button-row-top {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .btn-primary,
+    .btn-secondary {
+      flex-grow: 0;
+      width: 100%;
+    }
+  }
