@@ -38,24 +38,36 @@ img {
 /* NavBar Styles (shared component) */
 .main-nav {
   display: flex;
+  align-items: center; /* Vertically align items if they have different heights */
   gap: 2.5rem; /* Spacing between nav items */
 }
 
-.main-nav a.nav-item { /* Targeting the NavLink component */
+/* Common styling for top-level nav items (NavLink and dropdown button) */
+.nav-item { 
   color: #ced4da;
   font-size: 1.1rem;
   font-weight: 500;
   position: relative; /* For pseudo-element positioning */
   padding-bottom: 8px; /* Space for the animated underline */
   transition: color 0.3s ease-in-out;
+  background: none;
+  border: none;
+  font-family: inherit; 
+  display: inline-flex; 
+  align-items: center; 
+  text-decoration: none; 
+  cursor: pointer; /* All nav items are inherently clickable (NavLink) */
 }
 
-.main-nav a.nav-item span { /* Inner span for text lift effect */
+
+/* Text part of the nav item, for the lift effect */
+.nav-item span:not(.arrow-indicator) { 
   display: inline-block; /* Allows transform */
   transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-.main-nav a.nav-item::after { /* Underline pseudo-element */
+/* Underline pseudo-element for nav items */
+.nav-item::after { 
   content: '';
   position: absolute;
   bottom: 0;
@@ -68,18 +80,118 @@ img {
   transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1); /* Smooth animation for underline */
 }
 
-.main-nav a.nav-item:hover,
-.main-nav a.nav-item.active {
+/* Hover/Active styles for general nav items and the dropdown toggle */
+.nav-item:hover, 
+.nav-item.active { /* NavLink's active class handles this for all items including toggle */
   color: #ffffff; /* Brighter color on hover/active */
 }
 
-.main-nav a.nav-item:hover span {
+/* Text lift effect for general nav items and the dropdown toggle */
+.nav-item:hover span:not(.arrow-indicator),
+.nav-item.active span:not(.arrow-indicator) {
   transform: translateY(-3px); /* Lift text slightly */
 }
 
-.main-nav a.nav-item:hover::after,
-.main-nav a.nav-item.active::after {
+/* Underline animation for general nav items and the dropdown toggle */
+.nav-item:hover::after,
+.nav-item.active::after {
   transform: translateX(-50%) scaleX(1); /* Expand underline to full width */
+}
+
+/* Dropdown specific styles */
+.nav-item-dropdown-container {
+  position: relative; /* Context for absolute positioning of dropdown-menu */
+}
+
+.dropdown-toggle .arrow-indicator {
+  margin-left: 0.6em; /* Space between text and arrow */
+  font-size: 0.75em; /* Smaller arrow */
+  line-height: 1; 
+  display: inline-block; 
+  transition: transform 0.3s ease-in-out; 
+}
+
+/* Rotate arrow when dropdown container is hovered */
+.nav-item-dropdown-container:hover .dropdown-toggle .arrow-indicator {
+  transform: rotate(180deg); 
+}
+
+/* --- Advanced Dropdown Menu Styling (Hover Triggered) --- */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Position directly below the toggle, no gap */
+  left: 0;
+  background-color: #303840; 
+  border: 1px solid #4a525a; 
+  border-radius: 8px; 
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35); 
+  list-style: none;
+  padding: 0.6rem 0; 
+  margin: 0; 
+  min-width: 220px; 
+  z-index: 1000; 
+  
+  opacity: 0;
+  visibility: hidden;
+  transform-origin: top center; 
+  transform: translateY(10px) scaleY(0.95) scaleX(0.98); /* Start slightly lower for entry */
+  transition: 
+    opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1), 
+    visibility 0s linear 0.28s, /* Delay hiding visibility */
+    transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none; /* Prevent interaction when hidden */
+}
+
+/* Show dropdown menu when its container is hovered */
+.nav-item-dropdown-container:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scaleY(1) scaleX(1); 
+  transition-delay: 0s, 0s, 0s; /* Remove delay for visibility when showing */
+  pointer-events: auto; /* Allow interaction when visible */
+}
+
+/* Styling for individual dropdown items */
+.dropdown-menu .dropdown-item {
+  display: block;
+  padding: 0.8rem 1.5rem; 
+  color: #c0c8d0; 
+  text-decoration: none;
+  font-size: 0.95rem; 
+  font-weight: 400; 
+  white-space: nowrap; 
+  position: relative; 
+  overflow: hidden; 
+  transition: 
+    background-color 0.25s ease-out, 
+    color 0.25s ease-out,
+    transform 0.2s ease-out; 
+  cursor: pointer; 
+}
+
+/* Optional: Add a subtle divider between items */
+.dropdown-menu li:not(:last-child) .dropdown-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1.5rem; 
+  right: 1.5rem; 
+  height: 1px;
+  background-color: rgba(100, 110, 120, 0.25); 
+}
+
+/* Hover and active state for dropdown items */
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item.active { 
+  background-color: #3c444c; 
+  color: #ffffff; 
+  transform: translateX(4px); 
+}
+
+/* Specific override to ensure no underline or text lift from .nav-item styles */
+/* The .dropdown-menu li:not(:last-child) .dropdown-item::after rule above is for the divider */
+.dropdown-menu .dropdown-item span { /* If spans were used inside dropdown items for text lift */
+  transform: none !important;
 }
 
 
@@ -121,18 +233,42 @@ img {
     gap: 1.5rem;
   }
 
-  .main-nav a.nav-item {
+  .nav-item { 
     font-size: 1rem;
-    padding-bottom: 6px; /* Adjust padding for smaller size */
+    padding-bottom: 6px; 
   }
 
-  .main-nav a.nav-item::after {
-    height: 1.5px; /* Thinner underline for smaller screens */
+  .nav-item::after {
+    height: 1.5px; 
   }
 
-  .main-nav a.nav-item:hover span {
-    transform: translateY(-2px); /* Less lift for smaller text */
+  .nav-item:hover span:not(.arrow-indicator),
+  .nav-item.active span:not(.arrow-indicator) {
+    transform: translateY(-2px); 
   }
+
+  .dropdown-menu {
+    min-width: 200px; 
+    /* top: 100%; remains optimal */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
+    transform: translateY(8px) scaleY(0.95) scaleX(0.98); /* Adjust initial transform */
+  }
+
+  .dropdown-menu .dropdown-item {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+  }
+
+  .dropdown-menu li:not(:last-child) .dropdown-item::after {
+    left: 1.2rem;
+    right: 1.2rem;
+  }
+
+  .dropdown-menu .dropdown-item:hover,
+  .dropdown-menu .dropdown-item.active { 
+    transform: translateX(3px);
+  }
+
 
   /* MediaLinks responsive */
   .media-links {
@@ -151,21 +287,36 @@ img {
 }
 
 @media (max-width: 480px) {
-  /* Example of how shared components might be ordered if their container becomes flex-column */
-  /* This depends on the page-specific SCSS (e.g., Home.scss .home-header becoming flex-direction: column) */
   .main-nav {
-    order: 2; /* Default order if parent is column */
-    gap: 1rem;
-    justify-content: center;
+    order: 2; 
+    gap: 1rem; 
+    justify-content: center; 
     width: 100%;
-    flex-wrap: wrap; /* Allow nav items to wrap */
+    flex-wrap: wrap; 
   }
 
-  .main-nav a.nav-item {
-    font-size: 0.95rem; /* Further adjust font size */
+  .nav-item {
+    font-size: 0.95rem; 
+  }
+  
+  .dropdown-menu {
+    min-width: 180px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    transform: translateY(6px) scaleY(0.95) scaleX(0.98); /* Adjust initial transform */
+
+  }
+
+  .dropdown-menu .dropdown-item {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+  }
+  
+  .dropdown-menu li:not(:last-child) .dropdown-item::after {
+    left: 1rem;
+    right: 1rem;
   }
 
   .media-links {
-    order: 1; /* Default order if parent is column */
+    order: 1; 
   }
 }
