@@ -1,5 +1,5 @@
 // src/pages/Home/Home.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom"; // For linking to showcase sections
 import NavBar from "../../components/NavBar";
 import MediaLinks from "../../components/MiniMediaLinks";
@@ -37,6 +37,10 @@ const showcaseTeaserData = [
 ];
 
 function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="page-container home-page">
       <header className="home-header">

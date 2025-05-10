@@ -60,6 +60,7 @@ function NavBar({ onShowcaseLinkClick }) {
             <NavLink
               to="/showcase#story"
               className={getDropdownItemClass}
+              end
               onClick={(e) =>
                 isCurrentlyOnShowcasePage &&
                 onShowcaseLinkClick &&
@@ -73,6 +74,7 @@ function NavBar({ onShowcaseLinkClick }) {
             <NavLink
               to="/showcase#characters"
               className={getDropdownItemClass}
+              end
               onClick={(e) =>
                 isCurrentlyOnShowcasePage &&
                 onShowcaseLinkClick &&
@@ -86,6 +88,7 @@ function NavBar({ onShowcaseLinkClick }) {
             <NavLink
               to="/showcase#features"
               className={getDropdownItemClass}
+              end
               onClick={(e) =>
                 isCurrentlyOnShowcasePage &&
                 onShowcaseLinkClick &&

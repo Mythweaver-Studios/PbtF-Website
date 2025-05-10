@@ -127,8 +127,15 @@ function Showcase() {
     const scrollSpeed = 1; // Increased scroll speed slightly for better visibility
     const scrollIntervalTime = 40;
 
+    const handleWheel = (event) => {
+      event.preventDefault();
+    };
+
     const startScrolling = () => {
       if (isStoryResetting) return;
+
+      // Prevent mouse wheel scrolling
+      scroller.addEventListener('wheel', handleWheel, { passive: false });
 
       scrollInterval = setInterval(() => {
         if (
@@ -159,7 +166,13 @@ function Showcase() {
       startScrolling();
     }
 
-    return () => clearInterval(scrollInterval);
+    return () => {
+      clearInterval(scrollInterval);
+      if (scroller) {
+        // Clean up wheel event listener
+        scroller.removeEventListener('wheel', handleWheel);
+      }
+    };
   }, [isStoryResetting]);
 
   // Characters section
