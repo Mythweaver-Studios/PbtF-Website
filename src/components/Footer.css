@@ -5,11 +5,10 @@
     background-color: var(--theme-footer-bg);
     color: var(--theme-footer-text);
     padding: 2rem 3rem;
-    /* Reduced vertical padding by ~10-20% from 2.5rem */
     margin-top: auto;
     border-top: 1px solid var(--theme-border-gold-faint);
     font-size: 0.8rem;
-    /* Slightly smaller base font for footer */
+    /* Base font for footer */
 }
 
 .footer-top-row {
@@ -17,16 +16,13 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.2rem;
-    /* Reduced margin */
     flex-wrap: wrap;
     gap: 0.8rem;
-    /* Reduced gap */
 }
 
 .footer-links {
     display: flex;
     gap: 1.2rem;
-    /* Reduced gap */
     flex-wrap: wrap;
 }
 
@@ -35,7 +31,7 @@
     transition: color 0.2s ease-in-out;
     font-weight: 500;
     font-size: 0.8rem;
-    /* Consistent with footer base */
+    /* Matches footer base font */
 }
 
 .footer-links a:hover {
@@ -49,22 +45,20 @@
     color: var(--theme-footer-button-text);
     border: 1px solid var(--theme-border-gold-faint);
     padding: 0.4rem 0.9rem;
-    /* Reduced padding */
     border-radius: 18px;
     cursor: pointer;
     font-size: 0.8rem;
-    /* Consistent */
+    /* Matches footer base */
     font-weight: 500;
     transition: all 0.2s ease-in-out;
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
-    /* Reduced gap */
 }
 
 .back-to-top .arrow-up-icon {
     font-size: 1em;
-    /* Adjusted size relative to button text */
+    /* Relative to button text */
     line-height: 1;
 }
 
@@ -80,7 +74,6 @@
     height: 1px;
     background-color: var(--theme-footer-divider-color);
     margin: 0 0 1.2rem 0;
-    /* Reduced margin */
 }
 
 .footer-bottom-row {
@@ -89,27 +82,25 @@
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 1.2rem;
-    /* Reduced gap */
 }
 
 .footer-copyright {
     flex-basis: 70%;
     max-width: 70%;
     line-height: 1.45;
-    /* Slightly tighter */
+    /* Tighter line height */
 }
 
 .footer-copyright p {
     margin-bottom: 0.4rem;
-    /* Reduced margin */
 }
 
 .footer-trademarks {
     font-size: 0.7rem;
-    /* Slightly smaller */
+    /* Smaller font for trademarks */
     color: var(--theme-text-secondary);
     opacity: 0.75;
-    /* Slightly less opacity */
+    /* Slightly transparent */
 }
 
 .language-selector-container {
@@ -122,17 +113,15 @@
     color: var(--theme-footer-button-text);
     border: 1px solid var(--theme-border-gold-faint);
     padding: 0.4rem 0.9rem;
-    /* Reduced padding */
     border-radius: 5px;
-    /* Sharper radius */
+    /* Sharper corners */
     cursor: pointer;
     font-size: 0.8rem;
-    /* Consistent */
+    /* Matches footer base */
     font-weight: 500;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    /* Reduced gap */
     min-width: 110px;
     justify-content: space-between;
     transition: all 0.2s ease-in-out;
@@ -146,7 +135,7 @@
 
 .language-selector-toggle .arrow-down-icon {
     font-size: 0.75em;
-    /* Slightly smaller */
+    /* Smaller arrow */
     transition: transform 0.2s ease;
 }
 
@@ -158,30 +147,26 @@
 .language-dropdown {
     position: absolute;
     bottom: calc(100% + 4px);
-    /* Slightly closer */
+    /* Position above toggle */
     right: 0;
     background-color: var(--theme-footer-lang-dropdown-bg);
     border: 1px solid var(--theme-footer-lang-dropdown-border);
     border-radius: 5px;
-    /* Sharper radius */
+    /* Sharper corners */
     box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.25);
-    /* Adjusted shadow */
     list-style: none;
     padding: 0.4rem 0;
-    /* Reduced padding */
     margin: 0;
     min-width: 140px;
-    /* Adjusted */
     z-index: 1010;
 }
 
 .language-dropdown li {
     padding: 0.5rem 0.9rem;
-    /* Reduced padding */
     color: var(--theme-text-primary);
     cursor: pointer;
     font-size: 0.8rem;
-    /* Consistent */
+    /* Matches footer base */
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -194,9 +179,7 @@
 @media (max-width: 768px) {
     .site-footer {
         padding: 1.8rem 1.5rem;
-        /* Adjusted */
         font-size: 0.78rem;
-        /* Adjusted */
     }
 
     .footer-top-row {
@@ -211,7 +194,6 @@
 @media (max-width: 480px) {
     .site-footer {
         padding: 1.2rem 1rem;
-        /* Adjusted */
     }
 
     .footer-links a {

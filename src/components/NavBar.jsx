@@ -7,11 +7,14 @@ import "./NavBar.css"; // Import NavBar specific styles
 function NavBar({ onShowcaseLinkClick }) {
   const location = useLocation();
 
+  // Determines class names for NavLink based on active state.
   const getNavLinkClass = ({ isActive }) =>
     `nav-item ${isActive ? "active" : ""}`;
 
+  // Determines class names for the dropdown toggle, considering active state and current path.
   const getDropdownToggleClass = ({ isActive }) => {
     let classes = "nav-item dropdown-toggle";
+    // Check if the base path is active or if current location is related to showcase
     if (
       isActive ||
       location.pathname === "/showcase" ||
@@ -22,12 +25,14 @@ function NavBar({ onShowcaseLinkClick }) {
     return classes;
   };
 
+  // Determines class names for dropdown items, including active and pending states.
   const getDropdownItemClass = ({ isActive, isPending }) => {
     return `dropdown-item ${isActive ? "active" : ""} ${
       isPending ? "pending" : ""
     }`;
   };
 
+  // Checks if the current page is the showcase page or one of its sections.
   const isCurrentlyOnShowcasePage = location.pathname.startsWith("/showcase");
 
   return (
@@ -42,7 +47,7 @@ function NavBar({ onShowcaseLinkClick }) {
         }`}
       >
         <NavLink
-          to="/showcase#story"
+          to="/showcase#story" // Default to #story section
           className={getDropdownToggleClass}
           aria-haspopup="true"
           onClick={(e) =>

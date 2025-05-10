@@ -8,7 +8,7 @@ import "../../components/Default.css";
 import "./Home.scss";
 
 // Import images for the new showcase teaser section (same as Showcase.jsx)
-import lordChoshenImg from "../../assets/showcase/character_lord_choshen.png"; // Assuming this is a representative image for Story
+import lordChoshenImg from "../../assets/showcase/character_lord_choshen.png"; // Representative image for Story
 import blueStarImg from "../../assets/showcase/character_blue_star.png"; // For Characters
 import aliceKingstonImg from "../../assets/showcase/character_alice_kingston.png"; // For Features
 
@@ -17,26 +17,27 @@ const showcaseTeaserData = [
     id: "story",
     title: "Story",
     link: "/showcase#story",
-    image: lordChoshenImg, // Example image
+    image: lordChoshenImg,
     accentColor: "var(--theme-highlight-gold)", // Gold for story
   },
   {
     id: "characters",
     title: "Characters",
     link: "/showcase#characters",
-    image: blueStarImg, // Example image
+    image: blueStarImg,
     accentColor: "var(--theme-highlight-red)", // Red for characters
   },
   {
     id: "features",
     title: "Features",
     link: "/showcase#features",
-    image: aliceKingstonImg, // Example image
+    image: aliceKingstonImg,
     accentColor: "var(--theme-text-titles)", // Brighter gold for features
   },
 ];
 
 function Home() {
+  // Scroll to top on component mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -52,14 +53,14 @@ function Home() {
         {/* Wrapper for main content and new section */}
         <section className="home-main-content">
           {" "}
-          {/* Renamed for clarity */}
+          {/* Main hero section */}
           <div className="content-left">
             <h1>Crownless</h1>
             <p className="game-pitch">
               <strong>
                 Crownless: The Beginning is a tactical survival game where you
                 control the fate of summoned heroes battling through a ruthless
-                tower of trials. No retries. No revives. Just consequences
+                tower of trials. No retries. No revives. Just consequences.
               </strong>
             </p>
             <div className="action-buttons">
@@ -83,7 +84,7 @@ function Home() {
                 to={item.link}
                 key={item.id}
                 className="teaser-panel"
-                style={{ "--panel-accent-color": item.accentColor }}
+                style={{ "--panel-accent-color": item.accentColor }} // Pass accent color as CSS var
               >
                 <div className="panel-image-container">
                   <img

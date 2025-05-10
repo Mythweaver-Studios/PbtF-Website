@@ -18,6 +18,7 @@ import featureCombatImg from "../../assets/showcase/feature_combat.jpg";
 import featureWorldImg from "../../assets/showcase/feature_world.jpg";
 import featureProgressionImg from "../../assets/showcase/feature_progression.jpg";
 
+// Narrative content for the story section
 const storyText = `In the ruins of a shattered Earth consumed by nightmares, humanity fights not just for survival—but for the very right to dream. The world is divided between the waking realm and the Dream Realm, a place where monsters born of fear and madness roam freely. Only a few, chosen by fate or misfortune, can enter this twisted dimension: Awakened.
 
 Sunless, or Sunny as he’s mockingly named, is a slave. Born without status, purpose, or hope, he lives a life of hardship in the bottom rungs of a caste-ridden society ruled by Awakened elites. With no family, no power, and no future, his fate seems sealed—until the day he is forcibly inducted into the Dream Realm by an ancient spell.
@@ -32,6 +33,7 @@ Shadow Slave is not a tale of heroes, but of survivors. It is a story about fear
 
 In the Dream Realm, your nightmares define you. And Sunny… Sunny is learning to control his.`;
 
+// Data for character showcase
 const charactersData = [
   {
     id: 1,
@@ -41,7 +43,7 @@ const charactersData = [
       "A once-feared lord, now a reluctant hero. Choshen's journey is one of redemption, courage, and the unexpected strength found in vulnerability.",
     image: lordChoshenImg,
     thumbnail: lordChoshenThumb,
-    accentColor: "rgba(200, 160, 100, 0.8)", // Gold accent for new theme
+    accentColor: "rgba(148, 88, 143, 0.8)", // Unique accent for Choshen
   },
   {
     id: 2,
@@ -51,7 +53,7 @@ const charactersData = [
       "A mysterious figure with a penchant for laziness, Mr. BlueStar is a master of strategy and manipulation, often using his wit to outsmart opponents.",
     image: blueStarImg,
     thumbnail: blueStarThumb,
-    accentColor: "rgba(180, 50, 50, 0.8)", // Red accent for new theme
+    accentColor: "rgba(0, 255, 34, 0.8)", // Unique accent for BlueStar
   },
   {
     id: 3,
@@ -61,10 +63,11 @@ const charactersData = [
       "A fierce warrior with a fiery spirit, Alice is known for her unmatched combat skills and her ability to harness the power of fire in battle.",
     image: aliceKingstonImg,
     thumbnail: aliceKingstonThumb,
-    accentColor: "rgba(220, 60, 40, 0.8)", // Red/Orange accent
+    accentColor: "rgb(255, 30, 0)", // Red/Orange accent for Alice
   },
 ];
 
+// Data for game features showcase
 const featuresData = [
   {
     id: 1,
@@ -91,14 +94,16 @@ const featuresData = [
 
 function Showcase() {
   const storyScrollerRef = useRef(null);
+  const internalNavRef = useRef(false); // Track internal navigation to prevent redundant scrolls
   const [isStoryResetting, setIsStoryResetting] = useState(false);
-  const location = useLocation(); // For checking hash
+  const location = useLocation(); // Access current URL location, including hash
 
-  // Function for smooth scrolling to a section
+  // Smoothly scrolls to a given element ID and updates URL hash.
   const smoothScrollTo = (elementId) => {
     const element = document.getElementById(elementId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Update URL hash without a full page reload, if supported
       if (window.history.pushState) {
         window.history.pushState(null, null, `#${elementId}`);
       } else {
@@ -107,125 +112,144 @@ function Showcase() {
     }
   };
 
-  // Handle initial scroll based on hash and subsequent hash changes
+  // Handles scrolling to section based on URL hash on load or hash change.
   useEffect(() => {
-    if (location.hash) {
+    if (location.hash && !internalNavRef.current) {
+      // Only scroll if not from internal click
       const id = location.hash.substring(1);
       const timer = setTimeout(() => {
-        smoothScrollTo(id);
-      }, 100);
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100); // Delay to ensure DOM readiness for scrolling
       return () => clearTimeout(timer);
     }
   }, [location.hash]);
 
-  // Story section scroll
+  // Manages automatic scrolling and reset for the story section.
   useEffect(() => {
     const scroller = storyScrollerRef.current;
     if (!scroller) return;
 
     let scrollInterval;
-    const scrollSpeed = 1; // Increased scroll speed slightly for better visibility
-    const scrollIntervalTime = 40;
+    const scrollSpeed = 1;
+    const scrollIntervalTime = 40; // Milliseconds between scroll steps
 
+    // Prevents manual mouse wheel scrolling during auto-scroll.
     const handleWheel = (event) => {
       event.preventDefault();
     };
 
     const startScrolling = () => {
-      if (isStoryResetting) return;
+      if (isStoryResetting) return; // Don't scroll if currently resetting
 
-      // Prevent mouse wheel scrolling
-      scroller.addEventListener('wheel', handleWheel, { passive: false });
+      scroller.addEventListener("wheel", handleWheel, { passive: false });
 
       scrollInterval = setInterval(() => {
         if (
           scroller.scrollTop <
-          scroller.scrollHeight - scroller.clientHeight - 1
+          scroller.scrollHeight - scroller.clientHeight - 1 // Check if not at bottom
         ) {
           scroller.scrollTop += scrollSpeed;
         } else {
+          // Reached the end of the story text
           clearInterval(scrollInterval);
-          setIsStoryResetting(true);
+          setIsStoryResetting(true); // Initiate reset sequence
           setTimeout(() => {
+            // Fade out
             if (storyScrollerRef.current) {
               storyScrollerRef.current.style.opacity = "0";
             }
             setTimeout(() => {
+              // Reset scroll and fade in
               if (storyScrollerRef.current) {
                 storyScrollerRef.current.scrollTop = 0;
                 storyScrollerRef.current.style.opacity = "1";
               }
-              setIsStoryResetting(false);
-            }, 500);
-          }, 1000);
+              setIsStoryResetting(false); // End reset sequence
+            }, 500); // Duration of fade out
+          }, 1000); // Pause at end before reset
         }
       }, scrollIntervalTime);
     };
 
     if (!isStoryResetting) {
-      startScrolling();
+      startScrolling(); // Start or resume scrolling
     }
 
     return () => {
+      // Cleanup on component unmount or re-render
       clearInterval(scrollInterval);
       if (scroller) {
-        // Clean up wheel event listener
-        scroller.removeEventListener('wheel', handleWheel);
+        scroller.removeEventListener("wheel", handleWheel);
       }
     };
-  }, [isStoryResetting]);
+  }, [isStoryResetting]); // Re-run effect if story reset state changes
 
-  // Characters section
+  // Manages character display and automatic cycling.
   const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);
-  const [isCharacterFading, setIsCharacterFading] = useState(false);
-  const characterTimeoutRef = useRef(null);
+  const [isCharacterFading, setIsCharacterFading] = useState(false); // For fade transition
+  const characterTimeoutRef = useRef(null); // Stores timeout for auto-cycling
 
+  // Selects a character by index with a fade transition.
   const selectCharacter = (index) => {
-    if (index === currentCharacterIndex) return;
+    if (index === currentCharacterIndex) return; // No change if same character
     setIsCharacterFading(true);
-    clearTimeout(characterTimeoutRef.current);
+    clearTimeout(characterTimeoutRef.current); // Stop auto-cycle on manual selection
     setTimeout(() => {
       setCurrentCharacterIndex(index);
       setIsCharacterFading(false);
-      characterTimeoutRef.current = setTimeout(nextCharacter, 30000);
-    }, 300);
+      // Restart auto-cycle timer after manual selection
+      characterTimeoutRef.current = setTimeout(nextCharacter, 30000); // 30s display
+    }, 300); // Fade duration
   };
 
+  // Cycles to the next character with a fade transition.
   const nextCharacter = () => {
     setIsCharacterFading(true);
     setTimeout(() => {
       setCurrentCharacterIndex(
-        (prevIndex) => (prevIndex + 1) % charactersData.length
+        (prevIndex) => (prevIndex + 1) % charactersData.length // Loop through characters
       );
       setIsCharacterFading(false);
-    }, 300);
+    }, 300); // Fade duration
   };
 
+  // Sets up and clears the automatic character cycling timer.
   useEffect(() => {
-    characterTimeoutRef.current = setTimeout(nextCharacter, 30000);
-    return () => clearTimeout(characterTimeoutRef.current);
-  }, [currentCharacterIndex]);
+    characterTimeoutRef.current = setTimeout(nextCharacter, 30000); // Initial auto-cycle
+    return () => clearTimeout(characterTimeoutRef.current); // Cleanup timer
+  }, [currentCharacterIndex]); // Reset timer if currentCharacterIndex changes (e.g., manual select)
 
-  // Features section
+  // Manages feature display and automatic cycling.
   const [currentFeatureIndex, setCurrentFeatureIndex] = useState(0);
-  const featureTimeoutRef = useRef(null);
+  const featureTimeoutRef = useRef(null); // Stores timeout for auto-cycling
 
+  // Cycles to the next feature.
   const nextFeature = () => {
     setCurrentFeatureIndex(
-      (prevIndex) => (prevIndex + 1) % featuresData.length
+      (prevIndex) => (prevIndex + 1) % featuresData.length // Loop through features
     );
   };
 
+  // Sets up and clears the automatic feature cycling timer.
   useEffect(() => {
-    featureTimeoutRef.current = setTimeout(nextFeature, 10000);
-    return () => clearTimeout(featureTimeoutRef.current);
-  }, [currentFeatureIndex]);
+    featureTimeoutRef.current = setTimeout(nextFeature, 10000); // 10s display per feature
+    return () => clearTimeout(featureTimeoutRef.current); // Cleanup timer
+  }, [currentFeatureIndex]); // Reset timer if currentFeatureIndex changes
 
-  const currentCharacter = charactersData[currentCharacterIndex];
+  const currentCharacter = charactersData[currentCharacterIndex]; // Current character object
 
+  // Handles clicks on showcase navigation links (e.g., from NavBar dropdown).
   const handleShowcaseNavClick = (e, sectionId) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent default link behavior
+    internalNavRef.current = true; // Mark as internal navigation
     smoothScrollTo(sectionId);
+    // Reset internal navigation flag shortly after to allow external hash changes
+    setTimeout(() => {
+      internalNavRef.current = false;
+    }, 50);
   };
 
   return (
@@ -243,7 +267,7 @@ function Showcase() {
             <div
               className="story-text-scroller"
               ref={storyScrollerRef}
-              style={{ touchAction: "none" }} // Removed overflowY: 'hidden'
+              style={{ touchAction: "none" }} // Disable touch scroll for auto-scroll behavior
             >
               {storyText.split("\n\n").map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
@@ -265,13 +289,13 @@ function Showcase() {
                 isCharacterFading ? "fading" : ""
               }`}
               style={{
-                "--character-accent-color": currentCharacter.accentColor,
+                "--character-accent-color": currentCharacter.accentColor, // Apply dynamic accent color
               }}
             >
               <img
                 src={
                   currentCharacter.image ||
-                  "/path/to/placeholder_character_large.png"
+                  "/path/to/placeholder_character_large.png" // Fallback image
                 }
                 alt={currentCharacter.name}
                 className="character-main-image"
@@ -290,16 +314,17 @@ function Showcase() {
                     index === currentCharacterIndex ? "active" : ""
                   }`}
                   onClick={() => selectCharacter(index)}
+                  // Pause auto-cycle on hover, resume on leave
                   onMouseEnter={() => clearTimeout(characterTimeoutRef.current)}
                   onMouseLeave={() =>
                     (characterTimeoutRef.current = setTimeout(
                       nextCharacter,
-                      15000
+                      15000 // Shorter delay after hover
                     ))
                   }
                 >
                   <img
-                    src={char.thumbnail || "/path/to/placeholder_thumb.png"}
+                    src={char.thumbnail || "/path/to/placeholder_thumb.png"} // Fallback thumbnail
                     alt={char.name}
                   />
                   <span>{char.name}</span>
@@ -322,7 +347,7 @@ function Showcase() {
                 }`}
               >
                 <img
-                  src={feature.image || "/path/to/placeholder_feature.png"}
+                  src={feature.image || "/path/to/placeholder_feature.png"} // Fallback feature image
                   alt={feature.title}
                   className="feature-image"
                 />
@@ -341,8 +366,10 @@ function Showcase() {
                   index === currentFeatureIndex ? "active" : ""
                 }`}
                 onClick={() => {
+                  // Manual selection of feature slide
                   clearTimeout(featureTimeoutRef.current);
                   setCurrentFeatureIndex(index);
+                  // Restart auto-cycle timer
                   featureTimeoutRef.current = setTimeout(nextFeature, 10000);
                 }}
               />
@@ -350,7 +377,7 @@ function Showcase() {
           </div>
         </section>
       </main>
-      <Footer /> {/* Add Footer component here */}
+      <Footer /> {/* Site-wide footer */}
     </div>
   );
 }

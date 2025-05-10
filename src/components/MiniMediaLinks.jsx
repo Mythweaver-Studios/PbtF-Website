@@ -7,13 +7,30 @@ import "./MiniMediaLinks.css"; // Import MiniMediaLinks specific styles
 function MediaLinks() {
   return (
     <div className="media-links">
-      <a href="https://discord.gg/pmu" aria-label="Instagram">
+      {/* TODO: Update Instagram link */}
+      <a
+        href="https://discord.gg/pmu"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+      >
         <img src={InstagramIconPath} alt="Instagram Icon" />
       </a>
-      <a href="https://discord.gg/pmu" aria-label="Reddit">
+      {/* TODO: Update Reddit link */}
+      <a
+        href="https://discord.gg/pmu"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Reddit"
+      >
         <img src={RedditIconPath} alt="Reddit Icon" />
       </a>
-      <a href="https://discord.gg/pmu" target="blank" aria-label="Discord">
+      <a
+        href="https://discord.gg/pmu"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Discord"
+      >
         <img src={DiscordIconPath} alt="Discord Icon" />
       </a>
     </div>

@@ -23,13 +23,13 @@
 .media-links a:hover {
   transform: scale(1.1);
   background-color: var(--theme-media-link-hover-bg);
-  /* Use new variable from :root */
+  /* Uses variable from :root */
   box-shadow: 0 0 15px var(--theme-highlight-red);
 }
 
 .media-links a:hover img {
   filter: var(--theme-media-link-hover-icon-filter);
-  /* Use new variable from :root */
+  /* Uses variable from :root */
 }
 
 .media-links a img {
@@ -59,6 +59,6 @@
   /* If media links need specific ordering in column layouts on pages */
   .media-links {
     order: 1;
-    /* Example: if parent becomes flex-column on pages like Home */
+    /* Example: if parent becomes flex-column */
   }
 }

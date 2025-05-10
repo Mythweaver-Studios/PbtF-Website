@@ -14,10 +14,12 @@ function Footer() {
     });
   };
 
+  // Toggle language dropdown visibility
   const toggleLangDropdown = () => {
     setIsLangDropdownOpen((prev) => !prev);
   };
 
+  // Handles clicks outside the language dropdown to close it.
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -35,8 +37,9 @@ function Footer() {
     };
   }, [isLangDropdownOpen]);
 
+  // Placeholder for language selection logic
   const selectLanguage = (lang) => {
-    console.log("Language selected:", lang);
+    console.log("Language selected:", lang); // Future: implement i18n
     setIsLangDropdownOpen(false);
   };
 

@@ -25,7 +25,8 @@
   --theme-nav-item-active-underline: #f1c40f;
   --theme-dropdown-bg: #1a1612;
   --theme-dropdown-border: rgba(207, 181, 130, 0.25);
-  --theme-dropdown-item-text: #d4c3a9;
+  --theme-dropdown-item-text: #f8f9fa;
+  /* Changed to off-white */
   --theme-dropdown-item-hover-bg: #2c251d;
   --theme-dropdown-item-hover-text: #ffd700;
 

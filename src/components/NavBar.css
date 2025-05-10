@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   gap: 2.5rem;
+  /* Spacing between nav items */
 }
 
 .nav-item {
@@ -12,22 +13,26 @@
   font-size: 1.1rem;
   font-weight: 500;
   position: relative;
+  /* For pseudo-elements like underline */
   padding-bottom: 8px;
   transition: color 0.3s ease-in-out;
   background: none;
   border: none;
   font-family: inherit;
   display: inline-flex;
+  /* Align text and potential icons */
   align-items: center;
   text-decoration: none;
   cursor: pointer;
 }
 
+/* Text inside nav item, excluding arrow, for hover animation */
 .nav-item span:not(.arrow-indicator) {
   display: inline-block;
   transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
+/* Underline effect for nav items */
 .nav-item::after {
   content: '';
   position: absolute;
@@ -46,11 +51,13 @@
   color: var(--theme-nav-item-hover-color);
 }
 
+/* Text lift animation on hover/active */
 .nav-item:hover span:not(.arrow-indicator),
 .nav-item.active span:not(.arrow-indicator) {
   transform: translateY(-3px);
 }
 
+/* Show underline on hover/active */
 .nav-item:hover::after,
 .nav-item.active::after {
   transform: translateX(-50%) scaleX(1);
@@ -59,6 +66,7 @@
 /* Dropdown specific styles */
 .nav-item-dropdown-container {
   position: relative;
+  /* Anchor for the dropdown menu */
 }
 
 .dropdown-toggle .arrow-indicator {
@@ -69,6 +77,7 @@
   transition: transform 0.3s ease-in-out;
 }
 
+/* Rotate arrow on hover over container */
 .nav-item-dropdown-container:hover .dropdown-toggle .arrow-indicator {
   transform: rotate(180deg);
 }
@@ -76,6 +85,7 @@
 .dropdown-menu {
   position: absolute;
   top: 100%;
+  /* Position below the toggle */
   left: 0;
   background-color: var(--theme-dropdown-bg);
   border: 1px solid var(--theme-dropdown-border);
@@ -86,24 +96,30 @@
   margin: 0;
   min-width: 220px;
   z-index: 1000;
-  /* Ensure it's above page content but below potential modals */
+  /* Above page content, below modals */
   opacity: 0;
   visibility: hidden;
   transform-origin: top center;
   transform: translateY(10px) scaleY(0.95) scaleX(0.98);
+  /* Initial state for animation */
   transition:
     opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1),
     visibility 0s linear 0.28s,
+    /* Delay visibility change until opacity animation ends */
     transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
+  /* Prevent interaction when hidden */
 }
 
+/* Show dropdown on hover of its container */
 .nav-item-dropdown-container:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0) scaleY(1) scaleX(1);
   transition-delay: 0s, 0s, 0s;
+  /* Reset delays for showing */
   pointer-events: auto;
+  /* Allow interaction when visible */
 }
 
 .dropdown-menu .dropdown-item {
@@ -114,8 +130,11 @@
   font-size: 0.95rem;
   font-weight: 400;
   white-space: nowrap;
+  /* Prevent text wrapping */
   position: relative;
+  /* For pseudo-elements like dividers */
   overflow: hidden;
+  /* For hover effect */
   transition:
     background-color 0.25s ease-out,
     color 0.25s ease-out,
@@ -123,6 +142,7 @@
   cursor: pointer;
 }
 
+/* Divider line between dropdown items */
 .dropdown-menu li:not(:last-child) .dropdown-item::after {
   content: '';
   position: absolute;
@@ -138,8 +158,10 @@
   background-color: var(--theme-dropdown-item-hover-bg);
   color: var(--theme-dropdown-item-hover-text);
   transform: translateX(4px);
+  /* Slight shift on hover/active */
 }
 
+/* Ensure dropdown item text doesn't inherit nav-item's span transform */
 .dropdown-menu .dropdown-item span {
   transform: none !important;
 }
@@ -189,10 +211,13 @@
 @media (max-width: 480px) {
   .main-nav {
     order: 2;
+    /* Example: can be used if header items re-order */
     gap: 1rem;
     justify-content: center;
+    /* Center items when wrapped */
     width: 100%;
     flex-wrap: wrap;
+    /* Allow items to wrap on small screens */
   }
 
   .nav-item {

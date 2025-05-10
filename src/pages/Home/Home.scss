@@ -24,7 +24,7 @@ $highlight-gold: #f1c40f;
   flex-direction: column;
   min-height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow: hidden; // Prevent horizontal scroll
 }
 
 .home-header {
@@ -33,13 +33,13 @@ $highlight-gold: #f1c40f;
   align-items: center;
   width: 100%;
   padding: 1.0rem 3.5rem;
-  margin-bottom: 2rem;
-  position: relative;
-  z-index: 100;
+  margin-bottom: 2rem; // Space below header
+  position: relative; // For z-index context
+  z-index: 100; // Header above other content
 }
 
 .home-content-wrapper {
-  flex: 1;
+  flex: 1; // Takes up remaining vertical space
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -49,16 +49,16 @@ $highlight-gold: #f1c40f;
   display: flex;
   align-items: center;
   position: relative;
-  z-index: 5;
+  z-index: 5; // Below header
   padding: 2rem 3.5rem;
-  min-height: 60vh;
-  border-bottom: 1px solid $border-color-gold;
-  margin-bottom: 3rem;
+  min-height: 60vh; // Ensure decent viewport height
+  border-bottom: 1px solid $border-color-gold; // Separator
+  margin-bottom: 3rem; // Space before teaser section
 }
 
 .content-left {
-  flex-basis: 55%;
-  max-width: 700px;
+  flex-basis: 55%; // Proportion for text content
+  max-width: 700px; // Prevent wide text lines
   z-index: 5;
   color: $text-color-primary;
 
@@ -66,7 +66,7 @@ $highlight-gold: #f1c40f;
     font-family: 'EternalFont', 'Georgia', serif;
     font-size: 4.5rem;
     margin-bottom: 1.2rem;
-    font-weight: normal;
+    font-weight: normal; // Font has its own weight
     color: $text-color-titles;
     letter-spacing: 1.5px;
     text-shadow: 0 0 15px rgba($highlight-gold, 0.3), 0 0 20px rgba($highlight-gold, 0.2);
@@ -76,24 +76,24 @@ $highlight-gold: #f1c40f;
     font-size: 1.05rem;
     margin-bottom: 2rem;
     color: $text-color-primary;
-    max-width: 90%;
+    max-width: 90%; // Keep lines readable
     line-height: 1.65;
   }
 
   p.game-pitch {
-    font-family: 'Georgia', serif;
+    font-family: 'Georgia', serif; // Classic feel for pitch
     font-size: 1.1rem;
     color: $text-color-primary;
 
     strong {
       font-weight: 600;
-      color: $text-color-titles;
+      color: $text-color-titles; // Highlighted pitch
     }
   }
 }
 
 .content-right {
-  flex-basis: 45%;
+  flex-basis: 45%; // Space for image/graphic
   height: 100%;
   position: relative;
 }
@@ -104,7 +104,7 @@ $highlight-gold: #f1c40f;
   flex-direction: column;
   gap: 0.9rem;
   width: 100%;
-  max-width: 450px;
+  max-width: 450px; // Constrain button group width
 }
 
 .button-row-top {
@@ -116,7 +116,7 @@ $highlight-gold: #f1c40f;
 .btn {
   padding: 0.8rem 1.7rem;
   border: 2px solid transparent;
-  border-radius: 30px;
+  border-radius: 30px; // Rounded buttons
   font-size: 0.95rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -127,12 +127,12 @@ $highlight-gold: #f1c40f;
   align-items: center;
   justify-content: center;
   text-align: center;
-  flex: 0 1 auto;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  flex: 0 1 auto; // Allow shrinking, not growing beyond content unless specified
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3); // Subtle depth
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px); // Lift on hover
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4); // Enhanced shadow on hover
   }
 }
 
@@ -140,13 +140,13 @@ $highlight-gold: #f1c40f;
   background-color: $highlight-red;
   color: #ffffff;
   border-color: $highlight-red;
-  flex-grow: 1;
-  min-width: 0;
+  flex-grow: 1; // Distribute space in row
+  min-width: 0; // Allow flex item to shrink
 
   &:hover {
-    background-color: color.scale($highlight-red, $lightness: -10%);
+    background-color: color.scale($highlight-red, $lightness: -10%); // Darken on hover
     border-color: color.scale($highlight-red, $lightness: -10%);
-    box-shadow: 0 6px 15px rgba(color.scale($highlight-red, $lightness: -10%), 0.4);
+    box-shadow: 0 6px 15px rgba(color.scale($highlight-red, $lightness: -10%), 0.4); // Themed shadow
   }
 }
 
@@ -154,14 +154,14 @@ $highlight-gold: #f1c40f;
   background-color: transparent;
   color: $highlight-gold;
   border-color: $highlight-gold;
-  flex-grow: 1;
+  flex-grow: 1; // Distribute space in row
   min-width: 0;
 
   &:hover {
-    background-color: rgba($highlight-gold, 0.15);
-    color: color.scale($highlight-gold, $lightness: 10%);
+    background-color: rgba($highlight-gold, 0.15); // Subtle fill on hover
+    color: color.scale($highlight-gold, $lightness: 10%); // Brighten text
     border-color: color.scale($highlight-gold, $lightness: 10%);
-    box-shadow: 0 6px 15px rgba($highlight-gold, 0.2);
+    box-shadow: 0 6px 15px rgba($highlight-gold, 0.2); // Themed shadow
   }
 }
 
@@ -169,8 +169,8 @@ $highlight-gold: #f1c40f;
   background-color: transparent;
   color: $text-color-primary;
   border-color: $border-color-gold;
-  width: 100%;
-  flex-grow: 0;
+  width: 100%; // Full width in its container
+  flex-grow: 0; // Don't grow if in a flex row
 
   &:hover {
     background-color: rgba($text-color-primary, 0.1);
@@ -183,13 +183,14 @@ $highlight-gold: #f1c40f;
 /* --- Showcase Teaser Section --- */
 .showcase-teaser-section {
   width: 100%;
-  padding: 1rem 2rem 4rem;
+  padding: 1rem 2rem 4rem; // Top padding reduced due to main content margin-bottom
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .teaser-title {
+  // Optional section title
   font-family: 'EternalFont', 'Georgia', serif;
   font-size: 2.5rem;
   color: $text-color-titles;
@@ -200,45 +201,45 @@ $highlight-gold: #f1c40f;
 .teaser-panels-container {
   display: flex;
   justify-content: center;
-  align-items: stretch;
+  align-items: stretch; // Panels same height if wrapping
   gap: 1.5rem;
   width: 100%;
-  max-width: 1200px;
-  flex-wrap: wrap;
+  max-width: 1200px; // Max width for teaser grid
+  flex-wrap: wrap; // Allow panel wrapping
 }
 
 .teaser-panel {
-  flex: 1 1 300px;
-  min-width: 280px;
-  max-width: 380px;
-  height: 450px;
-  background-color: rgba(20, 16, 14, 0.6);
-  border-radius: 10px;
-  overflow: hidden; // Important for clip-path and potential inner elements
+  flex: 1 1 300px; // Grow, shrink, base width
+  min-width: 280px; // Min width before excessive squish/wrap
+  max-width: 380px; // Max width
+  height: 450px; // Fixed height for uniformity
+  background-color: rgba(20, 16, 14, 0.6); // Dark semi-transparent bg
+  border-radius: 10px; // Rounded corners
+  overflow: hidden; // For clip-path and inner elements
   position: relative;
   text-decoration: none;
   color: $text-color-primary;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); // Default shadow for depth
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); // Default shadow
   border: 1px solid $border-color-gold;
   display: flex;
   flex-direction: column;
-  clip-path: polygon(20% 0, 100% 0, 80% 100%, 0% 100%);
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border 0.3s ease-out, filter 0.3s ease-out; // Added filter to transition
-  filter: brightness(0.95); // Slightly dim by default to make hover pop more
+  clip-path: polygon(20% 0, 100% 0, 80% 100%, 0% 100%); // Angled shape
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border 0.3s ease-out, filter 0.3s ease-out; // Hover transitions
+  filter: brightness(0.95); // Slightly dim to make hover pop
 
 
   .panel-image-container {
     width: 100%;
-    height: 100%;
+    height: 100%; // Fill panel
     position: relative;
-    overflow: hidden;
+    overflow: hidden; // Image respects clip-path & scaling
 
     .panel-image {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), filter 0.3s ease-out;
-      filter: grayscale(0.6) brightness(0.7);
+      object-fit: cover; // Cover container, may crop
+      transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), filter 0.3s ease-out; // Zoom and filter transition
+      filter: grayscale(0.6) brightness(0.7); // Desaturated and dimmed default
     }
 
     .panel-image-overlay {
@@ -247,7 +248,7 @@ $highlight-gold: #f1c40f;
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(to top, rgba(5, 4, 3, 0.85) 0%, transparent 60%);
+      background: linear-gradient(to top, rgba(5, 4, 3, 0.85) 0%, transparent 60%); // Dark bottom gradient
       opacity: 1;
       transition: opacity 0.3s ease;
     }
@@ -258,68 +259,71 @@ $highlight-gold: #f1c40f;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(10, 8, 7, 0.85);
+    background-color: rgba(10, 8, 7, 0.85); // Dark semi-transparent title bar
     padding: 1rem 1.5rem;
     text-align: center;
-    border-top: 1px solid var(--panel-accent-color, $border-color-gold);
-    z-index: 2;
+    border-top: 1px solid var(--panel-accent-color, $border-color-gold); // Accent color top border
+    z-index: 2; // Above image overlay
 
     h3 {
       font-family: 'EternalFont', sans-serif;
       font-size: 1.5rem;
       color: $text-color-titles;
       margin: 0;
-      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); // Default subtle shadow for readability
-      transition: color 0.3s ease-out, text-shadow 0.3s ease-out; // Added text-shadow to transition
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); // Readability shadow
+      transition: color 0.3s ease-out, text-shadow 0.3s ease-out;
     }
   }
 
   .panel-glitch-overlay {
+    // For subtle animated effects
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background: var(--panel-accent-color);
-    opacity: 0; // Keep off by default, hover will control
+    opacity: 0; // Off by default
     transition: opacity 0.3s ease-out;
-    pointer-events: none;
-    clip-path: inherit;
+    pointer-events: none; // No click interference
+    clip-path: inherit; // Follows parent clip-path
   }
 
   &:hover {
-    transform: translateY(-8px) scale(1.02);
-    border: 2px solid var(--panel-accent-color);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35); // Slightly enhanced depth shadow
-    filter: drop-shadow(0 0 20px var(--panel-accent-color)) brightness(1.1); // Main glow effect + brightness boost
+    transform: translateY(-8px) scale(1.02); // Lift and enlarge
+    border: 2px solid var(--panel-accent-color); // Accent color border
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    filter: drop-shadow(0 0 20px var(--panel-accent-color)) brightness(1.1); // Glow effect + brightness boost
 
     .panel-image {
-      transform: scale(1.05);
-      filter: grayscale(0) brightness(1);
+      transform: scale(1.05); // Zoom image
+      filter: grayscale(0) brightness(1); // Full color, normal brightness
     }
 
     .panel-image-overlay {
-      opacity: 0.15; // Reduce overlay significantly
+      opacity: 0.15; // Reduce overlay for more image visibility
     }
 
     .panel-title-bar {
-      border-top-color: var(--panel-accent-color);
+      border-top-color: var(--panel-accent-color); // Ensure border matches
 
       h3 {
-        color: var(--panel-accent-color);
-        text-shadow: 0 0 8px var(--panel-accent-color), 0 0 12px rgba(var(--panel-accent-color-rgb, 255, 215, 0), 0.7); // Enhanced text glow
+        color: var(--panel-accent-color); // Title to accent color
+        text-shadow: 0 0 8px var(--panel-accent-color); // Enhanced text glow
       }
     }
 
     .panel-glitch-overlay {
-      opacity: 0.05; // Very subtle color tint, if desired. Can be 0.
+      opacity: 0.05; // Very subtle color tint on hover
     }
   }
 }
 
 
-/* Responsive Adjustments for Home page (continued) */
+/* Responsive Adjustments for Home page */
 @media (max-width: 992px) {
+
+  // Tablet landscape and smaller
   .home-main-content {
     padding: 2rem;
     min-height: 50vh;
@@ -342,14 +346,16 @@ $highlight-gold: #f1c40f;
 
   .teaser-panel {
     height: 400px;
-    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%); // Less aggressive angle
   }
 }
 
 @media (max-width: 768px) {
+
+  // Tablet portrait
   .home-header {
     padding: 0.8rem 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; // Space for nav potentially wrapping
   }
 
   .home-main-content {
@@ -377,19 +383,19 @@ $highlight-gold: #f1c40f;
   }
 
   .showcase-teaser-section {
-    padding-top: 1rem;
+    padding-top: 1rem; // Reduced top padding
   }
 
   .teaser-panels-container {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; // Stack panels
+    align-items: center; // Center stacked panels
   }
 
   .teaser-panel {
-    max-width: 400px;
-    width: 90%;
+    max-width: 400px; // Wider panels when stacked
+    width: 90%; // Use most of container width
     height: 350px;
-    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); // Even less angle
   }
 
   .teaser-panel .panel-title-bar h3 {
@@ -399,13 +405,17 @@ $highlight-gold: #f1c40f;
 }
 
 @media (max-width: 480px) {
+
+  // Mobile phones
   .home-header {
-    padding: 0.7rem 1.5rem;
-    gap: 1rem;
+    padding: 0.7rem 1.5rem; // Less padding
+    gap: 1rem; // Reduced gap if nav items wrap
+    // Consider flex-direction: column; align-items: center; if header items stack poorly
   }
 
   .home-main-content {
     padding: 1rem;
+    // Consider flex-direction: column; for .content-left / .content-right
   }
 
   .content-left {
@@ -424,7 +434,12 @@ $highlight-gold: #f1c40f;
   }
 
   .action-buttons {
-    max-width: 100%;
+    max-width: 100%; // Buttons use full width of content-left
+
+    .button-row-top {
+      flex-direction: column; // Stack top row buttons
+      gap: 0.5rem; // Less gap between stacked buttons
+    }
   }
 
   .showcase-teaser-section {
@@ -433,7 +448,7 @@ $highlight-gold: #f1c40f;
 
   .teaser-panel {
     height: 300px;
-    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%);
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%); // Very subtle angle
   }
 
   .teaser-panel .panel-title-bar h3 {
