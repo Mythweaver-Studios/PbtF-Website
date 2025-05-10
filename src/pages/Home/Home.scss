@@ -1,248 +1,442 @@
 /* src/pages/Home/Home.scss */
+@use 'sass:color';
+
+// --- Theme Variables ---
+$bg-gradient: linear-gradient(135deg, #100e0c 0%, #050403 100%);
+$text-color-primary: #e0c9a6;
+$text-color-titles: #ffd700;
+$text-color-accent-red: #c0392b;
+$border-color-gold: rgba(207, 181, 130, 0.4);
+$border-color-red-accent: rgba(192, 57, 43, 0.6);
+$highlight-red: #e74c3c;
+$highlight-gold: #f1c40f;
 
 /* --- Font Definition --- */
 @font-face {
-    font-family: 'EternalFont';
-    /* Define a name for the font */
-    src: url('../../assets/fonts/Eternal.ttf') format('truetype');
-    /* Path relative to this SCSS file (src/pages/Home/Home.scss) to src/assets/fonts/ */
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  /* General Page Container for Home */
-  .page-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    padding: 2rem 4rem;
-    position: relative;
-    overflow: hidden;
-    // Background is now handled by body in Default.css or a global stylesheet
-  }
-  
-  /* Header area specific to Home */
-  .home-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 4rem;
-    position: relative;
-    z-index: 10;
-  }
-  
-  /* Main content area specific to Home */
-  .home-content {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    position: relative;
-    z-index: 5;
-  }
-  
-  .content-left {
-    flex-basis: 50%;
-    max-width: 600px;
-    z-index: 5;
-  }
-  
-  .content-right {
-    flex-basis: 50%;
-    height: 100%;
-    position: relative;
-    // Relies on body background or a specific background image if added
-  }
-  
-  /* Text Styling for Home page */
-  .content-left h1 {
-    font-family: 'EternalFont', sans-serif;
+  font-family: 'EternalFont';
+  src: url('../../assets/fonts/Eternal.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.home-page.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.0rem 3.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 100;
+}
+
+.home-content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.home-main-content {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+  padding: 2rem 3.5rem;
+  min-height: 60vh;
+  border-bottom: 1px solid $border-color-gold;
+  margin-bottom: 3rem;
+}
+
+.content-left {
+  flex-basis: 55%;
+  max-width: 700px;
+  z-index: 5;
+  color: $text-color-primary;
+
+  h1 {
+    font-family: 'EternalFont', 'Georgia', serif;
     font-size: 4.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     font-weight: normal;
-    color: #ffffff;
-    letter-spacing: 1px;
-  }
-  
-  .content-left p { // General paragraph styling in this section
-    font-size: 1rem;
-    margin-bottom: 2.5rem;
-    color: #e9ecef;
-    max-width: 90%;
+    color: $text-color-titles;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 15px rgba($highlight-gold, 0.3), 0 0 20px rgba($highlight-gold, 0.2);
   }
 
-  // Specific style for the game pitch paragraph
-  .content-left p.game-pitch {
-    font-family: sans-serif; // Use custom game font
-    // Strong tag in JSX handles bolding
-    // Other properties (size, color, margin) inherited from .content-left p
+  p {
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+    color: $text-color-primary;
+    max-width: 90%;
+    line-height: 1.65;
   }
-  
-  /* --- Button Styles for Home page --- */
-  .action-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    max-width: 450px;
-  }
-  
-  .button-row-top {
-    display: flex;
-    gap: 1rem;
-    width: 100%;
-  }
-  
-  .btn {
-    padding: 0.75rem 1.5rem;
-    border: 1px solid transparent;
-    border-radius: 50px; // Pill shape
-    font-size: 1rem;
-    font-weight: 500;
-    text-transform: none;
-    letter-spacing: normal;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex: 0 1 auto;
-  }
-  
-  .btn-primary {
-    background-color: #ffffff;
-    color: #212529;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-    flex-grow: 1;
-    min-width: 0;
-  }
-  
-  .btn-primary:hover {
-    background-color: #f1f3f5;
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
-  }
-  
-  .btn-secondary {
-    background-color: transparent;
-    color: #ffffff;
-    border-color: #dee2e6;
-    flex-grow: 1;
-    min-width: 0;
-  }
-  
-  .btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: #ffffff;
-  }
-  
-  .btn-tertiary {
-    background-color: transparent;
-    color: #ffffff;
-    border: 1px solid #adb5bd;
-    width: 100%;
-    flex-grow: 0;
-  }
-  
-  .btn-tertiary:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: #dee2e6;
-  }
-  
-  
-  /* Responsive Adjustments for Home page */
-  @media (max-width: 992px) {
-    .page-container {
-      padding: 2rem;
+
+  p.game-pitch {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    color: $text-color-primary;
+
+    strong {
+      font-weight: 600;
+      color: $text-color-titles;
     }
-  
-    .home-content {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .content-left {
-      flex-basis: auto;
+  }
+}
+
+.content-right {
+  flex-basis: 45%;
+  height: 100%;
+  position: relative;
+}
+
+/* --- Button Styles for Home page - Themed --- */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  width: 100%;
+  max-width: 450px;
+}
+
+.button-row-top {
+  display: flex;
+  gap: 0.9rem;
+  width: 100%;
+}
+
+.btn {
+  padding: 0.8rem 1.7rem;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 0 1 auto;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.btn-primary {
+  background-color: $highlight-red;
+  color: #ffffff;
+  border-color: $highlight-red;
+  flex-grow: 1;
+  min-width: 0;
+
+  &:hover {
+    background-color: color.scale($highlight-red, $lightness: -10%);
+    border-color: color.scale($highlight-red, $lightness: -10%);
+    box-shadow: 0 6px 15px rgba(color.scale($highlight-red, $lightness: -10%), 0.4);
+  }
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: $highlight-gold;
+  border-color: $highlight-gold;
+  flex-grow: 1;
+  min-width: 0;
+
+  &:hover {
+    background-color: rgba($highlight-gold, 0.15);
+    color: color.scale($highlight-gold, $lightness: 10%);
+    border-color: color.scale($highlight-gold, $lightness: 10%);
+    box-shadow: 0 6px 15px rgba($highlight-gold, 0.2);
+  }
+}
+
+.btn-tertiary {
+  background-color: transparent;
+  color: $text-color-primary;
+  border-color: $border-color-gold;
+  width: 100%;
+  flex-grow: 0;
+
+  &:hover {
+    background-color: rgba($text-color-primary, 0.1);
+    color: $text-color-titles;
+    border-color: $text-color-primary;
+    box-shadow: 0 6px 15px rgba($text-color-primary, 0.15);
+  }
+}
+
+/* --- Showcase Teaser Section --- */
+.showcase-teaser-section {
+  width: 100%;
+  padding: 1rem 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.teaser-title {
+  font-family: 'EternalFont', 'Georgia', serif;
+  font-size: 2.5rem;
+  color: $text-color-titles;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.teaser-panels-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  flex-wrap: wrap;
+}
+
+.teaser-panel {
+  flex: 1 1 300px;
+  min-width: 280px;
+  max-width: 380px;
+  height: 450px;
+  background-color: rgba(20, 16, 14, 0.6);
+  border-radius: 10px;
+  overflow: hidden; // Important for clip-path and potential inner elements
+  position: relative;
+  text-decoration: none;
+  color: $text-color-primary;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); // Default shadow for depth
+  border: 1px solid $border-color-gold;
+  display: flex;
+  flex-direction: column;
+  clip-path: polygon(20% 0, 100% 0, 80% 100%, 0% 100%);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border 0.3s ease-out, filter 0.3s ease-out; // Added filter to transition
+  filter: brightness(0.95); // Slightly dim by default to make hover pop more
+
+
+  .panel-image-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+
+    .panel-image {
       width: 100%;
-      max-width: 700px;
-      margin-bottom: 3rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), filter 0.3s ease-out;
+      filter: grayscale(0.6) brightness(0.7);
     }
-  
-    .content-right {
-      display: none; // Hide on smaller screens for this layout
-    }
-  
-    .action-buttons {
-      margin-left: auto;
-      margin-right: auto;
-    }
-  
-    .content-left h1 {
-      font-size: 3.8rem;
+
+    .panel-image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to top, rgba(5, 4, 3, 0.85) 0%, transparent 60%);
+      opacity: 1;
+      transition: opacity 0.3s ease;
     }
   }
-  
-  @media (max-width: 768px) {
-    .home-header {
-      margin-bottom: 3rem;
-      // NavBar and MediaLinks inside .home-header will get their styles from Default.css or their own component CSS
+
+  .panel-title-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(10, 8, 7, 0.85);
+    padding: 1rem 1.5rem;
+    text-align: center;
+    border-top: 1px solid var(--panel-accent-color, $border-color-gold);
+    z-index: 2;
+
+    h3 {
+      font-family: 'EternalFont', sans-serif;
+      font-size: 1.5rem;
+      color: $text-color-titles;
+      margin: 0;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); // Default subtle shadow for readability
+      transition: color 0.3s ease-out, text-shadow 0.3s ease-out; // Added text-shadow to transition
     }
-  
-    .content-left h1 {
-      font-size: 3rem;
+  }
+
+  .panel-glitch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--panel-accent-color);
+    opacity: 0; // Keep off by default, hover will control
+    transition: opacity 0.3s ease-out;
+    pointer-events: none;
+    clip-path: inherit;
+  }
+
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    border: 2px solid var(--panel-accent-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35); // Slightly enhanced depth shadow
+    filter: drop-shadow(0 0 20px var(--panel-accent-color)) brightness(1.1); // Main glow effect + brightness boost
+
+    .panel-image {
+      transform: scale(1.05);
+      filter: grayscale(0) brightness(1);
     }
-  
-    .content-left p { // This will also apply to p.game-pitch unless overridden for responsiveness
+
+    .panel-image-overlay {
+      opacity: 0.15; // Reduce overlay significantly
+    }
+
+    .panel-title-bar {
+      border-top-color: var(--panel-accent-color);
+
+      h3 {
+        color: var(--panel-accent-color);
+        text-shadow: 0 0 8px var(--panel-accent-color), 0 0 12px rgba(var(--panel-accent-color-rgb, 255, 215, 0), 0.7); // Enhanced text glow
+      }
+    }
+
+    .panel-glitch-overlay {
+      opacity: 0.05; // Very subtle color tint, if desired. Can be 0.
+    }
+  }
+}
+
+
+/* Responsive Adjustments for Home page (continued) */
+@media (max-width: 992px) {
+  .home-main-content {
+    padding: 2rem;
+    min-height: 50vh;
+    margin-bottom: 2rem;
+  }
+
+  .content-left {
+    h1 {
+      font-size: 3.5rem;
+    }
+  }
+
+  .showcase-teaser-section {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .teaser-panels-container {
+    gap: 1rem;
+  }
+
+  .teaser-panel {
+    height: 400px;
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .home-header {
+    padding: 0.8rem 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .home-main-content {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-left {
+    h1 {
+      font-size: 2.8rem;
+    }
+
+    p {
       font-size: 0.95rem;
     }
-  
-    .btn {
-      padding: 0.6rem 1.2rem;
-      font-size: 0.9rem;
-    }
-  
-    .action-buttons {
-      max-width: 90%;
+
+    p.game-pitch {
+      font-size: 1rem;
     }
   }
-  
-  @media (max-width: 480px) {
-    .page-container {
-      padding: 1.5rem;
+
+  .btn {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.9rem;
+  }
+
+  .showcase-teaser-section {
+    padding-top: 1rem;
+  }
+
+  .teaser-panels-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .teaser-panel {
+    max-width: 400px;
+    width: 90%;
+    height: 350px;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+  }
+
+  .teaser-panel .panel-title-bar h3 {
+    font-size: 1.3rem;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .home-header {
+    padding: 0.7rem 1.5rem;
+    gap: 1rem;
+  }
+
+  .home-main-content {
+    padding: 1rem;
+  }
+
+  .content-left {
+    h1 {
+      font-size: 2.2rem;
     }
-  
-    .home-header {
-      flex-direction: column; // Stack NavBar and MediaLinks
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      // .main-nav and .media-links within this will use their own ordering if specified (e.g. in Default.css)
-    }
-  
-    .content-left h1 {
-      font-size: 2.5rem;
-    }
-  
-    .content-left p { // This will also apply to p.game-pitch
-      font-size: 0.9rem;
+
+    p {
+      font-size: 0.85rem;
       margin-bottom: 1.5rem;
     }
-  
-    .action-buttons {
-      width: 100%;
-      max-width: 300px;
-    }
-  
-    .button-row-top {
-      flex-direction: column;
-      gap: 1rem;
-    }
-  
-    .btn-primary,
-    .btn-secondary {
-      flex-grow: 0;
-      width: 100%;
+
+    p.game-pitch {
+      font-size: 0.9rem;
     }
   }
+
+  .action-buttons {
+    max-width: 100%;
+  }
+
+  .showcase-teaser-section {
+    padding-bottom: 2rem;
+  }
+
+  .teaser-panel {
+    height: 300px;
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%);
+  }
+
+  .teaser-panel .panel-title-bar h3 {
+    font-size: 1.2rem;
+  }
+}

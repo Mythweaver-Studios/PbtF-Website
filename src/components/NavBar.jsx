@@ -1,71 +1,96 @@
 // src/components/NavBar.jsx
-import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import React from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import "./NavBar.css"; // Import NavBar specific styles
 
-function NavBar() {
-  const location = useLocation(); // To check current path for 'active' state of dropdown toggle
+// Add onShowcaseLinkClick to props, make it optional
+function NavBar({ onShowcaseLinkClick }) {
+  const location = useLocation();
 
-  // Function to determine className for NavLink (applies 'active' class)
-  const getNavLinkClass = ({ isActive }) => 
-    `nav-item ${isActive ? 'active' : ''}`;
-  
-  // Special class for the dropdown toggle NavLink
+  const getNavLinkClass = ({ isActive }) =>
+    `nav-item ${isActive ? "active" : ""}`;
+
   const getDropdownToggleClass = ({ isActive }) => {
     let classes = "nav-item dropdown-toggle";
-    if (isActive || location.pathname.startsWith('/showcase')) { // Also active if on any /showcase sub-path
+    if (
+      isActive ||
+      location.pathname === "/showcase" ||
+      location.pathname.startsWith("/showcase#")
+    ) {
       classes += " active";
     }
     return classes;
   };
 
-  // Function to determine className for dropdown NavLink items
-  const getDropdownItemClass = ({ isActive }) =>
-    `dropdown-item ${isActive ? 'active' : ''}`;
+  const getDropdownItemClass = ({ isActive, isPending }) => {
+    return `dropdown-item ${isActive ? "active" : ""} ${
+      isPending ? "pending" : ""
+    }`;
+  };
 
-  // Determine if any part of the showcase is active for the container
-  const isShowcasePathActiveForContainer = location.pathname.startsWith('/showcase');
+  const isCurrentlyOnShowcasePage = location.pathname.startsWith("/showcase");
 
   return (
     <nav className="main-nav">
       <NavLink to="/" className={getNavLinkClass}>
-        <span>Home</span>
+        <span>Main</span>
       </NavLink>
-      
-      {/* Dropdown container - hover will control visibility via CSS */}
-      <div className={`nav-item-dropdown-container ${isShowcasePathActiveForContainer ? 'has-active-path' : ''}`}>
-        {/* Game Showcase toggle is now a NavLink */}
+
+      <div
+        className={`nav-item-dropdown-container ${
+          isCurrentlyOnShowcasePage ? "has-active-path" : ""
+        }`}
+      >
         <NavLink
-          to="/showcase#story" // Links to the top/story section of the showcase page
+          to="/showcase#story"
           className={getDropdownToggleClass}
           aria-haspopup="true"
+          onClick={(e) =>
+            isCurrentlyOnShowcasePage &&
+            onShowcaseLinkClick &&
+            onShowcaseLinkClick(e, "story")
+          }
         >
           <span>Game Showcase</span>
-          {/* Arrow indicator, rotates via CSS hover */}
           <span className="arrow-indicator">▼</span>
         </NavLink>
-        
-        {/* Dropdown menu - visibility controlled by CSS hover on parent */}
+
         <ul className="dropdown-menu">
           <li>
-            <NavLink 
-              to="/showcase#story" 
-              className={getDropdownItemClass} 
+            <NavLink
+              to="/showcase#story"
+              className={getDropdownItemClass}
+              onClick={(e) =>
+                isCurrentlyOnShowcasePage &&
+                onShowcaseLinkClick &&
+                onShowcaseLinkClick(e, "story")
+              }
             >
               Story
             </NavLink>
           </li>
           <li>
-            <NavLink 
-              to="/showcase#characters" 
-              className={getDropdownItemClass} 
+            <NavLink
+              to="/showcase#characters"
+              className={getDropdownItemClass}
+              onClick={(e) =>
+                isCurrentlyOnShowcasePage &&
+                onShowcaseLinkClick &&
+                onShowcaseLinkClick(e, "characters")
+              }
             >
               Characters
             </NavLink>
           </li>
           <li>
-            <NavLink 
-              to="/showcase#features" 
-              className={getDropdownItemClass} 
+            <NavLink
+              to="/showcase#features"
+              className={getDropdownItemClass}
+              onClick={(e) =>
+                isCurrentlyOnShowcasePage &&
+                onShowcaseLinkClick &&
+                onShowcaseLinkClick(e, "features")
+              }
             >
               Features
             </NavLink>

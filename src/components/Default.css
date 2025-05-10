@@ -1,6 +1,59 @@
 /* src/components/Default.css */
-/* This file now contains global resets, body styles, and styles for shared components like NavBar and MediaLinks. */
-/* Page-specific styles (like for Home) should be in their own SCSS/CSS files. */
+/* This file now contains global resets, body styles, and theme variables. */
+/* Component-specific styles are in their own CSS files (e.g., NavBar.css, Footer.css). */
+/* THEME: Black/Gold/Red */
+
+/* --- Theme Colors (CSS Custom Properties for easier use if needed, or direct values) --- */
+:root {
+  --theme-bg-gradient: linear-gradient(135deg, #100e0c 0%, #050403 100%);
+  --theme-text-primary: #e0c9a6;
+  /* Muted gold */
+  --theme-text-secondary: #a89a85;
+  /* Dimmer gold for less important text like copyright */
+  --theme-text-titles: #ffd700;
+  /* Brighter gold */
+  --theme-text-accent-red: #c0392b;
+  /* Rich red */
+  --theme-border-gold: rgba(207, 181, 130, 0.4);
+  --theme-border-gold-faint: rgba(207, 181, 130, 0.2);
+  --theme-highlight-red: #e74c3c;
+  --theme-highlight-gold: #f1c40f;
+
+  /* NavBar & Dropdown Theme Variables (can be used in NavBar.css) */
+  --theme-nav-item-color: #c7b8a1;
+  --theme-nav-item-hover-color: #ffd700;
+  --theme-nav-item-active-underline: #f1c40f;
+  --theme-dropdown-bg: #1a1612;
+  --theme-dropdown-border: rgba(207, 181, 130, 0.25);
+  --theme-dropdown-item-text: #d4c3a9;
+  --theme-dropdown-item-hover-bg: #2c251d;
+  --theme-dropdown-item-hover-text: #ffd700;
+
+  /* MediaLinks Theme Variables (can be used in MiniMediaLinks.css) */
+  --theme-media-link-bg: #f1c40f;
+  --theme-media-link-icon: #4a3b24;
+  --theme-media-link-hover-shadow: rgba(241, 196, 15, 0.7);
+  /* Gold shadow */
+  /* Added for hover state in MiniMediaLinks.css */
+  --theme-media-link-hover-bg: var(--theme-highlight-red);
+  --theme-media-link-hover-icon-filter: brightness(0) invert(1);
+
+
+  /* Footer Specific Theme Variables (can be used in Footer.css) */
+  --theme-footer-bg: #0c0a09;
+  --theme-footer-text: var(--theme-text-secondary);
+  --theme-footer-link-color: var(--theme-text-primary);
+  --theme-footer-link-hover-color: var(--theme-text-titles);
+  --theme-footer-divider-color: var(--theme-border-gold-faint);
+  --theme-footer-button-bg: transparent;
+  --theme-footer-button-text: var(--theme-text-primary);
+  --theme-footer-button-hover-bg: rgba(241, 196, 15, 0.1);
+  --theme-footer-button-hover-text: var(--theme-highlight-gold);
+  --theme-footer-lang-dropdown-bg: #1f1b16;
+  --theme-footer-lang-dropdown-border: var(--theme-border-gold);
+  --theme-footer-lang-dropdown-item-hover-bg: #3a3025;
+}
+
 
 /* Basic Reset & Defaults */
 *,
@@ -11,18 +64,21 @@
   padding: 0;
 }
 
+html {
+  /* Added for smooth scroll consistency */
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
-  /* Default fallback font */
-  background: linear-gradient(135deg, #2b3035 50%, #212529 50%);
-  /* Dark theme diagonal background */
-  color: #ffffff;
-  /* Default text color */
+  background: var(--theme-bg-gradient);
+  color: var(--theme-text-primary);
   line-height: 1.6;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
-  /* Prevent horizontal scroll */
 }
 
 a {
@@ -35,288 +91,5 @@ img {
   display: block;
 }
 
-/* NavBar Styles (shared component) */
-.main-nav {
-  display: flex;
-  align-items: center; /* Vertically align items if they have different heights */
-  gap: 2.5rem; /* Spacing between nav items */
-}
-
-/* Common styling for top-level nav items (NavLink and dropdown button) */
-.nav-item { 
-  color: #ced4da;
-  font-size: 1.1rem;
-  font-weight: 500;
-  position: relative; /* For pseudo-element positioning */
-  padding-bottom: 8px; /* Space for the animated underline */
-  transition: color 0.3s ease-in-out;
-  background: none;
-  border: none;
-  font-family: inherit; 
-  display: inline-flex; 
-  align-items: center; 
-  text-decoration: none; 
-  cursor: pointer; /* All nav items are inherently clickable (NavLink) */
-}
-
-
-/* Text part of the nav item, for the lift effect */
-.nav-item span:not(.arrow-indicator) { 
-  display: inline-block; /* Allows transform */
-  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-
-/* Underline pseudo-element for nav items */
-.nav-item::after { 
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%; /* Start from center */
-  width: 100%;
-  height: 2px;
-  background-color: #ffffff;
-  transform: translateX(-50%) scaleX(0); /* Initially hidden and centered */
-  transform-origin: center; /* Animation origin */
-  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1); /* Smooth animation for underline */
-}
-
-/* Hover/Active styles for general nav items and the dropdown toggle */
-.nav-item:hover, 
-.nav-item.active { /* NavLink's active class handles this for all items including toggle */
-  color: #ffffff; /* Brighter color on hover/active */
-}
-
-/* Text lift effect for general nav items and the dropdown toggle */
-.nav-item:hover span:not(.arrow-indicator),
-.nav-item.active span:not(.arrow-indicator) {
-  transform: translateY(-3px); /* Lift text slightly */
-}
-
-/* Underline animation for general nav items and the dropdown toggle */
-.nav-item:hover::after,
-.nav-item.active::after {
-  transform: translateX(-50%) scaleX(1); /* Expand underline to full width */
-}
-
-/* Dropdown specific styles */
-.nav-item-dropdown-container {
-  position: relative; /* Context for absolute positioning of dropdown-menu */
-}
-
-.dropdown-toggle .arrow-indicator {
-  margin-left: 0.6em; /* Space between text and arrow */
-  font-size: 0.75em; /* Smaller arrow */
-  line-height: 1; 
-  display: inline-block; 
-  transition: transform 0.3s ease-in-out; 
-}
-
-/* Rotate arrow when dropdown container is hovered */
-.nav-item-dropdown-container:hover .dropdown-toggle .arrow-indicator {
-  transform: rotate(180deg); 
-}
-
-/* --- Advanced Dropdown Menu Styling (Hover Triggered) --- */
-.dropdown-menu {
-  position: absolute;
-  top: 100%; /* Position directly below the toggle, no gap */
-  left: 0;
-  background-color: #303840; 
-  border: 1px solid #4a525a; 
-  border-radius: 8px; 
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35); 
-  list-style: none;
-  padding: 0.6rem 0; 
-  margin: 0; 
-  min-width: 220px; 
-  z-index: 1000; 
-  
-  opacity: 0;
-  visibility: hidden;
-  transform-origin: top center; 
-  transform: translateY(10px) scaleY(0.95) scaleX(0.98); /* Start slightly lower for entry */
-  transition: 
-    opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1), 
-    visibility 0s linear 0.28s, /* Delay hiding visibility */
-    transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none; /* Prevent interaction when hidden */
-}
-
-/* Show dropdown menu when its container is hovered */
-.nav-item-dropdown-container:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0) scaleY(1) scaleX(1); 
-  transition-delay: 0s, 0s, 0s; /* Remove delay for visibility when showing */
-  pointer-events: auto; /* Allow interaction when visible */
-}
-
-/* Styling for individual dropdown items */
-.dropdown-menu .dropdown-item {
-  display: block;
-  padding: 0.8rem 1.5rem; 
-  color: #c0c8d0; 
-  text-decoration: none;
-  font-size: 0.95rem; 
-  font-weight: 400; 
-  white-space: nowrap; 
-  position: relative; 
-  overflow: hidden; 
-  transition: 
-    background-color 0.25s ease-out, 
-    color 0.25s ease-out,
-    transform 0.2s ease-out; 
-  cursor: pointer; 
-}
-
-/* Optional: Add a subtle divider between items */
-.dropdown-menu li:not(:last-child) .dropdown-item::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 1.5rem; 
-  right: 1.5rem; 
-  height: 1px;
-  background-color: rgba(100, 110, 120, 0.25); 
-}
-
-/* Hover and active state for dropdown items */
-.dropdown-menu .dropdown-item:hover,
-.dropdown-menu .dropdown-item.active { 
-  background-color: #3c444c; 
-  color: #ffffff; 
-  transform: translateX(4px); 
-}
-
-/* Specific override to ensure no underline or text lift from .nav-item styles */
-/* The .dropdown-menu li:not(:last-child) .dropdown-item::after rule above is for the divider */
-.dropdown-menu .dropdown-item span { /* If spans were used inside dropdown items for text lift */
-  transform: none !important;
-}
-
-
-/* Media Links Styles (shared component) */
-.media-links {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.media-links a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 36px;
-  height: 36px;
-  background-color: #ffffff;
-  border-radius: 50%;
-  color: #212529; /* Icon color */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-.media-links a:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-}
-
-.media-links a img {
-  width: 20px;
-  height: 20px;
-}
-
-
-/* Responsive Adjustments for Shared Components */
-@media (max-width: 768px) {
-  /* NavBar responsive */
-  .main-nav {
-    gap: 1.5rem;
-  }
-
-  .nav-item { 
-    font-size: 1rem;
-    padding-bottom: 6px; 
-  }
-
-  .nav-item::after {
-    height: 1.5px; 
-  }
-
-  .nav-item:hover span:not(.arrow-indicator),
-  .nav-item.active span:not(.arrow-indicator) {
-    transform: translateY(-2px); 
-  }
-
-  .dropdown-menu {
-    min-width: 200px; 
-    /* top: 100%; remains optimal */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
-    transform: translateY(8px) scaleY(0.95) scaleX(0.98); /* Adjust initial transform */
-  }
-
-  .dropdown-menu .dropdown-item {
-    font-size: 0.9rem;
-    padding: 0.7rem 1.2rem;
-  }
-
-  .dropdown-menu li:not(:last-child) .dropdown-item::after {
-    left: 1.2rem;
-    right: 1.2rem;
-  }
-
-  .dropdown-menu .dropdown-item:hover,
-  .dropdown-menu .dropdown-item.active { 
-    transform: translateX(3px);
-  }
-
-
-  /* MediaLinks responsive */
-  .media-links {
-    gap: 0.75rem;
-  }
-
-  .media-links a {
-    width: 32px;
-    height: 32px;
-  }
-
-  .media-links a img {
-    width: 18px;
-    height: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-nav {
-    order: 2; 
-    gap: 1rem; 
-    justify-content: center; 
-    width: 100%;
-    flex-wrap: wrap; 
-  }
-
-  .nav-item {
-    font-size: 0.95rem; 
-  }
-  
-  .dropdown-menu {
-    min-width: 180px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
-    transform: translateY(6px) scaleY(0.95) scaleX(0.98); /* Adjust initial transform */
-
-  }
-
-  .dropdown-menu .dropdown-item {
-    font-size: 0.85rem;
-    padding: 0.6rem 1rem;
-  }
-  
-  .dropdown-menu li:not(:last-child) .dropdown-item::after {
-    left: 1rem;
-    right: 1rem;
-  }
-
-  .media-links {
-    order: 1; 
-  }
-}
+/* Component-specific styles have been moved to their respective CSS files */
+/* (NavBar.css, MiniMediaLinks.css, Footer.css) */
