@@ -1,0 +1,64 @@
+/* src/components/MiniMediaLinks.css */
+/* Styles for the MiniMediaLinks component, using theme variables from Default.css */
+
+.media-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.media-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  background-color: var(--theme-media-link-bg);
+  border-radius: 50%;
+  color: var(--theme-media-link-icon);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.media-links a:hover {
+  transform: scale(1.1);
+  background-color: var(--theme-media-link-hover-bg);
+  /* Uses variable from :root */
+  box-shadow: 0 0 15px var(--theme-highlight-red);
+}
+
+.media-links a:hover img {
+  filter: var(--theme-media-link-hover-icon-filter);
+  /* Uses variable from :root */
+}
+
+.media-links a img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive Adjustments for MediaLinks */
+@media (max-width: 768px) {
+  .media-links {
+    gap: 0.75rem;
+  }
+
+  .media-links a {
+    width: 32px;
+    height: 32px;
+  }
+
+  .media-links a img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* If media links need specific ordering in column layouts on pages */
+  .media-links {
+    order: 1;
+    /* Example: if parent becomes flex-column */
+  }
+}
