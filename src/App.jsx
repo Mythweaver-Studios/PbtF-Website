@@ -1,7 +1,7 @@
 // src/App.jsx
 // Default.css is imported by components that need it (like NavBar via Home & Showcase)
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import Home from "./pages/Home/Home";
 import Showcase from "./pages/Showcase/Showcase";
 

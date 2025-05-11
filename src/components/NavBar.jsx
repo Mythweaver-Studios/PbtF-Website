@@ -1,5 +1,6 @@
 // src/components/NavBar.jsx
 import React from "react";
+import PropTypes from "prop-types"; // Import PropTypes
 import { NavLink, useLocation } from "react-router-dom";
 import "./NavBar.css"; // Import NavBar specific styles
 
@@ -115,5 +116,10 @@ function NavBar({ onShowcaseLinkClick }) {
     </nav>
   );
 }
+
+// Define prop types for the component
+NavBar.propTypes = {
+  onShowcaseLinkClick: PropTypes.func, // onShowcaseLinkClick is an optional function
+};
 
 export default NavBar;

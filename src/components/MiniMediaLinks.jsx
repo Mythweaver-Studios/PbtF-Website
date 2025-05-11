@@ -1,4 +1,5 @@
 // src/components/MiniMediaLinks.jsx
+import React from "react";
 import InstagramIconPath from "../assets/MiniMediaNavbar/Instagram.svg";
 import RedditIconPath from "../assets/MiniMediaNavbar/Reddit.svg";
 import DiscordIconPath from "../assets/MiniMediaNavbar/Discord.svg";
