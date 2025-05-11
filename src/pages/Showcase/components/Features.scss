@@ -1,0 +1,180 @@
+// src/pages/Showcase/components/Features.scss
+@use 'sass:color';
+
+// --- Theme Variables (copied for self-containment, ideally import from shared file) ---
+$text-color-primary: #e0c9a6;
+$text-color-titles: #ffd700;
+$border-color-gold: rgba(207, 181, 130, 0.4);
+$highlight-red: #e74c3c;
+// --- End Theme Variables ---
+
+.features-slideshow-wrapper {
+    // Wrapper for the component's content
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.features-slideshow {
+    width: 100%;
+    max-width: 950px; // Max width for slideshow
+    height: 520px; // Fixed height
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); // Slideshow shadow
+    overflow: hidden; // Clip slides
+    border: 1px solid $border-color-gold;
+}
+
+.feature-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; // Hidden by default
+    transition: opacity 0.9s ease-in-out, transform 0.9s ease-in-out; // Slide transition
+    transform: scale(1.05); // Initial state for zoom-in effect
+    display: flex;
+    align-items: flex-end; // Info at bottom
+    justify-content: center;
+
+    &.active {
+        opacity: 1; // Visible state
+        z-index: 1; // Active slide on top
+        transform: scale(1); // Final state for zoom-in
+    }
+
+    .feature-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1; // Behind info
+        border-radius: 10px; // Match parent
+    }
+
+    .feature-info {
+        background: linear-gradient(to top, rgba(5, 4, 3, 1) 30%, rgba(5, 4, 3, 0) 100%); // Gradient overlay for text readability
+        color: $text-color-primary;
+        padding: 3rem 2rem 2rem;
+        text-align: center;
+        width: 100%;
+        z-index: 2; // Info above image
+        border-bottom-left-radius: 10px; // Match parent
+        border-bottom-right-radius: 10px;
+
+        h3 {
+            // Feature title
+            font-family: 'EternalFont', sans-serif;
+            font-size: 2.2rem;
+            color: $text-color-titles;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+        }
+
+        p {
+            // Feature description
+            font-size: 1rem;
+            color: $text-color-primary;
+            max-width: 70%; // Readable line length
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+    }
+}
+
+.feature-dots {
+    // Navigation dots for slideshow
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+
+    .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba($text-color-primary, 0.3); // Inactive dot
+        border: 1px solid rgba($text-color-primary, 0.2);
+        margin: 0 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: rgba($text-color-primary, 0.6); // Hover dot
+            transform: scale(1.1);
+        }
+
+        &.active {
+            background-color: $highlight-red; // Active dot
+            box-shadow: 0 0 8px $highlight-red, 0 0 12px $highlight-red; // Active dot glow
+            transform: scale(1.2);
+            border-color: rgba(color.scale($highlight-red, $lightness: -10%), 0.5);
+        }
+    }
+}
+
+/* Responsive Adjustments for FeaturesSlideshow specific elements */
+@media (max-width: 992px) {
+    .features-slideshow {
+        height: 430px; // Adjust height
+    }
+
+    .feature-slide .feature-info {
+        padding: 1.8rem 1.2rem 1.2rem;
+
+        h3 {
+            font-size: 1.7rem;
+        }
+
+        p {
+            font-size: 0.85rem;
+            max-width: 85%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .features-slideshow {
+        height: 380px;
+    }
+
+    .feature-slide .feature-info {
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 0.8rem;
+            max-width: 90%;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .features-slideshow {
+        height: 320px;
+        border-radius: 6px; // Slightly smaller radius
+    }
+
+    .feature-slide .feature-info {
+        padding: 1.2rem 0.8rem 0.8rem;
+
+        h3 {
+            font-size: 1.3rem;
+        }
+
+        p {
+            font-size: 0.75rem;
+        }
+    }
+
+    .feature-dots .dot {
+        width: 9px;
+        height: 9px;
+        margin: 0 3px; // Smaller dots
+    }
+}

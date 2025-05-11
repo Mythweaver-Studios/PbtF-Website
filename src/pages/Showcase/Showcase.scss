@@ -10,15 +10,23 @@ $text-color-titles: #ffd700;
 $text-color-accent-red: #c0392b;
 
 $border-color-gold: rgba(207, 181, 130, 0.4);
-$border-color-red-accent: rgba(192, 57, 43, 0.6);
 
 $highlight-red: #e74c3c;
 $highlight-gold: #f1c40f;
 
+/*
+  Component-specific styles are now in their respective SCSS files:
+  - src/pages/Showcase/components/StoryScroller.scss
+  - src/pages/Showcase/components/CharactersDisplay.scss
+  - src/pages/Showcase/components/FeaturesSlideshow.scss
+
+  These files should be imported by their respective JS components or
+  by a global SCSS entry point if your build system is configured for it.
+*/
+
 .showcase-page {
   background: $bg-gradient;
   color: $text-color-primary;
-  // overflow-x: hidden; // prevent horizontal scroll if any wide elements exist
 }
 
 .showcase-header {
@@ -54,7 +62,7 @@ $highlight-gold: #f1c40f;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative; // For potential absolute positioned children or pseudo-elements
+  position: relative;
 
   // Section-specific backgrounds with overlays
   &.story-section {
@@ -113,314 +121,8 @@ $highlight-gold: #f1c40f;
   }
 }
 
-/* --- Story Section --- */
-.story-section {
-  .story-box {
-    width: 100%;
-    max-width: 750px; // Readable width for text
-    height: 380px; // Fixed height for scroller
-    background-color: rgba(10, 8, 7, 0.75); // Dark semi-transparent box
-    border: 1px solid $border-color-gold;
-    border-radius: 10px;
-    padding: 2rem;
-    overflow: hidden; // Hides scrollbar parts extending beyond padding
-    box-shadow: 0 0 30px rgba(color.scale($highlight-gold, $lightness: -20%), 0.2), inset 0 0 15px rgba(color.scale($highlight-gold, $lightness: -30%), 0.1);
-    position: relative; // For gradient overlays
-
-    // Top and bottom fade overlays for scroller
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 50px;
-      z-index: 2; // Above scroller content
-      pointer-events: none; // Allow clicks through
-    }
-
-    &::before {
-      // Top fade
-      top: 0;
-      background: linear-gradient(to bottom, rgba(10, 8, 7, 1) 10%, rgba(10, 8, 7, 0) 100%);
-    }
-
-    &::after {
-      // Bottom fade
-      bottom: 0;
-      background: linear-gradient(to top, rgba(10, 8, 7, 1) 10%, rgba(10, 8, 7, 0) 100%);
-    }
-  }
-
-  .story-text-scroller {
-    height: 100%;
-    overflow-y: scroll; // Enable vertical scroll
-    scrollbar-width: none; // Hide scrollbar for Firefox
-    transition: opacity 0.5s ease-in-out; // For fade-in/out on reset
-
-    &::-webkit-scrollbar {
-      // Hide scrollbar for Webkit browsers
-      display: none;
-    }
-
-    p {
-      font-size: 1.1rem;
-      line-height: 1.9;
-      color: $text-color-primary;
-      margin-bottom: 1.8em; // Space between paragraphs
-      text-align: center; // Centered text for cinematic feel
-      text-shadow: 0 0 3px rgba(0, 0, 0, 0.6); // Readability shadow
-
-      &:last-child {
-        margin-bottom: 0; // No margin for the last paragraph
-      }
-    }
-  }
-}
-
-/* --- Characters Section --- */
-.characters-section {
-  .characters-content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem; // Space between display and thumbnails
-  }
-
-  .character-display {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 1100px; // Max width for character card
-    margin-bottom: 1rem;
-    min-height: 480px; // Ensure consistent height
-    position: relative;
-    transition: opacity 0.3s ease-in-out; // Fade transition
-    padding: 2rem;
-    background-color: rgba(15, 12, 10, 0.5); // Darker card bg
-    border-radius: 10px;
-    border: 1px solid $border-color-gold;
-    box-shadow: 0 0 40px -10px var(--character-accent-color, rgba($highlight-gold, 0.3)), // Dynamic accent shadow
-      inset 0 0 20px rgba(0, 0, 0, 0.3); // Inner shadow for depth
-
-    &.fading {
-      opacity: 0; // For fade transition
-    }
-
-    .character-main-image {
-      max-width: 38%; // Image size relative to container
-      max-height: 450px;
-      object-fit: contain; // Prevents image distortion
-      margin-right: 3rem; // Space between image and info
-      filter: drop-shadow(3px 3px 15px rgba(0, 0, 0, 0.7)); // Image shadow
-    }
-
-    .character-info {
-      max-width: 55%; // Text area size
-      color: $text-color-primary;
-
-      h3 {
-        // Character name
-        font-family: 'EternalFont', sans-serif;
-        font-size: 2.6rem;
-        color: $text-color-titles;
-        margin-bottom: 0.5rem;
-        text-shadow: 0 0 6px var(--character-accent-color, transparent); // Dynamic accent glow
-      }
-
-      h4 {
-        // Character title/subtitle
-        font-size: 1.25rem;
-        color: var(--character-accent-color, $highlight-gold); // Dynamic accent color
-        margin-bottom: 1.5rem;
-        font-weight: 500;
-      }
-
-      p {
-        // Character description
-        font-size: 1rem;
-        line-height: 1.7;
-      }
-    }
-  }
-
-  .character-thumbnails {
-    display: flex;
-    justify-content: center;
-    gap: 1rem; // Space between thumbnails
-    flex-wrap: wrap; // Allow thumbnails to wrap
-    width: 100%;
-    max-width: 900px;
-  }
-
-  .thumbnail-item {
-    cursor: pointer;
-    border: 2px solid $border-color-gold;
-    border-radius: 8px;
-    overflow: hidden; // Clip image scaling
-    transition: all 0.3s ease;
-    width: 100px;
-    height: 130px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(25, 20, 15, 0.8); // Thumbnail bg
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
-
-    img {
-      width: 100%;
-      height: 100px;
-      object-fit: cover;
-      transition: transform 0.3s ease; // Zoom effect on hover
-    }
-
-    span {
-      // Thumbnail name
-      font-size: 0.8rem;
-      color: $text-color-primary;
-      padding: 0.3rem 0;
-      text-align: center;
-      width: 100%;
-      background-color: rgba(15, 12, 10, 0.9); // Darker name bar
-      font-weight: 500;
-    }
-
-    &:hover {
-      border-color: $highlight-red; // Hover border
-      transform: translateY(-5px) scale(1.05); // Lift and scale effect
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 0 10px $highlight-red; // Hover shadow
-
-      img {
-        transform: scale(1.1); // Zoom image
-      }
-    }
-
-    &.active {
-      // Active thumbnail style
-      border-color: $highlight-gold;
-      box-shadow: 0 0 20px $highlight-gold, 0 0 25px $highlight-red, inset 0 0 8px rgba($highlight-gold, 0.3); // Active glow
-      background-color: rgba(40, 30, 20, 0.9); // Darker active bg
-
-      span {
-        color: $text-color-titles;
-        font-weight: bold;
-        text-shadow: 0 0 4px $highlight-red; // Active name glow
-      }
-    }
-  }
-}
-
-/* --- Features Section --- */
-.features-section {
-  .features-slideshow {
-    width: 100%;
-    max-width: 950px; // Max width for slideshow
-    height: 520px; // Fixed height
-    position: relative;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); // Slideshow shadow
-    overflow: hidden; // Clip slides
-    border: 1px solid $border-color-gold;
-  }
-
-  .feature-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0; // Hidden by default
-    transition: opacity 0.9s ease-in-out, transform 0.9s ease-in-out; // Slide transition
-    transform: scale(1.05); // Initial state for zoom-in effect
-    display: flex;
-    align-items: flex-end; // Info at bottom
-    justify-content: center;
-
-    &.active {
-      opacity: 1; // Visible state
-      z-index: 1; // Active slide on top
-      transform: scale(1); // Final state for zoom-in
-    }
-
-    .feature-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1; // Behind info
-      border-radius: 10px; // Match parent
-      // transition: transform 10s linear; // Optional Ken Burns effect (can be performance heavy)
-    }
-
-    .feature-info {
-      background: linear-gradient(to top, rgba(5, 4, 3, 1) 30%, rgba(5, 4, 3, 0) 100%); // Gradient overlay for text readability
-      color: $text-color-primary;
-      padding: 3rem 2rem 2rem;
-      text-align: center;
-      width: 100%;
-      z-index: 2; // Info above image
-      border-bottom-left-radius: 10px; // Match parent
-      border-bottom-right-radius: 10px;
-
-      h3 {
-        // Feature title
-        font-family: 'EternalFont', sans-serif;
-        font-size: 2.2rem;
-        color: $text-color-titles;
-        margin-bottom: 0.75rem;
-        text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
-      }
-
-      p {
-        // Feature description
-        font-size: 1rem;
-        color: $text-color-primary;
-        max-width: 70%; // Readable line length
-        margin: 0 auto;
-        line-height: 1.6;
-      }
-    }
-  }
-
-  .feature-dots {
-    // Navigation dots for slideshow
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: rgba($text-color-primary, 0.3); // Inactive dot
-      border: 1px solid rgba($text-color-primary, 0.2);
-      margin: 0 5px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-
-      &:hover {
-        background-color: rgba($text-color-primary, 0.6); // Hover dot
-        transform: scale(1.1);
-      }
-
-      &.active {
-        background-color: $highlight-red; // Active dot
-        box-shadow: 0 0 8px $highlight-red, 0 0 12px $highlight-red; // Active dot glow
-        transform: scale(1.2);
-        border-color: rgba(color.scale($highlight-red, $lightness: -10%), 0.5);
-      }
-    }
-  }
-}
-
-/* Responsive Adjustments */
+/* Responsive Adjustments for general page layout */
 @media (max-width: 992px) {
-
-  // Tablet landscape
   .showcase-header {
     padding: 1.2rem 2rem;
   }
@@ -438,70 +140,10 @@ $highlight-gold: #f1c40f;
     font-size: 2.6rem;
   }
 
-  .story-section .story-box {
-    height: 330px;
-    padding: 1.5rem;
-  }
-
-  .story-section .story-text-scroller p {
-    font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: 1.6em;
-  }
-
-  .characters-section {
-    .characters-content {
-      gap: 1.5rem;
-    }
-
-    .character-display {
-      flex-direction: column; // Stack image and info
-      min-height: auto; // Auto height for stacked layout
-      text-align: center;
-      padding: 1.5rem;
-
-      .character-main-image {
-        max-width: 60%;
-        margin-right: 0;
-        margin-bottom: 1.5rem; // Space between stacked image and info
-      }
-
-      .character-info {
-        max-width: 90%;
-      }
-    }
-
-    .character-thumbnails .thumbnail-item {
-      width: 85px;
-      height: 115px;
-
-      img {
-        height: 85px;
-      }
-    }
-  }
-
-  .features-section .features-slideshow {
-    height: 430px; // Adjust height
-  }
-
-  .features-section .feature-slide .feature-info {
-    padding: 1.8rem 1.2rem 1.2rem;
-
-    h3 {
-      font-size: 1.7rem;
-    }
-
-    p {
-      font-size: 0.85rem;
-      max-width: 85%;
-    }
-  }
+  /* Component-specific responsive adjustments are in their respective SCSS files */
 }
 
 @media (max-width: 768px) {
-
-  // Tablet portrait
   .section-title {
     font-size: 2rem;
 
@@ -511,67 +153,10 @@ $highlight-gold: #f1c40f;
     }
   }
 
-  .story-section .story-text-scroller p {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    margin-bottom: 1.5em;
-  }
-
-  .characters-section {
-    .character-display {
-      .character-main-image {
-        max-width: 65%;
-        max-height: 320px;
-      }
-
-      .character-info {
-        h3 {
-          font-size: 2rem;
-        }
-
-        h4 {
-          font-size: 1.05rem;
-        }
-
-        p {
-          font-size: 0.85rem;
-        }
-      }
-    }
-
-    .character-thumbnails .thumbnail-item {
-      width: 75px;
-      height: 100px;
-
-      img {
-        height: 70px;
-      }
-
-      span {
-        font-size: 0.65rem; // Smaller text for smaller thumbnails
-      }
-    }
-  }
-
-  .features-section .features-slideshow {
-    height: 380px;
-  }
-
-  .features-section .feature-slide .feature-info {
-    h3 {
-      font-size: 1.5rem;
-    }
-
-    p {
-      font-size: 0.8rem;
-      max-width: 90%;
-    }
-  }
+  /* Component-specific responsive adjustments are in their respective SCSS files */
 }
 
 @media (max-width: 480px) {
-
-  // Mobile phones
   .showcase-header {
     padding: 1rem 1.2rem; // Less padding
   }
@@ -588,71 +173,5 @@ $highlight-gold: #f1c40f;
     }
   }
 
-  .story-section .story-box {
-    height: auto; // Flexible height for story
-    min-height: 280px;
-    max-height: 320px; // Still constrain max height
-    padding: 1rem;
-  }
-
-  .story-section .story-text-scroller p {
-    font-size: 0.85rem;
-    line-height: 1.6;
-    margin-bottom: 1.4em;
-  }
-
-  .characters-section {
-    .characters-content {
-      gap: 1rem;
-    }
-
-    .character-display {
-      padding: 1rem;
-
-      .character-main-image {
-        max-width: 75%; // Image can be larger part of small screen
-        max-height: 280px;
-      }
-
-      .character-info h3 {
-        font-size: 1.6rem;
-      }
-    }
-
-    .character-thumbnails {
-      gap: 0.4rem; // Tighter thumbnail gap
-    }
-
-    .character-thumbnails .thumbnail-item {
-      width: 65px;
-      height: 90px;
-
-      img {
-        height: 60px;
-      }
-    }
-  }
-
-  .features-section .features-slideshow {
-    height: 320px;
-    border-radius: 6px; // Slightly smaller radius
-  }
-
-  .features-section .feature-slide .feature-info {
-    padding: 1.2rem 0.8rem 0.8rem;
-
-    h3 {
-      font-size: 1.3rem;
-    }
-
-    p {
-      font-size: 0.75rem;
-    }
-  }
-
-  .feature-dots .dot {
-    width: 9px;
-    height: 9px;
-    margin: 0 3px; // Smaller dots
-  }
+  /* Component-specific responsive adjustments are in their respective SCSS files */
 }
