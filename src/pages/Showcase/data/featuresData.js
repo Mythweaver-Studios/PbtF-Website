@@ -1,6 +1,6 @@
 // src/pages/Showcase/data/featuresData.js
 
-// --- Import images from src/assets ---
+// Image imports
 import featureCombatImg from "../../../assets/showcase/feature_combat.jpg";
 import featureWorldImg from "../../../assets/showcase/feature_world.jpg";
 import featureProgressionImg from "../../../assets/showcase/feature_progression.jpg";

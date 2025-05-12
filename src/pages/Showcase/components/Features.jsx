@@ -16,12 +16,21 @@ function FeaturesSection({ featuresData }) {
 
   // Sets up and clears the automatic feature cycling timer.
   useEffect(() => {
+    clearTimeout(featureTimeoutRef.current); // Clear any existing timeout first
     if (featuresData && featuresData.length > 1) {
-      // Check if featuresData exists
+      // Auto-cycle only if there's data and more than one feature
       featureTimeoutRef.current = setTimeout(nextFeature, 10000); // 10s display per feature
     }
-    return () => clearTimeout(featureTimeoutRef.current); // Cleanup timer
-  }, [currentFeatureIndex, featuresData]); // featuresData in dependency array
+    return () => clearTimeout(featureTimeoutRef.current); // Cleanup timer on unmount or before next run
+  }, [currentFeatureIndex, featuresData]); // Dependencies for effect re-run
+
+  // Handles manual selection of a feature slide via dots.
+  const selectFeature = (index) => {
+    if (index === currentFeatureIndex) return; // No change if same feature
+    clearTimeout(featureTimeoutRef.current); // Stop auto-cycle on manual selection
+    setCurrentFeatureIndex(index);
+    // useEffect will handle restarting the timer due to currentFeatureIndex change
+  };
 
   if (!featuresData || featuresData.length === 0) {
     return (
@@ -57,15 +66,7 @@ function FeaturesSection({ featuresData }) {
             <span
               key={index}
               className={`dot ${index === currentFeatureIndex ? "active" : ""}`}
-              onClick={() => {
-                // Manual selection of feature slide
-                clearTimeout(featureTimeoutRef.current);
-                setCurrentFeatureIndex(index);
-                // Restart auto-cycle timer
-                if (featuresData.length > 1) {
-                  featureTimeoutRef.current = setTimeout(nextFeature, 10000);
-                }
-              }}
+              onClick={() => selectFeature(index)}
             />
           ))}
         </div>
@@ -81,7 +82,7 @@ FeaturesSection.propTypes = {
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
+      image: PropTypes.string, // Fallback image is provided in component
     })
   ).isRequired,
 };

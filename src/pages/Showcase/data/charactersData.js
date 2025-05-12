@@ -1,6 +1,6 @@
 // src/pages/Showcase/data/charactersData.js
 
-// --- Import images from src/assets ---
+// Image imports
 import lordChoshenImg from "../../../assets/showcase/character_lord_choshen.png";
 import lordChoshenThumb from "../../../assets/showcase/thumb_lord_choshen.png";
 import blueStarImg from "../../../assets/showcase/character_blue_star.png";

@@ -16,10 +16,7 @@ function CharactersSection({ charactersData }) {
     setTimeout(() => {
       setCurrentCharacterIndex(index);
       setIsCharacterFading(false);
-      // Restart auto-cycle timer after manual selection
-      if (charactersData.length > 1) {
-        characterTimeoutRef.current = setTimeout(nextCharacter, 30000); // 30s display
-      }
+      // useEffect will handle restarting the timer due to currentCharacterIndex change
     }, 300); // Fade duration
   };
 
@@ -36,12 +33,13 @@ function CharactersSection({ charactersData }) {
 
   // Sets up and clears the automatic character cycling timer.
   useEffect(() => {
+    clearTimeout(characterTimeoutRef.current); // Clear any existing timeout first
     if (charactersData && charactersData.length > 1) {
-      // Check if charactersData exists
-      characterTimeoutRef.current = setTimeout(nextCharacter, 30000); // Initial auto-cycle
+      // Auto-cycle only if there's data and more than one character
+      characterTimeoutRef.current = setTimeout(nextCharacter, 30000); // Initial or restarted auto-cycle
     }
-    return () => clearTimeout(characterTimeoutRef.current); // Cleanup timer
-  }, [currentCharacterIndex, charactersData]); // charactersData in dependency array
+    return () => clearTimeout(characterTimeoutRef.current); // Cleanup timer on unmount or before next run
+  }, [currentCharacterIndex, charactersData]); // Dependencies for effect re-run
 
   if (!charactersData || charactersData.length === 0) {
     return (
@@ -61,7 +59,8 @@ function CharactersSection({ charactersData }) {
       >
         <img
           src={
-            currentCharacter.image || "../../../assets/placeholders/character_large.png" // Fallback image
+            currentCharacter.image ||
+            "../../../assets/placeholders/character_large.png" // Fallback image
           }
           alt={currentCharacter.name}
           className="character-main-image"
@@ -113,8 +112,8 @@ CharactersSection.propTypes = {
       name: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-      thumbnail: PropTypes.string.isRequired,
+      image: PropTypes.string, // Fallback image is provided in component
+      thumbnail: PropTypes.string, // Fallback thumbnail is provided in component
       accentColor: PropTypes.string.isRequired,
     })
   ).isRequired,

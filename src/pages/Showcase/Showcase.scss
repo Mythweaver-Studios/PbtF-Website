@@ -15,13 +15,10 @@ $highlight-red: #e74c3c;
 $highlight-gold: #f1c40f;
 
 /*
-  Component-specific styles are now in their respective SCSS files:
-  - src/pages/Showcase/components/StoryScroller.scss
-  - src/pages/Showcase/components/CharactersDisplay.scss
-  - src/pages/Showcase/components/FeaturesSlideshow.scss
-
-  These files should be imported by their respective JS components or
-  by a global SCSS entry point if your build system is configured for it.
+  Component-specific styles are in their respective SCSS files:
+  - src/pages/Showcase/components/Story.scss
+  - src/pages/Showcase/components/Characters.scss
+  - src/pages/Showcase/components/Features.scss
 */
 
 .showcase-page {
@@ -47,29 +44,29 @@ $highlight-gold: #f1c40f;
 }
 
 .showcase-content {
-  padding-top: 90px; // Account for fixed header height
+  padding-top: 90px; // Account for fixed header height (adjust if header height changes)
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center; // Center sections
+  align-items: center; // Center sections horizontally
 }
 
 .showcase-section {
   min-height: 100vh; // Full viewport height for each section
   width: 100%;
-  padding: 5rem 4rem 3rem; // Generous padding
+  padding: 5rem 4rem 3rem; // Generous padding (top/bottom, left/right)
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
+  position: relative; // For potential absolute positioning of children or pseudo-elements
 
   // Section-specific backgrounds with overlays
   &.story-section {
-    background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), // Dark overlay
+    background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), // Dark overlay for readability
       url('../../assets/showcase/story_background.jpg') no-repeat center center;
     background-size: cover;
-    background-attachment: fixed; // Parallax-like effect
+    background-attachment: fixed; // Parallax-like effect for desktop
   }
 
   &.characters-section {
@@ -85,19 +82,15 @@ $highlight-gold: #f1c40f;
     background-size: cover;
     background-attachment: fixed;
   }
-
-  &:last-child {
-    border-bottom: none; // No border for the last section
-  }
 }
 
 .section-title-container {
-  margin-bottom: 3rem; // Space below title
+  margin-bottom: 3rem; // Space below title before section content
   text-align: center;
 }
 
 .section-title {
-  font-family: 'EternalFont', 'Georgia', serif; // Thematic font
+  font-family: 'EternalFont', 'Georgia', serif; // Thematic font with fallback
   font-size: 3.2rem;
   color: $text-color-titles;
   letter-spacing: 1.5px;
@@ -128,7 +121,7 @@ $highlight-gold: #f1c40f;
   }
 
   .showcase-content {
-    padding-top: 80px; // Adjust for potentially smaller header
+    padding-top: 80px; // Adjust for potentially smaller header on tablets
   }
 
   .showcase-section {
@@ -148,7 +141,7 @@ $highlight-gold: #f1c40f;
     font-size: 2rem;
 
     &::after {
-      width: 50px; // Shorter underline
+      width: 50px; // Shorter underline for smaller titles
       height: 2.5px;
     }
   }
@@ -158,11 +151,12 @@ $highlight-gold: #f1c40f;
 
 @media (max-width: 480px) {
   .showcase-header {
-    padding: 1rem 1.2rem; // Less padding
+    padding: 1rem 1.2rem; // Less padding on small screens
   }
 
   .showcase-section {
-    padding: 2.5rem 1rem 1.2rem; // Tighter padding
+    padding: 2.5rem 1rem 1.2rem; // Tighter padding on mobile
+    min-height: auto; // Allow sections to be shorter than viewport height if content is small
   }
 
   .section-title {
@@ -173,5 +167,5 @@ $highlight-gold: #f1c40f;
     }
   }
 
-  /* Component-specific responsive adjustments are in their respective SCSS files */
+  /* Component-specific responsive adjustments are in their respective SCSS files c: */
 }

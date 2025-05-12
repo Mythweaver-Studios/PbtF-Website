@@ -26,7 +26,7 @@ $highlight-gold: #f1c40f;
         position: absolute;
         left: 0;
         right: 0;
-        height: 50px;
+        height: 50px; // Height of the fade effect
         z-index: 2; // Above scroller content
         pointer-events: none; // Allow clicks through
     }
@@ -69,7 +69,7 @@ $highlight-gold: #f1c40f;
     }
 }
 
-/* Responsive Adjustments for StoryScroller specific elements */
+/* Responsive Adjustments */
 @media (max-width: 992px) {
     .story-box {
         height: 330px;
@@ -84,6 +84,8 @@ $highlight-gold: #f1c40f;
 }
 
 @media (max-width: 768px) {
+
+    // .story-box height is maintained from 992px breakpoint
     .story-text-scroller p {
         font-size: 0.9rem;
         line-height: 1.7;
@@ -97,6 +99,12 @@ $highlight-gold: #f1c40f;
         min-height: 280px;
         max-height: 320px; // Still constrain max height
         padding: 1rem;
+
+        // Adjust fade height on smaller screens if necessary
+        &::before,
+        &::after {
+            height: 30px;
+        }
     }
 
     .story-text-scroller p {

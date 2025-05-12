@@ -19,43 +19,50 @@ function Showcase() {
   const internalNavRef = useRef(false); // Track internal navigation
   const location = useLocation(); // Access current URL location
 
+  // Scroll to the top of the page when the component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []); // Empty dependency array ensures this runs only once on mount
+
   // Smoothly scrolls to a given element ID.
   const smoothScrollTo = (elementId) => {
     const element = document.getElementById(elementId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
       if (window.history.pushState) {
+        // Modify URL hash without page reload for better UX
         window.history.pushState(null, null, `#${elementId}`);
       } else {
-        window.location.hash = elementId; // Fallback
+        window.location.hash = elementId; // Fallback for older browsers
       }
     }
   };
 
   // Handles scrolling to section based on URL hash.
   useEffect(() => {
+    // Only scroll if not triggered by internal navigation click
     if (location.hash && !internalNavRef.current) {
       const id = location.hash.substring(1);
       const timer = setTimeout(() => {
-        // Delay for DOM readiness
+        // Delay for DOM readiness, ensures element is available
         const element = document.getElementById(id);
         if (element) {
           element.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       }, 100);
-      return () => clearTimeout(timer);
+      return () => clearTimeout(timer); // Cleanup timer on unmount or change
     }
-  }, [location.hash]);
+  }, [location.hash]); // Re-run if URL hash changes
 
   // Handles clicks on showcase navigation links.
   const handleShowcaseNavClick = (e, sectionId) => {
     e.preventDefault();
-    internalNavRef.current = true; // Mark as internal navigation
+    internalNavRef.current = true; // Mark as internal navigation to prevent useEffect scroll
     smoothScrollTo(sectionId);
     setTimeout(() => {
-      // Reset internal nav flag
+      // Reset internal nav flag shortly after
       internalNavRef.current = false;
-    }, 50);
+    }, 50); // Small delay to ensure smoothScrollTo has initiated
   };
 
   return (
