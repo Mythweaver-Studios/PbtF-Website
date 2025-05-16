@@ -4,7 +4,7 @@ import PropTypes from "prop-types"; // Import PropTypes
 import { NavLink, useLocation } from "react-router-dom";
 import "./NavBar.css"; // Import NavBar specific styles
 
-// Add onShowcaseLinkClick to props, make it optional
+// onShowcaseLinkClick is an optional prop for handling showcase section navigation
 function NavBar({ onShowcaseLinkClick }) {
   const location = useLocation();
 
@@ -107,7 +107,7 @@ function NavBar({ onShowcaseLinkClick }) {
         </ul>
       </div>
 
-      <NavLink to="/about" className={getNavLinkClass}>
+      <NavLink to="/about-us" className={getNavLinkClass}>
         <span>About Us</span>
       </NavLink>
       <NavLink to="/updates" className={getNavLinkClass}>
