@@ -1,0 +1,282 @@
+/* src/pages/AboutUs/AboutUs.scss */
+@use 'sass:color';
+
+// --- Theme Variables (from Default.css or Showcase.scss for consistency) ---
+$bg-gradient: linear-gradient(135deg, #100e0c 0%, #050403 100%);
+$text-color-primary: var(--theme-text-primary, #e0c9a6);
+$text-color-titles: var(--theme-text-titles, #ffd700);
+$text-color-secondary: var(--theme-text-secondary, #a89a85);
+$text-color-accent-red: var(--theme-text-accent-red, #c0392b);
+$border-color-gold: var(--theme-border-gold, rgba(207, 181, 130, 0.4));
+$highlight-red: var(--theme-highlight-red, #e74c3c);
+$highlight-gold: var(--theme-highlight-gold, #f1c40f);
+
+.about-us-page {
+    background: $bg-gradient;
+    color: $text-color-primary;
+    // Standard page container styles from other pages like Showcase.scss if applicable
+}
+
+.about-us-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1.5rem 3rem; // Consistent with Showcase header
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(5, 4, 3, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid $border-color-gold;
+}
+
+.about-us-content {
+    padding-top: 120px; // Account for fixed header height + some breathing room
+    padding-bottom: 4rem; // Space before footer
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-section {
+    width: 100%;
+    max-width: 960px; // Readable content width
+    padding: 3rem 2rem;
+    margin-bottom: 3rem;
+    background-color: rgba(10, 8, 7, 0.6); // Subtle dark background for section
+    border: 1px solid $border-color-gold;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.section-title-container {
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'EternalFont', 'Georgia', serif; // From Home.scss
+    font-size: 2.8rem;
+    color: $text-color-titles;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 0.75rem;
+    text-shadow: 0 0 10px rgba($highlight-gold, 0.3), 0 0 15px rgba($highlight-gold, 0.2);
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 2.5px;
+        background: linear-gradient(90deg, transparent, $highlight-gold, $text-color-accent-red, $highlight-gold, transparent);
+        border-radius: 2px;
+        box-shadow: 0 0 8px $highlight-gold, 0 0 12px $highlight-gold;
+    }
+}
+
+// Company Section Specifics
+.company-description {
+    p {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: $text-color-primary;
+        margin-bottom: 1.5em;
+        text-align: justify; // Justified text for a more formal block look
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.recruitment-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; // Space between elements
+}
+
+.recruitment-intro {
+    font-size: 1.1rem;
+    color: $text-color-primary;
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.available-teams-title {
+    font-family: 'EternalFont', sans-serif;
+    font-size: 1.6rem;
+    color: $text-color-titles;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 5px rgba($highlight-gold, 0.2);
+}
+
+.teams-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1.5rem; // Row and column gap
+    margin-bottom: 1.5rem;
+
+    .team-item {
+        background-color: rgba($border-color-gold, 0.15);
+        padding: 0.5rem 1rem;
+        border-radius: 20px; // Pill shape
+        font-size: 0.9rem;
+        color: $text-color-primary;
+        border: 1px solid $border-color-gold;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            background-color: rgba($highlight-gold, 0.2);
+            border-color: $highlight-gold;
+            color: $text-color-titles;
+            transform: translateY(-2px);
+        }
+    }
+}
+
+.recruitment-how-to {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid $border-color-gold;
+
+    h4 {
+        font-size: 1.25rem;
+        color: $text-color-titles;
+        margin-bottom: 0.75rem;
+    }
+
+    p {
+        font-size: 1rem;
+        color: $text-color-secondary; // Dimmer text for instructions
+        margin-bottom: 1.5rem;
+        max-width: 600px; // Readable width for paragraph
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+// Button for Discord - can reuse .btn styles from Home.scss if globally available
+// or define specific ones here. Assuming .btn is somewhat global or available.
+.btn.btn-discord {
+    background-color: #5865F2; // Discord blurple
+    color: #ffffff;
+    border-color: #5865F2;
+    padding: 0.8rem 1.7rem;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+        background-color: color.scale(#5865F2, $lightness: -10%);
+        border-color: color.scale(#5865F2, $lightness: -10%);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+    }
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .about-us-header {
+        padding: 1.2rem 2rem;
+    }
+
+    .about-us-content {
+        padding-top: 100px; // Adjust for potentially smaller header
+    }
+
+    .about-section {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-us-content {
+        padding-top: 90px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+
+        &::after {
+            width: 60px;
+        }
+    }
+
+    .company-description p {
+        font-size: 1rem;
+        text-align: left; // Switch from justify on smaller screens if it looks odd
+    }
+
+    .recruitment-intro {
+        font-size: 1rem;
+    }
+
+    .available-teams-title {
+        font-size: 1.4rem;
+    }
+
+    .teams-list .team-item {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .recruitment-how-to h4 {
+        font-size: 1.15rem;
+    }
+
+    .btn.btn-discord {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-us-header {
+        padding: 1rem 1.2rem;
+    }
+
+    .about-section {
+        padding: 2rem 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+
+        &::after {
+            width: 50px;
+        }
+    }
+}
