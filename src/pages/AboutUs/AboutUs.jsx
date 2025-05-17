@@ -91,7 +91,7 @@ function AboutUs() {
                 interests, and which team(s) you&apos;re interested in.
               </p>
               <a
-                href="https://discord.gg/pmu" // Replace with your actual Discord link
+                href="https://discord.gg/pmu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-discord"

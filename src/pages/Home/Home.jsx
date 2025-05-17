@@ -1,46 +1,121 @@
 // src/pages/Home/Home.jsx
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom"; // For linking to showcase sections
+import React, { useEffect, useRef } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import NavBar from "../../components/NavBar";
 import MediaLinks from "../../components/MiniMediaLinks";
 import Footer from "../../components/Footer";
+import NewsTeaser from "./components/NewsTeaser";
+import ShowcaseTeaser from "./components/ShowcaseTeaser";
 import "../../components/Default.css";
 import "./Home.scss";
 
-// Import images for the new showcase teaser section (same as Showcase.jsx)
-import lordChoshenImg from "../../assets/showcase/character_lord_choshen.png"; // Representative image for Story
-import blueStarImg from "../../assets/showcase/character_blue_star.png"; // For Characters
-import aliceKingstonImg from "../../assets/showcase/character_alice_kingston.png"; // For Features
-
-const showcaseTeaserData = [
-  {
-    id: "story",
-    title: "Story",
-    link: "/showcase#story",
-    image: lordChoshenImg,
-    accentColor: "var(--theme-highlight-gold)", // Gold for story
-  },
-  {
-    id: "characters",
-    title: "Characters",
-    link: "/showcase#characters",
-    image: blueStarImg,
-    accentColor: "var(--theme-highlight-red)", // Red for characters
-  },
-  {
-    id: "features",
-    title: "Features",
-    link: "/showcase#features",
-    image: aliceKingstonImg,
-    accentColor: "var(--theme-text-titles)", // Brighter gold for features
-  },
+// Kept for scroll spy logic orchestration
+const homeSections = [
+  { id: "hero", title: "Top" },
+  { id: "news-teaser", title: "News" },
+  { id: "showcase-teaser", title: "Showcase" },
 ];
 
 function Home() {
-  // Scroll to top on component mount
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const spyNavigatingRef = useRef(false);
+  const initialLoadScrollRef = useRef(true);
+
+  const sectionRefs = {
+    hero: useRef(null),
+    "news-teaser": useRef(null),
+    "showcase-teaser": useRef(null),
+  };
+
+  // Effect for scrolling when hash changes
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    if (spyNavigatingRef.current) {
+      spyNavigatingRef.current = false;
+      return;
+    }
+
+    const id = location.hash.substring(1);
+    if (id && sectionRefs[id]?.current) {
+      const element = sectionRefs[id].current;
+      const headerOffset = 80;
+      const elementPosition =
+        element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: initialLoadScrollRef.current ? "auto" : "smooth",
+      });
+    } else if (
+      !id &&
+      initialLoadScrollRef.current &&
+      location.pathname === "/home"
+    ) {
+      window.scrollTo(0, 0);
+    }
+    initialLoadScrollRef.current = false;
+  }, [location.hash, location.pathname]);
+
+  // Scroll spy effect to update URL hash
+  useEffect(() => {
+    const handleScroll = () => {
+      if (location.pathname !== "/home") {
+        return;
+      }
+
+      let currentSectionId = homeSections[0].id;
+      const headerOffset = 120;
+      const scrollPosition = window.scrollY + headerOffset;
+
+      for (const section of homeSections) {
+        if (section.id === "hero") continue;
+        const element = sectionRefs[section.id]?.current;
+        if (element) {
+          if (
+            element.offsetTop <= scrollPosition &&
+            element.offsetTop + element.offsetHeight > scrollPosition
+          ) {
+            currentSectionId = section.id;
+            break;
+          }
+        }
+      }
+      if (
+        window.scrollY <
+          sectionRefs["news-teaser"].current?.offsetTop - headerOffset &&
+        window.scrollY < 200
+      ) {
+        currentSectionId = homeSections[0].id;
+      }
+
+      const newHashBasedPath =
+        currentSectionId === homeSections[0].id
+          ? "/home"
+          : `/home#${currentSectionId}`;
+      const currentPathWithHash = location.hash
+        ? `/home${location.hash}`
+        : "/home";
+
+      if (newHashBasedPath !== currentPathWithHash) {
+        spyNavigatingRef.current = true;
+        navigate(newHashBasedPath, { replace: true });
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    const timer = setTimeout(() => {
+      if (location.pathname === "/home") {
+        handleScroll();
+      }
+    }, 150);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(timer);
+    };
+  }, [location.pathname, location.hash, navigate]);
 
   return (
     <div className="page-container home-page">
@@ -49,11 +124,8 @@ function Home() {
         <MediaLinks />
       </header>
       <main className="home-content-wrapper">
-        {" "}
-        {/* Wrapper for main content and new section */}
-        <section className="home-main-content">
-          {" "}
-          {/* Main hero section */}
+        {/* Hero Section (remains directly in Home.jsx) */}
+        <section id="hero" className="home-main-content" ref={sectionRefs.hero}>
           <div className="content-left">
             <h1>Crownless</h1>
             <p className="game-pitch">
@@ -71,39 +143,14 @@ function Home() {
               <button className="btn btn-tertiary">Add to Wishlist</button>
             </div>
           </div>
-          <div className="content-right">
-            {/* Optional: Could have a subtle image or graphic here */}
-          </div>
+          <div className="content-right"></div>
         </section>
-        {/* New Showcase Teaser Section */}
-        <section className="showcase-teaser-section">
-          {/* <h2 className="teaser-title">Explore the World</h2> You can add a title if desired */}
-          <div className="teaser-panels-container">
-            {showcaseTeaserData.map((item) => (
-              <Link
-                to={item.link}
-                key={item.id}
-                className="teaser-panel"
-                style={{ "--panel-accent-color": item.accentColor }} // Pass accent color as CSS var
-              >
-                <div className="panel-image-container">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="panel-image"
-                  />
-                  <div className="panel-image-overlay"></div>{" "}
-                  {/* For gradient or effects */}
-                </div>
-                <div className="panel-title-bar">
-                  <h3>{item.title}</h3>
-                </div>
-                <div className="panel-glitch-overlay"></div>{" "}
-                {/* For glitch effect on hover */}
-              </Link>
-            ))}
-          </div>
-        </section>
+
+        {/* News Teaser Section Component */}
+        <NewsTeaser sectionRef={sectionRefs["news-teaser"]} />
+
+        {/* Showcase Teaser Section Component */}
+        <ShowcaseTeaser sectionRef={sectionRefs["showcase-teaser"]} />
       </main>
       <Footer />
     </div>

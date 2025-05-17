@@ -2,14 +2,23 @@
 @use 'sass:color';
 
 // --- Theme Variables ---
-$bg-gradient: linear-gradient(135deg, #100e0c 0%, #050403 100%);
-$text-color-primary: #e0c9a6;
-$text-color-titles: #ffd700;
-$text-color-accent-red: #c0392b;
-$border-color-gold: rgba(207, 181, 130, 0.4);
-$border-color-red-accent: rgba(192, 57, 43, 0.6);
-$highlight-red: #e74c3c;
-$highlight-gold: #f1c40f;
+// CSS Variable Strings (for direct use in CSS)
+$text-color-primary-css-var: var(--theme-text-primary, #e0c9a6);
+$text-color-titles-css-var: var(--theme-text-titles, #ffd700);
+$border-color-gold-css-var: var(--theme-border-gold, rgba(207, 181, 130, 0.4));
+$border-color-gold-faint-css-var: var(--theme-border-gold-faint, rgba(207, 181, 130, 0.2));
+$highlight-red-css-var: var(--theme-highlight-red, #e74c3c);
+$highlight-gold-css-var: var(--theme-highlight-gold, #f1c40f);
+$text-color-accent-red-css-var: var(--theme-text-accent-red, #c0392b);
+
+// Sass Color Values (for use with Sass functions)
+$text-color-primary-sass: #e0c9a6;
+$text-color-titles-sass: #ffd700;
+// Note: rgba values for borders are generally fine if not manipulated by Sass color functions directly
+// If they were, you'd use the color part, e.g., #cfb582 for the gold.
+$highlight-red-sass: #e74c3c;
+$highlight-gold-sass: #f1c40f;
+// $text-color-accent-red-sass: #c0392b; // If needed for Sass functions
 
 /* --- Font Definition --- */
 @font-face {
@@ -24,7 +33,7 @@ $highlight-gold: #f1c40f;
   flex-direction: column;
   min-height: 100vh;
   position: relative;
-  overflow: hidden; // Prevent horizontal scroll
+  overflow-x: hidden;
 }
 
 .home-header {
@@ -33,78 +42,105 @@ $highlight-gold: #f1c40f;
   align-items: center;
   width: 100%;
   padding: 1.0rem 3.5rem;
-  margin-bottom: 2rem; // Space below header
-  position: relative; // For z-index context
-  z-index: 100; // Header above other content
+  position: sticky;
+  top: 0;
+  background-color: rgba(10, 8, 7, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  border-bottom: 1px solid $border-color-gold-faint-css-var; // Use CSS var
 }
 
 .home-content-wrapper {
-  flex: 1; // Takes up remaining vertical space
+  flex: 1;
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.section-title {
+  font-family: 'EternalFont', 'Georgia', serif;
+  font-size: 2.8rem;
+  color: $text-color-titles-css-var; // Use CSS var
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 0.6rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  text-shadow: 0 0 10px rgba($highlight-gold-sass, 0.3), 0 0 15px rgba($highlight-gold-sass, 0.2); // Use Sass value for rgba
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2.5px;
+    background: linear-gradient(90deg, transparent, $highlight-gold-css-var, $text-color-accent-red-css-var, $highlight-gold-css-var, transparent); // Use CSS vars
+    border-radius: 1.5px;
+    box-shadow: 0 0 8px $highlight-gold-sass, 0 0 12px $highlight-gold-sass; // Use Sass value for shadow color
+  }
 }
 
 .home-main-content {
   display: flex;
   align-items: center;
   position: relative;
-  z-index: 5; // Below header
-  padding: 2rem 3.5rem;
-  min-height: 60vh; // Ensure decent viewport height
-  border-bottom: 1px solid $border-color-gold; // Separator
-  margin-bottom: 3rem; // Space before teaser section
+  z-index: 5;
+  padding: 3rem 3.5rem;
+  min-height: calc(80vh - 70px);
 }
 
 .content-left {
-  flex-basis: 55%; // Proportion for text content
-  max-width: 700px; // Prevent wide text lines
+  flex-basis: 55%;
+  max-width: 700px;
   z-index: 5;
-  color: $text-color-primary;
+  color: $text-color-primary-css-var; // Use CSS var
 
   h1 {
     font-family: 'EternalFont', 'Georgia', serif;
     font-size: 4.5rem;
     margin-bottom: 1.2rem;
-    font-weight: normal; // Font has its own weight
-    color: $text-color-titles;
+    font-weight: normal;
+    color: $text-color-titles-css-var; // Use CSS var
     letter-spacing: 1.5px;
-    text-shadow: 0 0 15px rgba($highlight-gold, 0.3), 0 0 20px rgba($highlight-gold, 0.2);
+    text-shadow: 0 0 15px rgba($highlight-gold-sass, 0.3), 0 0 20px rgba($highlight-gold-sass, 0.2); // Use Sass value
   }
 
   p {
     font-size: 1.05rem;
     margin-bottom: 2rem;
-    color: $text-color-primary;
-    max-width: 90%; // Keep lines readable
+    color: $text-color-primary-css-var; // Use CSS var
+    max-width: 90%;
     line-height: 1.65;
   }
 
   p.game-pitch {
-    font-family: 'Georgia', serif; // Classic feel for pitch
+    font-family: 'Georgia', serif;
     font-size: 1.1rem;
-    color: $text-color-primary;
+    color: $text-color-primary-css-var; // Use CSS var
 
     strong {
       font-weight: 600;
-      color: $text-color-titles; // Highlighted pitch
+      color: $text-color-titles-css-var; // Use CSS var
     }
   }
 }
 
 .content-right {
-  flex-basis: 45%; // Space for image/graphic
+  flex-basis: 45%;
   height: 100%;
   position: relative;
 }
 
-/* --- Button Styles for Home page - Themed --- */
 .action-buttons {
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
   width: 100%;
-  max-width: 450px; // Constrain button group width
+  max-width: 450px;
 }
 
 .button-row-top {
@@ -116,7 +152,7 @@ $highlight-gold: #f1c40f;
 .btn {
   padding: 0.8rem 1.7rem;
   border: 2px solid transparent;
-  border-radius: 30px; // Rounded buttons
+  border-radius: 30px;
   font-size: 0.95rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -127,240 +163,94 @@ $highlight-gold: #f1c40f;
   align-items: center;
   justify-content: center;
   text-align: center;
-  flex: 0 1 auto; // Allow shrinking, not growing beyond content unless specified
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3); // Subtle depth
+  flex: 0 1 auto;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
 
   &:hover {
-    transform: translateY(-2px); // Lift on hover
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4); // Enhanced shadow on hover
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
   }
 }
 
 .btn-primary {
-  background-color: $highlight-red;
+  background-color: $highlight-red-css-var; // Use CSS var
   color: #ffffff;
-  border-color: $highlight-red;
-  flex-grow: 1; // Distribute space in row
-  min-width: 0; // Allow flex item to shrink
+  border-color: $highlight-red-css-var; // Use CSS var
+  flex-grow: 1;
+  min-width: 0;
 
   &:hover {
-    background-color: color.scale($highlight-red, $lightness: -10%); // Darken on hover
-    border-color: color.scale($highlight-red, $lightness: -10%);
-    box-shadow: 0 6px 15px rgba(color.scale($highlight-red, $lightness: -10%), 0.4); // Themed shadow
+    background-color: color.scale($highlight-red-sass, $lightness: -10%); // Use Sass value
+    border-color: color.scale($highlight-red-sass, $lightness: -10%); // Use Sass value
+    box-shadow: 0 6px 15px rgba(color.scale($highlight-red-sass, $lightness: -10%), 0.4); // Use Sass value
   }
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: $highlight-gold;
-  border-color: $highlight-gold;
-  flex-grow: 1; // Distribute space in row
+  color: $highlight-gold-css-var; // Use CSS var
+  border-color: $highlight-gold-css-var; // Use CSS var
+  flex-grow: 1;
   min-width: 0;
 
   &:hover {
-    background-color: rgba($highlight-gold, 0.15); // Subtle fill on hover
-    color: color.scale($highlight-gold, $lightness: 10%); // Brighten text
-    border-color: color.scale($highlight-gold, $lightness: 10%);
-    box-shadow: 0 6px 15px rgba($highlight-gold, 0.2); // Themed shadow
+    background-color: rgba($highlight-gold-sass, 0.15); // Use Sass value
+    color: color.scale($highlight-gold-sass, $lightness: 10%); // Use Sass value
+    border-color: color.scale($highlight-gold-sass, $lightness: 10%); // Use Sass value
+    box-shadow: 0 6px 15px rgba($highlight-gold-sass, 0.2); // Use Sass value
   }
 }
 
 .btn-tertiary {
   background-color: transparent;
-  color: $text-color-primary;
-  border-color: $border-color-gold;
-  width: 100%; // Full width in its container
-  flex-grow: 0; // Don't grow if in a flex row
+  color: $text-color-primary-css-var; // Use CSS var
+  border-color: $border-color-gold-css-var; // Use CSS var
+  width: 100%;
+  flex-grow: 0;
 
   &:hover {
-    background-color: rgba($text-color-primary, 0.1);
-    color: $text-color-titles;
-    border-color: $text-color-primary;
-    box-shadow: 0 6px 15px rgba($text-color-primary, 0.15);
+    background-color: rgba($text-color-primary-sass, 0.1); // Use Sass value
+    color: $text-color-titles-css-var; // Can be CSS var if no func
+    border-color: $text-color-primary-css-var; // Can be CSS var
+    box-shadow: 0 6px 15px rgba($text-color-primary-sass, 0.15); // Use Sass value
   }
 }
 
-/* --- Showcase Teaser Section --- */
-.showcase-teaser-section {
-  width: 100%;
-  padding: 1rem 2rem 4rem; // Top padding reduced due to main content margin-bottom
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.teaser-title {
-  // Optional section title
-  font-family: 'EternalFont', 'Georgia', serif;
-  font-size: 2.5rem;
-  color: $text-color-titles;
-  margin-bottom: 2.5rem;
-  text-align: center;
-}
-
-.teaser-panels-container {
-  display: flex;
-  justify-content: center;
-  align-items: stretch; // Panels same height if wrapping
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 1200px; // Max width for teaser grid
-  flex-wrap: wrap; // Allow panel wrapping
-}
-
-.teaser-panel {
-  flex: 1 1 300px; // Grow, shrink, base width
-  min-width: 280px; // Min width before excessive squish/wrap
-  max-width: 380px; // Max width
-  height: 450px; // Fixed height for uniformity
-  background-color: rgba(20, 16, 14, 0.6); // Dark semi-transparent bg
-  border-radius: 10px; // Rounded corners
-  overflow: hidden; // For clip-path and inner elements
-  position: relative;
-  text-decoration: none;
-  color: $text-color-primary;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); // Default shadow
-  border: 1px solid $border-color-gold;
-  display: flex;
-  flex-direction: column;
-  clip-path: polygon(20% 0, 100% 0, 80% 100%, 0% 100%); // Angled shape
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border 0.3s ease-out, filter 0.3s ease-out; // Hover transitions
-  filter: brightness(0.95); // Slightly dim to make hover pop
-
-
-  .panel-image-container {
-    width: 100%;
-    height: 100%; // Fill panel
-    position: relative;
-    overflow: hidden; // Image respects clip-path & scaling
-
-    .panel-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; // Cover container, may crop
-      transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), filter 0.3s ease-out; // Zoom and filter transition
-      filter: grayscale(0.6) brightness(0.7); // Desaturated and dimmed default
-    }
-
-    .panel-image-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(to top, rgba(5, 4, 3, 0.85) 0%, transparent 60%); // Dark bottom gradient
-      opacity: 1;
-      transition: opacity 0.3s ease;
-    }
-  }
-
-  .panel-title-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(10, 8, 7, 0.85); // Dark semi-transparent title bar
-    padding: 1rem 1.5rem;
-    text-align: center;
-    border-top: 1px solid var(--panel-accent-color, $border-color-gold); // Accent color top border
-    z-index: 2; // Above image overlay
-
-    h3 {
-      font-family: 'EternalFont', sans-serif;
-      font-size: 1.5rem;
-      color: $text-color-titles;
-      margin: 0;
-      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); // Readability shadow
-      transition: color 0.3s ease-out, text-shadow 0.3s ease-out;
-    }
-  }
-
-  .panel-glitch-overlay {
-    // For subtle animated effects
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--panel-accent-color);
-    opacity: 0; // Off by default
-    transition: opacity 0.3s ease-out;
-    pointer-events: none; // No click interference
-    clip-path: inherit; // Follows parent clip-path
-  }
-
-  &:hover {
-    transform: translateY(-8px) scale(1.02); // Lift and enlarge
-    border: 2px solid var(--panel-accent-color); // Accent color border
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-    filter: drop-shadow(0 0 20px var(--panel-accent-color)) brightness(1.1); // Glow effect + brightness boost
-
-    .panel-image {
-      transform: scale(1.05); // Zoom image
-      filter: grayscale(0) brightness(1); // Full color, normal brightness
-    }
-
-    .panel-image-overlay {
-      opacity: 0.15; // Reduce overlay for more image visibility
-    }
-
-    .panel-title-bar {
-      border-top-color: var(--panel-accent-color); // Ensure border matches
-
-      h3 {
-        color: var(--panel-accent-color); // Title to accent color
-        text-shadow: 0 0 8px var(--panel-accent-color); // Enhanced text glow
-      }
-    }
-
-    .panel-glitch-overlay {
-      opacity: 0.05; // Very subtle color tint on hover
-    }
-  }
-}
-
-
-/* Responsive Adjustments for Home page */
+/* Responsive Adjustments */
 @media (max-width: 992px) {
+  .home-header {
+    padding: 1rem 2.5rem;
+  }
 
-  // Tablet landscape and smaller
-  .home-main-content {
-    padding: 2rem;
-    min-height: 50vh;
+  .section-title {
+    font-size: 2.4rem;
     margin-bottom: 2rem;
   }
 
-  .content-left {
-    h1 {
-      font-size: 3.5rem;
-    }
+  .home-main-content {
+    padding: 2rem;
+    min-height: calc(70vh - 60px);
   }
 
-  .showcase-teaser-section {
-    padding: 2rem 1rem 3rem;
-  }
-
-  .teaser-panels-container {
-    gap: 1rem;
-  }
-
-  .teaser-panel {
-    height: 400px;
-    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%); // Less aggressive angle
+  .content-left h1 {
+    font-size: 3.5rem;
   }
 }
 
 @media (max-width: 768px) {
-
-  // Tablet portrait
   .home-header {
     padding: 0.8rem 2rem;
-    margin-bottom: 2rem; // Space for nav potentially wrapping
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .home-main-content {
     padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    min-height: auto;
   }
 
   .content-left {
@@ -381,41 +271,19 @@ $highlight-gold: #f1c40f;
     padding: 0.7rem 1.4rem;
     font-size: 0.9rem;
   }
-
-  .showcase-teaser-section {
-    padding-top: 1rem; // Reduced top padding
-  }
-
-  .teaser-panels-container {
-    flex-direction: column; // Stack panels
-    align-items: center; // Center stacked panels
-  }
-
-  .teaser-panel {
-    max-width: 400px; // Wider panels when stacked
-    width: 90%; // Use most of container width
-    height: 350px;
-    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); // Even less angle
-  }
-
-  .teaser-panel .panel-title-bar h3 {
-    font-size: 1.3rem;
-  }
-
 }
 
 @media (max-width: 480px) {
-
-  // Mobile phones
   .home-header {
-    padding: 0.7rem 1.5rem; // Less padding
-    gap: 1rem; // Reduced gap if nav items wrap
-    // Consider flex-direction: column; align-items: center; if header items stack poorly
+    padding: 0.7rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
   }
 
   .home-main-content {
     padding: 1rem;
-    // Consider flex-direction: column; for .content-left / .content-right
   }
 
   .content-left {
@@ -434,24 +302,11 @@ $highlight-gold: #f1c40f;
   }
 
   .action-buttons {
-    max-width: 100%; // Buttons use full width of content-left
+    max-width: 100%;
 
     .button-row-top {
-      flex-direction: column; // Stack top row buttons
-      gap: 0.5rem; // Less gap between stacked buttons
+      flex-direction: column;
+      gap: 0.5rem;
     }
-  }
-
-  .showcase-teaser-section {
-    padding-bottom: 2rem;
-  }
-
-  .teaser-panel {
-    height: 300px;
-    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%); // Very subtle angle
-  }
-
-  .teaser-panel .panel-title-bar h3 {
-    font-size: 1.2rem;
   }
 }

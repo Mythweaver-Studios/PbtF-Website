@@ -1,0 +1,65 @@
+[
+  {
+    "id": "news-20250516",
+    "date": "2025/05/16",
+    "title": "Major Content Update: The Shadowed Peaks",
+    "category": "Updates",
+    "categoryTheme": "updates",
+    "summary": "Explore new zones, face formidable foes, and uncover ancient secrets in our largest content drop yet!",
+    "linkToFullArticle": "/news#news-20250516"
+  },
+  {
+    "id": "news-20250422",
+    "date": "2025/04/22",
+    "title": "Spring Festival: Blossoms & Bounties Event",
+    "category": "Events",
+    "categoryTheme": "events",
+    "summary": "Join the festivities! Collect unique items, participate in special quests, and earn exclusive rewards during our Spring Festival.",
+    "linkToFullArticle": "/news#news-20250422"
+  },
+  {
+    "id": "news-20250310",
+    "date": "2025/03/10",
+    "title": "Developer Diary: Combat System Overhaul",
+    "category": "Info",
+    "categoryTheme": "info",
+    "summary": "Get an inside look at the upcoming changes to our combat mechanics, designed for more tactical and engaging battles.",
+    "linkToFullArticle": "/news#news-20250310"
+  },
+  {
+    "id": "news-20250219",
+    "date": "2025/02/19",
+    "title": "Version XX.X.X (iOS: X.X.X) update",
+    "category": "Updates",
+    "categoryTheme": "updates",
+    "summary": "Patch notes for version XX.X.X, including bug fixes and performance improvements.",
+    "linkToFullArticle": "/news#news-20250219"
+  },
+  {
+    "id": "news-20250205",
+    "date": "2025/02/05",
+    "title": "Lunar New Year Celebration: Gifts & Dragons",
+    "category": "Events",
+    "categoryTheme": "events",
+    "summary": "Celebrate the Lunar New Year with special login bonuses, themed quests, and a majestic dragon hunt!",
+    "linkToFullArticle": "/news#news-20250205"
+  },
+  {
+    "id": "news-20241228",
+    "date": "2024/12/28",
+    "title": "Reflecting on Crownless: 1st Anniversary Highlights",
+    "category": "Info",
+    "categoryTheme": "info",
+    "summary": "A look back at our first year, community achievements, and a sneak peek at what's to come.",
+    "linkToFullArticle": "/news#news-20241228"
+  },
+  {
+    "id": "news-20241115",
+    "date": "2024/11/15",
+    "title": "Quality of Life Update & Server Maintenance",
+    "category": "Updates",
+    "categoryTheme": "updates",
+    "summary": "Scheduled server maintenance and deployment of several quality-of-life improvements based on player feedback.",
+    "linkToFullArticle": "/news#news-20241115"
+  }
+]
