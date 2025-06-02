@@ -6,14 +6,13 @@ import MediaLinks from "../../components/MiniMediaLinks";
 import Footer from "../../components/Footer";
 // Corrected import paths to match the actual filenames
 import StoryScroller from "./components/Story";
-import CharactersDisplay from "./components/Characters";
 import FeaturesSlideshow from "./components/Features";
 
 import { storyText } from "./data/storyText";
-import { charactersData } from "./data/charactersData";
 import { featuresData } from "./data/featuresData";
 
 import "./Showcase.css"; // Import Showcase page specific styles
+import CharactersSection from "./components/CharactersSection/CharactersSection";
 
 const showcaseNavItems = [
   { id: "story", title: "Story" },
@@ -187,7 +186,7 @@ function Showcase() {
           <div className="section-title-container">
             <h2 className="section-title">Characters</h2>
           </div>
-          <CharactersDisplay charactersData={charactersData} />
+          <CharactersSection/>
         </section>
 
         <section
