@@ -6,36 +6,36 @@ import DiscordIconPath from "../assets/MiniMediaNavbar/Discord.svg";
 import "./MiniMediaLinks.css";
 
 function MediaLinks() {
-  return (
-    <div className="media-links">
-      {/* TODO: Update Instagram link */}
-      <a
-        href="https://discord.gg/pmu"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Instagram"
-      >
-        <img src={InstagramIconPath} alt="Instagram Icon" />
-      </a>
-      {/* TODO: Update Reddit link */}
-      <a
-        href="https://discord.gg/pmu"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Reddit"
-      >
-        <img src={RedditIconPath} alt="Reddit Icon" />
-      </a>
-      <a
-        href="https://discord.gg/pmu"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Discord"
-      >
-        <img src={DiscordIconPath} alt="Discord Icon" />
-      </a>
-    </div>
-  );
+    return (
+        <div className="media-links">
+            <a
+                href="https://discord.gg/pmu" // TODO: Update Instagram link
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="media-link-disabled" // Added class for disabled state
+            >
+                <img src={InstagramIconPath} alt="Instagram Icon" />
+            </a>
+            <a
+                href="https://discord.gg/pmu" // TODO: Update Reddit link
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Reddit"
+                className="media-link-disabled" // Added class for disabled state
+            >
+                <img src={RedditIconPath} alt="Reddit Icon" />
+            </a>
+            <a
+                href="https://discord.gg/pmu"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Discord"
+            >
+                <img src={DiscordIconPath} alt="Discord Icon" />
+            </a>
+        </div>
+    );
 }
 
 export default MediaLinks;

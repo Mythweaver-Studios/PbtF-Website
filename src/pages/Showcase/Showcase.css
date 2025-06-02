@@ -1,0 +1,302 @@
+/* src/pages/Showcase/Showcase.css */
+
+/* --- Theme Variable Values (Derived from SCSS) ---
+Original SCSS variables:
+$bg-color: #0a0807;
+$bg-gradient: linear-gradient(135deg, #100e0c 0%, #050403 100%);
+$text-color-primary: #e0c9a6;
+$text-color-titles: #ffd700;
+$text-color-accent-red: #c0392b;
+$border-color-gold: rgba(207, 181, 130, 0.4);
+$side-nav-line-color: rgba(255, 255, 255, 0.2);
+$side-nav-active-color: #ffd700;
+$side-nav-inactive-text: rgba(255, 255, 255, 0.5);
+$side-nav-active-text: #ffffff;
+$highlight-red: #e74c3c;
+$highlight-gold: #f1c40f;
+--- */
+
+.showcase-page {
+    background: linear-gradient(135deg, #100e0c 0%, #050403 100%);
+    color: #e0c9a6;
+    position: relative; /* For positioning context of fixed elements like side-nav */
+}
+
+.showcase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1.5rem 3rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(5, 4, 3, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(207, 181, 130, 0.4);
+}
+
+.showcase-content {
+    padding-top: 90px; /* Account for fixed header */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.showcase-section {
+    min-height: 100vh;
+    width: 100%;
+    padding: 5rem 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Needed for offsetTop calculations */
+}
+
+/* Section-specific backgrounds */
+.showcase-section.story-section {
+    background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), url('../../assets/showcase/story_background.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.showcase-section.characters-section {
+    background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), url('../../assets/showcase/characters_background.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.showcase-section.features-section {
+    background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), url('../../assets/showcase/features_background.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.section-title-container {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'EternalFont', 'Georgia', serif;
+    font-size: 3.2rem;
+    color: #ffd700; /* $text-color-titles */
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 0.75rem;
+    text-shadow: 0 0 12px rgba(241, 196, 15, 0.4), 0 0 18px rgba(241, 196, 15, 0.3); /* $highlight-gold related */
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #f1c40f, #c0392b, #f1c40f, transparent); /* $highlight-gold, $text-color-accent-red */
+    border-radius: 2px;
+    box-shadow: 0 0 10px #f1c40f, 0 0 15px #f1c40f; /* $highlight-gold */
+}
+
+/* --- Showcase Side Navigation --- */
+.showcase-side-nav {
+    position: fixed;
+    left: 35px; /* Spacing from edge */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 900; /* Below header */
+    display: flex;
+    align-items: center; /* Vertically center items with the line */
+    padding: 10px 0;
+}
+
+.showcase-side-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 13.4px; /* Space between line and text */
+    position: relative;
+}
+
+.side-nav-line {
+    width: 2px; /* Thickness of the main vertical line */
+    height: 200px; /* Height of the navigation line */
+    background-color: rgba(255, 255, 255, 0.2); /* $side-nav-line-color */
+    position: relative; /* For dots */
+}
+
+/* Top and bottom dots on the line */
+.side-nav-line::before,
+.side-nav-line::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.2); /* $side-nav-line-color */
+    border-radius: 50%;
+}
+
+.side-nav-line::before {
+    top: -5px; /* Position of top dot */
+}
+
+.side-nav-line::after {
+    bottom: -5px; /* Position of bottom dot */
+}
+
+.side-nav-item {
+    position: relative; /* For positioning indicator and text */
+    margin-bottom: 35px; /* Spacing between items */
+}
+
+.side-nav-item:last-child {
+    margin-bottom: 0;
+}
+
+.side-nav-item .side-nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5); /* $side-nav-inactive-text */
+    transition: color 0.3s ease;
+    position: relative; /* For indicator's absolute positioning */
+    padding: 5px 0; /* Clickable area */
+}
+
+.side-nav-item .side-nav-indicator {
+    /* Notch/segment on the main line */
+    width: 15px; /* Width of the notch */
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2); /* $side-nav-line-color */
+    position: absolute;
+    left: -22px; /* Position to connect with the main line */
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 0.3s ease, width 0.3s ease, box-shadow 0.3s ease;
+}
+
+.side-nav-item .side-nav-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding-left: 5px; /* Space from indicator to text */
+    white-space: nowrap;
+}
+
+.side-nav-item.active .side-nav-link {
+    color: #ffffff; /* $side-nav-active-text */
+}
+
+.side-nav-item.active .side-nav-indicator {
+    background-color: #ffd700; /* $side-nav-active-color */
+    width: 25px; /* Wider active indicator */
+    left: -27px; /* Adjust position for wider indicator */
+    box-shadow: 0 0 8px #ffd700, 0 0 12px rgba(255, 215, 0, 0.7); /* $side-nav-active-color related */
+}
+
+.side-nav-item.active .side-nav-text {
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.7); /* $side-nav-active-color related */
+}
+
+.side-nav-item:hover:not(.active) .side-nav-link {
+    color: #e6e6e6; /* darken(#ffffff, 10%) */
+}
+
+.side-nav-item:hover:not(.active) .side-nav-indicator {
+    background-color: #997a00; /* darken(#ffd700, 20%) */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    /* When side nav might overlap content */
+    .showcase-side-nav {
+        left: 15px; /* Bring closer to edge */
+    }
+}
+
+@media (max-width: 992px) {
+    .showcase-header {
+        padding: 1.2rem 2rem;
+    }
+
+    .showcase-content {
+        padding-top: 80px; /* Adjust for potentially smaller header */
+    }
+
+    .showcase-section {
+        padding: 4rem 2rem 2rem;
+        background-attachment: scroll; /* Performance on mobile */
+    }
+
+    .section-title {
+        font-size: 2.6rem;
+    }
+
+    /* Reduce size/spacing on tablets for showcase-side-nav */
+    .showcase-side-nav ul {
+        margin-left: 10px;
+    }
+
+    .showcase-side-nav .side-nav-item {
+        margin-bottom: 30px;
+    }
+
+    .showcase-side-nav .side-nav-indicator {
+        width: 12px;
+        left: -17px;
+    }
+
+    .showcase-side-nav .side-nav-item.active .side-nav-indicator {
+        width: 20px;
+        left: -25px;
+    }
+
+    .showcase-side-nav .side-nav-text {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-title::after {
+        width: 50px;
+        height: 2.5px;
+    }
+
+    .showcase-side-nav {
+        display: none; /* Hide side navigation on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .showcase-header {
+        padding: 1rem 1.2rem;
+    }
+
+    .showcase-section {
+        padding: 2.5rem 1rem 1.2rem;
+        min-height: auto; /* Allow sections to be shorter on small screens */
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .section-title::after {
+        width: 40px;
+    }
+}

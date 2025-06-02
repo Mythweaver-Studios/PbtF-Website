@@ -13,7 +13,7 @@ import { storyText } from "./data/storyText";
 import { charactersData } from "./data/charactersData";
 import { featuresData } from "./data/featuresData";
 
-import "./Showcase.scss"; // Import Showcase page specific styles
+import "./Showcase.css"; // Import Showcase page specific styles
 
 const showcaseNavItems = [
   { id: "story", title: "Story" },
