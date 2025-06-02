@@ -2,7 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import "./ShowcaseTeaser.scss";
+import "./ShowcaseTeaser.css";
 
 // Import images (assuming paths are relative to this new component's location or correctly configured for bundling)
 import lordChoshenImg from "../../../assets/showcase/character_lord_choshen.png";

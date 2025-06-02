@@ -4,7 +4,7 @@ import NavBar from "../../components/NavBar";
 import MediaLinks from "../../components/MiniMediaLinks";
 import Footer from "../../components/Footer";
 import "../../components/Default.css"; // For global styles and theme variables
-import "./AboutUs.scss";
+import "./AboutUs.css";
 
 const availableTeams = [
   "Animation Team",
