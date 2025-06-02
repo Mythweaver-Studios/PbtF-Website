@@ -1,0 +1,17 @@
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.w-100pct {
+    width: 100%;
+}
+
+.gap-8px {
+    gap: 8px;
+}
