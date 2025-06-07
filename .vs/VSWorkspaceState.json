@@ -1,16 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
-    "\\src\\assets",
-    "\\src\\assets\\showcase",
-    "\\src\\pages",
-    "\\src\\pages\\News",
-    "\\src\\pages\\Showcase",
-    "\\src\\pages\\Showcase\\components",
-    "\\src\\pages\\Showcase\\components\\CharactersSection",
-    "\\src\\pages\\Showcase\\components\\CharactersSection\\CharacterModal"
+    "\\public",
+    "\\src"
   ],
-  "SelectedNode": "\\src\\pages\\Showcase\\components\\CharactersSection",
+  "SelectedNode": "\\src\\App.jsx",
   "PreviewInSolutionExplorer": false
 }
