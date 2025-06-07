@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\public",
-    "\\src"
+    "\\src",
+    "\\src\\pages",
+    "\\src\\pages\\Showcase",
+    "\\src\\pages\\Showcase\\components"
   ],
-  "SelectedNode": "\\src\\App.jsx",
+  "SelectedNode": "\\src\\pages\\Showcase\\components\\Characters.css",
   "PreviewInSolutionExplorer": false
 }
