@@ -1,243 +1,239 @@
-// src/pages/Showcase/components/Characters.scss
-@use 'sass:color';
-
-// --- Theme Variables (copied for self-containment, ideally import from shared file) ---
-$text-color-primary: #e0c9a6;
-$text-color-titles: #ffd700;
-$border-color-gold: rgba(207, 181, 130, 0.4);
-$highlight-red: #e74c3c;
-$highlight-gold: #f1c40f;
-// --- End Theme Variables ---
+/* --- Theme Variables --- */
+:root {
+    --text-color-primary: #e0c9a6;
+    --text-color-titles: #ffd700;
+    --border-color-gold: rgba(207, 181, 130, 0.4);
+    --highlight-red: #e74c3c;
+    --highlight-gold: #f1c40f;
+}
+/* --- End Theme Variables --- */
 
 .characters-content-wrapper {
-  // Wrapper for the component's content
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem; // Space between display and thumbnails
+    /* Wrapper for the component's content */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem; /* Space between display and thumbnails */
 }
 
 .character-display {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 1100px; // Max width for character card
-  margin-bottom: 1rem;
-  min-height: 480px; // Ensure consistent height
-  position: relative;
-  transition: opacity 0.3s ease-in-out; // Fade transition
-  padding: 2rem;
-  background-color: rgba(15, 12, 10, 0.5); // Darker card bg
-  border-radius: 10px;
-  border: 1px solid $border-color-gold;
-  box-shadow: 0 0 40px -10px var(--character-accent-color, rgba($highlight-gold, 0.3)), // Dynamic accent shadow
-    inset 0 0 20px rgba(0, 0, 0, 0.3); // Inner shadow for depth
-
-  &.fading {
-    opacity: 0; // For fade transition
-  }
-
-  .character-main-image {
-    max-width: 38%; // Image size relative to container
-    max-height: 450px;
-    object-fit: contain; // Prevents image distortion
-    margin-right: 3rem; // Space between image and info
-    filter: drop-shadow(3px 3px 15px rgba(0, 0, 0, 0.7)); // Image shadow
-  }
-
-  .character-info {
-    max-width: 55%; // Text area size
-    color: $text-color-primary;
-
-    h3 {
-      // Character name
-      font-family: 'EternalFont', sans-serif;
-      font-size: 2.6rem;
-      color: $text-color-titles;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 0 6px var(--character-accent-color, transparent); // Dynamic accent glow
-    }
-
-    h4 {
-      // Character title/subtitle
-      font-size: 1.25rem;
-      color: var(--character-accent-color, $highlight-gold); // Dynamic accent color
-      margin-bottom: 1.5rem;
-      font-weight: 500;
-    }
-
-    p {
-      // Character description
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-  }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1100px; /* Max width for character card */
+    margin-bottom: 1rem;
+    min-height: 480px; /* Ensure consistent height */
+    position: relative;
+    transition: opacity 0.3s ease-in-out; /* Fade transition */
+    padding: 2rem;
+    background-color: rgba(15, 12, 10, 0.5); /* Darker card bg */
+    border-radius: 10px;
+    border: 1px solid var(--border-color-gold);
+    /* Dynamic accent shadow, with fallback to pre-calculated rgba */
+    box-shadow: 0 0 40px -10px var(--character-accent-color, rgba(241, 196, 15, 0.3)), inset 0 0 20px rgba(0, 0, 0, 0.3); /* Inner shadow for depth */
 }
 
+    .character-display.fading {
+        opacity: 0; /* For fade transition */
+    }
+
+    .character-display .character-main-image {
+        max-width: 38%; /* Image size relative to container */
+        max-height: 450px;
+        object-fit: contain; /* Prevents image distortion */
+        margin-right: 3rem; /* Space between image and info */
+        filter: drop-shadow(3px 3px 15px rgba(0, 0, 0, 0.7)); /* Image shadow */
+    }
+
+    .character-display .character-info {
+        max-width: 55%; /* Text area size */
+        color: var(--text-color-primary);
+    }
+
+        .character-display .character-info h3 {
+            /* Character name */
+            font-family: 'EternalFont', sans-serif;
+            font-size: 2.6rem;
+            color: var(--text-color-titles);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 6px var(--character-accent-color, transparent); /* Dynamic accent glow */
+        }
+
+        .character-display .character-info h4 {
+            /* Character title/subtitle */
+            font-size: 1.25rem;
+            color: var(--character-accent-color, var(--highlight-gold)); /* Dynamic accent color */
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .character-display .character-info p {
+            /* Character description */
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
 .character-thumbnails {
-  display: flex;
-  justify-content: center;
-  gap: 1rem; // Space between thumbnails
-  flex-wrap: wrap; // Allow thumbnails to wrap
-  width: 100%;
-  max-width: 900px;
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Space between thumbnails */
+    flex-wrap: wrap; /* Allow thumbnails to wrap */
+    width: 100%;
+    max-width: 900px;
 }
 
 .thumbnail-item {
-  cursor: pointer;
-  border: 2px solid $border-color-gold;
-  border-radius: 8px;
-  overflow: hidden; // Clip image scaling
-  transition: all 0.3s ease;
-  width: 100px;
-  height: 130px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgba(25, 20, 15, 0.8); // Thumbnail bg
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
-
-  img {
-    width: 100%;
-    height: 100px;
-    object-fit: cover;
-    transition: transform 0.3s ease; // Zoom effect on hover
-  }
-
-  span {
-    // Thumbnail name
-    font-size: 0.8rem;
-    color: $text-color-primary;
-    padding: 0.3rem 0;
-    text-align: center;
-    width: 100%;
-    background-color: rgba(15, 12, 10, 0.9); // Darker name bar
-    font-weight: 500;
-  }
-
-  &:hover {
-    border-color: $highlight-red; // Hover border
-    transform: translateY(-5px) scale(1.05); // Lift and scale effect
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 0 10px $highlight-red; // Hover shadow
-
-    img {
-      transform: scale(1.1); // Zoom image
-    }
-  }
-
-  &.active {
-    // Active thumbnail style
-    border-color: $highlight-gold;
-    box-shadow: 0 0 20px $highlight-gold, 0 0 25px $highlight-red, inset 0 0 8px rgba($highlight-gold, 0.3); // Active glow
-    background-color: rgba(40, 30, 20, 0.9); // Darker active bg
-
-    span {
-      color: $text-color-titles;
-      font-weight: bold;
-      text-shadow: 0 0 4px $highlight-red; // Active name glow
-    }
-  }
+    cursor: pointer;
+    border: 2px solid var(--border-color-gold);
+    border-radius: 8px;
+    overflow: hidden; /* Clip image scaling */
+    transition: all 0.3s ease;
+    width: 100px;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(25, 20, 15, 0.8); /* Thumbnail bg */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
 }
+
+    .thumbnail-item img {
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+        transition: transform 0.3s ease; /* Zoom effect on hover */
+    }
+
+    .thumbnail-item span {
+        /* Thumbnail name */
+        font-size: 0.8rem;
+        color: var(--text-color-primary);
+        padding: 0.3rem 0;
+        text-align: center;
+        width: 100%;
+        background-color: rgba(15, 12, 10, 0.9); /* Darker name bar */
+        font-weight: 500;
+    }
+
+    .thumbnail-item:hover {
+        border-color: var(--highlight-red); /* Hover border */
+        transform: translateY(-5px) scale(1.05); /* Lift and scale effect */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 0 10px var(--highlight-red); /* Hover shadow */
+    }
+
+        .thumbnail-item:hover img {
+            transform: scale(1.1); /* Zoom image */
+        }
+
+    .thumbnail-item.active {
+        /* Active thumbnail style */
+        border-color: var(--highlight-gold);
+        /* Active glow, with pre-calculated rgba */
+        box-shadow: 0 0 20px var(--highlight-gold), 0 0 25px var(--highlight-red), inset 0 0 8px rgba(241, 196, 15, 0.3);
+        background-color: rgba(40, 30, 20, 0.9); /* Darker active bg */
+    }
+
+        .thumbnail-item.active span {
+            color: var(--text-color-titles);
+            font-weight: bold;
+            text-shadow: 0 0 4px var(--highlight-red); /* Active name glow */
+        }
 
 /* Responsive Adjustments */
 @media (max-width: 992px) {
-  .characters-content-wrapper {
-    gap: 1.5rem;
-  }
-
-  .character-display {
-    flex-direction: column; // Stack image and info
-    min-height: auto; // Auto height for stacked layout
-    text-align: center;
-    padding: 1.5rem;
-
-    .character-main-image {
-      max-width: 60%;
-      margin-right: 0;
-      margin-bottom: 1.5rem; // Space between stacked image and info
+    .characters-content-wrapper {
+        gap: 1.5rem;
     }
 
-    .character-info {
-      max-width: 90%;
+    .character-display {
+        flex-direction: column; /* Stack image and info */
+        min-height: auto; /* Auto height for stacked layout */
+        text-align: center;
+        padding: 1.5rem;
     }
-  }
 
-  .character-thumbnails .thumbnail-item {
-    width: 85px;
-    height: 115px;
+        .character-display .character-main-image {
+            max-width: 60%;
+            margin-right: 0;
+            margin-bottom: 1.5rem; /* Space between stacked image and info */
+        }
 
-    img {
-      height: 85px;
+        .character-display .character-info {
+            max-width: 90%;
+        }
+
+    .character-thumbnails .thumbnail-item {
+        width: 85px;
+        height: 115px;
     }
-  }
+
+        .character-thumbnails .thumbnail-item img {
+            height: 85px;
+        }
 }
 
 @media (max-width: 768px) {
-  .character-display {
-    .character-main-image {
-      max-width: 65%;
-      max-height: 320px;
+    .character-display .character-main-image {
+        max-width: 65%;
+        max-height: 320px;
     }
 
-    .character-info {
-      h3 {
+    .character-display .character-info h3 {
         font-size: 2rem;
-      }
+    }
 
-      h4 {
+    .character-display .character-info h4 {
         font-size: 1.05rem;
-      }
+    }
 
-      p {
+    .character-display .character-info p {
         font-size: 0.85rem;
-      }
-    }
-  }
-
-  .character-thumbnails .thumbnail-item {
-    width: 75px;
-    height: 100px;
-
-    img {
-      height: 70px;
     }
 
-    span {
-      font-size: 0.65rem; // Smaller text for smaller thumbnails
+    .character-thumbnails .thumbnail-item {
+        width: 75px;
+        height: 100px;
     }
-  }
+
+        .character-thumbnails .thumbnail-item img {
+            height: 70px;
+        }
+
+        .character-thumbnails .thumbnail-item span {
+            font-size: 0.65rem; /* Smaller text for smaller thumbnails */
+        }
 }
 
 @media (max-width: 480px) {
-  .characters-content-wrapper {
-    gap: 1rem;
-  }
-
-  .character-display {
-    padding: 1rem;
-
-    .character-main-image {
-      max-width: 75%; // Image can be larger part of small screen
-      max-height: 280px;
+    .characters-content-wrapper {
+        gap: 1rem;
     }
 
-    .character-info h3 {
-      font-size: 1.6rem;
+    .character-display {
+        padding: 1rem;
     }
-  }
 
-  .character-thumbnails {
-    gap: 0.4rem; // Tighter thumbnail gap
-  }
+        .character-display .character-main-image {
+            max-width: 75%; /* Image can be larger part of small screen */
+            max-height: 280px;
+        }
 
-  .character-thumbnails .thumbnail-item {
-    width: 65px;
-    height: 90px;
+        .character-display .character-info h3 {
+            font-size: 1.6rem;
+        }
 
-    img {
-      height: 60px;
+    .character-thumbnails {
+        gap: 0.4rem; /* Tighter thumbnail gap */
     }
-  }
+
+        .character-thumbnails .thumbnail-item {
+            width: 65px;
+            height: 90px;
+        }
+
+            .character-thumbnails .thumbnail-item img {
+                height: 60px;
+            }
 }
