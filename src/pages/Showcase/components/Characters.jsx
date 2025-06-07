@@ -1,7 +1,7 @@
 // src/pages/Showcase/components/Characters.jsx
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types"; // Import PropTypes
-import "./Characters.scss"; // Import component-specific styles
+import "./Characters.css"; // Import component-specific styles
 
 function CharactersSection({ charactersData }) {
   const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);

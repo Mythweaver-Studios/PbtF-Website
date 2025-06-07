@@ -5,7 +5,7 @@ import Home from "./pages/Home/Home";
 import Showcase from "./pages/Showcase/Showcase";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import News from "./pages/News/News";
-import "./App.scss"
+import "./App.css"
 
 function App() {
   return (

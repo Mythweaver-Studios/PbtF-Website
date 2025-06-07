@@ -1,6 +1,7 @@
+// src\pages\Showcase\components\CharactersSection\CharacterModal\CharacterModal.jsx
 import React from "react";
 import PropTypes from "prop-types";
-import "./CharacterModal.scss";
+import "./CharacterModal.css";
 
 const CharacterModal = ({
     characterData = {}

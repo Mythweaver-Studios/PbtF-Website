@@ -1,7 +1,7 @@
 // src/pages/Showcase/components/Features.jsx
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types"; // Import PropTypes
-import "./Features.scss"; // Import component-specific styles
+import "./Features.css"; // Import component-specific styles
 
 const FEATURE_SLIDE_DURATION = 18500; // Duration for each slide in milliseconds
 

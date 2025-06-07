@@ -1,7 +1,7 @@
 // src/pages/Showcase/components/Story.jsx
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types"; // Import PropTypes
-import "./Story.scss"; // Import component-specific styles
+import "./Story.css"; // Import component-specific styles
 
 const SCROLL_SPEED = 0.5; // Pixels per interval
 const SCROLL_INTERVAL_TIME = 30; // Milliseconds

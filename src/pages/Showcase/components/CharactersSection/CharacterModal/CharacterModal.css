@@ -1,0 +1,44 @@
+/* src\pages\Showcase\components\CharactersSection\CharacterModal\CharacterModal.css */
+.character-modal .ant-modal-content {
+	padding: 0px !important;
+}
+
+.character-modal .character-display {
+	align-items: center;
+	height: 70%;
+	padding: 2rem;
+	background-color: rgba(15, 12, 10, 0.5); /* Darker card bg */
+	border-radius: 10px;
+	border: 1px solid;
+	box-shadow: 0 0 40px -10px;
+}
+
+	.character-modal .character-display .character-main-image {
+		height: 450px;
+		width: 450px;
+		object-fit: contain; /* Prevents image distortion */
+		margin-right: 3rem; /* Space between image and info */
+		filter: drop-shadow(3px 3px 15px rgba(0, 0, 0, 0.7)); /* Image shadow */
+	}
+
+	.character-modal .character-display .character-info {
+		/* No styles directly on this element, but it acts as a container */
+	}
+
+		.character-modal .character-display .character-info h3 {
+			font-family: 'EternalFont', sans-serif;
+			font-size: 2.6rem;
+			margin-bottom: 0.5rem;
+			text-shadow: 0 0 6px var(--character-accent-color, transparent); /* Dynamic accent glow */
+		}
+
+		.character-modal .character-display .character-info h4 {
+			font-size: 1.25rem;
+			margin-bottom: 1.5rem;
+			font-weight: 500;
+		}
+
+		.character-modal .character-display .character-info p {
+			font-size: 1rem;
+			line-height: 1.7;
+		}
