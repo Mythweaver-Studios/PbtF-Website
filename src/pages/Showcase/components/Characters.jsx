@@ -1,10 +1,9 @@
-// src/pages/Showcase/components/Characters.jsx
+﻿// src/pages/Showcase/components/Characters.jsx
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types"; // Import PropTypes
 import "./Characters.css"; // Import component-specific styles
 
 const DEFAULT_CYCLE_DURATION = 30000;
-const HOVER_CYCLE_DURATION = 15000;
 
 function CharactersSection({ charactersData }) {
     const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);
@@ -13,7 +12,15 @@ function CharactersSection({ charactersData }) {
         duration: DEFAULT_CYCLE_DURATION,
         key: 0,
     });
+
     const characterTimeoutRef = useRef(null);
+    // Use a ref to track the current index to avoid stale closures in the timer.
+    const indexRef = useRef(currentCharacterIndex);
+
+    // Keep the ref in sync with the state.
+    useEffect(() => {
+        indexRef.current = currentCharacterIndex;
+    }, [currentCharacterIndex]);
 
     // Unified function to change character, handles fade and animation reset
     const changeCharacter = (newIndex) => {
@@ -35,19 +42,20 @@ function CharactersSection({ charactersData }) {
         changeCharacter(index);
     };
 
+    // nextCharacter now uses the ref to get the most up-to-date index
     const nextCharacter = () => {
-        const newIndex = (currentCharacterIndex + 1) % charactersData.length;
+        const newIndex = (indexRef.current + 1) % charactersData.length;
         changeCharacter(newIndex);
     };
 
-    // Main timer effect: runs whenever the index or animation config changes
+    // Main timer effect: now only depends on animationConfig
     useEffect(() => {
         clearTimeout(characterTimeoutRef.current);
         if (charactersData && charactersData.length > 1) {
             characterTimeoutRef.current = setTimeout(nextCharacter, animationConfig.duration);
         }
         return () => clearTimeout(characterTimeoutRef.current);
-    }, [currentCharacterIndex, animationConfig]);
+    }, [animationConfig]); // Re-runs ONLY when the animation needs to restart.
 
 
     if (!charactersData || charactersData.length === 0) {
@@ -73,6 +81,7 @@ function CharactersSection({ charactersData }) {
                     }
                     alt={currentCharacter.name}
                     className="character-main-image"
+                    style={currentCharacter.styles || {}} // Apply custom styles here
                 />
                 <div className="character-info">
                     <h3>{currentCharacter.name}</h3>
@@ -86,6 +95,12 @@ function CharactersSection({ charactersData }) {
                             ></div>
                         )}
                     </div>
+                    {/* Star Rating Display */}
+                    <div className="character-stars">
+                        {Array.from({ length: currentCharacter.stars }, (_, i) => (
+                            <span key={i}>★</span>
+                        ))}
+                    </div>
                     <p>{currentCharacter.description}</p>
                 </div>
             </div>
@@ -97,14 +112,6 @@ function CharactersSection({ charactersData }) {
                             className={`thumbnail-item ${index === currentCharacterIndex ? "active" : ""
                                 }`}
                             onClick={() => selectCharacter(index)}
-                            onMouseEnter={() => clearTimeout(characterTimeoutRef.current)}
-                            onMouseLeave={() => {
-                                // On leave, restart the animation and timer with a shorter duration
-                                setAnimationConfig(prev => ({
-                                    duration: HOVER_CYCLE_DURATION,
-                                    key: prev.key + 1,
-                                }));
-                            }}
                         >
                             <img
                                 src={char.thumbnail || "../../../assets/placeholders/thumb.png"}
@@ -129,6 +136,8 @@ CharactersSection.propTypes = {
             image: PropTypes.string,
             thumbnail: PropTypes.string,
             accentColor: PropTypes.string.isRequired,
+            stars: PropTypes.number.isRequired,
+            styles: PropTypes.object, // Added for custom image styling
         })
     ).isRequired,
 };
