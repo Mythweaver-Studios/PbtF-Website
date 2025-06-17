@@ -1,161 +1,135 @@
 // src/pages/Showcase/components/Story.jsx
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types"; // Import PropTypes
 import "./Story.css"; // Import component-specific styles
 
-const SCROLL_SPEED = 0.5; // Pixels per interval
-const SCROLL_INTERVAL_TIME = 30; // Milliseconds
-const INITIAL_SCROLL_DELAY = 7500; // Milliseconds before scrolling starts
-const END_PAUSE_DURATION = 3000; // Milliseconds to pause at the end before resetting
-const FADE_DURATION = 500; // Milliseconds for fade out/in effect
-const RESET_SMOOTH_SCROLL_DELAY = 50; // Milliseconds delay before re-enabling smooth scroll
+const SCROLL_SPEED = 30; // Pixels per second
+const INITIAL_SCROLL_DELAY = 2500; // 2.5 seconds
+const END_PAUSE_DURATION = 3000; // 3 seconds
+const FADE_DURATION = 500; // 0.5 seconds
 
 function StorySection({ storyText }) {
-  const storyScrollerRef = useRef(null);
-  const [isStoryResetting, setIsStoryResetting] = useState(false);
-  const isMountedRef = useRef(false); // Tracks mount status for async operations
+    const scrollerRef = useRef(null);
+    const animationFrameId = useRef(null);
+    const timeoutId = useRef(null);
+    const lastTimestamp = useRef(0);
 
-  // Effect to track component mount status.
-  useEffect(() => {
-    isMountedRef.current = true;
-    return () => {
-      isMountedRef.current = false;
-    };
-  }, []);
+    // This is the core animation loop, driven by requestAnimationFrame
+    const animateScroll = (timestamp) => {
+        const scroller = scrollerRef.current;
+        if (!scroller) return;
 
-  // Effect for persistent scroll prevention listeners.
-  useEffect(() => {
-    const scroller = storyScrollerRef.current;
-    if (!scroller) return;
+        // Initialize timestamp on the first frame
+        if (lastTimestamp.current === 0) {
+            lastTimestamp.current = timestamp;
+        }
 
-    // Prevents manual mouse wheel scrolling.
-    const handleWheel = (event) => {
-      event.preventDefault();
-    };
+        // Calculate time elapsed and corresponding scroll distance
+        const elapsed = timestamp - lastTimestamp.current;
+        const scrollAmount = (SCROLL_SPEED * elapsed) / 1000;
 
-    // Prevents manual touch scrolling (e.g., swiping).
-    const handleTouchMove = (event) => {
-      event.preventDefault();
-    };
+        scroller.scrollTop += scrollAmount;
+        lastTimestamp.current = timestamp;
 
-    // Prevents middle-click "automatic scrolling".
-    const handleMouseDown = (event) => {
-      if (event.button === 1) {
-        // Middle mouse button
-        event.preventDefault();
-      }
+        // Continue animation if not at the end, otherwise start the reset process
+        if (scroller.scrollTop < scroller.scrollHeight - scroller.clientHeight) {
+            animationFrameId.current = requestAnimationFrame(animateScroll);
+        } else {
+            resetAnimation();
+        }
     };
 
-    scroller.addEventListener("wheel", handleWheel, { passive: false });
-    scroller.addEventListener("touchmove", handleTouchMove, { passive: false });
-    scroller.addEventListener("mousedown", handleMouseDown, { passive: false });
+    // This function handles the fade-out, reset, and restart sequence
+    const resetAnimation = () => {
+        const scroller = scrollerRef.current;
+        if (!scroller) return;
 
-    return () => {
-      // Check scroller again in cleanup, as it might have been set to null.
-      if (storyScrollerRef.current) {
-        storyScrollerRef.current.removeEventListener("wheel", handleWheel);
-        storyScrollerRef.current.removeEventListener(
-          "touchmove",
-          handleTouchMove
-        );
-        storyScrollerRef.current.removeEventListener(
-          "mousedown",
-          handleMouseDown
-        );
-      }
+        // 1. Pause at the end before doing anything
+        timeoutId.current = setTimeout(() => {
+            // 2. Fade out the text
+            scroller.style.transition = `opacity ${FADE_DURATION}ms ease-in-out`;
+            scroller.style.opacity = "0";
+
+            // 3. After the fade-out completes, reset scroll position and opacity
+            timeoutId.current = setTimeout(() => {
+                scroller.scrollTop = 0;
+                scroller.style.transition = "none"; // Disable transition for instant opacity change
+                scroller.style.opacity = "1";
+
+                // 4. Restart the entire animation cycle from the beginning
+                startAnimationCycle();
+            }, FADE_DURATION);
+        }, END_PAUSE_DURATION);
     };
-  }, []); // Runs once on mount, cleans up on unmount.
 
-  // Effect for managing automatic scrolling and reset logic.
-  useEffect(() => {
-    const scroller = storyScrollerRef.current;
-    if (!scroller) return;
+    // This function intelligently starts the animation cycle
+    const startAnimationCycle = () => {
+        const scroller = scrollerRef.current;
+        if (!scroller) return;
 
-    let scrollIntervalId; // Interval ID for the auto-scrolling mechanism.
-    let initialScrollDelayTimeoutId; // Timeout ID for delaying the start of scrolling.
-    let resetFadeOutTimeoutId, resetScrollTopTimeoutId, resetFadeInTimeoutId; // Timeout IDs for reset sequence.
+        // Reset timestamp for the new animation cycle
+        lastTimestamp.current = 0;
 
-    if (!isStoryResetting) {
-      scroller.style.scrollBehavior = "smooth"; // Ensure smooth scrolling for auto-scroll.
-
-      initialScrollDelayTimeoutId = setTimeout(() => {
-        if (!isMountedRef.current) return; // Guard against updates if unmounted.
-
-        scrollIntervalId = setInterval(() => {
-          if (!isMountedRef.current) {
-            clearInterval(scrollIntervalId);
-            return;
-          }
-          // Check if scroll position is near the bottom.
-          if (
-            scroller.scrollTop <
-            scroller.scrollHeight - scroller.clientHeight - 1
-          ) {
-            scroller.scrollTop += SCROLL_SPEED;
-          } else {
-            // Reached end, initiate reset.
-            clearInterval(scrollIntervalId);
-            if (isMountedRef.current) {
-              setIsStoryResetting(true);
+        const attemptToStart = () => {
+            // *** THE CORE FIX ***
+            // Check if the content is actually scrollable. If not, wait and try again.
+            // This prevents the race condition where the animation starts before layout is complete.
+            if (scroller.scrollHeight > scroller.clientHeight) {
+                // Content is ready, wait for the initial delay then start the animation loop
+                timeoutId.current = setTimeout(() => {
+                    animationFrameId.current = requestAnimationFrame(animateScroll);
+                }, INITIAL_SCROLL_DELAY);
+            } else {
+                // Content not yet rendered to full height, poll again shortly
+                timeoutId.current = setTimeout(attemptToStart, 100);
             }
-          }
-        }, SCROLL_INTERVAL_TIME);
-      }, INITIAL_SCROLL_DELAY);
-    } else {
-      // isStoryResetting is true: handle the reset animation and state changes.
-      resetFadeOutTimeoutId = setTimeout(() => {
-        if (!isMountedRef.current || !storyScrollerRef.current) return;
-        storyScrollerRef.current.style.opacity = "0"; // Start fade out.
+        };
 
-        resetScrollTopTimeoutId = setTimeout(() => {
-          if (!isMountedRef.current || !storyScrollerRef.current) return;
-          storyScrollerRef.current.style.scrollBehavior = "auto"; // Instant scroll to top.
-          storyScrollerRef.current.scrollTop = 0;
-          storyScrollerRef.current.style.opacity = "1"; // Start fade in.
-
-          resetFadeInTimeoutId = setTimeout(() => {
-            if (!isMountedRef.current || !storyScrollerRef.current) return;
-            storyScrollerRef.current.style.scrollBehavior = "smooth"; // Re-enable smooth scroll.
-            if (isMountedRef.current) {
-              setIsStoryResetting(false); // End reset, allows scrolling to start again.
-            }
-          }, RESET_SMOOTH_SCROLL_DELAY);
-        }, FADE_DURATION); // Duration of fade out.
-      }, END_PAUSE_DURATION); // Pause at end before reset.
-    }
-
-    return () => {
-      // Cleanup for this effect.
-      clearTimeout(initialScrollDelayTimeoutId);
-      clearInterval(scrollIntervalId);
-      clearTimeout(resetFadeOutTimeoutId);
-      clearTimeout(resetScrollTopTimeoutId);
-      clearTimeout(resetFadeInTimeoutId);
+        attemptToStart();
     };
-  }, [isStoryResetting]); // Re-run effect if isStoryResetting changes.
 
-  return (
-    <div className="story-box">
-      <div
-        className="story-text-scroller"
-        ref={storyScrollerRef}
-        style={{ touchAction: "none" }} // Disables default touch scroll behavior.
-      >
-        {storyText &&
-          storyText.split("\n\n").map(
-            (
-              paragraph,
-              index // Render paragraphs if storyText exists.
-            ) => <p key={index}>{paragraph}</p>
-          )}
-      </div>
-    </div>
-  );
+    // Main effect hook to manage the entire component lifecycle
+    useEffect(() => {
+        const scroller = scrollerRef.current;
+        // Add event listeners to prevent manual scrolling
+        const preventDefault = (e) => e.preventDefault();
+        if (scroller) {
+            scroller.addEventListener("wheel", preventDefault, { passive: false });
+            scroller.addEventListener("touchmove", preventDefault, { passive: false });
+        }
+
+        // Kick off the animation process
+        startAnimationCycle();
+
+        // Cleanup function: cancel all timers and animations on unmount
+        return () => {
+            cancelAnimationFrame(animationFrameId.current);
+            clearTimeout(timeoutId.current);
+            if (scroller) {
+                scroller.removeEventListener("wheel", preventDefault);
+                scroller.removeEventListener("touchmove", preventDefault);
+            }
+        };
+    }, [storyText]); // Dependency array ensures this runs once on mount (or if text changes)
+
+    return (
+        <div className="story-box">
+            <div
+                className="story-text-scroller"
+                ref={scrollerRef}
+                style={{ touchAction: "none" }}
+            >
+                {storyText &&
+                    storyText.split("\n\n").map((paragraph, index) => (
+                        <p key={index}>{paragraph}</p>
+                    ))}
+            </div>
+        </div>
+    );
 }
 
-// PropTypes definition
 StorySection.propTypes = {
-  storyText: PropTypes.string.isRequired,
+    storyText: PropTypes.string.isRequired,
 };
 
 export default StorySection;

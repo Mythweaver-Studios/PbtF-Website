@@ -61,19 +61,58 @@
             text-shadow: 0 0 6px var(--character-accent-color, transparent); /* Dynamic accent glow */
         }
 
-        .character-display .character-info h4 {
-            /* Character title/subtitle */
-            font-size: 1.25rem;
-            color: var(--character-accent-color, var(--highlight-gold)); /* Dynamic accent color */
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
+/* Wrapper for the title and progress bar */
+.character-title-wrapper {
+    position: relative;
+    /* Use table display for robust shrink-wrapping and centering */
+    display: table;
+    padding-bottom: 10px; /* Space for progress bar */
+    margin-bottom: 1.5rem; /* Space between bar and description */
+}
 
-        .character-display .character-info p {
-            /* Character description */
-            font-size: 1rem;
-            line-height: 1.7;
-        }
+.character-display .character-info h4 {
+    /* Character title/subtitle */
+    font-size: 1.25rem;
+    color: var(--character-accent-color, var(--highlight-gold)); /* Dynamic accent color */
+    font-weight: 500;
+    margin-bottom: 0; /* Margin is now on the wrapper */
+}
+
+.character-display .character-info p {
+    /* Character description */
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* --- Progress Bar Styles --- */
+.character-cycle-progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Spans the full width of the parent wrapper */
+    height: 2.5px;
+    background-color: var(--character-accent-color, var(--highlight-gold));
+    box-shadow: 0 0 8px var(--character-accent-color, var(--highlight-gold));
+    border-radius: 2px;
+    /* Animation setup */
+    transform-origin: left;
+    transform: scaleX(0);
+    animation-name: characterProgressBarFill;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes characterProgressBarFill {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+/* --- End Progress Bar Styles --- */
+
 
 .character-thumbnails {
     display: flex;
@@ -151,18 +190,23 @@
         flex-direction: column; /* Stack image and info */
         min-height: auto; /* Auto height for stacked layout */
         text-align: center;
-        padding: 1.5rem;
     }
-
-        .character-display .character-main-image {
-            max-width: 60%;
-            margin-right: 0;
-            margin-bottom: 1.5rem; /* Space between stacked image and info */
-        }
 
         .character-display .character-info {
             max-width: 90%;
         }
+
+    /* Add auto margins to center the table-behaving wrapper */
+    .character-title-wrapper {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .character-display .character-main-image {
+        max-width: 60%;
+        margin-right: 0;
+        margin-bottom: 1.5rem; /* Space between stacked image and info */
+    }
 
     .character-thumbnails .thumbnail-item {
         width: 85px;

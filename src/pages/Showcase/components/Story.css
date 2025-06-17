@@ -6,7 +6,6 @@
     --border-color-gold-story: rgba(207, 181, 130, 0.4);
     --highlight-gold-story: #f1c40f;
 }
-/* --- End Theme Variables --- */
 
 .story-box {
     width: 100%;
@@ -51,6 +50,7 @@
     overflow-y: scroll; /* Enable vertical scroll */
     scrollbar-width: none; /* Hide scrollbar for Firefox */
     transition: opacity 0.5s ease-in-out; /* For fade-in/out on reset */
+    scroll-behavior: auto; /* <--- ADDED: Override global smooth scroll to allow JS animation */
 }
 
     .story-text-scroller::-webkit-scrollbar {

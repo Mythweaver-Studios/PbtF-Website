@@ -1,43 +1,43 @@
 // src/pages/Showcase/data/charactersData.js
 
 // Image imports
-import lordChoshenImg from "../../../assets/showcase/character_lord_choshen.png";
-import lordChoshenThumb from "../../../assets/showcase/thumb_lord_choshen.png";
-import blueStarImg from "../../../assets/showcase/character_blue_star.png";
-import blueStarThumb from "../../../assets/showcase/thumb_blue_star.png";
-import aliceKingstonImg from "../../../assets/showcase/character_alice_kingston.png";
-import aliceKingstonThumb from "../../../assets/showcase/thumb_alice_kingston.png";
+import Character1Img from "../../../assets/showcase/Noire_3.png";
+import Character1Thumb from "../../../assets/showcase/Noire_3.png";
+import Character2Img from "../../../assets/showcase/YanYan.png";
+import Character2Thumb from "../../../assets/showcase/YanYan.png";
+import Character3Img from "../../../assets/showcase/Character_Benedict.png";
+import Character3Thumb from "../../../assets/showcase/Thumb_Benedict.png";
 
 // Data for character showcase
 export const charactersData = [
-  {
-    id: 1,
-    name: "Lord Choshen",
-    title: "Afraid of Women",
-    description:
-      "A once-feared lord, now a reluctant hero. Choshen's journey is one of redemption, courage, and the unexpected strength found in vulnerability.",
-    image: lordChoshenImg,
-    thumbnail: lordChoshenThumb,
-    accentColor: "rgba(148, 88, 143, 0.8)", // Unique accent for Choshen
-  },
-  {
-    id: 2,
-    name: "Mr.BlueStar",
-    title: "Lazy Typer",
-    description:
-      "A mysterious figure with a penchant for laziness, Mr. BlueStar is a master of strategy and manipulation, often using his wit to outsmart opponents.",
-    image: blueStarImg,
-    thumbnail: blueStarThumb,
-    accentColor: "rgba(0, 255, 34, 0.8)", // Unique accent for BlueStar
-  },
-  {
-    id: 3,
-    name: "Alice Kingston",
-    title: "The Flame Lotus",
-    description:
-      "A fierce warrior with a fiery spirit, Alice is known for her unmatched combat skills and her ability to harness the power of fire in battle.",
-    image: aliceKingstonImg,
-    thumbnail: aliceKingstonThumb,
-    accentColor: "rgb(255, 30, 0)", // Red/Orange accent for Alice
-  },
+    {
+        id: 1,
+        name: "Noire Three",
+        title: "Nameless Rose",
+        description:
+            "A once-feared lord, now a reluctant hero. Choshen's journey is one of redemption, courage, and the unexpected strength found in vulnerability.",
+        image: Character1Img,
+        thumbnail: Character1Thumb,
+        accentColor: "#8b9ff2",
+    },
+    {
+        id: 2,
+        name: "YanYan",
+        title: "The Unknown",
+        description:
+            "Unknown...",
+        image: Character2Img,
+        thumbnail: Character2Thumb,
+        accentColor: "#d3e5fe",
+    },
+    {
+        id: 3,
+        name: "Benedict",
+        title: "The Unknown",
+        description:
+            "Unknown...",
+        image: Character3Img,
+        thumbnail: Character3Thumb,
+        accentColor: "rgba(191, 191, 191, 0.8)",
+    },
 ];

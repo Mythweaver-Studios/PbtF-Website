@@ -1,16 +1,13 @@
 // src/pages/Showcase/data/storyText.js
 
-// Narrative content for the story section
-export const storyText = `In the ruins of a shattered Earth consumed by nightmares, humanity fights not just for survival—but for the very right to dream. The world is divided between the waking realm and the Dream Realm, a place where monsters born of fear and madness roam freely. Only a few, chosen by fate or misfortune, can enter this twisted dimension: Awakened.
+export const storyText = `This world is but one fragment of countless realms, a fragile remnant where ancient forces and forgotten powers shape the fate of all living things. At its heart lies the Ariest Expanse, a land once vibrant and full of life, now caught in the grip of change beyond understanding.
 
-Sunless, or Sunny as he’s mockingly named, is a slave. Born without status, purpose, or hope, he lives a life of hardship in the bottom rungs of a caste-ridden society ruled by Awakened elites. With no family, no power, and no future, his fate seems sealed—until the day he is forcibly inducted into the Dream Realm by an ancient spell.
+Elios, a scholar turned seeker, arrives driven by visions and truths hidden deep within the fabric of existence. His discovery challenges everything the world believes about freedom, fate, and the nature of choice. With determination, he sets forth on a path to unravel the very strings that bind reality.
 
-Thrown into a grotesque world of shifting shadows, deadly creatures, and cryptic ruins, Sunny discovers that the Dream Realm is not merely a battlefield—but a crucible that will either break or reshape him. He is cursed with a strange and nearly useless Aspect, no mentor, no resources, and no understanding of the terrifying reality he's trapped in. Unlike others, he has no heroic path laid before him—only desperation and the bitter will to survive.
+As his influence spreads, long-held alliances fracture and ancient orders face unprecedented trials. Echoes of rebellion and philosophies ripple through kingdoms and cults alike, each struggling to grasp what Elios’s vision means for their future, and their survival.
 
-But Sunny has something else: cunning. Ruthless, paranoid, and more observant than most, he begins to unravel the logic of the Dream Realm. With every deadly encounter, he grows not through strength alone, but by learning its hidden rules, exploiting its systems, and mastering its ancient magic. He befriends—or manipulates—those stronger than him. He steals power from those who underestimate him. In a world ruled by raw force, he sharpens his mind into a weapon.
+Beyond the borders of the Expanse lie realms where time bends, and death itself is questioned. Strange forces awaken, and old powers stir beneath frozen wastes and deep seas. Those who survive bear witness to events that defy reason and hint at a destiny far larger than any single life.
 
-Yet even as he claws his way up from nothing, deeper mysteries take shape. What is the true nature of the Spell that governs this realm? What secrets lie in the ancient city beneath the dreamscape? And what is the cost of ascending to greatness in a place built on death and forgotten gods?
+At the center of the world, fragile peace gives way to conflict, and choices made in desperation shape the course of countless lives. Allies rise, enemies fall, and the struggle to define meaning in chaos becomes a battle unlike any other.
 
-Shadow Slave is not a tale of heroes, but of survivors. It is a story about fear, obsession, sacrifice, and the thin line between darkness and control. Sunny's path is drenched in blood and shadow—not because he seeks power, but because he refuses to die weak and forgotten.
-
-In the Dream Realm, your nightmares define you. And Sunny… Sunny is learning to control his.`;
+Now, as shadows lengthen and the old order falters, a new being emerges, one that offers hope, danger, and the chance to rewrite fate itself. The path forward is uncertain, and only those willing to face the unknown will discover what lies beyond the final horizon.`;

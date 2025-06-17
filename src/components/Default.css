@@ -5,54 +5,50 @@
 
 /* --- Theme Colors (CSS Custom Properties for easier use if needed, or direct values) --- */
 :root {
-  --theme-bg-gradient: linear-gradient(135deg, #100e0c 0%, #050403 100%);
-  --theme-text-primary: #e0c9a6;
-  /* Muted gold */
-  --theme-text-secondary: #a89a85;
-  /* Dimmer gold for less important text like copyright */
-  --theme-text-titles: #ffd700;
-  /* Brighter gold */
-  --theme-text-accent-red: #c0392b;
-  /* Rich red */
-  --theme-border-gold: rgba(207, 181, 130, 0.4);
-  --theme-border-gold-faint: rgba(207, 181, 130, 0.2);
-  --theme-highlight-red: #e74c3c;
-  --theme-highlight-gold: #f1c40f;
-
-  /* NavBar & Dropdown Theme Variables (can be used in NavBar.css) */
-  --theme-nav-item-color: #c7b8a1;
-  --theme-nav-item-hover-color: #ffd700;
-  --theme-nav-item-active-underline: #f1c40f;
-  --theme-dropdown-bg: #1a1612;
-  --theme-dropdown-border: rgba(207, 181, 130, 0.25);
-  --theme-dropdown-item-text: #f8f9fa;
-  /* Changed to off-white */
-  --theme-dropdown-item-hover-bg: #2c251d;
-  --theme-dropdown-item-hover-text: #ffd700;
-
-  /* MediaLinks Theme Variables (can be used in MiniMediaLinks.css) */
-  --theme-media-link-bg: #f1c40f;
-  --theme-media-link-icon: #4a3b24;
-  --theme-media-link-hover-shadow: rgba(241, 196, 15, 0.7);
-  /* Gold shadow */
-  /* Added for hover state in MiniMediaLinks.css */
-  --theme-media-link-hover-bg: var(--theme-highlight-red);
-  --theme-media-link-hover-icon-filter: brightness(0) invert(1);
-
-
-  /* Footer Specific Theme Variables (can be used in Footer.css) */
-  --theme-footer-bg: #0c0a09;
-  --theme-footer-text: var(--theme-text-secondary);
-  --theme-footer-link-color: var(--theme-text-primary);
-  --theme-footer-link-hover-color: var(--theme-text-titles);
-  --theme-footer-divider-color: var(--theme-border-gold-faint);
-  --theme-footer-button-bg: transparent;
-  --theme-footer-button-text: var(--theme-text-primary);
-  --theme-footer-button-hover-bg: rgba(241, 196, 15, 0.1);
-  --theme-footer-button-hover-text: var(--theme-highlight-gold);
-  --theme-footer-lang-dropdown-bg: #1f1b16;
-  --theme-footer-lang-dropdown-border: var(--theme-border-gold);
-  --theme-footer-lang-dropdown-item-hover-bg: #3a3025;
+    --theme-bg-gradient: linear-gradient(135deg, #100e0c 0%, #050403 100%);
+    --theme-text-primary: #e0c9a6;
+    /* Muted gold */
+    --theme-text-secondary: #a89a85;
+    /* Dimmer gold for less important text like copyright */
+    --theme-text-titles: #ffd700;
+    /* Brighter gold */
+    --theme-text-accent-red: #c0392b;
+    /* Rich red */
+    --theme-border-gold: rgba(207, 181, 130, 0.4);
+    --theme-border-gold-faint: rgba(207, 181, 130, 0.2);
+    --theme-highlight-red: #e74c3c;
+    --theme-highlight-gold: #f1c40f;
+    /* NavBar & Dropdown Theme Variables (can be used in NavBar.css) */
+    --theme-nav-item-color: #c7b8a1;
+    --theme-nav-item-hover-color: #ffd700;
+    --theme-nav-item-active-underline: #f1c40f;
+    --theme-dropdown-bg: #1a1612;
+    --theme-dropdown-border: rgba(207, 181, 130, 0.25);
+    --theme-dropdown-item-text: #f8f9fa;
+    /* Changed to off-white */
+    --theme-dropdown-item-hover-bg: #2c251d;
+    --theme-dropdown-item-hover-text: #ffd700;
+    /* MediaLinks Theme Variables (can be used in MiniMediaLinks.css) */
+    --theme-media-link-bg: #f1c40f;
+    --theme-media-link-icon: #4a3b24;
+    --theme-media-link-hover-shadow: rgba(241, 196, 15, 0.7);
+    /* Gold shadow */
+    /* Added for hover state in MiniMediaLinks.css */
+    --theme-media-link-hover-bg: var(--theme-highlight-red);
+    --theme-media-link-hover-icon-filter: brightness(0) invert(1);
+    /* Footer Specific Theme Variables (can be used in Footer.css) */
+    --theme-footer-bg: #0c0a09;
+    --theme-footer-text: var(--theme-text-secondary);
+    --theme-footer-link-color: var(--theme-text-primary);
+    --theme-footer-link-hover-color: var(--theme-text-titles);
+    --theme-footer-divider-color: var(--theme-border-gold-faint);
+    --theme-footer-button-bg: transparent;
+    --theme-footer-button-text: var(--theme-text-primary);
+    --theme-footer-button-hover-bg: rgba(241, 196, 15, 0.1);
+    --theme-footer-button-hover-text: var(--theme-highlight-gold);
+    --theme-footer-lang-dropdown-bg: #1f1b16;
+    --theme-footer-lang-dropdown-border: var(--theme-border-gold);
+    --theme-footer-lang-dropdown-item-hover-bg: #3a3025;
 }
 
 
@@ -60,37 +56,32 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  /* Added for smooth scroll consistency */
-  scroll-behavior: smooth;
+    /* REMOVED: scroll-behavior: smooth; This was conflicting with JS animations. */
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif;
-  background: var(--theme-bg-gradient);
-  color: var(--theme-text-primary);
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--theme-bg-gradient);
+    color: var(--theme-text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 img {
-  max-width: 100%;
-  display: block;
+    max-width: 100%;
+    display: block;
 }
-
-/* Component-specific styles have been moved to their respective CSS files */
-/* (NavBar.css, MiniMediaLinks.css, Footer.css) */
