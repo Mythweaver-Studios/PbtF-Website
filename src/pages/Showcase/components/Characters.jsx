@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types"; // Import PropTypes
 import "./Characters.css"; // Import component-specific styles
 
-const DEFAULT_CYCLE_DURATION = 30000;
+const DEFAULT_CYCLE_DURATION = 15000;
 
 function CharactersSection({ charactersData }) {
     const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);
