@@ -43,3 +43,8 @@ yarn-error.log*
 .vs/slnx.sqlite
 .vs/Community-Service/FileContentIndex/220ed7ab-7dff-4650-abea-044c16bb3602.vsidx
 .vs/Community-Service/FileContentIndex/a117ee36-ad7c-4d00-83f5-b996297e85a8.vsidx
+.vs/slnx.sqlite
+.vs/Community-Service/FileContentIndex/676152a0-c221-49e7-83f9-673ce31f1d12.vsidx
+*.vsidx
+*.sqlite
+*.sqlite
