@@ -1,10 +1,10 @@
 // src/pages/Showcase/data/charactersData.js
 
 // Image imports
-import Character1Img from "../../../assets/showcase/Noire_3.png";
-import Character1Thumb from "../../../assets/showcase/Noire_3.png";
-import Character2Img from "../../../assets/showcase/YanYan.png";
-import Character2Thumb from "../../../assets/showcase/YanYan.png";
+import Character1Img from "../../../assets/showcase/Character_Noire_3.png";
+import Character1Thumb from "../../../assets/showcase/Thumb_Noire_3.png";
+import Character2Img from "../../../assets/showcase/Character_YanYan.png";
+import Character2Thumb from "../../../assets/showcase/Thumb_YanYan.png";
 import Character3Img from "../../../assets/showcase/Character_Benedict.png";
 import Character3Thumb from "../../../assets/showcase/Thumb_Benedict.png";
 
@@ -28,9 +28,9 @@ export const charactersData = [
     {
         id: 2,
         name: "YanYan",
-        title: "The Unknown",
+        title: "The Azure Tempest",
         description:
-            "Unknown...",
+            "A master of elemental sword arts who strikes like a storm. Once a disciple of a legendary order, she now walks a solitary path as a relic diver, seeking the power to challenge fate itself.",
         image: Character2Img,
         thumbnail: Character2Thumb,
         accentColor: "#d3e5fe",

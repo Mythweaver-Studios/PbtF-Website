@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import "./ShowcaseTeaser.css";
 
 // Import images (assuming paths are relative to this new component's location or correctly configured for bundling)
-import lordChoshenImg from "../../../assets/showcase/character_lord_choshen.png";
-import blueStarImg from "../../../assets/showcase/character_blue_star.png";
-import aliceKingstonImg from "../../../assets/showcase/character_alice_kingston.png";
+import lordChoshenImg from "../../../assets/showcase/Character_Noire_3.png";
+import blueStarImg from "../../../assets/showcase/Character_YanYan.png";
+import aliceKingstonImg from "../../../assets/showcase/Character_Benedict.png";
 
 // Data for the showcase teaser section
 const showcaseTeaserData = [
