@@ -72,10 +72,16 @@ function CharacterDetailModal({ character, onClose }) {
     };
 
     // Star renderer
-    const renderStars = (current, max) => {
+    const renderStars = (current, max, isHidden) => {
         const stars = [];
         for (let i = 0; i < max; i++) {
-            stars.push(<span key={i} className={i < current ? 'star-filled' : 'star-empty'}>★</span>);
+            let className = 'star-empty';
+            if (i < current) {
+                className = 'star-filled';
+            } else if (isHidden) {
+                className += ' blurred';
+            }
+            stars.push(<span key={i} className={className}>★</span>);
         }
         return <div className="modal-char-stars">{stars}</div>;
     };
@@ -85,23 +91,31 @@ function CharacterDetailModal({ character, onClose }) {
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <button className="modal-close-btn" onClick={handleClose}>×</button>
                 <div className="modal-left">
-                    <img
-                        src={character.image || "../../../assets/placeholders/character_large.png"}
-                        alt={character.name}
-                        className="modal-char-image"
-                        style={character.styles || {}}
-                    />
+                    {character.image ? (
+                        <img
+                            src={character.image}
+                            alt={character.name}
+                            className="modal-char-image"
+                            style={character.showcaseStyles || {}}
+                        />
+                    ) : (
+                        <div className="modal-char-appearance">
+                            <h4 className="modal-section-title">Appearance</h4>
+                            <p>{character.appearanceDescription}</p>
+                        </div>
+                    )}
                 </div>
                 <div className="modal-right">
                     <h2 className="modal-char-name">{character.name} {renderGenderIcon(character.gender)}</h2>
-                    <h3 className="modal-char-title">{character.title}</h3>
-                    {renderStars(character.stars, character.maxStars)}
+                    <h3 className={`modal-char-title ${character.title.includes("?") ? "blurred-text" : ""}`}>{character.title}</h3>
+                    {renderStars(character.stars, character.maxStars, character.maxStarsHidden)}
                     <div className="modal-divider"></div>
 
                     <div className="modal-char-details">
-                        <p><strong>Full Name:</strong> <span className={character.fullName.includes("??") ? "blurred-text" : ""}>{character.fullName}</span></p>
-                        <p><strong>Species:</strong> {character.species}</p>
-                        <p><strong>Class:</strong> {character.class}</p>
+                        <p><strong>Full Name:</strong> <span className={character.fullName.includes("Unknown") ? "blurred-text" : ""}>{character.fullName}</span></p>
+                        <p><strong>Species:</strong> <span className={character.species.includes("Unknown") ? "blurred-text" : ""}>{character.species}</span></p>
+                        <p><strong>Class:</strong> <span className={character.class.includes("Unknown") ? "blurred-text" : ""}>{character.class}</span></p>
+                        <p><strong>World:</strong> <span className={character.world.includes("Unknown") ? "blurred-text" : ""}>{character.world}</span></p>
                     </div>
 
                     <div className="modal-char-story">

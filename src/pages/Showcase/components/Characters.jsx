@@ -66,11 +66,10 @@ function CharactersSection({ charactersData }) {
     const currentCharacter = charactersData[currentCharacterIndex];
 
     // Destructure styles to apply them to correct elements.
-    // Sizing styles (like maxWidth) are applied to the card, while visual styles (like transform) are applied to the image.
     const {
         maxWidth: characterMaxWidth,
-        ...imageSpecificStyles
-    } = currentCharacter.styles || {};
+        ...showcaseSpecificStyles
+    } = currentCharacter.showcaseStyles || {};
 
     // Prepare style objects for the card and image.
     const cardInlineStyles = characterMaxWidth ? { maxWidth: characterMaxWidth } : {};
@@ -92,7 +91,7 @@ function CharactersSection({ charactersData }) {
                         }
                         alt={currentCharacter.name}
                         className="character-main-image"
-                        style={imageSpecificStyles} // Apply only non-sizing styles here
+                        style={showcaseSpecificStyles} // Apply only non-sizing styles here
                     />
                 </div>
                 <div className="character-info">
@@ -147,12 +146,12 @@ CharactersSection.propTypes = {
             id: PropTypes.number.isRequired,
             name: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
-            description: PropTypes.string.isRequired, // Corrected prop
+            description: PropTypes.string.isRequired,
             image: PropTypes.string,
             thumbnail: PropTypes.string,
             accentColor: PropTypes.string.isRequired,
             stars: PropTypes.number.isRequired,
-            styles: PropTypes.object,
+            showcaseStyles: PropTypes.object,
         })
     ).isRequired,
 };

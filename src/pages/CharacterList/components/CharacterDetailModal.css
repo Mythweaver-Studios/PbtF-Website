@@ -108,6 +108,26 @@
     filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
 }
 
+/* --- Appearance Description Style --- */
+.modal-char-appearance {
+    padding: 2rem;
+    text-align: center;
+    color: var(--theme-text-secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+    .modal-char-appearance p {
+        font-size: 1.1rem;
+        font-style: italic;
+        line-height: 1.7;
+        max-width: 80%;
+    }
+
+
 .modal-right {
     flex-basis: 55%;
     padding: 2.5rem 3rem;
@@ -174,7 +194,15 @@
 
 .star-empty {
     color: rgba(207, 181, 130, 0.3);
+    transition: filter 0.3s ease, opacity 0.3s ease;
 }
+
+    .star-empty.blurred {
+        filter: blur(3px);
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
 
 .modal-divider {
     height: 1px;

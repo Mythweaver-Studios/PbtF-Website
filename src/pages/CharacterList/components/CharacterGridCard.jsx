@@ -8,12 +8,17 @@ function CharacterGridCard({ character, onClick }) {
         <div className="grid-card-container" onClick={onClick}>
             <div className="grid-card-border">
                 <div className="grid-card-inner">
-                    <img
-                        src={character.thumbnail || "../../../assets/placeholders/thumb.png"}
-                        alt={character.name}
-                        className="grid-card-image"
-                        style={character.styles || {}}
-                    />
+                    {character.thumbnail ? (
+                        <img
+                            src={character.thumbnail}
+                            alt={character.name}
+                            className="grid-card-image"
+                        />
+                    ) : (
+                        <div className="grid-card-unknown">
+                            <span className="unknown-char-icon">?</span>
+                        </div>
+                    )}
                     <div className="grid-card-info-bar">
                         <div className="grid-card-stars">
                             {Array.from({ length: character.stars }, (_, i) => (
@@ -34,7 +39,7 @@ CharacterGridCard.propTypes = {
         thumbnail: PropTypes.string,
         name: PropTypes.string.isRequired,
         stars: PropTypes.number.isRequired,
-        styles: PropTypes.object,
+        showcaseStyles: PropTypes.object,
     }).isRequired,
     onClick: PropTypes.func.isRequired,
 };
