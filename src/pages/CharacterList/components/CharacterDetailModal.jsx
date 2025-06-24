@@ -86,23 +86,25 @@ function CharacterDetailModal({ character, onClose }) {
         return <div className="modal-char-stars">{stars}</div>;
     };
 
+    const shouldShowAppearance = !character.image || character.id === 3;
+
     return (
         <div className={`modal-backdrop ${isClosing ? 'closing' : ''}`} onClick={handleClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <button className="modal-close-btn" onClick={handleClose}>×</button>
                 <div className="modal-left">
-                    {character.image ? (
+                    {shouldShowAppearance ? (
+                        <div className="modal-char-appearance">
+                            <h4 className="modal-section-title">Appearance</h4>
+                            <p>{character.appearanceDescription}</p>
+                        </div>
+                    ) : (
                         <img
                             src={character.image}
                             alt={character.name}
                             className="modal-char-image"
                             style={character.showcaseStyles || {}}
                         />
-                    ) : (
-                        <div className="modal-char-appearance">
-                            <h4 className="modal-section-title">Appearance</h4>
-                            <p>{character.appearanceDescription}</p>
-                        </div>
                     )}
                 </div>
                 <div className="modal-right">
