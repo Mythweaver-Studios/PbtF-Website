@@ -26,19 +26,19 @@
     flex-wrap: wrap;
 }
 
-.footer-links a {
-    color: var(--theme-footer-link-color);
-    transition: color 0.2s ease-in-out;
-    font-weight: 500;
-    font-size: 0.8rem;
-    /* Matches footer base font */
-}
+    .footer-links a {
+        color: var(--theme-footer-link-color);
+        transition: color 0.2s ease-in-out;
+        font-weight: 500;
+        font-size: 0.8rem;
+        /* Matches footer base font */
+    }
 
-.footer-links a:hover {
-    color: var(--theme-footer-link-hover-color);
-    text-decoration: underline;
-    text-decoration-color: var(--theme-highlight-gold);
-}
+        .footer-links a:hover {
+            color: var(--theme-footer-link-hover-color);
+            text-decoration: underline;
+            text-decoration-color: var(--theme-highlight-gold);
+        }
 
 .back-to-top {
     background-color: var(--theme-footer-button-bg);
@@ -56,18 +56,18 @@
     gap: 0.3rem;
 }
 
-.back-to-top .arrow-up-icon {
-    font-size: 1em;
-    /* Relative to button text */
-    line-height: 1;
-}
+    .back-to-top .arrow-up-icon {
+        font-size: 1em;
+        /* Relative to button text */
+        line-height: 1;
+    }
 
-.back-to-top:hover {
-    background-color: var(--theme-footer-button-hover-bg);
-    color: var(--theme-footer-button-hover-text);
-    border-color: var(--theme-border-gold);
-    box-shadow: 0 0 8px rgba(241, 196, 15, 0.15);
-}
+    .back-to-top:hover {
+        background-color: var(--theme-footer-button-hover-bg);
+        color: var(--theme-footer-button-hover-text);
+        border-color: var(--theme-border-gold);
+        box-shadow: 0 0 8px rgba(241, 196, 15, 0.15);
+    }
 
 .footer-divider {
     border: none;
@@ -91,9 +91,9 @@
     /* Tighter line height */
 }
 
-.footer-copyright p {
-    margin-bottom: 0.4rem;
-}
+    .footer-copyright p {
+        margin-bottom: 0.4rem;
+    }
 
 .footer-trademarks {
     font-size: 0.7rem;
@@ -127,21 +127,21 @@
     transition: all 0.2s ease-in-out;
 }
 
-.language-selector-toggle:hover {
-    background-color: var(--theme-footer-button-hover-bg);
-    color: var(--theme-footer-button-hover-text);
-    border-color: var(--theme-border-gold);
-}
+    .language-selector-toggle:hover {
+        background-color: var(--theme-footer-button-hover-bg);
+        color: var(--theme-footer-button-hover-text);
+        border-color: var(--theme-border-gold);
+    }
 
-.language-selector-toggle .arrow-down-icon {
-    font-size: 0.75em;
-    /* Smaller arrow */
-    transition: transform 0.2s ease;
-}
+    .language-selector-toggle .arrow-down-icon {
+        font-size: 0.75em;
+        /* Smaller arrow */
+        transition: transform 0.2s ease;
+    }
 
-.language-selector-toggle .arrow-down-icon.open {
-    transform: rotate(180deg);
-}
+        .language-selector-toggle .arrow-down-icon.open {
+            transform: rotate(180deg);
+        }
 
 
 .language-dropdown {
@@ -161,19 +161,35 @@
     z-index: 1010;
 }
 
-.language-dropdown li {
-    padding: 0.5rem 0.9rem;
-    color: var(--theme-text-primary);
-    cursor: pointer;
-    font-size: 0.8rem;
-    /* Matches footer base */
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
+    .language-dropdown li {
+        padding: 0.5rem 0.9rem;
+        color: var(--theme-text-primary);
+        cursor: pointer;
+        font-size: 0.8rem;
+        /* Matches footer base */
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
 
-.language-dropdown li:hover {
-    background-color: var(--theme-footer-lang-dropdown-item-hover-bg);
-    color: var(--theme-text-titles);
-}
+        .language-dropdown li:hover {
+            background-color: var(--theme-footer-lang-dropdown-item-hover-bg);
+            color: var(--theme-text-titles);
+        }
+
+    /* Style for the informational message in the language dropdown */
+    .language-dropdown .lang-dropdown-info {
+        color: var(--theme-text-secondary);
+        font-style: italic;
+        font-size: 0.75rem;
+        cursor: default;
+        text-align: center;
+    }
+
+        /* Disable hover effects for the info message */
+        .language-dropdown .lang-dropdown-info:hover {
+            background-color: transparent;
+            color: var(--theme-text-secondary);
+        }
+
 
 /* Responsive Adjustments for Footer */
 @media (max-width: 768px) {

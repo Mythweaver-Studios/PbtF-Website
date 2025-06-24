@@ -20,11 +20,12 @@ export const charactersData = [
         gender: "Female",
         description:
             "A living weapon forged in darkness, she broke her chains and vanished after claiming her revenge. Her purpose is now her own, a mystery to all who cross her path.",
-        longDescription: "Designated Project N-03, 'Noire' was an experimental bio-weapon created by the clandestine organization 'Umbra'. Infused with forbidden arts, she possesses unparalleled combat prowess. After fulfilling her designated mission—the annihilation of her creators—she severed all ties to her past. Now, she wanders the fractured world, her purpose a self-defined enigma. Observers note her detached demeanor is occasionally broken by moments of profound sorrow, hinting at a past she can neither escape nor fully remember.",
+        longDescription: `Born into captivity under the Fourfold Circle's black market, she was a nameless child taken from the ruins of forgotten villages. Stripped of identity and forged through relentless training, she was starved of kindness and saturated with violence, honed into a perfect weapon. Her masters carved skill into her bones, obedience into her mind, and death into her hands. Each mission survived reinforced a single truth: she was replaceable, a shadow meant to fight till she broke. In the Circle's cold halls, affection was treason, and failure meant erasure.\n\nBut even a broken blade can turn. Captured after a mission and marked for execution by her masters, she bit through her own hand to escape. Slowly, each of her captors met a gruesome death. Some say she perished after her revenge. Others whispered she joined Echo of a Dream. But no one knows.`,
         image: Character1Img,
         thumbnail: Character1Thumb,
         accentColor: "#8b9ff2",
         stars: 4,
+        maxStars: 6,
         styles: {
             transform: 'scale(1.10) translateY(-20px)',
         },
@@ -46,11 +47,13 @@ export const charactersData = [
         gender: "Female",
         description:
             "A master of elemental sword arts who strikes like a storm. Once a disciple of a legendary order, she now walks a solitary path as a relic diver, seeking the power to challenge fate itself.",
-        longDescription: "Hailing from the mist-shrouded peaks of the Azure Monastery, YanYan was a prodigy, mastering the order's sacred sword techniques before she was of age. When an ancient relic she was sworn to protect was stolen, shattering the order's power, she took it upon herself to retrieve it. Her journey transformed her from a disciplined disciple into a relentless tempest, a relic diver who braves the most dangerous ruins in search of answers and the power to reclaim her honor.",
+        longDescription: `Swift as a crashing wave and sharp as lightning's edge, Yanyan is a master of the elemental sword arts, a relentless duelist who moves like water and strikes like a storm. A former disciple of a legendary order, she now walks her own path as a relic diver, chasing echoes of forgotten worlds and impossible truths.\n\nQuiet, focused, and driven by something she never speaks of, Yanyan carries more than just a blade. She seeks not only ancient power, but a way to challenge the very currents of fate.`,
         image: Character2Img,
         thumbnail: Character2Thumb,
         accentColor: "#d3e5fe",
         stars: 3,
+        maxStars: 6,
+        statsBlurred: true,
         styles: {
             transform: 'scale(1) translateY(-12px)',
         },
@@ -72,11 +75,13 @@ export const charactersData = [
         gender: "Male",
         description:
             "A paladin sculpted into a perfect blade, he sacrificed love and peace for duty. Now he walks a solitary path toward a fate he knows he cannot avoid.",
-        longDescription: "Sir Benedict was the youngest captain of the Knights of Auravell, his devotion to the code as unyielding as his sacred blade. To save his kingdom from a creeping blight, he made a pact with an ancient celestial, sacrificing his personal connections and emotions for immense power. He succeeded, but at the cost of his own humanity. He is now a lonely sentinel, bound by duty to a fading kingdom, marching toward a prophesied sacrifice he has long since accepted.",
+        longDescription: `Benedict is a warrior born in a crucible of flame, a paladin whose soul has been scoured clean of love, peace, and doubt. Chosen from a young age and raised without compassion, he was sculpted into a perfect blade, a Bright Lord meant to illuminate the world's darkest hours.\n\nUnder his helmet and shimmering armor lies a man who has given up everything in service of his duty. His past is marked by sacrifice and regret, love turned ashes, and comrades fallen by his side. His future promises only a solitary path, a showdown against a fate he cannot avoid.`,
         image: Character3Img,
         thumbnail: Character3Thumb,
         accentColor: "rgba(191, 191, 191, 0.8)",
         stars: 5,
+        maxStars: 6,
+        statsBlurred: true,
         stats: {
             Strength: 4,
             Intelligence: 2,
