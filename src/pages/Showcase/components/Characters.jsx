@@ -1,6 +1,7 @@
 ﻿// src/pages/Showcase/components/Characters.jsx
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types"; // Import PropTypes
+import { Link } from "react-router-dom"; // Import Link
 import "./Characters.css"; // Import component-specific styles
 
 const DEFAULT_CYCLE_DURATION = 15000;
@@ -42,20 +43,18 @@ function CharactersSection({ charactersData }) {
         changeCharacter(index);
     };
 
-    // nextCharacter now uses the ref to get the most up-to-date index
-    const nextCharacter = () => {
-        const newIndex = (indexRef.current + 1) % charactersData.length;
-        changeCharacter(newIndex);
-    };
-
     // Main timer effect: now only depends on animationConfig
     useEffect(() => {
         clearTimeout(characterTimeoutRef.current);
+        // Only cycle through the first 3 characters on the showcase page
         if (charactersData && charactersData.length > 1) {
-            characterTimeoutRef.current = setTimeout(nextCharacter, animationConfig.duration);
+            characterTimeoutRef.current = setTimeout(() => {
+                const newIndex = (indexRef.current + 1) % 3; // Cycle only first 3
+                changeCharacter(newIndex);
+            }, animationConfig.duration);
         }
         return () => clearTimeout(characterTimeoutRef.current);
-    }, [animationConfig]); // Re-runs ONLY when the animation needs to restart.
+    }, [animationConfig, charactersData]); // Re-runs ONLY when the animation needs to restart.
 
 
     if (!charactersData || charactersData.length === 0) {
@@ -66,6 +65,17 @@ function CharactersSection({ charactersData }) {
 
     const currentCharacter = charactersData[currentCharacterIndex];
 
+    // Destructure styles to apply them to correct elements.
+    // Sizing styles (like maxWidth) are applied to the card, while visual styles (like transform) are applied to the image.
+    const {
+        maxWidth: characterMaxWidth,
+        ...imageSpecificStyles
+    } = currentCharacter.styles || {};
+
+    // Prepare style objects for the card and image.
+    const cardInlineStyles = characterMaxWidth ? { maxWidth: characterMaxWidth } : {};
+
+
     return (
         <div className="characters-content-wrapper">
             <div
@@ -74,15 +84,17 @@ function CharactersSection({ charactersData }) {
                     "--character-accent-color": currentCharacter.accentColor,
                 }}
             >
-                <img
-                    src={
-                        currentCharacter.image ||
-                        "../../../assets/placeholders/character_large.png"
-                    }
-                    alt={currentCharacter.name}
-                    className="character-main-image"
-                    style={currentCharacter.styles || {}} // Apply custom styles here
-                />
+                <div className="character-image-card" style={cardInlineStyles}>
+                    <img
+                        src={
+                            currentCharacter.image ||
+                            "../../../assets/placeholders/character_large.png"
+                        }
+                        alt={currentCharacter.name}
+                        className="character-main-image"
+                        style={imageSpecificStyles} // Apply only non-sizing styles here
+                    />
+                </div>
                 <div className="character-info">
                     <h3>{currentCharacter.name}</h3>
                     <div className="character-title-wrapper">
@@ -103,10 +115,13 @@ function CharactersSection({ charactersData }) {
                     </div>
                     <p>{currentCharacter.description}</p>
                 </div>
+                <Link to="/characterlist" className="view-all-chars-btn">
+                    View All Characters
+                </Link>
             </div>
             {charactersData.length > 1 && (
                 <div className="character-thumbnails">
-                    {charactersData.map((char, index) => (
+                    {charactersData.slice(0, 3).map((char, index) => ( // Only show first 3 thumbnails
                         <div
                             key={char.id}
                             className={`thumbnail-item ${index === currentCharacterIndex ? "active" : ""
@@ -132,12 +147,12 @@ CharactersSection.propTypes = {
             id: PropTypes.number.isRequired,
             name: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
-            description: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired, // Corrected prop
             image: PropTypes.string,
             thumbnail: PropTypes.string,
             accentColor: PropTypes.string.isRequired,
             stars: PropTypes.number.isRequired,
-            styles: PropTypes.object, // Added for custom image styling
+            styles: PropTypes.object,
         })
     ).isRequired,
 };

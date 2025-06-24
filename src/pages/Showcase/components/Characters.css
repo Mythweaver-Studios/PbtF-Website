@@ -1,3 +1,4 @@
+/* src/pages/Showcase/components/Characters.css */
 /* --- Theme Variables --- */
 :root {
     --text-color-primary: #e0c9a6;
@@ -39,27 +40,47 @@
         opacity: 0; /* For fade transition */
     }
 
-    .character-display .character-main-image {
-        max-width: 38%; /* Image size relative to container */
-        max-height: 450px;
-        object-fit: contain; /* Prevents image distortion */
-        margin-right: 3rem; /* Space between image and info */
-        filter: drop-shadow(3px 3px 15px rgba(0, 0, 0, 0.7)); /* Image shadow */
-    }
+/* --- New Character Card Styles --- */
+.character-image-card {
+    position: relative;
+    max-width: 38%; /* Sizing is now controlled by the card */
+    max-height: 450px;
+    margin-right: 3rem; /* Space between card and info */
+    flex-shrink: 0; /* Prevent card from shrinking if info text is long */
 
-    .character-display .character-info {
-        max-width: 55%; /* Text area size */
-        color: var(--text-color-primary);
-    }
+    border: 2px solid var(--border-color-gold);
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* Ensure image styles (like transforms) don't bleed out */
+}
+/* --- End New Character Card Styles --- */
 
-        .character-display .character-info h3 {
-            /* Character name */
-            font-family: 'EternalFont', sans-serif;
-            font-size: 2.6rem;
-            color: var(--text-color-titles);
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 6px var(--character-accent-color, transparent); /* Dynamic accent glow */
-        }
+.character-display .character-main-image {
+    max-width: 100%; /* Image now fills the card's padding box */
+    max-height: 100%; /* Image now fills the card's padding box */
+    object-fit: contain; /* Prevents image distortion */
+    /* margin-right has been moved to the card wrapper */
+    filter: drop-shadow(3px 3px 15px rgba(0, 0, 0, 0.7)); /* Image shadow */
+}
+
+.character-display .character-info {
+    max-width: 55%; /* Text area size */
+    color: var(--text-color-primary);
+}
+
+    .character-display .character-info h3 {
+        /* Character name */
+        font-family: 'EternalFont', sans-serif;
+        font-size: 2.6rem;
+        color: var(--text-color-titles);
+        margin-bottom: 0.5rem;
+        text-shadow: 0 0 6px var(--character-accent-color, transparent); /* Dynamic accent glow */
+    }
 
 /* Wrapper for the title and progress bar */
 .character-title-wrapper {
@@ -194,6 +215,34 @@
             text-shadow: 0 0 4px var(--highlight-red); /* Active name glow */
         }
 
+/* --- New Button Style --- */
+.view-all-chars-btn {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background-color: var(--highlight-gold);
+    color: #100e0c; /* dark bg color for text */
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    z-index: 10;
+}
+
+    .view-all-chars-btn:hover {
+        background-color: var(--highlight-red);
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+        transform: translateY(-2px);
+    }
+/* --- End New Button Style --- */
+
 /* Responsive Adjustments */
 @media (max-width: 992px) {
     .characters-content-wrapper {
@@ -204,11 +253,19 @@
         flex-direction: column; /* Stack image and info */
         min-height: auto; /* Auto height for stacked layout */
         text-align: center;
+        padding-bottom: 5rem; /* Make space for button */
     }
 
-        .character-display .character-info {
-            max-width: 90%;
-        }
+    /* Card styles for this breakpoint */
+    .character-image-card {
+        max-width: 60%;
+        margin-right: 0;
+        margin-bottom: 1.5rem; /* Space between stacked card and info */
+    }
+
+    .character-display .character-info {
+        max-width: 90%;
+    }
 
     /* Add auto margins to center the table-behaving wrapper */
     .character-title-wrapper {
@@ -216,24 +273,20 @@
         margin-right: auto;
     }
 
-    .character-display .character-main-image {
-        max-width: 60%;
-        margin-right: 0;
-        margin-bottom: 1.5rem; /* Space between stacked image and info */
+    .view-all-chars-btn {
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
-    .character-thumbnails .thumbnail-item {
-        width: 85px;
-        height: 115px;
-    }
-
-        .character-thumbnails .thumbnail-item img {
-            height: 85px;
+        .view-all-chars-btn:hover {
+            transform: translateX(-50%) translateY(-2px);
         }
 }
 
 @media (max-width: 768px) {
-    .character-display .character-main-image {
+    /* Card styles for this breakpoint */
+    .character-image-card {
         max-width: 65%;
         max-height: 320px;
     }
@@ -271,16 +324,18 @@
 
     .character-display {
         padding: 1rem;
+        padding-bottom: 4.5rem;
     }
 
-        .character-display .character-main-image {
-            max-width: 75%; /* Image can be larger part of small screen */
-            max-height: 280px;
-        }
+    /* Card styles for this breakpoint */
+    .character-image-card {
+        max-width: 75%; /* Card can be larger part of small screen */
+        max-height: 280px;
+    }
 
-        .character-display .character-info h3 {
-            font-size: 1.6rem;
-        }
+    .character-display .character-info h3 {
+        font-size: 1.6rem;
+    }
 
     .character-thumbnails {
         gap: 0.4rem; /* Tighter thumbnail gap */

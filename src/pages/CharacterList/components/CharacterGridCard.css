@@ -1,0 +1,78 @@
+/* src/pages/CharacterList/components/CharacterGridCard.css */
+.grid-card-container {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.2s ease-out, filter 0.2s ease-out;
+}
+
+    .grid-card-container:hover {
+        transform: translateY(-5px);
+        filter: brightness(1.1);
+    }
+
+.grid-card-border {
+    background: linear-gradient(135deg, var(--theme-border-gold), #4a3b24);
+    padding: 2px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.grid-card-inner {
+    background-color: #100e0c;
+    border-radius: 6px;
+    aspect-ratio: 3 / 4;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.grid-card-container:hover .grid-card-image {
+    transform: scale(1.05);
+}
+
+.grid-card-info-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.3rem 0.5rem;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    color: var(--theme-text-titles);
+    font-size: 0.8rem;
+}
+
+.grid-card-stars span {
+    text-shadow: 0 0 5px var(--theme-highlight-gold);
+}
+
+.grid-card-corner {
+    position: absolute;
+    bottom: -1px; /* Overlap border slightly */
+    right: -1px;
+    width: 35px;
+    height: 35px;
+    background-color: #100e0c;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    border-top: 2px solid var(--theme-border-gold);
+    border-left: 2px solid var(--theme-border-gold);
+}
+
+.grid-card-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--theme-text-primary);
+    text-align: center;
+}

@@ -4,20 +4,22 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Showcase from "./pages/Showcase/Showcase";
 import AboutUs from "./pages/AboutUs/AboutUs";
-import News from "./pages/News/News"; // mhm
+import News from "./pages/News/News";
+import CharacterList from "./pages/CharacterList/CharacterList";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Navigate to="/home" replace />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/showcase" element={<Showcase />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/about-us" element={<AboutUs />} />
-      </Routes>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Navigate to="/home" replace />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/showcase" element={<Showcase />} />
+                <Route path="/news" element={<News />} />
+                <Route path="/about-us" element={<AboutUs />} />
+                <Route path="/characterlist" element={<CharacterList />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;

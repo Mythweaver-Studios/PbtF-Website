@@ -1,0 +1,86 @@
+/* src/pages/CharacterList/CharacterList.css */
+.character-list-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--theme-bg-gradient);
+    color: var(--theme-text-primary);
+}
+
+.character-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1.5rem 3rem;
+    background-color: rgba(5, 4, 3, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid var(--theme-border-gold);
+}
+
+.character-list-content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    flex-grow: 1;
+}
+
+.character-list-title-container {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.character-list-title {
+    font-family: 'EternalFont', 'Georgia', serif;
+    font-size: 3rem;
+    color: var(--theme-text-titles);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 0 12px var(--theme-highlight-gold);
+}
+
+.title-divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--theme-highlight-gold), var(--theme-highlight-red), var(--theme-highlight-gold), transparent);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .character-list-header {
+        padding: 1.2rem 1.5rem;
+    }
+
+    .character-list-content {
+        padding: 2rem 1rem;
+    }
+
+    .character-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1rem;
+    }
+
+    .character-list-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .character-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 0.8rem;
+    }
+}
