@@ -16,16 +16,16 @@ function TermsOfService() {
             </header>
             <main className="legal-content">
                 <h1>Terms of Service</h1>
-                <p className="last-updated">Last updated: June 25, 2025</p>
+                <p className="last-updated">Last updated: October 26, 2023</p>
 
                 <section>
                     <h2>1. Agreement to Terms</h2>
                     <p>
                         By using our game, Paved by the Fallen, our websites, or any related
-                        services (the &ldquo;Services&ldquo;), you agree to be bound by these Terms of
-                        Service (&ldquo;Terms&ldquo;). If you do not agree to these Terms, do not use the
+                        services (the “Services”), you agree to be bound by these Terms of
+                        Service (“Terms”). If you do not agree to these Terms, do not use the
                         Services. These Terms are a legal agreement between you and Mythweaver
-                        Inc. (&ldquo;we&ldquo;, &ldquo;us&ldquo;, &ldquo;our&ldquo;).
+                        Inc. (“we”, “us”, “our”).
                     </p>
                 </section>
 
@@ -80,7 +80,7 @@ function TermsOfService() {
                 <section>
                     <h2>5. Disclaimer of Warranties</h2>
                     <p>
-                        The Services are provided on an &ldquo;AS IS&ldquo; and &ldquo;AS AVAILABLE&ldquo; basis. We make no warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, and non-infringement.
+                        The Services are provided on an “AS IS” and “AS AVAILABLE” basis. We make no warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, and non-infringement.
                     </p>
                 </section>
 

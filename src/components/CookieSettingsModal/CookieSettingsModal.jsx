@@ -1,18 +1,31 @@
 // src/components/CookieSettingsModal/CookieSettingsModal.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './CookieSettingsModal.css';
+import * as CookieService from '../../services/CookieService';
 
 function CookieSettingsModal({ onClose }) {
     const [optionalCookies, setOptionalCookies] = useState(true);
+
+    // On mount, read the current consent state to set the toggle correctly
+    useEffect(() => {
+        const currentConsent = CookieService.getConsent();
+        if (currentConsent) {
+            setOptionalCookies(currentConsent.optional);
+        }
+    }, []);
+
+    const handleSave = () => {
+        CookieService.setConsent({ necessary: true, optional: optionalCookies });
+        onClose();
+    };
 
     return (
         <div className="cookie-modal-backdrop" onClick={onClose}>
             <div className="cookie-modal-content" onClick={(e) => e.stopPropagation()}>
                 <div className="cookie-modal-header">
                     <h2>Cookie Settings</h2>
-                    {/* FIXED: Using a JavaScript Unicode escape sequence for the '×' character. This is the most reliable method. */}
-                    <button className="cookie-modal-close-btn" onClick={onClose}>{'\u00D7'}</button>
+                    <button className="cookie-modal-close-btn" onClick={onClose}>×</button>
                 </div>
                 <div className="cookie-modal-body">
                     <p>
@@ -51,7 +64,7 @@ function CookieSettingsModal({ onClose }) {
                     </div>
                 </div>
                 <div className="cookie-modal-footer">
-                    <button className="cookie-btn-primary" onClick={onClose}>Save</button>
+                    <button className="cookie-btn-primary" onClick={handleSave}>Save</button>
                     <button className="cookie-btn-secondary" onClick={onClose}>Cancel</button>
                 </div>
             </div>
