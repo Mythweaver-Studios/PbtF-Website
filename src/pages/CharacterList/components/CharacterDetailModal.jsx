@@ -2,6 +2,7 @@
 import React, { useEffect, Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import "./CharacterDetailModal.css";
+import { TIER_DATA } from "../../../utils/tierData"; // Import tier data
 
 // Helper to render stat bars
 const StatBar = ({ value }) => (
@@ -15,7 +16,7 @@ const StatBar = ({ value }) => (
 // Helper to render story with blurred parts
 const ParsedStory = ({ text }) => {
     if (!text) return null;
-    const parts = text.split(/(\[\[.*?\]\])/g); // Split by [[...]]
+    const parts = text.split(/(\[\[.*?\]\])/g);
 
     return (
         <>
@@ -27,7 +28,6 @@ const ParsedStory = ({ text }) => {
                         </span>
                     );
                 }
-                // Handle newlines in the non-blurred parts
                 return part.split('\n').map((line, lineIndex) => (
                     <Fragment key={`${index}-${lineIndex}`}>
                         {line}
@@ -41,17 +41,15 @@ const ParsedStory = ({ text }) => {
 
 function CharacterDetailModal({ character, onClose }) {
     const [isClosing, setIsClosing] = useState(false);
+    const tierInfo = TIER_DATA[character.tier] || TIER_DATA[1];
 
-    // This function triggers the closing animation
     const handleClose = () => {
         setIsClosing(true);
-        // Wait for animation to finish before calling parent's onClose
         setTimeout(() => {
             onClose();
-        }, 300); // Duration should match CSS animation
+        }, 300);
     };
 
-    // Effect for closing modal with Escape key
     useEffect(() => {
         const handleEsc = (event) => {
             if (event.keyCode === 27) {
@@ -62,28 +60,12 @@ function CharacterDetailModal({ character, onClose }) {
         return () => {
             window.removeEventListener("keydown", handleEsc);
         };
-    }, []); // Empty dependency array means this effect runs once on mount
+    }, []);
 
-    // Gender icon renderer
     const renderGenderIcon = (gender) => {
         if (gender === 'Male') return <span className="gender-icon male">♂</span>;
         if (gender === 'Female') return <span className="gender-icon female">♀</span>;
         return null;
-    };
-
-    // Star renderer
-    const renderStars = (current, max, isHidden) => {
-        const stars = [];
-        for (let i = 0; i < max; i++) {
-            let className = 'star-empty';
-            if (i < current) {
-                className = 'star-filled';
-            } else if (isHidden) {
-                className += ' blurred';
-            }
-            stars.push(<span key={i} className={className}>★</span>);
-        }
-        return <div className="modal-char-stars">{stars}</div>;
     };
 
     const shouldShowAppearance = !character.image || character.id === 3;
@@ -108,9 +90,17 @@ function CharacterDetailModal({ character, onClose }) {
                     )}
                 </div>
                 <div className="modal-right">
-                    <h2 className="modal-char-name">{character.name} {renderGenderIcon(character.gender)}</h2>
+                    <div className="modal-title-header">
+                        <h2 className="modal-char-name">{character.name} {renderGenderIcon(character.gender)}</h2>
+                        <div
+                            className="modal-char-tier"
+                            style={{ background: tierInfo.color, color: tierInfo.textColor }}
+                        >
+                            {tierInfo.name}
+                        </div>
+                    </div>
                     <h3 className={`modal-char-title ${character.title.includes("?") ? "blurred-text" : ""}`}>{character.title}</h3>
-                    {renderStars(character.stars, character.maxStars, character.maxStarsHidden)}
+
                     <div className="modal-divider"></div>
 
                     <div className="modal-char-details">

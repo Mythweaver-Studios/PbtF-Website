@@ -4,8 +4,13 @@ import PropTypes from "prop-types";
 import "./CharacterGridCard.css";
 
 function CharacterGridCard({ character, onClick }) {
+
     return (
-        <div className="grid-card-container" onClick={onClick}>
+        <div
+            className="grid-card-container"
+            onClick={onClick}
+            style={{ '--char-accent-color': character.accentColor }}
+        >
             <div className="grid-card-border">
                 <div className="grid-card-inner">
                     {character.thumbnail ? (
@@ -19,13 +24,6 @@ function CharacterGridCard({ character, onClick }) {
                             <span className="unknown-char-icon">?</span>
                         </div>
                     )}
-                    <div className="grid-card-info-bar">
-                        <div className="grid-card-stars">
-                            {Array.from({ length: character.stars }, (_, i) => (
-                                <span key={i}>◆</span>
-                            ))}
-                        </div>
-                    </div>
                     <div className="grid-card-corner"></div>
                 </div>
             </div>
@@ -38,8 +36,8 @@ CharacterGridCard.propTypes = {
     character: PropTypes.shape({
         thumbnail: PropTypes.string,
         name: PropTypes.string.isRequired,
-        stars: PropTypes.number.isRequired,
-        showcaseStyles: PropTypes.object,
+        tier: PropTypes.number.isRequired,
+        accentColor: PropTypes.string.isRequired,
     }).isRequired,
     onClick: PropTypes.func.isRequired,
 };

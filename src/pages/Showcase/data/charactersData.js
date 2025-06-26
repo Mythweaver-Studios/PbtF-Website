@@ -25,9 +25,7 @@ export const charactersData = [
         image: Character1Img,
         thumbnail: Character1Thumb,
         accentColor: "#8b9ff2",
-        stars: 4,
-        maxStars: 6,
-        maxStarsHidden: true,
+        tier: 4, // Epic
         showcaseStyles: {
             transform: 'scale(1.10) translateY(-20px)',
         },
@@ -44,7 +42,7 @@ export const charactersData = [
         name: "YanYan",
         fullName: "YanYan, Blade of the Azure",
         title: "The Azure Tempest",
-        class: "Elementalist",
+        class: "Unknown",
         species: "Human",
         gender: "Female",
         world: "Unknown",
@@ -54,9 +52,7 @@ export const charactersData = [
         image: Character2Img,
         thumbnail: Character2Thumb,
         accentColor: "#d3e5fe",
-        stars: 3,
-        maxStars: 6,
-        maxStarsHidden: true,
+        tier: 3, // Rare
         statsBlurred: true,
         showcaseStyles: {
             transform: 'scale(1) translateY(-12px)',
@@ -82,12 +78,10 @@ export const charactersData = [
             "A paladin sculpted into a perfect blade, he sacrificed love and peace for duty. Now he walks a solitary path toward a fate he knows he cannot avoid.",
         longDescription: `Benedict is a warrior born in a crucible of flame, a paladin whose soul has been scoured clean of love, peace, and doubt. Chosen from a young age and raised without compassion, he was sculpted into a perfect blade, a Bright Lord meant to illuminate the world's darkest hours.\n\nUnder his helmet and shimmering armor lies a man who has given up everything in service of his duty. His past is marked by sacrifice and regret, love turned ashes, and comrades fallen by his side. [[His future promises only a solitary path, a showdown against a fate he cannot avoid.]]`,
         appearanceDescription: "A holy knight encased in a full suit of immaculate, off-white plate armor with ornate gold trim and blue cloth underneath. His face is completely hidden by a full helm. A large, eight-pointed star is emblazoned on his chestplate, and a halo of light floats behind his head, complemented by a pair of large, radiant golden wings.",
-        image: Character3Img, // Placeholder image.
+        image: Character3Img,
         thumbnail: Character3Thumb,
         accentColor: "rgba(191, 191, 191, 0.8)",
-        stars: 5,
-        maxStars: 6,
-        maxStarsHidden: true,
+        tier: 5, // Legendary
         statsBlurred: true,
         stats: {
             Strength: 4,
@@ -112,11 +106,10 @@ export const charactersData = [
         image: null,
         thumbnail: null,
         accentColor: "#ff7b00",
-        stars: 6,
-        maxStars: 6,
+        tier: 6, // Mythic
         statsBlurred: true,
         stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 }
-    }, // Appearance Description is perfect.
+    },
     {
         id: 5,
         name: "Alzarich",
@@ -132,11 +125,10 @@ export const charactersData = [
         image: null,
         thumbnail: null,
         accentColor: "#6a0dad",
-        stars: 6,
-        maxStars: 6,
+        tier: 7, // Empyrean
         statsBlurred: true,
         stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 }
-    }, // Appearance Description is perfect.
+    },
     {
         id: 6,
         name: "Seralyth",
@@ -152,11 +144,10 @@ export const charactersData = [
         image: null,
         thumbnail: null,
         accentColor: "#00b5ad",
-        stars: 6,
-        maxStars: 6,
+        tier: 6, // Mythic
         statsBlurred: true,
         stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 }
-    }, // Appearance Description is perfect.
+    },
     {
         id: 7,
         name: "Valkara",
@@ -172,12 +163,10 @@ export const charactersData = [
         image: null,
         thumbnail: null,
         accentColor: "#c0c0c0",
-        stars: 5,
-        maxStars: 5,
-        maxStarsHidden: true,
+        tier: 5, // Legendary
         statsBlurred: true,
         stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 }
-    }, // Appearance Description is perfect.
+    },
     {
         id: 8,
         name: "Ragna",
@@ -193,12 +182,10 @@ export const charactersData = [
         image: null,
         thumbnail: null,
         accentColor: "#e53935",
-        stars: 5,
-        maxStars: 5,
-        maxStarsHidden: true,
+        tier: 5, // Legendary
         statsBlurred: true,
         stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 }
-    }, // Appearance Description is perfect.
+    },
     {
         id: 9,
         name: "Roxan Everblack",
@@ -214,10 +201,8 @@ export const charactersData = [
         image: null,
         thumbnail: null,
         accentColor: "#7e57c2",
-        stars: 4,
-        maxStars: 5,
-        maxStarsHidden: true,
+        tier: 4, // Epic
         statsBlurred: true,
         stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 }
-    } // Appearance Description is perfect.
+    }
 ];

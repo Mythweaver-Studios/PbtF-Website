@@ -88,7 +88,7 @@
     /* Use table display for robust shrink-wrapping and centering */
     display: table;
     padding-bottom: 10px; /* Space for progress bar */
-    margin-bottom: 0.5rem; /* Space between bar and stars */
+    margin-bottom: 1rem; /* Space between bar and description */
 }
 
 .character-display .character-info h4 {
@@ -99,19 +99,7 @@
     margin-bottom: 0; /* Margin is now on the wrapper */
 }
 
-/* --- New Star Rating Styles --- */
-.character-stars {
-    font-size: 1.2rem;
-    color: var(--text-color-titles);
-    text-shadow: 0 0 5px var(--highlight-gold);
-    margin-bottom: 1rem; /* Space between stars and description */
-    line-height: 1;
-}
-
-    .character-stars span {
-        margin: 0 1px;
-    }
-/* --- End Star Rating Styles --- */
+/* Tier badge style removed from this file as it is no longer displayed here */
 
 .character-display .character-info p {
     /* Character description */
