@@ -3,24 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\components\\Characters.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Showcase\\components\\Characters.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Showcase\\Showcase.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\components\\Characters.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Showcase\\components\\Characters.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\CookieSettingsModal\\CookieSettingsModal.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\CookieSettingsModal\\CookieSettingsModal.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\services\\CookieService.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\services\\CookieService.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\CookieBanner\\CookieBanner.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\CookieBanner\\CookieBanner.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\CookieBanner\\CookieBanner.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\CookieBanner\\CookieBanner.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Legal\\TermsOfService.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Legal\\TermsOfService.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\Footer.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\Footer.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Legal\\PrivacyPolicy.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Legal\\PrivacyPolicy.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Legal\\CookiePolicy.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Legal\\CookiePolicy.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,72 +46,129 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Showcase.jsx",
-              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.jsx",
-              "RelativeDocumentMoniker": "src\\pages\\Showcase\\Showcase.jsx",
-              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.jsx",
-              "RelativeToolTip": "src\\pages\\Showcase\\Showcase.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-06-07T15:34:54.493Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Characters.jsx",
-              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\components\\Characters.jsx",
-              "RelativeDocumentMoniker": "src\\pages\\Showcase\\components\\Characters.jsx",
-              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\components\\Characters.jsx",
-              "RelativeToolTip": "src\\pages\\Showcase\\components\\Characters.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-06-07T15:33:28.013Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Characters.css",
-              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\components\\Characters.css",
-              "RelativeDocumentMoniker": "src\\pages\\Showcase\\components\\Characters.css",
-              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\components\\Characters.css",
-              "RelativeToolTip": "src\\pages\\Showcase\\components\\Characters.css",
-              "ViewState": "AgIAAMAAAAAAAAAAAAAcwMoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-06-07T15:33:26.149Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "App.jsx",
               "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\App.jsx",
               "RelativeDocumentMoniker": "src\\App.jsx",
               "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\App.jsx",
               "RelativeToolTip": "src\\App.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADgAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-06-07T15:24:33.174Z"
+              "WhenOpened": "2025-06-26T02:55:53.854Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CookieSettingsModal.jsx",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\CookieSettingsModal\\CookieSettingsModal.jsx",
+              "RelativeDocumentMoniker": "src\\components\\CookieSettingsModal\\CookieSettingsModal.jsx",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\CookieSettingsModal\\CookieSettingsModal.jsx",
+              "RelativeToolTip": "src\\components\\CookieSettingsModal\\CookieSettingsModal.jsx",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAQwE4AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-06-26T15:00:23.526Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CookieService.js",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\services\\CookieService.js",
+              "RelativeDocumentMoniker": "src\\services\\CookieService.js",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\services\\CookieService.js",
+              "RelativeToolTip": "src\\services\\CookieService.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-06-26T15:00:07.185Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CookieBanner.css",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\CookieBanner\\CookieBanner.css",
+              "RelativeDocumentMoniker": "src\\components\\CookieBanner\\CookieBanner.css",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\CookieBanner\\CookieBanner.css",
+              "RelativeToolTip": "src\\components\\CookieBanner\\CookieBanner.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-06-26T14:59:41.652Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "README.md",
-              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\README.md",
-              "RelativeDocumentMoniker": "README.md",
-              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\README.md",
-              "RelativeToolTip": "README.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-05-29T18:56:45.177Z"
+              "Title": "CookieBanner.jsx",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\CookieBanner\\CookieBanner.jsx",
+              "RelativeDocumentMoniker": "src\\components\\CookieBanner\\CookieBanner.jsx",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\CookieBanner\\CookieBanner.jsx",
+              "RelativeToolTip": "src\\components\\CookieBanner\\CookieBanner.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-06-26T14:59:28.677Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TermsOfService.jsx",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Legal\\TermsOfService.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\Legal\\TermsOfService.jsx",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Legal\\TermsOfService.jsx",
+              "RelativeToolTip": "src\\pages\\Legal\\TermsOfService.jsx",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAFIAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-06-26T14:58:51.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PrivacyPolicy.jsx",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Legal\\PrivacyPolicy.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\Legal\\PrivacyPolicy.jsx",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Legal\\PrivacyPolicy.jsx",
+              "RelativeToolTip": "src\\pages\\Legal\\PrivacyPolicy.jsx",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAQwBoAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-06-26T14:58:36.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CookiePolicy.jsx",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Legal\\CookiePolicy.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\Legal\\CookiePolicy.jsx",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Legal\\CookiePolicy.jsx",
+              "RelativeToolTip": "src\\pages\\Legal\\CookiePolicy.jsx",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBIAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-06-26T14:58:25.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Footer.jsx",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\Footer.jsx",
+              "RelativeDocumentMoniker": "src\\components\\Footer.jsx",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\Footer.jsx",
+              "RelativeToolTip": "src\\components\\Footer.jsx",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAkwHYAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-06-26T14:58:05.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             }
           ]
         }

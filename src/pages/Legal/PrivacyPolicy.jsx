@@ -21,10 +21,10 @@ function PrivacyPolicy() {
                 <section>
                     <h2>1. Introduction</h2>
                     <p>
-                        Mythweaver Inc. (“we”, “us”, “our”) is committed to protecting your
+                        Mythweaver Inc. (&ldquo;we&ldquo;, &ldquo;us&ldquo;, &ldquo;our&ldquo;) is committed to protecting your
                         privacy. This Privacy Policy applies to our game, Paved by the
                         Fallen, our websites, and all related services (collectively, the
-                        “Services”). This policy explains how we collect, use, and share
+                        &ldquo;Services&ldquo;). This policy explains how we collect, use, and share
                         your personal information. By using our Services, you agree to the
                         collection and use of information in accordance with this policy.
                     </p>
@@ -94,7 +94,7 @@ function PrivacyPolicy() {
                     <h2>6. Contact Us</h2>
                     <p>
                         If you have any questions about this Privacy Policy, please contact
-                        us at: legal@mythweaver.dev (placeholder email).
+                        us at: Choshen@mythweave.net.
                     </p>
                 </section>
             </main>
