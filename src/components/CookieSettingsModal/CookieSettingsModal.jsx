@@ -11,7 +11,8 @@ function CookieSettingsModal({ onClose }) {
             <div className="cookie-modal-content" onClick={(e) => e.stopPropagation()}>
                 <div className="cookie-modal-header">
                     <h2>Cookie Settings</h2>
-                    <button className="cookie-modal-close-btn" onClick={onClose}>×</button>
+                    {/* FIXED: Using a JavaScript Unicode escape sequence for the '×' character. This is the most reliable method. */}
+                    <button className="cookie-modal-close-btn" onClick={onClose}>{'\u00D7'}</button>
                 </div>
                 <div className="cookie-modal-body">
                     <p>
