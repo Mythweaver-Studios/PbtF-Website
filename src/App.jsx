@@ -6,6 +6,9 @@ import Showcase from "./pages/Showcase/Showcase";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import News from "./pages/News/News";
 import CharacterList from "./pages/CharacterList/CharacterList";
+import CookiePolicy from "./pages/Legal/CookiePolicy";
+import PrivacyPolicy from "./pages/Legal/PrivacyPolicy";
+import TermsOfService from "./pages/Legal/TermsOfService";
 
 function App() {
     return (
@@ -17,6 +20,10 @@ function App() {
                 <Route path="/news" element={<News />} />
                 <Route path="/about-us" element={<AboutUs />} />
                 <Route path="/characterlist" element={<CharacterList />} />
+                {/* Legal Routes */}
+                <Route path="/cookie-policy" element={<CookiePolicy />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-of-service" element={<TermsOfService />} />
             </Routes>
         </BrowserRouter>
     );

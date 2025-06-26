@@ -1,13 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public",
     "\\src",
-    "\\src\\assets",
     "\\src\\components",
+    "\\src\\components\\CookieSettingsModal",
     "\\src\\pages",
+    "\\src\\pages\\CharacterList",
+    "\\src\\pages\\CharacterList\\components",
+    "\\src\\pages\\Legal",
     "\\src\\pages\\Showcase",
-    "\\src\\pages\\Showcase\\components"
+    "\\src\\pages\\Showcase\\data"
   ],
+  "SelectedNode": "\\src\\pages\\Legal\\PrivacyPolicy.jsx",
   "PreviewInSolutionExplorer": false
 }

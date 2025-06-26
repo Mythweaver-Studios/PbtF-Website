@@ -101,7 +101,7 @@ $highlight-gold-sass: #f1c40f;
 
     .content-left h1 {
         font-family: 'EternalFont', 'Georgia', serif;
-        font-size: 4.5rem;
+        font-size: 4rem;
         margin-bottom: 1.2rem;
         font-weight: normal;
         color: var(--theme-text-titles, #ffd700);

@@ -128,10 +128,10 @@ function Home() {
                 {/* Hero Section (remains directly in Home.jsx) */}
                 <section id="hero" className="home-main-content" ref={sectionRefs.hero}>
                     <div className="content-left">
-                        <h1>Crownless</h1>
+                        <h1>Paved by the Fallen</h1>
                         <p className="game-pitch">
                             <strong>
-                                Crownless: The Beginning is a tactical survival game where you
+                                Paved by the Fallen: The Beginning is a tactical survival game where you
                                 control the fate of summoned heroes battling through a ruthless
                                 tower of trials. No retries. No revives. Just consequences.
                             </strong>

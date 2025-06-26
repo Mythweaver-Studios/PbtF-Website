@@ -1,0 +1,196 @@
+/* src/components/CookieSettingsModal/CookieSettingsModal.css */
+.cookie-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.cookie-modal-content {
+    background: #1c1c1c;
+    border: 1px solid var(--theme-border-gold-faint);
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 550px;
+    color: var(--theme-text-secondary);
+    font-size: 0.9rem;
+    transform: scale(0.95);
+    opacity: 0;
+    animation: fadeInScaleUp 0.4s 0.1s forwards cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes fadeInScaleUp {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.cookie-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--theme-border-gold-faint);
+}
+
+    .cookie-modal-header h2 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: var(--theme-text-primary);
+    }
+
+.cookie-modal-close-btn {
+    background: none;
+    border: none;
+    color: var(--theme-text-secondary);
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+}
+
+    .cookie-modal-close-btn:hover {
+        color: var(--theme-highlight-red);
+    }
+
+.cookie-modal-body {
+    padding: 1.5rem;
+    line-height: 1.6;
+}
+
+    .cookie-modal-body p {
+        margin-bottom: 1rem;
+    }
+
+    .cookie-modal-body a {
+        color: var(--theme-highlight-gold);
+        text-decoration: underline;
+        font-weight: 500;
+    }
+
+.cookie-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(10, 8, 7, 0.6);
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.cookie-option-label {
+    font-weight: 500;
+    color: var(--theme-text-primary);
+}
+
+.cookie-option-status {
+    color: var(--theme-highlight-gold);
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.cookie-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--theme-border-gold-faint);
+}
+
+.cookie-btn-primary, .cookie-btn-secondary {
+    padding: 0.6rem 1.5rem;
+    border: 1px solid var(--theme-border-gold);
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cookie-btn-primary {
+    background-color: var(--theme-highlight-gold);
+    color: #100e0c;
+}
+
+    .cookie-btn-primary:hover {
+        background-color: #f4d03f;
+        border-color: #f4d03f;
+    }
+
+.cookie-btn-secondary {
+    background-color: transparent;
+    color: var(--theme-text-primary);
+}
+
+    .cookie-btn-secondary:hover {
+        background-color: rgba(207, 181, 130, 0.1);
+    }
+
+/* Toggle Switch Styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #333;
+    border: 1px solid var(--theme-border-gold-faint);
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 3px;
+        bottom: 3px;
+        background-color: var(--theme-text-secondary);
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: var(--theme-highlight-red);
+}
+
+    input:checked + .slider:before {
+        background-color: white;
+        transform: translateX(20px);
+    }
+
+.slider.round {
+    border-radius: 24px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
