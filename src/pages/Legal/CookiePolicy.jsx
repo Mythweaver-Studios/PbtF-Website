@@ -16,7 +16,7 @@ function CookiePolicy() {
             </header>
             <main className="legal-content">
                 <h1>Cookie Policy</h1>
-                <p className="last-updated">Last updated: October 26, 2023</p>
+                <p className="last-updated">Last updated: June 26, 2025</p>
 
                 <section>
                     <h2>1. What Are Cookies</h2>
