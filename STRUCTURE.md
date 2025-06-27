@@ -12,6 +12,7 @@ Community-Service
 ├── .eslintrc.js
 ├── package.json
 ├── package-lock.json
+├── CONTRIBUTING.md
 ├── FRONTEND.md
 ├── PUBLISH.md
 ├── BACKEND.md
