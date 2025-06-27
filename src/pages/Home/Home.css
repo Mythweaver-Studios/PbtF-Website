@@ -40,14 +40,15 @@ $highlight-gold-sass: #f1c40f;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 1.0rem 3.5rem;
+    padding: 1.5rem 3rem;
     position: sticky;
     top: 0;
-    background-color: rgba(10, 8, 7, 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(5, 4, 3, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
-    border-bottom: 1px solid var(--theme-border-gold-faint, rgba(207, 181, 130, 0.2));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid var(--theme-border-gold);
 }
 
 .home-content-wrapper {
@@ -230,7 +231,7 @@ $highlight-gold-sass: #f1c40f;
 /* Responsive Adjustments */
 @media (max-width: 992px) {
     .home-header {
-        padding: 1rem 2.5rem;
+        padding: 1.2rem 2rem;
     }
 
     .section-title {

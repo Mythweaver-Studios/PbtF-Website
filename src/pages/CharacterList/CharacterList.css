@@ -13,6 +13,8 @@
     align-items: center;
     width: 100%;
     padding: 1.5rem 3rem;
+    position: sticky;
+    top: 0;
     background-color: rgba(5, 4, 3, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -59,9 +61,15 @@
     justify-content: center;
 }
 
+@media (max-width: 992px) {
+    .character-list-header {
+        padding: 1.2rem 2rem;
+    }
+}
+
 @media (max-width: 768px) {
     .character-list-header {
-        padding: 1.2rem 1.5rem;
+        padding: 0.8rem 2rem;
     }
 
     .character-list-content {
@@ -79,6 +87,10 @@
 }
 
 @media (max-width: 480px) {
+    .character-list-header {
+        padding: 0.7rem 1.5rem;
+    }
+
     .character-grid {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
         gap: 0.8rem;

@@ -32,16 +32,15 @@ Fallback values resolved for SASS functions:
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 1.5rem 3rem; /* Consistent with Showcase header */
-    position: fixed;
+    padding: 1.5rem 3rem;
+    position: sticky;
     top: 0;
-    left: 0;
     background-color: rgba(5, 4, 3, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid var(--theme-border-gold, rgba(207, 181, 130, 0.4));
+    border-bottom: 1px solid var(--theme-border-gold);
 }
 
 .about-us-content {
@@ -64,9 +63,9 @@ Fallback values resolved for SASS functions:
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-.about-section:last-child {
-    margin-bottom: 0;
-}
+    .about-section:last-child {
+        margin-bottom: 0;
+    }
 
 .section-title-container {
     margin-bottom: 2.5rem;
@@ -84,18 +83,18 @@ Fallback values resolved for SASS functions:
     text-shadow: 0 0 10px rgba(241, 196, 15, 0.3), 0 0 15px rgba(241, 196, 15, 0.2); /* Resolved from rgba($highlight-gold, alpha) */
 }
 
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 2.5px;
-    background: linear-gradient(90deg, transparent, var(--theme-highlight-gold, #f1c40f), var(--theme-text-accent-red, #c0392b), var(--theme-highlight-gold, #f1c40f), transparent);
-    border-radius: 2px;
-    box-shadow: 0 0 8px var(--theme-highlight-gold, #f1c40f), 0 0 12px var(--theme-highlight-gold, #f1c40f);
-}
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 2.5px;
+        background: linear-gradient(90deg, transparent, var(--theme-highlight-gold, #f1c40f), var(--theme-text-accent-red, #c0392b), var(--theme-highlight-gold, #f1c40f), transparent);
+        border-radius: 2px;
+        box-shadow: 0 0 8px var(--theme-highlight-gold, #f1c40f), 0 0 12px var(--theme-highlight-gold, #f1c40f);
+    }
 
 /* Company Section Specifics */
 .company-description p {
@@ -106,9 +105,9 @@ Fallback values resolved for SASS functions:
     text-align: justify; /* Justified text for a more formal block look */
 }
 
-.company-description p:last-child {
-    margin-bottom: 0;
-}
+    .company-description p:last-child {
+        margin-bottom: 0;
+    }
 
 .recruitment-content {
     display: flex;
@@ -143,22 +142,22 @@ Fallback values resolved for SASS functions:
     margin-bottom: 1.5rem;
 }
 
-.teams-list .team-item {
-    background-color: rgba(207, 181, 130, 0.15); /* Resolved from rgba($border-color-gold, 0.15) */
-    padding: 0.5rem 1rem;
-    border-radius: 20px; /* Pill shape */
-    font-size: 0.9rem;
-    color: var(--theme-text-primary, #e0c9a6);
-    border: 1px solid var(--theme-border-gold, rgba(207, 181, 130, 0.4));
-    transition: all 0.2s ease-in-out;
-}
+    .teams-list .team-item {
+        background-color: rgba(207, 181, 130, 0.15); /* Resolved from rgba($border-color-gold, 0.15) */
+        padding: 0.5rem 1rem;
+        border-radius: 20px; /* Pill shape */
+        font-size: 0.9rem;
+        color: var(--theme-text-primary, #e0c9a6);
+        border: 1px solid var(--theme-border-gold, rgba(207, 181, 130, 0.4));
+        transition: all 0.2s ease-in-out;
+    }
 
-.teams-list .team-item:hover {
-    background-color: rgba(241, 196, 15, 0.2); /* Resolved from rgba($highlight-gold, 0.2) */
-    border-color: var(--theme-highlight-gold, #f1c40f);
-    color: var(--theme-text-titles, #ffd700);
-    transform: translateY(-2px);
-}
+        .teams-list .team-item:hover {
+            background-color: rgba(241, 196, 15, 0.2); /* Resolved from rgba($highlight-gold, 0.2) */
+            border-color: var(--theme-highlight-gold, #f1c40f);
+            color: var(--theme-text-titles, #ffd700);
+            transform: translateY(-2px);
+        }
 
 .recruitment-how-to {
     text-align: center;
@@ -166,20 +165,20 @@ Fallback values resolved for SASS functions:
     border-top: 1px solid var(--theme-border-gold, rgba(207, 181, 130, 0.4));
 }
 
-.recruitment-how-to h4 {
-    font-size: 1.25rem;
-    color: var(--theme-text-titles, #ffd700);
-    margin-bottom: 0.75rem;
-}
+    .recruitment-how-to h4 {
+        font-size: 1.25rem;
+        color: var(--theme-text-titles, #ffd700);
+        margin-bottom: 0.75rem;
+    }
 
-.recruitment-how-to p {
-    font-size: 1rem;
-    color: var(--theme-text-secondary, #a89a85); /* Dimmer text for instructions */
-    margin-bottom: 1.5rem;
-    max-width: 600px; /* Readable width for paragraph */
-    margin-left: auto;
-    margin-right: auto;
-}
+    .recruitment-how-to p {
+        font-size: 1rem;
+        color: var(--theme-text-secondary, #a89a85); /* Dimmer text for instructions */
+        margin-bottom: 1.5rem;
+        max-width: 600px; /* Readable width for paragraph */
+        margin-left: auto;
+        margin-right: auto;
+    }
 
 /* Button for Discord - can reuse .btn styles from Home.scss if globally available
 or define specific ones here. Assuming .btn is somewhat global or available. */
@@ -202,12 +201,12 @@ or define specific ones here. Assuming .btn is somewhat global or available. */
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
 }
 
-.btn.btn-discord:hover {
-    background-color: #4553e8; /* color.scale(#5865F2, $lightness: -10%) */
-    border-color: #4553e8; /* color.scale(#5865F2, $lightness: -10%) */
-    transform: translateY(-2px);
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
-}
+    .btn.btn-discord:hover {
+        background-color: #4553e8; /* color.scale(#5865F2, $lightness: -10%) */
+        border-color: #4553e8; /* color.scale(#5865F2, $lightness: -10%) */
+        transform: translateY(-2px);
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+    }
 
 
 /* Responsive Adjustments */
@@ -230,6 +229,10 @@ or define specific ones here. Assuming .btn is somewhat global or available. */
 }
 
 @media (max-width: 768px) {
+    .about-us-header {
+        padding: 0.8rem 2rem;
+    }
+
     .about-us-content {
         padding-top: 90px;
     }
@@ -238,9 +241,9 @@ or define specific ones here. Assuming .btn is somewhat global or available. */
         font-size: 2rem;
     }
 
-    .section-title::after {
-        width: 60px;
-    }
+        .section-title::after {
+            width: 60px;
+        }
 
     .company-description p {
         font-size: 1rem;
@@ -272,7 +275,7 @@ or define specific ones here. Assuming .btn is somewhat global or available. */
 
 @media (max-width: 480px) {
     .about-us-header {
-        padding: 1rem 1.2rem;
+        padding: 0.7rem 1.5rem;
     }
 
     .about-section {
@@ -284,7 +287,7 @@ or define specific ones here. Assuming .btn is somewhat global or available. */
         font-size: 1.7rem;
     }
 
-    .section-title::after {
-        width: 50px;
-    }
+        .section-title::after {
+            width: 50px;
+        }
 }

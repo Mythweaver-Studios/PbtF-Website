@@ -28,15 +28,14 @@ $highlight-gold: #f1c40f;
     align-items: center;
     width: 100%;
     padding: 1.5rem 3rem;
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
     background-color: rgba(5, 4, 3, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid rgba(207, 181, 130, 0.4);
+    border-bottom: 1px solid var(--theme-border-gold);
 }
 
 .showcase-content {
@@ -58,24 +57,24 @@ $highlight-gold: #f1c40f;
     position: relative; /* Needed for offsetTop calculations */
 }
 
-/* Section-specific backgrounds */
-.showcase-section.story-section {
-    background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), url('../../assets/showcase/story_background.jpg') no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
-}
+    /* Section-specific backgrounds */
+    .showcase-section.story-section {
+        background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), url('../../assets/showcase/story_background.jpg') no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+    }
 
-.showcase-section.characters-section {
-    background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), url('../../assets/showcase/characters_background.jpg') no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
-}
+    .showcase-section.characters-section {
+        background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), url('../../assets/showcase/characters_background.jpg') no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+    }
 
-.showcase-section.features-section {
-    background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), url('../../assets/showcase/features_background.jpg') no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
-}
+    .showcase-section.features-section {
+        background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), url('../../assets/showcase/features_background.jpg') no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+    }
 
 .section-title-container {
     margin-bottom: 3rem;
@@ -93,18 +92,18 @@ $highlight-gold: #f1c40f;
     text-shadow: 0 0 12px rgba(241, 196, 15, 0.4), 0 0 18px rgba(241, 196, 15, 0.3); /* $highlight-gold related */
 }
 
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #f1c40f, #c0392b, #f1c40f, transparent); /* $highlight-gold, $text-color-accent-red */
-    border-radius: 2px;
-    box-shadow: 0 0 10px #f1c40f, 0 0 15px #f1c40f; /* $highlight-gold */
-}
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #f1c40f, #c0392b, #f1c40f, transparent); /* $highlight-gold, $text-color-accent-red */
+        border-radius: 2px;
+        box-shadow: 0 0 10px #f1c40f, 0 0 15px #f1c40f; /* $highlight-gold */
+    }
 
 /* --- Showcase Side Navigation --- */
 .showcase-side-nav {
@@ -118,13 +117,13 @@ $highlight-gold: #f1c40f;
     padding: 10px 0;
 }
 
-.showcase-side-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    margin-left: 13.4px; /* Space between line and text */
-    position: relative;
-}
+    .showcase-side-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        margin-left: 13.4px; /* Space between line and text */
+        position: relative;
+    }
 
 .side-nav-line {
     width: 2px; /* Thickness of the main vertical line */
@@ -133,88 +132,88 @@ $highlight-gold: #f1c40f;
     position: relative; /* For dots */
 }
 
-/* Top and bottom dots on the line */
-.side-nav-line::before,
-.side-nav-line::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 6px;
-    height: 6px;
-    background-color: rgba(255, 255, 255, 0.2); /* $side-nav-line-color */
-    border-radius: 50%;
-}
+    /* Top and bottom dots on the line */
+    .side-nav-line::before,
+    .side-nav-line::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 6px;
+        height: 6px;
+        background-color: rgba(255, 255, 255, 0.2); /* $side-nav-line-color */
+        border-radius: 50%;
+    }
 
-.side-nav-line::before {
-    top: -5px; /* Position of top dot */
-}
+    .side-nav-line::before {
+        top: -5px; /* Position of top dot */
+    }
 
-.side-nav-line::after {
-    bottom: -5px; /* Position of bottom dot */
-}
+    .side-nav-line::after {
+        bottom: -5px; /* Position of bottom dot */
+    }
 
 .side-nav-item {
     position: relative; /* For positioning indicator and text */
     margin-bottom: 35px; /* Spacing between items */
 }
 
-.side-nav-item:last-child {
-    margin-bottom: 0;
-}
+    .side-nav-item:last-child {
+        margin-bottom: 0;
+    }
 
-.side-nav-item .side-nav-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.5); /* $side-nav-inactive-text */
-    transition: color 0.3s ease;
-    position: relative; /* For indicator's absolute positioning */
-    padding: 5px 0; /* Clickable area */
-}
+    .side-nav-item .side-nav-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.5); /* $side-nav-inactive-text */
+        transition: color 0.3s ease;
+        position: relative; /* For indicator's absolute positioning */
+        padding: 5px 0; /* Clickable area */
+    }
 
-.side-nav-item .side-nav-indicator {
-    /* Notch/segment on the main line */
-    width: 15px; /* Width of the notch */
-    height: 2px;
-    background-color: rgba(255, 255, 255, 0.2); /* $side-nav-line-color */
-    position: absolute;
-    left: -22px; /* Position to connect with the main line */
-    top: 50%;
-    transform: translateY(-50%);
-    transition: background-color 0.3s ease, width 0.3s ease, box-shadow 0.3s ease;
-}
+    .side-nav-item .side-nav-indicator {
+        /* Notch/segment on the main line */
+        width: 15px; /* Width of the notch */
+        height: 2px;
+        background-color: rgba(255, 255, 255, 0.2); /* $side-nav-line-color */
+        position: absolute;
+        left: -22px; /* Position to connect with the main line */
+        top: 50%;
+        transform: translateY(-50%);
+        transition: background-color 0.3s ease, width 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.side-nav-item .side-nav-text {
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    padding-left: 5px; /* Space from indicator to text */
-    white-space: nowrap;
-}
+    .side-nav-item .side-nav-text {
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        padding-left: 5px; /* Space from indicator to text */
+        white-space: nowrap;
+    }
 
-.side-nav-item.active .side-nav-link {
-    color: #ffffff; /* $side-nav-active-text */
-}
+    .side-nav-item.active .side-nav-link {
+        color: #ffffff; /* $side-nav-active-text */
+    }
 
-.side-nav-item.active .side-nav-indicator {
-    background-color: #ffd700; /* $side-nav-active-color */
-    width: 25px; /* Wider active indicator */
-    left: -27px; /* Adjust position for wider indicator */
-    box-shadow: 0 0 8px #ffd700, 0 0 12px rgba(255, 215, 0, 0.7); /* $side-nav-active-color related */
-}
+    .side-nav-item.active .side-nav-indicator {
+        background-color: #ffd700; /* $side-nav-active-color */
+        width: 25px; /* Wider active indicator */
+        left: -27px; /* Adjust position for wider indicator */
+        box-shadow: 0 0 8px #ffd700, 0 0 12px rgba(255, 215, 0, 0.7); /* $side-nav-active-color related */
+    }
 
-.side-nav-item.active .side-nav-text {
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.7); /* $side-nav-active-color related */
-}
+    .side-nav-item.active .side-nav-text {
+        text-shadow: 0 0 5px rgba(255, 215, 0, 0.7); /* $side-nav-active-color related */
+    }
 
-.side-nav-item:hover:not(.active) .side-nav-link {
-    color: #e6e6e6; /* darken(#ffffff, 10%) */
-}
+    .side-nav-item:hover:not(.active) .side-nav-link {
+        color: #e6e6e6; /* darken(#ffffff, 10%) */
+    }
 
-.side-nav-item:hover:not(.active) .side-nav-indicator {
-    background-color: #997a00; /* darken(#ffd700, 20%) */
-}
+    .side-nav-item:hover:not(.active) .side-nav-indicator {
+        background-color: #997a00; /* darken(#ffd700, 20%) */
+    }
 
 
 /* Responsive Adjustments */
@@ -268,14 +267,18 @@ $highlight-gold: #f1c40f;
 }
 
 @media (max-width: 768px) {
+    .showcase-header {
+        padding: 0.8rem 2rem;
+    }
+
     .section-title {
         font-size: 2rem;
     }
 
-    .section-title::after {
-        width: 50px;
-        height: 2.5px;
-    }
+        .section-title::after {
+            width: 50px;
+            height: 2.5px;
+        }
 
     .showcase-side-nav {
         display: none; /* Hide side navigation on smaller screens */
@@ -284,7 +287,7 @@ $highlight-gold: #f1c40f;
 
 @media (max-width: 480px) {
     .showcase-header {
-        padding: 1rem 1.2rem;
+        padding: 0.7rem 1.5rem;
     }
 
     .showcase-section {
@@ -296,7 +299,7 @@ $highlight-gold: #f1c40f;
         font-size: 1.6rem;
     }
 
-    .section-title::after {
-        width: 40px;
-    }
+        .section-title::after {
+            width: 40px;
+        }
 }
