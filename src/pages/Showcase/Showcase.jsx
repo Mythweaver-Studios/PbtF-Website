@@ -7,11 +7,11 @@ import Footer from "../../components/Footer";
 // Corrected import paths to match the actual filenames
 import StoryScroller from "./components/Story";
 import FeaturesSlideshow from "./components/Features";
-import CharactersSection from "./components/Characters"; // <-- 1. CORRECTED: Import path updated
+import CharactersSection from "./components/Characters";
 
 import { storyText } from "./data/storyText";
 import { featuresData } from "./data/featuresData";
-import { charactersData } from "./data/charactersData"; // <-- 2. ADDED: Import characters data
+import { charactersData } from "./data/charactersData";
 
 import "./Showcase.css"; // Import Showcase page specific styles
 
