@@ -25,7 +25,7 @@ function CookieSettingsModal({ onClose }) {
             <div className="cookie-modal-content" onClick={(e) => e.stopPropagation()}>
                 <div className="cookie-modal-header">
                     <h2>Cookie Settings</h2>
-                    <button className="cookie-modal-close-btn" onClick={onClose}>×</button>
+                    <button className="cookie-modal-close-btn" onClick={onClose}>{'\u00D7'}</button>
                 </div>
                 <div className="cookie-modal-body">
                     <p>

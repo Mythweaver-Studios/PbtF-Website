@@ -18,7 +18,7 @@ function CookieBanner({ onAccept, onDecline, onOpenSettings }) {
                         </a>
                     </p>
                     <button className="cookie-settings-link" onClick={onOpenSettings}>
-                        <span className="settings-icon">⚙️</span>
+                        <span className="settings-icon">{'\u2699'}</span>
                         Cookie Settings
                     </button>
                 </div>

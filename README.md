@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+﻿# Paved by the Fallen - Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the official website for the game project "Paved by the Fallen". It is a client-side Single Page Application (SPA) built with React. The purpose of this site is to serve as a central hub for game information, news, character showcases, and community links.
 
-## Available Scripts
+## ✨ Features
 
-In the project directory, you can run:
+-   **Responsive Design**: The site is designed to be accessible on a wide range of devices, from mobile phones to desktops.
+-   **Component-Based Architecture**: Built with a modular structure using React components.
+-   **Dynamic Routing**: Utilizes `react-router-dom` for seamless client-side navigation.
+-   **Game Showcase**: Detailed sections for Story, Characters, and Features with interactive elements.
+-   **Character List**: A filterable grid of all characters with detailed modal views.
+-   **Cookie Consent Management**: A fully functional cookie banner and settings modal to comply with privacy regulations.
+-   **Static Content**: All news and character data are currently managed via static JSON and JS files, ensuring fast load times.
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To run this project locally, you will need to have the following installed on your machine:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-   [Node.js](https://nodejs.org/) (v16 or later recommended)
+-   [npm](https://www.npmjs.com/) (usually comes with Node.js)
 
-### `npm test`
+## 🚀 Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Follow these steps to get a local copy up and running.
 
-### `npm run build`
+### 1. Clone the Repository
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+git clone https://github.com/ProjectPMU/Community-Service.git
+cd Community-Service
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Install Dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Install all the required npm packages.
 
-### `npm run eject`
+```sh
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 3. Run the Development Server
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This command will start the application in development mode on `http://localhost:3000`. The page will auto-reload if you make edits to the source files.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```sh
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 4. Build for Production
 
-## Learn More
+This command builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The resulting static files in the `build` directory are ready for deployment.
 
-### Code Splitting
+## 🚀 Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project is configured for deployment as a static site. We use **Cloudflare Pages** for hosting. For detailed instructions on publishing, see the [PUBLISH.md](./PUBLISH.md) file.
 
-### Analyzing the Bundle Size
+## 📂 Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For a detailed breakdown of the folder and file structure, please see the [STRUCTURE.md](./STRUCTURE.md) file.
