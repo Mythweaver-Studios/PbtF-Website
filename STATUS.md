@@ -2,45 +2,39 @@
 
 This document provides an overview of the current status of the project and outlines future development plans.
 
-## Current Status (As of June 26)
+## Current Status (As of June 26th, 2025)
 
 -   **Overall**: The website is feature-complete for its initial version and is ready for live deployment. All core pages and components are functional.
--   **Frontend**: The site is a **client-side React Single Page Application (SPA)**. It is built to be served as a static site.
--   **Backend**: There is **no dedicated backend**. The application is entirely self-contained.
--   **Content Management**: All site content is currently static and managed directly within the source code.
-    -   **News**: Managed via the static `/src/pages/News/data/News.json` file.
-    -   **Characters**: Managed via the static `/src/pages/Showcase/data/charactersData.js` file.
-    -   **Other Text**: Page-specific text (like Story and Features) is hardcoded in their respective data files.
--   **Interactivity**: The "Beta Signup", "Watch Trailer", and "Add to Wishlist" buttons on the Home page are currently disabled as they require backend functionality that is not yet implemented.
+-   **Frontend**: The site is a **client-side React Single Page Application (SPA)**, built and served as a static site.
+-   **Backend**: There is **no dedicated backend** for the website at this time.
+-   **Content Management**: All site content is static and managed directly within the source code (`News.json`, `charactersData.js`, etc.).
+-   **Interactivity**: The "Beta Signup" button is currently disabled but is the highest priority for the next phase of development.
 
 ## Roadmap & Future Plans
 
-Our goal is to evolve the website into a more dynamic and easily manageable platform.
+Our goal is to evolve the website into a more dynamic and interactive platform.
 
-### 1. Headless CMS Integration
+### 1. Beta Signup System Implementation (High Priority)
 
--   **Goal**: To decouple content from the codebase, allowing non-developers (like writers or community managers) to update site content without needing to modify and redeploy the entire application.
--   **Plan**: We will integrate a **headless CMS** (Content Management System). Content such as news articles, character profiles, and feature descriptions will be moved to the CMS.
--   **Technology Candidates**: Strapi, Sanity, Contentful.
-
-### 2. API-Driven Content
-
--   **Goal**: Fetch all dynamic content from an external API instead of local static files.
--   **Plan**: Once the headless CMS is set up, the frontend will be updated to fetch data from the CMS's API endpoints using `fetch` or a library like `axios`. This will make the site's content dynamic.
-
-### 3. Backend for User Interaction
-
--   **Goal**: Enable functionality for the interactive buttons on the Home page.
+-   **Goal**: To allow interested players to sign up for the first game playtest.
 -   **Plan**:
-    -   **Beta Signup / Wishlist**: Implement a simple backend service or integrate with a third-party mailing list provider (e.g., Mailchimp) to handle email signups.
-    -   This will likely involve creating a small serverless function (e.g., Cloudflare Workers) to process form submissions securely.
+    -   Enable the "Beta Signup" button on the Home page.
+    -   Create a system to collect a user's email address.
+    -   Implement an email verification step to ensure the address is valid.
+    -   Store the verified emails securely. These emails will later be used to grant access to the game's first playtest build, which will likely be distributed via Steam.
+-   **Technical Note**: This requires a simple backend service for the website, which is separate from the game's server architecture (SpaceTimeDB).
 
-### 4. Analytics
+### 2. Headless CMS Integration
+
+-   **Goal**: To allow non-developers to update site content (news, character bios) without needing to modify and redeploy the entire application.
+-   **Plan**: Integrate a headless CMS (e.g., Strapi, Sanity). The frontend will be updated to fetch content from the CMS's API endpoints.
+
+### 3. Analytics Integration
 
 -   **Goal**: Gain insights into website traffic and user behavior.
--   **Plan**: Integrate a privacy-focused analytics service (like Plausible or Fathom), or Google Analytics. Integration will fully respect the user's choices from the cookie consent banner.
+-   **Plan**: Implement an analytics service. **Cloudflare Web Analytics** will be the first choice due to its privacy focus and ease of integration. We will explore other options only if more detailed behavioral tracking is required.
 
-### 5. Automated Testing in CI/CD
+### 4. Automated Testing in CI/CD
 
 -   **Goal**: Improve code quality and prevent regressions.
--   **Plan**: Enhance the current continuous deployment pipeline on Cloudflare Pages to run our Jest and React Testing Library tests automatically before any new deployment goes live.
+-   **Plan**: Enhance the continuous deployment pipeline to run Jest and React Testing Library tests automatically before any new deployment goes live.

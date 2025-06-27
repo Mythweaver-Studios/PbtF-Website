@@ -46,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -59,8 +59,11 @@
               "ViewState": "AgIAACcAAAAAAAAAAAAAADgAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2025-06-26T02:55:53.854Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
@@ -85,8 +88,7 @@
               "RelativeToolTip": "src\\services\\CookieService.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-06-26T15:00:07.185Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-26T15:00:07.185Z"
             },
             {
               "$type": "Document",
@@ -98,8 +100,7 @@
               "RelativeToolTip": "src\\components\\CookieBanner\\CookieBanner.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAHgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-06-26T14:59:41.652Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-26T14:59:41.652Z"
             },
             {
               "$type": "Document",
@@ -111,8 +112,7 @@
               "RelativeToolTip": "src\\components\\CookieBanner\\CookieBanner.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-06-26T14:59:28.677Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-26T14:59:28.677Z"
             },
             {
               "$type": "Document",
@@ -124,8 +124,7 @@
               "RelativeToolTip": "src\\pages\\Legal\\TermsOfService.jsx",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAFIAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-06-26T14:58:51.575Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-26T14:58:51.575Z"
             },
             {
               "$type": "Document",
@@ -137,8 +136,7 @@
               "RelativeToolTip": "src\\pages\\Legal\\PrivacyPolicy.jsx",
               "ViewState": "AgIAAB0AAAAAAAAAAAAQwBoAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-06-26T14:58:36.135Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-26T14:58:36.135Z"
             },
             {
               "$type": "Document",
@@ -150,8 +148,7 @@
               "RelativeToolTip": "src\\pages\\Legal\\CookiePolicy.jsx",
               "ViewState": "AgIAAAsAAAAAAAAAAAAQwBIAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-06-26T14:58:25.272Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-26T14:58:25.272Z"
             },
             {
               "$type": "Document",
@@ -163,12 +160,7 @@
               "RelativeToolTip": "src\\components\\Footer.jsx",
               "ViewState": "AgIAAGEAAAAAAAAAAAAkwHYAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-06-26T14:58:05.699Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "WhenOpened": "2025-06-26T14:58:05.699Z"
             }
           ]
         }

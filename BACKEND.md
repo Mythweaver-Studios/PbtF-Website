@@ -4,21 +4,28 @@
 
 **This project currently has no dedicated backend.**
 
-## Architecture Explanation
-
-The application is a pure client-side **Single Page Application (SPA)** built with React. The entire application is compiled into a set of static files (HTML, CSS, JavaScript) during the build process (`npm run build`).
-
-These static files are then served by a static hosting provider, **Cloudflare Pages**. There is no server-side code, no traditional backend server, and no database connected to this project.
-
-### Data Source
-
-All data rendered on the site (such as news articles and character profiles) is currently stored in static `.js` and `.json` files within the `/src` directory. This data is bundled directly into the frontend application when it is built.
+The application is a pure client-side **Single Page Application (SPA)** served as static files. All data is bundled with the frontend.
 
 ## Future Plans
 
-While there is no backend at present, the project roadmap includes introducing backend functionality in the future. As outlined in the `STATUS.md` file, this will likely involve:
+The immediate backend development priority is to support the beta signup functionality.
 
-1.  **A Headless CMS**: To manage site content dynamically. The frontend will fetch data from the CMS via its API.
-2.  **Serverless Functions**: For handling user interactions like form submissions (e.g., for a beta signup), we may use serverless functions (like Cloudflare Workers) to process data and interact with third-party services.
+### 1. Beta Signup Service
 
-Any future backend development will be documented here.
+This will be the first backend service for the website. Its sole purpose is to handle user signups for the game's playtest.
+
+-   **Functionality Required**:
+    1.  An API endpoint to receive an email address from the frontend signup form.
+    2.  A mechanism to generate a unique verification token and send a confirmation email to the user.
+    3.  A second endpoint to handle the verification link clicked by the user.
+    4.  A secure database to store the verified email addresses.
+
+-   **Proposed Technologies**:
+    -   **API/Logic**: Serverless functions are the ideal choice for this task due to their low cost and scalability. Candidates include **Cloudflare Workers** or **AWS Lambda**.
+    -   **Database**: A simple, low-maintenance database is sufficient. Candidates include Cloudflare's **KV Store** (for temporary tokens) and **D1** (for storing verified emails), or a similar managed NoSQL/SQL database.
+
+-   **Important Distinction**: The backend for this website is **entirely separate** from the game's backend. The game itself uses **SpaceTimeDB** for its server and database needs, but SpaceTimeDB will **not** be used for any website functionality.
+
+### 2. Headless CMS
+
+Following the implementation of the beta signup, the next major backend-related task will be the integration of a headless CMS as described in the `STATUS.md` file.

@@ -3,12 +3,18 @@
 This document outlines the folder and file structure of the project.
 
 ```
-.
+Community-Service
 ├── .gitignore
 ├── .eslintrc.js
 ├── package.json
 ├── package-lock.json
+├── FRONTEND.md
+├── PUBLISH.md
+├── BACKEND.md
 ├── README.md
+├── REACT.md
+├── STATUS.md
+├── LICENSE/md
 ├── public/
 │   ├── index.html
 │   └── manifest.json
@@ -80,3 +86,4 @@ This document outlines the folder and file structure of the project.
     ├── index.js
     ├── reportWebVitals.js
     └── setupTests.js
+```
