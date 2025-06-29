@@ -3,6 +3,8 @@ import React, { useEffect, Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import "./CharacterDetailModal.css";
 import { TIER_DATA } from "../../../utils/tierData"; // Import tier data
+import ShadowEffect from "./effects/ShadowEffect"; // Import the new ShadowEffect
+import RainEffect from "./effects/RainEffect"; // Import the new RainEffect
 
 // Helper to render stat bars
 const StatBar = ({ value }) => (
@@ -73,7 +75,7 @@ function CharacterDetailModal({ character, onClose }) {
     return (
         <div className={`modal-backdrop ${isClosing ? 'closing' : ''}`} onClick={handleClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                <button className="modal-close-btn" onClick={handleClose}>×</button>
+                <button className="modal-close-btn" onClick={handleClose}>{'\u00D7'}</button>
                 <div className="modal-left">
                     {shouldShowAppearance ? (
                         <div className="modal-char-appearance">
@@ -90,51 +92,57 @@ function CharacterDetailModal({ character, onClose }) {
                     )}
                 </div>
                 <div className="modal-right">
-                    <div className="modal-title-header">
-                        <h2 className="modal-char-name">{character.name} {renderGenderIcon(character.gender)}</h2>
-                        <div
-                            className="modal-char-tier"
-                            style={{ background: tierInfo.color, color: tierInfo.textColor }}
-                        >
-                            {tierInfo.name}
+                    {/* Render effects based on character data */}
+                    {character.specialEffect === 'shadow' && <ShadowEffect />}
+                    {character.specialEffect === 'rain' && <RainEffect />}
+
+                    <div className="modal-right-content-wrapper">
+                        <div className="modal-title-header">
+                            <h2 className="modal-char-name">{character.name} {renderGenderIcon(character.gender)}</h2>
+                            <div
+                                className="modal-char-tier"
+                                style={{ background: tierInfo.color, color: tierInfo.textColor }}
+                            >
+                                {tierInfo.name}
+                            </div>
                         </div>
-                    </div>
-                    <h3 className={`modal-char-title ${character.title.includes("?") ? "blurred-text" : ""}`}>{character.title}</h3>
+                        <h3 className={`modal-char-title ${character.title.includes("?") ? "blurred-text" : ""}`}>{character.title}</h3>
 
-                    <div className="modal-divider"></div>
+                        <div className="modal-divider"></div>
 
-                    <div className="modal-char-details">
-                        <p><strong>Full Name:</strong> <span className={character.fullName.includes("Unknown") ? "blurred-text" : ""}>{character.fullName}</span></p>
-                        <p><strong>Species:</strong> <span className={character.species.includes("Unknown") ? "blurred-text" : ""}>{character.species}</span></p>
-                        <p><strong>Class:</strong> <span className={character.class.includes("Unknown") ? "blurred-text" : ""}>{character.class}</span></p>
-                        <p><strong>World:</strong> <span className={character.world.includes("Unknown") ? "blurred-text" : ""}>{character.world}</span></p>
-                    </div>
+                        <div className="modal-char-details">
+                            <p><strong>Full Name:</strong> <span className={character.fullName.includes("Unknown") ? "blurred-text" : ""}>{character.fullName}</span></p>
+                            <p><strong>Species:</strong> <span className={character.species.includes("Unknown") ? "blurred-text" : ""}>{character.species}</span></p>
+                            <p><strong>Class:</strong> <span className={character.class.includes("Unknown") ? "blurred-text" : ""}>{character.class}</span></p>
+                            <p><strong>World:</strong> <span className={character.world.includes("Unknown") ? "blurred-text" : ""}>{character.world}</span></p>
+                        </div>
 
-                    <div className="modal-char-story">
-                        <p><ParsedStory text={character.longDescription} /></p>
-                    </div>
+                        <div className="modal-char-story">
+                            <p><ParsedStory text={character.longDescription} /></p>
+                        </div>
 
-                    <div className="modal-stats-section">
-                        <h4 className="modal-section-title">Base Stats</h4>
-                        {character.statsBlurred ? (
-                            <div className="modal-stats-grid">
-                                {Object.keys(character.stats).map((statName) => (
-                                    <div key={statName} className="stat-item">
-                                        <span className="stat-name">{statName}</span>
-                                        <div className="stat-bar-unknown">?</div>
-                                    </div>
-                                ))}
-                            </div>
-                        ) : (
-                            <div className="modal-stats-grid">
-                                {Object.entries(character.stats).map(([statName, statValue]) => (
-                                    <div key={statName} className="stat-item">
-                                        <span className="stat-name">{statName}</span>
-                                        <StatBar value={statValue} />
-                                    </div>
-                                ))}
-                            </div>
-                        )}
+                        <div className="modal-stats-section">
+                            <h4 className="modal-section-title">Base Stats</h4>
+                            {character.statsBlurred ? (
+                                <div className="modal-stats-grid">
+                                    {Object.keys(character.stats).map((statName) => (
+                                        <div key={statName} className="stat-item">
+                                            <span className="stat-name">{statName}</span>
+                                            <div className="stat-bar-unknown">?</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="modal-stats-grid">
+                                    {Object.entries(character.stats).map(([statName, statValue]) => (
+                                        <div key={statName} className="stat-item">
+                                            <span className="stat-name">{statName}</span>
+                                            <StatBar value={statValue} />
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

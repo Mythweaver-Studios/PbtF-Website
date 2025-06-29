@@ -106,6 +106,8 @@
     max-height: 100%;
     object-fit: contain;
     filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
+    position: relative;
+    z-index: 2;
 }
 
 /* --- Appearance Description Style --- */
@@ -118,6 +120,8 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    position: relative;
+    z-index: 2;
 }
 
     .modal-char-appearance p {
@@ -135,6 +139,8 @@
     scrollbar-width: thin;
     scrollbar-color: var(--theme-border-gold) transparent;
     min-height: 0; /* Flexbox scroll fix */
+    position: relative; /* Positioning context for effects */
+    overflow-x: hidden; /* Hide horizontal overflow from effects */
 }
 
     .modal-right::-webkit-scrollbar {
@@ -145,6 +151,12 @@
         background-color: var(--theme-border-gold);
         border-radius: 3px;
     }
+
+/* Wrapper to ensure content stays above the effects */
+.modal-right-content-wrapper {
+    position: relative;
+    z-index: 1;
+}
 
 .modal-title-header {
     display: flex;
