@@ -33,3 +33,5 @@
 *.db
 *.db-wal
 *.db-shm
+*.db-wal
+*.db-shm
