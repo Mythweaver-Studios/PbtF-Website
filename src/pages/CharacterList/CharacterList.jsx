@@ -86,27 +86,28 @@ function CharacterList() {
                 </div>
 
                 <div className="character-filters">
-                    <select onChange={handleTierChange} className="tier-filter" value={tier}>
-                        <option value="">All Tiers</option>
-                        <option value="Epic">
-                            Epic
-                        </option>
-                        <option value="Legendary">
-                            Legendary
-                        </option>
-                        <option value="Rare">
-                            Rare
-                        </option>
-                    </select>
+                    <div className="left-filters">
+                        <select onChange={handleTierChange} className="tier-filter" value={tier}>
+                            <option value="">All Tiers</option>
+                            <option value="Epic">Epic</option>
+                            <option value="Legendary">Legendary</option>
+                            <option value="Rare">Rare</option>
+                        </select>
 
-                    <button onClick={() => setSortAZ(!sortAZ)} className="name-filter">
-                        Sort Alphabetically
-                    </button>
+                        <button
+                            onClick={() => setSortAZ(!sortAZ)}
+                            className={`name-filter ${sortAZ ? "active" : ""}`}
+                        >
+                            Sort Alphabetically
+                        </button>
+                    </div>
 
-                    <button onClick={clearFilters} className="clear-filters">
+                    <button
+                        onClick={clearFilters}
+                        className="clear-filters"
+                    >
                         Clear Filters
                     </button>
-
                 </div>
 
                 <div className="character-grid">
