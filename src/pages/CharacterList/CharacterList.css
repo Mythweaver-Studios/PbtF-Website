@@ -14,7 +14,7 @@
     flex-wrap: wrap;
 }
 
-/* Dropdown */
+/* Tier Filter Dropdown */
 .tier-filter {
     appearance: none;
     background-color: var(--theme-bg-gradient);

@@ -41,18 +41,18 @@ function CharacterList() {
     // Effect to handle character filtering
     useEffect(() => {
         let updatedCharacters = [...charactersData]
-        console.log(tier)
+        
+        // Updating character list to match selected tier
         if (tier) {
             updatedCharacters = updatedCharacters.filter((char) => TIER_DATA[char.tier]?.name === tier);
-
         }
 
+        // Sorting alphabetically
         if (sortAZ){
             updatedCharacters = updatedCharacters.sort((a, b) => a.name.localeCompare(b.name));
         }
 
         setFilteredCharacters(updatedCharacters);
-        console.log(filteredCharacters)
     }, [tier, sortAZ]);
 
     const handleCardClick = (character) => {
@@ -63,6 +63,7 @@ function CharacterList() {
         setSelectedCharacter(null);
     };
 
+    // Setting tier filter state
     const handleTierChange = (e) => {
         setTier(e.target.value)
     };
@@ -95,9 +96,7 @@ function CharacterList() {
                             <option value="Epic">Epic</option>
                             <option value="Legendary">Legendary</option>
                             <option value="Mythic">Mythic</option>
-                            <option value="Empyrean">Empyrean</option>
-                            
-                            
+                            <option value="Empyrean">Empyrean</option>               
                         </select>
 
                         <button
