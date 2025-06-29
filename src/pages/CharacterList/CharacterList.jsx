@@ -89,9 +89,15 @@ function CharacterList() {
                     <div className="left-filters">
                         <select onChange={handleTierChange} className="tier-filter" value={tier}>
                             <option value="">All Tiers</option>
+                            <option value="Common">Common</option>
+                            <option value="Uncommon">Uncommon</option>
+                            <option value="Rare">Rare</option>
                             <option value="Epic">Epic</option>
                             <option value="Legendary">Legendary</option>
-                            <option value="Rare">Rare</option>
+                            <option value="Mythic">Mythic</option>
+                            <option value="Empyrean">Empyrean</option>
+                            
+                            
                         </select>
 
                         <button
