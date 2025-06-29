@@ -1,0 +1,98 @@
+/* src/pages/NotFound/NotFound.css */
+
+.not-found-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--theme-bg-gradient);
+    color: var(--theme-text-primary);
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+    /* Optional: Add a subtle background pattern or effect */
+    .not-found-page::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 20px 20px;
+        opacity: 0.5;
+    }
+
+.not-found-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.not-found-title {
+    /* Use a standard, thematic font that supports numerals to fix rendering errors */
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 10rem;
+    font-weight: bold;
+    color: var(--theme-text-titles);
+    text-shadow: 0 0 10px var(--theme-highlight-gold), 0 0 20px var(--theme-highlight-gold), 0 0 40px rgba(241, 196, 15, 0.5), 0 0 80px rgba(207, 181, 130, 0.3);
+    line-height: 1;
+    margin: 0;
+}
+
+.not-found-message {
+    font-size: 1.25rem;
+    color: var(--theme-text-secondary);
+    max-width: 40ch; /* Limit line length for readability */
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    /* Allocate space to prevent layout shift during text change */
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Use a CSS transition for a smooth fade effect */
+    transition: opacity 1s ease-in-out;
+}
+
+    /* Animation classes for fading text */
+    .not-found-message.fade-in {
+        opacity: 1;
+    }
+
+    .not-found-message.fade-out {
+        opacity: 0;
+    }
+
+/* Ensure the button styles from Home.css are available */
+.not-found-page .btn {
+    min-width: 200px;
+}
+
+@media (max-width: 768px) {
+    .not-found-title {
+        font-size: 8rem;
+    }
+
+    .not-found-message {
+        font-size: 1.1rem;
+        min-height: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .not-found-title {
+        font-size: 6rem;
+    }
+
+    .not-found-message {
+        font-size: 1rem;
+        min-height: 60px;
+    }
+}

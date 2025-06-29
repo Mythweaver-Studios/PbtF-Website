@@ -9,6 +9,7 @@ import CharacterList from "./pages/CharacterList/CharacterList";
 import CookiePolicy from "./pages/Legal/CookiePolicy";
 import PrivacyPolicy from "./pages/Legal/PrivacyPolicy";
 import TermsOfService from "./pages/Legal/TermsOfService";
+import NotFound from "./pages/NotFound/NotFound"; // Import the new 404 page
 import CookieBanner from "./components/CookieBanner/CookieBanner";
 import CookieSettingsModal from "./components/CookieSettingsModal/CookieSettingsModal";
 import * as CookieService from "./services/CookieService";
@@ -60,6 +61,9 @@ function App() {
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/terms-of-service" element={<TermsOfService />} />
+
+                {/* Catch-all 404 Route - This must be the last route */}
+                <Route path="*" element={<NotFound />} />
             </Routes>
 
             {showCookieBanner && (
