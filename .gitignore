@@ -19,3 +19,7 @@
 .env.production.local
 *.vsidx
 *.sqlite
+.vs/Community-Service/CopilotIndices/17.14.786.1071/SemanticSymbols.db-shm
+.vs/Community-Service/CopilotIndices/17.14.786.1071/CodeChunks.db-wal
+.vs/Community-Service/CopilotIndices/17.14.786.1071/CodeChunks.db-shm
+.vs/Community-Service/CopilotIndices/17.14.786.1071/CodeChunks.db
