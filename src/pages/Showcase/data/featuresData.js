@@ -25,7 +25,7 @@ export const featuresData = [
     id: 3,
     title: "Character Progression",
     description:
-      "Level up your heroes, unlock powerful new abilities, and customize their equipment to build the ultimate team.",
+      "Level up your Champions, unlock powerful new abilities, and customize their equipment to build the ultimate party.",
     image: featureProgressionImg,
   },
 ];
