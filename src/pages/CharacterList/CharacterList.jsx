@@ -8,14 +8,21 @@ import NavBar from "../../components/NavBar";
 import MiniMediaLinks from "../../components/MiniMediaLinks";
 import Footer from "../../components/Footer";
 import "./CharacterList.css";
+import { TIER_DATA } from "../../utils/tierData" // Import tier data
+
 
 function CharacterList() {
     const [selectedCharacter, setSelectedCharacter] = useState(null);
+    const [tier, setTier] = useState("");
+    const [sortAZ, setSortAZ] = useState(false);
+    const [filteredCharacters, setFilteredCharacters] = useState([]);
     const location = useLocation();
 
     // Effect to scroll to top on page load
     useEffect(() => {
         window.scrollTo(0, 0);
+        console.log(charactersData)
+
     }, [location]);
 
     // Effect to handle body scroll lock when modal is open
@@ -31,12 +38,38 @@ function CharacterList() {
         };
     }, [selectedCharacter]);
 
+    // Effect to handle character filtering
+    useEffect(() => {
+        let updatedCharacters = [...charactersData]
+        console.log(tier)
+        if (tier) {
+            updatedCharacters = updatedCharacters.filter((char) => TIER_DATA[char.tier]?.name === tier);
+
+        }
+
+        if (sortAZ){
+            updatedCharacters = updatedCharacters.sort((a, b) => a.name.localeCompare(b.name));
+        }
+
+        setFilteredCharacters(updatedCharacters);
+        console.log(filteredCharacters)
+    }, [tier, sortAZ]);
+
     const handleCardClick = (character) => {
         setSelectedCharacter(character);
     };
 
     const closeModal = () => {
         setSelectedCharacter(null);
+    };
+
+    const handleTierChange = (e) => {
+        setTier(e.target.value)
+    };
+
+    const clearFilters = () => {
+        setTier("");
+        setSortAZ(false);
     };
 
     return (
@@ -52,8 +85,32 @@ function CharacterList() {
                     <div className="title-divider"></div>
                 </div>
 
+                <div className="character-filters">
+                    <select onChange={handleTierChange} className="tier-filter" value={tier}>
+                        <option value="">All Tiers</option>
+                        <option value="Epic">
+                            Epic
+                        </option>
+                        <option value="Legendary">
+                            Legendary
+                        </option>
+                        <option value="Rare">
+                            Rare
+                        </option>
+                    </select>
+
+                    <button onClick={() => setSortAZ(!sortAZ)} className="name-filter">
+                        Sort Alphabetically
+                    </button>
+
+                    <button onClick={clearFilters} className="clear-filters">
+                        Clear Filters
+                    </button>
+
+                </div>
+
                 <div className="character-grid">
-                    {charactersData.map((character) => (
+                    {filteredCharacters.map((character) => (
                         <CharacterGridCard
                             key={character.id}
                             character={character}
