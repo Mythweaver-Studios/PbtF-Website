@@ -1,5 +1,6 @@
 // src/pages/CharacterList/CharacterList.jsx
 import React, { useState, useEffect } from "react";
+import Select from 'react-select';
 import { useLocation } from "react-router-dom";
 import { charactersData } from "../Showcase/data/charactersData";
 import CharacterGridCard from "./components/CharacterGridCard";
@@ -9,7 +10,7 @@ import MiniMediaLinks from "../../components/MiniMediaLinks";
 import Footer from "../../components/Footer";
 import "./CharacterList.css";
 import { TIER_DATA } from "../../utils/tierData" // Import tier data
-
+import customStyles from "./DropdownStyles";
 
 function CharacterList() {
     const [selectedCharacter, setSelectedCharacter] = useState(null);
@@ -21,7 +22,6 @@ function CharacterList() {
     // Effect to scroll to top on page load
     useEffect(() => {
         window.scrollTo(0, 0);
-        console.log(charactersData)
 
     }, [location]);
 
@@ -65,13 +65,31 @@ function CharacterList() {
 
     // Setting tier filter state
     const handleTierChange = (e) => {
-        setTier(e.target.value)
+        if (e) {
+            setTier(e.value)
+        }
+        else{
+            setTier("")
+        }
     };
 
     const clearFilters = () => {
         setTier("");
         setSortAZ(false);
     };
+
+    // Function for tier filter custom dropdown
+    const tierOptions = Object.entries(TIER_DATA).map(([key, tierInfo]) => {
+        const tierNumber = Number(key);
+        const isTierEmpty = !charactersData.some((char) => char.tier === tierNumber);
+        return {
+            value: tierInfo.name,
+            label: tierInfo.name,
+            isDisabled: isTierEmpty,
+            color: tierInfo.textColor,
+            bgcolor: tierInfo.color  || "#999", // You can add a `color` field to TIER_DATA
+        };
+    });
 
     return (
         <div className="page-container character-list-page">
@@ -88,16 +106,13 @@ function CharacterList() {
 
                 <div className="character-filters">
                     <div className="left-filters">
-                        <select onChange={handleTierChange} className="tier-filter" value={tier}>
-                            <option value="">All Tiers</option>
-                            <option value="Common">Common</option>
-                            <option value="Uncommon">Uncommon</option>
-                            <option value="Rare">Rare</option>
-                            <option value="Epic">Epic</option>
-                            <option value="Legendary">Legendary</option>
-                            <option value="Mythic">Mythic</option>
-                            <option value="Empyrean">Empyrean</option>               
-                        </select>
+                        <Select
+                            options={tierOptions}
+                            onChange={handleTierChange}
+                            styles={customStyles}
+                            isSearchable={false}
+                            placeholder="All Tiers"
+                        />
 
                         <button
                             onClick={() => setSortAZ(!sortAZ)}

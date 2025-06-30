@@ -14,37 +14,20 @@
     flex-wrap: wrap;
 }
 
-/* Tier Filter Dropdown */
-.tier-filter {
-    appearance: none;
-    background-color: var(--theme-bg-gradient);
-    border: 2px solid var(--theme-border-gold);
-    color: var(--theme-text-primary);
-    font-weight: 600;
-    padding: 0.5rem 2.5rem 0.5rem 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: 'EternalFont', 'Georgia', serif;
-    letter-spacing: 1px;
-    background-image: url("data:image/svg+xml,%3Csvg fill='none' stroke='white' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 1rem 1rem;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
 /* Sort Alphabetically button */
 .name-filter {
     background-color: transparent;
     border: 2px solid var(--theme-border-gold);
     color: var(--theme-text-primary);
     font-weight: 600;
+    font-size: 0.9rem;
     padding: 0.5rem 1.25rem;
-    border-radius: 6px;
+    border-radius: 0.5rem;
     cursor: pointer;
-    font-family: 'EternalFont', 'Georgia', serif;
+    font-family: 'Georgia', serif;
     letter-spacing: 1px;
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    margin-left: 1rem;
 }
 
 .name-filter:hover,
@@ -57,14 +40,15 @@
 /* Clear Filters button aligned right */
 .clear-filters {
     margin-left: auto;
-    border: 2px solid #d94f4f;
+    border: 0.125rem solid #d94f4f;
     background-color: transparent;
     color: #d94f4f;
     font-weight: 600;
+    font-size: 0.9rem;
     padding: 0.5rem 1.25rem;
-    border-radius: 6px;
+    border-radius: 0.5rem;
     cursor: pointer;
-    font-family: 'EternalFont', 'Georgia', serif;
+    font-family: 'Georgia', serif;
     letter-spacing: 1px;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -74,14 +58,6 @@
     color: var(--theme-text-primary);
     box-shadow: 0 0 6px rgba(217, 79, 79, 0.4);
 }
-
-/* Dropdown options */
-.tier-filter option {
-    background-color: #1e1e1e;
-    color: var(--theme-text-primary);
-}
-
-
 
 /* src/pages/CharacterList/CharacterList.css */
 .character-list-page {
