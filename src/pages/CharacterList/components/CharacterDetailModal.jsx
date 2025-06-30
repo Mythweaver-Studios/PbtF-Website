@@ -2,9 +2,8 @@
 import React, { useEffect, Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import "./CharacterDetailModal.css";
-import { TIER_DATA } from "../../../utils/tierData"; // Import tier data
-import ShadowEffect from "./effects/ShadowEffect"; // Import the new ShadowEffect
-import RainEffect from "./effects/RainEffect"; // Import the new RainEffect
+import { TIER_DATA } from "../../../utils/tierData";
+import ShadowEffect from "./effects/ShadowEffect";
 
 // Helper to render stat bars
 const StatBar = ({ value }) => (
@@ -94,7 +93,6 @@ function CharacterDetailModal({ character, onClose }) {
                 <div className="modal-right">
                     {/* Render effects based on character data */}
                     {character.specialEffect === 'shadow' && <ShadowEffect />}
-                    {character.specialEffect === 'rain' && <RainEffect />}
 
                     <div className="modal-right-content-wrapper">
                         <div className="modal-title-header">

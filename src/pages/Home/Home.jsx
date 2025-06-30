@@ -131,7 +131,7 @@ function Home() {
                         <h1>Paved by the Fallen</h1>
                         <p className="game-pitch">
                             <strong>
-                                Paved by the Fallen: The Beginning is a tactical survival game where you
+                                Paved by the Fallen: A tactical survival game where you
                                 control the fate of summoned heroes battling through a ruthless
                                 tower of trials. No retries. No revives. Just consequences.
                             </strong>
