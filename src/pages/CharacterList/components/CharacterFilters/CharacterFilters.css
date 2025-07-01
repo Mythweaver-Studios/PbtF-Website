@@ -1,19 +1,35 @@
 /* src/pages/CharacterList/components/CharacterFilters/CharacterFilters.css */
 
-.character-filters {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 2rem;
+/* Keyframe for the smooth dropdown menu animation */
+@keyframes chillDropdownOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.left-filters {
+.character-filters-container {
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-label {
+    font-weight: bold;
+    color: var(--theme-text-secondary);
+    font-size: 0.9rem;
+    text-align: left;
 }
 
 .name-filter {
@@ -23,12 +39,13 @@
     font-weight: 600;
     font-size: 0.9rem;
     padding: 0.6rem 1.25rem;
-    height: 50px; /* Match height of select */
+    height: 50px;
     border-radius: 0.5rem;
     cursor: pointer;
     font-family: 'Georgia', serif;
     letter-spacing: 1px;
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
 }
 
     .name-filter:hover,
@@ -39,19 +56,20 @@
     }
 
 .clear-filters {
-    margin-left: auto; /* Pushes button to the far right */
     border: 0.125rem solid #d94f4f;
     background-color: transparent;
     color: #d94f4f;
     font-weight: 600;
     font-size: 0.9rem;
     padding: 0.6rem 1.25rem;
-    height: 50px; /* Match height of select */
+    height: 50px;
     border-radius: 0.5rem;
     cursor: pointer;
     font-family: 'Georgia', serif;
     letter-spacing: 1px;
     transition: all 0.2s ease-in-out;
+    width: 100%;
+    margin-top: 1rem;
 }
 
     .clear-filters:hover {
@@ -61,16 +79,49 @@
         transform: translateY(-2px);
     }
 
-/* --- Responsive Media Queries --- */
-@media (max-width: 580px) {
-    /* Stack filters on smaller screens */
-    .character-filters {
-        flex-direction: column;
-        align-items: stretch; /* Make children full-width */
+/* --- Responsive Media Queries for Filters --- */
+@media (max-width: 992px) {
+    .character-filters-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
     }
 
-    .left-filters {
-        justify-content: center;
+    .filter-group {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .filter-label {
+        display: none; /* Hide labels on smaller screens to save space */
+    }
+
+    .name-filter,
+    .clear-filters {
+        width: auto; /* Allow buttons to size to content */
+        margin-top: 0;
+    }
+
+    .clear-filters {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 580px) {
+    .character-filters-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-label {
+        display: block; /* Show labels again when stacked vertically */
     }
 
     .clear-filters {

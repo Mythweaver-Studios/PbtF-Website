@@ -5,7 +5,16 @@
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 1.5rem;
     justify-content: center;
+    /* Add transition for the fade effect */
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* ease-in-out curve */
+    opacity: 1;
 }
+
+    /* Class to apply during the fade-out/re-render phase */
+    .character-grid.grid-animating {
+        opacity: 0;
+    }
+
 
 @media (max-width: 768px) {
     .character-grid {

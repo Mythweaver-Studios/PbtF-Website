@@ -27,7 +27,7 @@
 
 .character-list-content {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 3rem 2rem;
     flex-grow: 1;
@@ -57,10 +57,32 @@
     border-radius: 2px;
 }
 
+/* --- Main Content Layout (Sidebar + Grid) --- */
+.layout-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.filters-sidebar {
+    position: sticky;
+    top: 120px; /* Adjust based on header height + padding */
+}
+
+.grid-content {
+    /* This will contain the character grid */
+}
+
 /* --- Responsive Media Queries --- */
 @media (max-width: 992px) {
-    .character-list-header {
-        padding: 1.2rem 2rem;
+    .layout-container {
+        grid-template-columns: 1fr; /* Stack sidebar on top of grid */
+    }
+
+    .filters-sidebar {
+        position: static; /* Remove sticky positioning */
+        margin-bottom: 2rem;
     }
 }
 

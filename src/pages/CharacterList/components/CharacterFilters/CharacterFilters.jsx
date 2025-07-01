@@ -37,6 +37,9 @@ const customStyles = {
         border: "1px solid var(--theme-border-gold)",
         borderRadius: '0.25rem',
         zIndex: 100,
+        opacity: 0,
+        transform: 'translateY(-10px)',
+        animation: 'chillDropdownOpen 0.3s forwards ease-out',
     }),
     menuList: (base) => ({ ...base, paddingTop: 0, paddingBottom: 0 }),
     option: (styles, { data, isFocused }) => ({
@@ -71,8 +74,9 @@ function CharacterFilters({ tierFilter, onTierChange, sortAZ, onSortChange, onCl
         }));
 
     return (
-        <div className="character-filters">
-            <div className="left-filters">
+        <div className="character-filters-container">
+            <div className="filter-group">
+                <label className="filter-label">Filter by Tier</label>
                 <Select
                     value={tierFilter}
                     options={tierOptions}
@@ -82,13 +86,18 @@ function CharacterFilters({ tierFilter, onTierChange, sortAZ, onSortChange, onCl
                     isClearable={true}
                     placeholder="All Tiers"
                 />
+            </div>
+
+            <div className="filter-group">
+                <label className="filter-label">Sort</label>
                 <button
-                    onClick={() => onSortChange(!sortAZ)}
+                    onClick={onSortChange}
                     className={`name-filter ${sortAZ ? "active" : ""}`}
                 >
                     Sort Alphabetically
                 </button>
             </div>
+
             <button
                 onClick={onClear}
                 className="clear-filters"

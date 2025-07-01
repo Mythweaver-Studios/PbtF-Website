@@ -5,9 +5,9 @@ import CharacterGridCard from '../CharacterGridCard/CharacterGridCard';
 import { TIER_DATA } from '../../../../utils/tierData';
 import './CharacterGrid.css';
 
-function CharacterGrid({ characters, tierFilter, onCardClick, onClearFilters }) {
+function CharacterGrid({ characters, tierFilter, isAnimating, onCardClick, onClearFilters }) {
     return (
-        <div className="character-grid">
+        <div className={`character-grid ${isAnimating ? 'grid-animating' : ''}`}>
             {characters.map((character) => {
                 // Determine if the card matches the current filter
                 const isMatch = !tierFilter || TIER_DATA[character.tier]?.name === tierFilter.value;
@@ -18,7 +18,6 @@ function CharacterGrid({ characters, tierFilter, onCardClick, onClearFilters }) 
                     if (isMatch) {
                         onCardClick(character);
                     } else {
-                        // If a dimmed card is clicked, clear the filters instead of opening the modal
                         onClearFilters();
                     }
                 };
@@ -39,6 +38,7 @@ function CharacterGrid({ characters, tierFilter, onCardClick, onClearFilters }) 
 CharacterGrid.propTypes = {
     characters: PropTypes.array.isRequired,
     tierFilter: PropTypes.object,
+    isAnimating: PropTypes.bool.isRequired,
     onCardClick: PropTypes.func.isRequired,
     onClearFilters: PropTypes.func.isRequired,
 };

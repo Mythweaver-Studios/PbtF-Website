@@ -2,12 +2,10 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-// New Component Imports
+// Component and Hook Imports
 import CharacterFilters from "./components/CharacterFilters/CharacterFilters";
 import CharacterGrid from "./components/CharacterGrid/CharacterGrid";
 import CharacterDetailModal from "./components/CharacterDetailModal/CharacterDetailModal";
-
-// Custom Hook for Logic
 import { useCharacterFilters } from "./hooks/useCharacterFilters";
 
 // Shared Component Imports
@@ -28,9 +26,10 @@ function CharacterList() {
         tierFilter,
         setTierFilter,
         sortAZ,
-        setSortAZ,
+        isAnimating,
         characterList,
-        clearFilters,
+        handleSortToggle,
+        handleClearFilters,
     } = useCharacterFilters();
 
     // --- Effects ---
@@ -71,20 +70,27 @@ function CharacterList() {
                     <div className="title-divider"></div>
                 </div>
 
-                <CharacterFilters
-                    tierFilter={tierFilter}
-                    onTierChange={setTierFilter}
-                    sortAZ={sortAZ}
-                    onSortChange={setSortAZ}
-                    onClear={clearFilters}
-                />
+                <div className="layout-container">
+                    <aside className="filters-sidebar">
+                        <CharacterFilters
+                            tierFilter={tierFilter}
+                            onTierChange={setTierFilter}
+                            sortAZ={sortAZ}
+                            onSortChange={handleSortToggle}
+                            onClear={handleClearFilters}
+                        />
+                    </aside>
 
-                <CharacterGrid
-                    characters={characterList}
-                    tierFilter={tierFilter}
-                    onCardClick={handleCardClick}
-                    onClearFilters={clearFilters}
-                />
+                    <div className="grid-content">
+                        <CharacterGrid
+                            characters={characterList}
+                            tierFilter={tierFilter}
+                            isAnimating={isAnimating}
+                            onCardClick={handleCardClick}
+                            onClearFilters={handleClearFilters}
+                        />
+                    </div>
+                </div>
             </main>
 
             {selectedCharacter && (
