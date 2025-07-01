@@ -1,8 +1,8 @@
-﻿// src/pages/CharacterList/components/CharacterDetailModal.jsx
+﻿// src\pages\CharacterList\components\CharacterDetailModal\CharacterDetailModal.jsx
 import React, { useEffect, Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import "./CharacterDetailModal.css";
-import { TIER_DATA } from "../../../utils/tierData";
+import { TIER_DATA } from "../../../../utils/tierData";
 import ShadowEffect from "./effects/ShadowEffect";
 
 // Helper to render stat bars

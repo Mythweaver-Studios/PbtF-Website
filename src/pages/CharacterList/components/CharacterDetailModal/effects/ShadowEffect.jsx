@@ -1,4 +1,4 @@
-// src/pages/CharacterList/components/effects/ShadowEffect.jsx
+// src\pages\CharacterList\components\CharacterDetailModal\effects\ShadowEffect.jsx
 import React from 'react';
 import './ShadowEffect.css';
 

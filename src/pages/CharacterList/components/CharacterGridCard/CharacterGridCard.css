@@ -1,11 +1,12 @@
-/* src/pages/CharacterList/components/CharacterGridCard.css */
+/* src/pages/CharacterList/components/CharacterGridCard/CharacterGridCard.css */
+
 .grid-card-container {
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    transition: transform 0.2s ease-out;
+    transition: transform 0.3s ease-out, opacity 0.4s ease-out;
 }
 
     .grid-card-container:hover .grid-card-border {
@@ -49,6 +50,20 @@
     transform: scale(1.05);
 }
 
+/* Style for cards that do NOT match the filter */
+.grid-card-container.dimmed {
+    opacity: 0.3;
+    transform: scale(0.95);
+    pointer-events: none; /* Make them non-interactive */
+}
+
+/* Style for cards that DO match the filter - applies the hover glow effect automatically */
+.grid-card-container.highlighted .grid-card-border {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px var(--char-accent-color);
+    border-color: var(--char-accent-color);
+}
+
+
 /* --- Unknown Character Card Styles --- */
 .grid-card-unknown {
     width: 100%;
@@ -67,18 +82,6 @@
     text-shadow: 0 0 15px var(--theme-border-gold);
 }
 /* --- End Unknown Character Card Styles --- */
-
-.grid-card-corner {
-    position: absolute;
-    bottom: -1px; /* Overlap border slightly */
-    right: -1px;
-    width: 35px;
-    height: 35px;
-    background-color: #100e0c;
-    clip-path: polygon(100% 0, 0 100%, 100% 100%);
-    border-top: 2px solid var(--theme-border-gold);
-    border-left: 2px solid var(--theme-border-gold);
-}
 
 .grid-card-name {
     font-size: 0.9rem;

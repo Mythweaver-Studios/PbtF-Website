@@ -1,13 +1,16 @@
-﻿// src/pages/CharacterList/components/CharacterGridCard.jsx
+﻿// src/pages/CharacterList/components/CharacterGridCard/CharacterGridCard.jsx
 import React from "react";
 import PropTypes from "prop-types";
 import "./CharacterGridCard.css";
 
-function CharacterGridCard({ character, onClick }) {
+function CharacterGridCard({ character, onClick, className = '' }) {
+
+    // Get only the first name for display on the card
+    const firstName = character.name.split(' ')[0];
 
     return (
         <div
-            className="grid-card-container"
+            className={`grid-card-container ${className}`}
             onClick={onClick}
             style={{ '--char-accent-color': character.accentColor }}
         >
@@ -24,10 +27,9 @@ function CharacterGridCard({ character, onClick }) {
                             <span className="unknown-char-icon">?</span>
                         </div>
                     )}
-                    <div className="grid-card-corner"></div>
                 </div>
             </div>
-            <p className="grid-card-name">{character.name}</p>
+            <p className="grid-card-name">{firstName}</p>
         </div>
     );
 }
@@ -40,6 +42,7 @@ CharacterGridCard.propTypes = {
         accentColor: PropTypes.string.isRequired,
     }).isRequired,
     onClick: PropTypes.func.isRequired,
+    className: PropTypes.string,
 };
 
 export default CharacterGridCard;

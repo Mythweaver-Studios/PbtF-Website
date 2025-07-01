@@ -1,4 +1,4 @@
-// src/pages/CharacterList/components/CharacterEffects.jsx
+// src\pages\CharacterList\components\CharacterEffects\CharacterEffects.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 import './CharacterEffects.css';
