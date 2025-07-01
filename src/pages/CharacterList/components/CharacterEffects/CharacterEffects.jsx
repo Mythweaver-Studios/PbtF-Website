@@ -1,4 +1,4 @@
-// src\pages\CharacterList\components\CharacterEffects\CharacterEffects.jsx
+// src/pages/CharacterList/components/CharacterEffects/CharacterEffects.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 import './CharacterEffects.css';
@@ -17,16 +17,17 @@ Particles.propTypes = {
     className: PropTypes.string.isRequired,
 };
 
-
 function CharacterEffects({ effectType }) {
+    // If no effect type is specified for the character, render nothing.
     if (!effectType) {
         return null;
     }
 
     return (
         <div className="effects-container">
-            {effectType === 'shadow' && <Particles count={15} className="shadow-particle" />}
-            {effectType === 'rain' && <Particles count={30} className="rain-drop" />}
+            {/* Conditionally render the correct particle effect */}
+            {effectType === 'shadow' && <Particles count={20} className="shadow-dot" />}
+            {/* Add other effects here in the future, e.g., {effectType === 'fire' && <FireEffect />} */}
         </div>
     );
 }

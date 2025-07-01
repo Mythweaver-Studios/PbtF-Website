@@ -1,7 +1,6 @@
 /* src/pages/CharacterList/CharacterList.css */
 
 /* --- Page Layout & Header --- */
-
 .character-list-page {
     display: flex;
     flex-direction: column;
@@ -35,7 +34,6 @@
 }
 
 /* --- Title & Divider --- */
-
 .character-list-title-container {
     text-align: center;
     margin-bottom: 3rem;
@@ -59,82 +57,7 @@
     border-radius: 2px;
 }
 
-/* --- Filter Controls --- */
-
-.character-filters {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.left-filters {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.name-filter {
-    background-color: transparent;
-    border: 2px solid var(--theme-border-gold);
-    color: var(--theme-text-primary);
-    font-weight: 600;
-    font-size: 0.9rem;
-    padding: 0.6rem 1.25rem;
-    height: 50px; /* Match height of select */
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-family: 'Georgia', serif;
-    letter-spacing: 1px;
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-}
-
-    .name-filter:hover,
-    .name-filter.active {
-        background-color: rgba(255, 215, 0, 0.2);
-        color: var(--theme-text-primary);
-        box-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
-    }
-
-.clear-filters {
-    margin-left: auto; /* Pushes button to the far right */
-    border: 0.125rem solid #d94f4f;
-    background-color: transparent;
-    color: #d94f4f;
-    font-weight: 600;
-    font-size: 0.9rem;
-    padding: 0.6rem 1.25rem;
-    height: 50px; /* Match height of select */
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-family: 'Georgia', serif;
-    letter-spacing: 1px;
-    transition: all 0.2s ease-in-out;
-}
-
-    .clear-filters:hover {
-        background-color: #d94f4f; /* Solid red background on hover */
-        color: #fff; /* White text for contrast */
-        box-shadow: 0 0 10px rgba(217, 79, 79, 0.7); /* Stronger red glow */
-        transform: translateY(-2px);
-    }
-
-
-/* --- Character Grid --- */
-
-.character-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 1.5rem;
-    justify-content: center;
-}
-
-
 /* --- Responsive Media Queries --- */
-
 @media (max-width: 992px) {
     .character-list-header {
         padding: 1.2rem 2rem;
@@ -150,39 +73,13 @@
         padding: 2rem 1rem;
     }
 
-    .character-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 1rem;
-    }
-
     .character-list-title {
         font-size: 2.2rem;
-    }
-}
-
-@media (max-width: 580px) {
-    /* Stack filters on smaller screens */
-    .character-filters {
-        flex-direction: column;
-        align-items: stretch; /* Make children full-width */
-    }
-
-    .left-filters {
-        justify-content: center;
-    }
-
-    .clear-filters {
-        margin-left: 0;
     }
 }
 
 @media (max-width: 480px) {
     .character-list-header {
         padding: 0.7rem 1.5rem;
-    }
-
-    .character-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 0.8rem;
     }
 }
