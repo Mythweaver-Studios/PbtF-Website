@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import "./CharacterDetailModal.css";
 import { TIER_DATA } from "../../../../utils/tierData";
 import ShadowEffect from "./effects/ShadowEffect";
+import RightArrow from "../../../../assets/CharacterDetailNavbar/right-arrow.svg"
+import LeftArrow from "../../../../assets/CharacterDetailNavbar/left-arrow.svg"
 
 // Helper to render stat bars
 const StatBar = ({ value }) => (
@@ -40,7 +42,7 @@ const ParsedStory = ({ text }) => {
     );
 };
 
-function CharacterDetailModal({ character, onClose }) {
+function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePrevious }) {
     const [isClosing, setIsClosing] = useState(false);
     const tierInfo = TIER_DATA[character.tier] || TIER_DATA[1];
 
@@ -140,7 +142,16 @@ function CharacterDetailModal({ character, onClose }) {
                                     ))}
                                 </div>
                             )}
-                        </div>
+                        </div>       
+                        <div className="modal-navbar">
+                            <button className="arrow-button" onClick={onNavigatePrevious}>
+                                <img src={LeftArrow} className="arrow-image"/>
+                            </button>
+                            <p>{character.name}</p>
+                            <button className="arrow-button" onClick={onNavigateNext}>
+                                <img src={RightArrow} className="arrow-image"/>
+                            </button>
+                        </div>                 
                     </div>
                 </div>
             </div>
@@ -151,6 +162,8 @@ function CharacterDetailModal({ character, onClose }) {
 CharacterDetailModal.propTypes = {
     character: PropTypes.object.isRequired,
     onClose: PropTypes.func.isRequired,
+    onNavigateNext: PropTypes.func.isRequired,
+    onNavigatePrevious: PropTypes.func.isRequired,
 };
 
 StatBar.propTypes = {

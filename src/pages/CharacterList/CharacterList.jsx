@@ -1,6 +1,8 @@
 // src/pages/CharacterList/CharacterList.jsx
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+// Data Imports
+import { TIER_DATA } from "../../utils/tierData";
 
 // Component and Hook Imports
 import CharacterFilters from "./components/CharacterFilters/CharacterFilters";
@@ -57,6 +59,32 @@ function CharacterList() {
         setSelectedCharacter(null);
     };
 
+    // Function to get list of characters the filter applies to.
+    const getFilteredList = () => {
+        return characterList.filter((char) => {
+            if (!tierFilter) return true;
+            return TIER_DATA[char.tier]?.name === tierFilter.value;
+        });
+    };
+
+    // Function to handle character navigation (next and previous arrow buttons)
+    const handleNavigate = (direction) => {
+        const visibleCharacters = getFilteredList();
+        console.log(visibleCharacters)
+        if (!selectedCharacter) return;
+
+        const currentIndex = visibleCharacters.findIndex(c => c.id === selectedCharacter.id);
+
+        let newIndex;
+        if (direction === "next") {
+            newIndex = (currentIndex + 1) % visibleCharacters.length;
+        } else if (direction === "prev") {
+            newIndex = (currentIndex - 1 + visibleCharacters.length) % visibleCharacters.length;
+        }
+
+        setSelectedCharacter(visibleCharacters[newIndex]);
+    };
+
     return (
         <div className="page-container character-list-page">
             <header className="character-list-header">
@@ -97,6 +125,8 @@ function CharacterList() {
                 <CharacterDetailModal
                     character={selectedCharacter}
                     onClose={closeModal}
+                    onNavigateNext={() => handleNavigate("next")}
+                    onNavigatePrevious={() => handleNavigate("prev")}
                 />
             )}
 
