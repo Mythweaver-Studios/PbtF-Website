@@ -1,11 +1,9 @@
-﻿// src\pages\CharacterList\components\CharacterDetailModal\CharacterDetailModal.jsx
+﻿// src/pages/CharacterList/components/CharacterDetailModal/CharacterDetailModal.jsx
 import React, { useEffect, Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import "./CharacterDetailModal.css";
 import { TIER_DATA } from "../../../../utils/tierData";
 import ShadowEffect from "./effects/ShadowEffect";
-import RightArrow from "../../../../assets/CharacterDetailNavbar/right-arrow.svg"
-import LeftArrow from "../../../../assets/CharacterDetailNavbar/left-arrow.svg"
 
 // Helper to render stat bars
 const StatBar = ({ value }) => (
@@ -44,6 +42,7 @@ const ParsedStory = ({ text }) => {
 
 function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePrevious }) {
     const [isClosing, setIsClosing] = useState(false);
+    const [isNavigating, setIsNavigating] = useState(false); // State for fade animation
     const tierInfo = TIER_DATA[character.tier] || TIER_DATA[1];
 
     const handleClose = () => {
@@ -52,6 +51,24 @@ function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePr
             onClose();
         }, 300);
     };
+
+    // New handler for smooth navigation
+    const handleNavigation = (direction) => {
+        setIsNavigating(true); // Trigger fade-out
+        setTimeout(() => {
+            if (direction === "next") {
+                onNavigateNext();
+            } else {
+                onNavigatePrevious();
+            }
+        }, 250); // Duration should match the CSS transition
+    };
+
+    // Reset animation state when the character changes
+    useEffect(() => {
+        setIsNavigating(false); // Trigger fade-in
+    }, [character.id]);
+
 
     useEffect(() => {
         const handleEsc = (event) => {
@@ -96,7 +113,7 @@ function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePr
                     {/* Render effects based on character data */}
                     {character.specialEffect === 'shadow' && <ShadowEffect />}
 
-                    <div className="modal-right-content-wrapper">
+                    <div className={`modal-right-content-wrapper ${isNavigating ? 'navigating' : ''}`}>
                         <div className="modal-title-header">
                             <h2 className="modal-char-name">{character.name} {renderGenderIcon(character.gender)}</h2>
                             <div
@@ -142,16 +159,20 @@ function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePr
                                     ))}
                                 </div>
                             )}
-                        </div>       
-                        <div className="modal-navbar">
-                            <button className="arrow-button" onClick={onNavigatePrevious}>
-                                <img src={LeftArrow} className="arrow-image"/>
+                        </div>
+                        <div className="modal-navigation">
+                            <button className="nav-arrow-button" onClick={() => handleNavigation("prev")} aria-label="Previous Character">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                                </svg>
                             </button>
-                            <p>{character.name}</p>
-                            <button className="arrow-button" onClick={onNavigateNext}>
-                                <img src={RightArrow} className="arrow-image"/>
+                            <p className="nav-character-name">{character.name.split(' ')[0]}</p>
+                            <button className="nav-arrow-button" onClick={() => handleNavigation("next")} aria-label="Next Character">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                                </svg>
                             </button>
-                        </div>                 
+                        </div>
                     </div>
                 </div>
             </div>

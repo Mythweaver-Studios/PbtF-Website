@@ -11,22 +11,24 @@ function CharacterGridCard({ character, onClick, className = '' }) {
     return (
         <div
             className={`grid-card-container ${className}`}
-            onClick={onClick}
             style={{ '--char-accent-color': character.accentColor }}
         >
-            <div className="grid-card-border">
-                <div className="grid-card-inner">
-                    {character.thumbnail ? (
-                        <img
-                            src={character.thumbnail}
-                            alt={character.name}
-                            className="grid-card-image"
-                        />
-                    ) : (
-                        <div className="grid-card-unknown">
-                            <span className="unknown-char-icon">?</span>
-                        </div>
-                    )}
+            {/* This wrapper isolates the hover and click effects to the visual card area */}
+            <div className="card-visuals" onClick={onClick}>
+                <div className="grid-card-border">
+                    <div className="grid-card-inner">
+                        {character.thumbnail ? (
+                            <img
+                                src={character.thumbnail}
+                                alt={character.name}
+                                className="grid-card-image"
+                            />
+                        ) : (
+                            <div className="grid-card-unknown">
+                                <span className="unknown-char-icon">?</span>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
             <p className="grid-card-name">{firstName}</p>

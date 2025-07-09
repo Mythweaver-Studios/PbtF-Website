@@ -6,24 +6,38 @@
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    transition: transform 0.3s ease-out, opacity 0.4s ease-out;
+    transition: opacity 0.4s ease-out;
 }
 
-    .grid-card-container:hover .grid-card-border {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px var(--char-accent-color);
-    }
+/* New wrapper to handle hover effects on the card only */
+.card-visuals {
+    width: 100%;
+    transition: transform 0.2s ease-out;
+}
+
+/* Apply transform to the visual wrapper on hover */
+.card-visuals:hover {
+    transform: translateY(-5px);
+}
+
+/* Apply border effects when hovering the visual wrapper */
+.card-visuals:hover .grid-card-border {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px var(--char-accent-color);
+    border-color: var(--char-accent-color);
+}
+
+/* Apply image zoom when hovering the visual wrapper */
+.card-visuals:hover .grid-card-image {
+    transform: scale(1.05);
+}
+
 
 .grid-card-border {
     border: 2px solid var(--theme-border-gold-faint);
     border-radius: 8px;
     width: 100%;
-    transition: transform 0.2s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+    transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out;
     padding: 2px; /* Maintain padding to see border */
-}
-
-.grid-card-container:hover .grid-card-border {
-    border-color: var(--char-accent-color);
 }
 
 
@@ -44,10 +58,6 @@
     object-fit: cover;
     object-position: center;
     transition: transform 0.3s ease;
-}
-
-.grid-card-container:hover .grid-card-image {
-    transform: scale(1.05);
 }
 
 /* Style for cards that do NOT match the filter */

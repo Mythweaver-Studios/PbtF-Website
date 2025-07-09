@@ -1,4 +1,4 @@
-/* src\pages\CharacterList\components\CharacterDetailModal\CharacterDetailModal.css */
+/* src/pages/CharacterList/components/CharacterDetailModal/CharacterDetailModal.css */
 .modal-backdrop {
     position: fixed;
     top: 0;
@@ -134,29 +134,37 @@
 
 .modal-right {
     flex-basis: 55%;
+    display: flex; /* Use flexbox to manage layout of wrapper and navigation */
+    flex-direction: column;
     padding: 2.5rem 3rem;
+    min-height: 0; /* Flexbox scroll fix */
+    position: relative; /* Positioning context for effects */
+    overflow: hidden; /* Hide horizontal overflow from effects */
+}
+
+.modal-right-content-wrapper {
+    flex-grow: 1; /* Allow content to take up available space */
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: var(--theme-border-gold) transparent;
-    min-height: 0; /* Flexbox scroll fix */
-    position: relative; /* Positioning context for effects */
-    overflow-x: hidden; /* Hide horizontal overflow from effects */
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.25s ease-in-out;
 }
 
-    .modal-right::-webkit-scrollbar {
+    .modal-right-content-wrapper.navigating {
+        opacity: 0;
+    }
+
+    .modal-right-content-wrapper::-webkit-scrollbar {
         width: 6px;
     }
 
-    .modal-right::-webkit-scrollbar-thumb {
+    .modal-right-content-wrapper::-webkit-scrollbar-thumb {
         background-color: var(--theme-border-gold);
         border-radius: 3px;
     }
 
-/* Wrapper to ensure content stays above the effects */
-.modal-right-content-wrapper {
-    position: relative;
-    z-index: 1;
-}
 
 .modal-title-header {
     display: flex;
@@ -321,39 +329,39 @@
     font-size: 0.9rem;
 }
 
-.modal-navbar {
-    width: auto;
-    height: 3rem;
-    padding: 0;
+.modal-navigation {
+    flex-shrink: 0; /* Prevent this from shrinking */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 2rem;
+    padding-top: 1rem;
+    margin-top: auto; /* Push to the bottom */
+    border-top: 1px solid var(--theme-border-gold-faint);
 }
 
-.modal-navbar p {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+.nav-character-name {
     font-weight: bold;
     font-size: 1.2rem;
+    color: var(--theme-text-titles);
 }
 
-.arrow-button {
+.nav-arrow-button {
+    background: none;
+    border: none;
     cursor: pointer;
-    background: var(--theme-bg-gradient);
-    border: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: var(--theme-text-secondary);
+    transition: color 0.2s, transform 0.2s;
 }
 
-.arrow-image {
-    height: 4rem;
-    width: auto;
-    display: block;
-    filter: brightness(0) saturate(100%) invert(75%) sepia(15%) saturate(469%) hue-rotate(357deg) brightness(103%) contrast(100%);
-}
+    .nav-arrow-button svg {
+        width: 48px;
+        height: 48px;
+    }
+
+    .nav-arrow-button:hover {
+        color: var(--theme-highlight-gold);
+        transform: scale(1.1);
+    }
 
 
 /* Responsive */
@@ -411,5 +419,14 @@
     .stat-bar-container,
     .stat-bar-unknown {
         width: 100%;
+    }
+
+    .nav-arrow-button svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-character-name {
+        font-size: 1rem;
     }
 }
