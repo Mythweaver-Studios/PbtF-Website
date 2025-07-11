@@ -1,55 +1,57 @@
 // src/pages/CharacterList/hooks/useCharacterFilters.js
 import { useState, useEffect, useCallback } from "react";
 import { charactersData } from "../../Showcase/data/charactersData";
+import { TIER_DATA } from "../../../utils/tierData";
 
 /**
  * A custom hook to manage all state and logic for filtering and sorting characters.
  */
 export function useCharacterFilters() {
     // --- State ---
-    const [tierFilter, setTierFilter] = useState(null);
+    const [tierFilter, setTierFilter] = useState(null); // Now stores the react-select object
     const [sortAZ, setSortAZ] = useState(false);
-    const [characterList, setCharacterList] = useState([]);
-    const [isAnimating, setIsAnimating] = useState(false); // State to control animation
+    const [characterList, setCharacterList] = useState(charactersData);
+    const [isAnimating, setIsAnimating] = useState(false);
 
-    // --- Effects ---
-    // Initialize character list on first load
+    // Central effect to handle all filtering and sorting logic
     useEffect(() => {
-        setCharacterList(charactersData);
-    }, []);
+        setIsAnimating(true); // Trigger fade-out animation on grid
 
-    // --- Handlers with Animation Logic ---
-    const triggerAnimation = (callback) => {
-        setIsAnimating(true); // Start fade-out
-        setTimeout(() => {
-            callback(); // Perform the state change after fade-out
-            setIsAnimating(false); // Start fade-in
-        }, 300); // This duration must match the CSS transition duration
-    };
+        const animationTimeout = setTimeout(() => {
+            let processedCharacters = [...charactersData];
+
+            // Apply tier filter
+            if (tierFilter && tierFilter.value) {
+                processedCharacters = processedCharacters.filter(
+                    (char) => TIER_DATA[char.tier]?.name === tierFilter.value
+                );
+            }
+
+            // Apply sorting
+            if (sortAZ) {
+                processedCharacters.sort((a, b) => a.name.localeCompare(b.name));
+            }
+
+            setCharacterList(processedCharacters);
+            setIsAnimating(false); // Trigger fade-in animation
+        }, 300); // Duration must match CSS transition
+
+        return () => clearTimeout(animationTimeout);
+    }, [tierFilter, sortAZ]);
+
 
     const handleSortToggle = useCallback(() => {
-        triggerAnimation(() => {
-            const newSortState = !sortAZ;
-            setSortAZ(newSortState);
-            let charactersToDisplay = [...charactersData];
-            if (newSortState) {
-                charactersToDisplay.sort((a, b) => a.name.localeCompare(b.name));
-            }
-            setCharacterList(charactersToDisplay);
-        });
-    }, [sortAZ]);
+        setSortAZ(prev => !prev);
+    }, []);
 
     const handleClearFilters = useCallback(() => {
-        triggerAnimation(() => {
-            setTierFilter(null);
-            setSortAZ(false);
-            setCharacterList([...charactersData]);
-        });
+        setTierFilter(null);
+        setSortAZ(false);
     }, []);
 
     return {
         tierFilter,
-        setTierFilter,
+        setTierFilter, // Pass the setter directly to the component
         sortAZ,
         isAnimating,
         characterList,

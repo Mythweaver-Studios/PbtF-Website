@@ -22,9 +22,8 @@ Fallback values resolved for SASS functions:
 */
 
 .about-us-page {
-    background: linear-gradient(135deg, #100e0c 0%, #050403 100%);
+    /* The main background is now handled globally by the body style in Default.css */
     color: var(--theme-text-primary, #e0c9a6);
-    /* Standard page container styles from other pages like Showcase.scss if applicable */
 }
 
 .about-us-header {

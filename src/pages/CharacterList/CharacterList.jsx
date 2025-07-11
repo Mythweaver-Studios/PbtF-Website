@@ -16,6 +16,7 @@ import MiniMediaLinks from "../../components/MiniMediaLinks";
 import Footer from "../../components/Footer";
 
 // CSS Imports
+import "../../components/Default.css";
 import "./CharacterList.css";
 
 function CharacterList() {
@@ -61,6 +62,7 @@ function CharacterList() {
 
     // Function to get list of characters the filter applies to.
     const getFilteredList = () => {
+        // This function is still needed for modal navigation if filters are applied
         return characterList.filter((char) => {
             if (!tierFilter) return true;
             return TIER_DATA[char.tier]?.name === tierFilter.value;
@@ -70,15 +72,19 @@ function CharacterList() {
     // Function to handle character navigation (next and previous arrow buttons)
     const handleNavigate = (direction) => {
         const visibleCharacters = getFilteredList();
-        console.log(visibleCharacters)
-        if (!selectedCharacter) return;
+        if (!selectedCharacter || visibleCharacters.length === 0) return;
 
         const currentIndex = visibleCharacters.findIndex(c => c.id === selectedCharacter.id);
+
+        if (currentIndex === -1) {
+            setSelectedCharacter(visibleCharacters[0] || null);
+            return;
+        }
 
         let newIndex;
         if (direction === "next") {
             newIndex = (currentIndex + 1) % visibleCharacters.length;
-        } else if (direction === "prev") {
+        } else {
             newIndex = (currentIndex - 1 + visibleCharacters.length) % visibleCharacters.length;
         }
 
@@ -112,10 +118,8 @@ function CharacterList() {
                     <div className="grid-content">
                         <CharacterGrid
                             characters={characterList}
-                            tierFilter={tierFilter}
                             isAnimating={isAnimating}
                             onCardClick={handleCardClick}
-                            onClearFilters={handleClearFilters}
                         />
                     </div>
                 </div>

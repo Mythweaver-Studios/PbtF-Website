@@ -17,7 +17,7 @@ $highlight-gold: #f1c40f;
 --- */
 
 .showcase-page {
-    background: linear-gradient(135deg, #100e0c 0%, #050403 100%);
+    /* The main background is now handled globally by the body style in Default.css */
     color: #e0c9a6;
     position: relative; /* For positioning context of fixed elements like side-nav */
 }

@@ -3,8 +3,80 @@
   "WorkspaceRootPath": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\Default.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\Default.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\ErrorBoundary\\ErrorBoundary.CSS||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\ErrorBoundary\\ErrorBoundary.CSS||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\CharacterList.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\CharacterList\\CharacterList.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\AboutUs\\AboutUs.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\AboutUs\\AboutUs.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Showcase\\Showcase.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\NotFound\\NotFound.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\NotFound\\NotFound.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\AuthCallback\\AuthCallback.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\AuthCallback\\AuthCallback.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\public\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:public\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\public\\manifest.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:public\\manifest.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\REACT.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:REACT.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\hooks\\useCharacterFilters.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\CharacterList\\hooks\\useCharacterFilters.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\CharacterList.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\CharacterList\\CharacterList.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterGrid\\CharacterGrid.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\CharacterList\\components\\CharacterGrid\\CharacterGrid.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\ErrorBoundary\\ErrorBoundary.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\ErrorBoundary\\ErrorBoundary.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterGridCard\\CharacterGridCard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\CharacterList\\components\\CharacterGridCard\\CharacterGridCard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\data\\charactersData.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Showcase\\data\\charactersData.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\TimedGlowText\\TimedGlowText.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\TimedGlowText\\TimedGlowText.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\VoiceLinePlayer\\VoiceLinePlayer.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -13,10 +85,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\TimedGlowText\\TimedGlowText.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\TimedGlowText\\TimedGlowText.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\TimedGlowText\\TimedGlowText.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\TimedGlowText\\TimedGlowText.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\VoiceLinePlayer\\VoiceLinePlayer.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -46,7 +114,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,7 +122,228 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Default.css",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\Default.css",
+              "RelativeDocumentMoniker": "src\\components\\Default.css",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\Default.css",
+              "RelativeToolTip": "src\\components\\Default.css",
+              "ViewState": "AgIAADIAAAAAAAAAAAAYwD8AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-11T01:54:53.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AboutUs.css",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\AboutUs\\AboutUs.css",
+              "RelativeDocumentMoniker": "src\\pages\\AboutUs\\AboutUs.css",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\AboutUs\\AboutUs.css",
+              "RelativeToolTip": "src\\pages\\AboutUs\\AboutUs.css",
+              "ViewState": "AgIAAP8AAAAAAAAAAAAowA4BAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-11T01:46:05.584Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Showcase.css",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.css",
+              "RelativeDocumentMoniker": "src\\pages\\Showcase\\Showcase.css",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.css",
+              "RelativeToolTip": "src\\pages\\Showcase\\Showcase.css",
+              "ViewState": "AgIAAAwBAAAAAAAAAAAowDEBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-11T01:45:48.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NotFound.css",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\NotFound\\NotFound.css",
+              "RelativeDocumentMoniker": "src\\pages\\NotFound\\NotFound.css",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\NotFound\\NotFound.css",
+              "RelativeToolTip": "src\\pages\\NotFound\\NotFound.css",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAowIcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-11T01:45:25.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AuthCallback.css",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\AuthCallback\\AuthCallback.css",
+              "RelativeDocumentMoniker": "src\\pages\\AuthCallback\\AuthCallback.css",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\AuthCallback\\AuthCallback.css",
+              "RelativeToolTip": "src\\pages\\AuthCallback\\AuthCallback.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-11T01:45:08.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "manifest.json",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\public\\manifest.json",
+              "RelativeDocumentMoniker": "public\\manifest.json",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\public\\manifest.json",
+              "RelativeToolTip": "public\\manifest.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-11T01:11:24.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\public\\index.html",
+              "RelativeDocumentMoniker": "public\\index.html",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\public\\index.html",
+              "RelativeToolTip": "public\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-07-11T01:11:22.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "REACT.md",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\REACT.md",
+              "RelativeDocumentMoniker": "REACT.md",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\REACT.md",
+              "RelativeToolTip": "REACT.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-07-11T01:05:50.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAADCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-07-11T01:05:49.363Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "useCharacterFilters.js",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\hooks\\useCharacterFilters.js",
+              "RelativeDocumentMoniker": "src\\pages\\CharacterList\\hooks\\useCharacterFilters.js",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\hooks\\useCharacterFilters.js",
+              "RelativeToolTip": "src\\pages\\CharacterList\\hooks\\useCharacterFilters.js",
+              "ViewState": "AgIAABoAAAAAAAAAAAAowDwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-07-11T01:02:10.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CharacterGrid.jsx",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterGrid\\CharacterGrid.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\CharacterList\\components\\CharacterGrid\\CharacterGrid.jsx",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterGrid\\CharacterGrid.jsx",
+              "RelativeToolTip": "src\\pages\\CharacterList\\components\\CharacterGrid\\CharacterGrid.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-07-11T01:01:20.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "CharacterList.css",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\CharacterList.css",
+              "RelativeDocumentMoniker": "src\\pages\\CharacterList\\CharacterList.css",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\CharacterList.css",
+              "RelativeToolTip": "src\\pages\\CharacterList\\CharacterList.css",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAowFwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-11T00:52:48.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CharacterList.jsx",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\CharacterList.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\CharacterList\\CharacterList.jsx",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\CharacterList.jsx",
+              "RelativeToolTip": "src\\pages\\CharacterList\\CharacterList.jsx",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAQwHwAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-07-11T00:41:51.593Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "App.jsx",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\App.jsx",
+              "RelativeDocumentMoniker": "src\\App.jsx",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\App.jsx",
+              "RelativeToolTip": "src\\App.jsx",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAowGMAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-07-11T00:42:02.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CharacterGridCard.jsx",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterGridCard\\CharacterGridCard.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\CharacterList\\components\\CharacterGridCard\\CharacterGridCard.jsx",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterGridCard\\CharacterGridCard.jsx",
+              "RelativeToolTip": "src\\pages\\CharacterList\\components\\CharacterGridCard\\CharacterGridCard.jsx",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAowDEAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-07-11T00:41:13.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ErrorBoundary.css",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\ErrorBoundary\\ErrorBoundary.css",
+              "RelativeDocumentMoniker": "src\\components\\ErrorBoundary\\ErrorBoundary.css",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\ErrorBoundary\\ErrorBoundary.css",
+              "RelativeToolTip": "src\\components\\ErrorBoundary\\ErrorBoundary.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-11T00:39:38.28Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ErrorBoundary.jsx",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\ErrorBoundary\\ErrorBoundary.jsx",
+              "RelativeDocumentMoniker": "src\\components\\ErrorBoundary\\ErrorBoundary.jsx",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\ErrorBoundary\\ErrorBoundary.jsx",
+              "RelativeToolTip": "src\\components\\ErrorBoundary\\ErrorBoundary.jsx",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowDQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-07-11T00:39:35.034Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "TimedGlowText.jsx",
               "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\TimedGlowText\\TimedGlowText.jsx",
               "RelativeDocumentMoniker": "src\\components\\TimedGlowText\\TimedGlowText.jsx",
@@ -67,7 +356,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 18,
               "Title": "TimedGlowText.css",
               "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\TimedGlowText\\TimedGlowText.css",
               "RelativeDocumentMoniker": "src\\components\\TimedGlowText\\TimedGlowText.css",
@@ -80,7 +369,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 21,
               "Title": "VoiceLinePlayer.jsx",
               "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\VoiceLinePlayer\\VoiceLinePlayer.jsx",
               "RelativeDocumentMoniker": "src\\components\\VoiceLinePlayer\\VoiceLinePlayer.jsx",
@@ -93,7 +382,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 19,
               "Title": "VoiceLinePlayer.css",
               "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\VoiceLinePlayer\\VoiceLinePlayer.css",
               "RelativeDocumentMoniker": "src\\components\\VoiceLinePlayer\\VoiceLinePlayer.css",
@@ -106,20 +395,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 17,
               "Title": "charactersData.js",
               "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\data\\charactersData.js",
               "RelativeDocumentMoniker": "src\\pages\\Showcase\\data\\charactersData.js",
               "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\data\\charactersData.js",
               "RelativeToolTip": "src\\pages\\Showcase\\data\\charactersData.js",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAAwIYAAABOAAAAAAAAAA==",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAAwIcAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-07-10T23:27:44.16Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 22,
               "Title": "Characters.jsx",
               "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\components\\Characters.jsx",
               "RelativeDocumentMoniker": "src\\pages\\Showcase\\components\\Characters.jsx",
@@ -132,7 +421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 25,
               "Title": "CharacterDetailModal.jsx",
               "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterDetailModal\\CharacterDetailModal.jsx",
               "RelativeDocumentMoniker": "src\\pages\\CharacterList\\components\\CharacterDetailModal\\CharacterDetailModal.jsx",
@@ -145,7 +434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 24,
               "Title": "Characters.css",
               "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\components\\Characters.css",
               "RelativeDocumentMoniker": "src\\pages\\Showcase\\components\\Characters.css",
@@ -158,7 +447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 23,
               "Title": "CharacterDetailModal.css",
               "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterDetailModal\\CharacterDetailModal.css",
               "RelativeDocumentMoniker": "src\\pages\\CharacterList\\components\\CharacterDetailModal\\CharacterDetailModal.css",

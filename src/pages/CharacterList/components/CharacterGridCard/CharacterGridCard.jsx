@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import "./CharacterGridCard.css";
 
 function CharacterGridCard({ character, onClick, className = '' }) {
-
     // Get only the first name for display on the card
     const firstName = character.name.split(' ')[0];
 
@@ -47,4 +46,5 @@ CharacterGridCard.propTypes = {
     className: PropTypes.string,
 };
 
-export default CharacterGridCard;
+// Wrap the component with React.memo to prevent unnecessary re-renders
+export default React.memo(CharacterGridCard);
