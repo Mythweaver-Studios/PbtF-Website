@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 import NavBar from "../../components/NavBar";
 import MediaLinks from "../../components/MiniMediaLinks";
 import Footer from "../../components/Footer";
-// Corrected import paths to match the actual filenames
 import StoryScroller from "./components/Story";
 import FeaturesSlideshow from "./components/Features";
 import CharactersSection from "./components/Characters";
@@ -13,7 +12,8 @@ import { storyText } from "./data/storyText";
 import { featuresData } from "./data/featuresData";
 import { charactersData } from "./data/charactersData";
 
-import "./Showcase.css"; // Import Showcase page specific styles
+import "../../components/Default.css";
+import "./Showcase.css";
 
 const showcaseNavItems = [
     { id: "story", title: "Story" },
@@ -88,7 +88,7 @@ function Showcase() {
             if (internalNavRef.current) return; // Don't update if internally navigating
 
             let currentSection = "";
-            const scrollPosition = window.scrollY + window.innerHeight / 2.5; // Adjusted threshold
+            const scrollPosition = window.scrollY + window.innerHeight / 2.5;
 
             showcaseNavItems.forEach((item) => {
                 const sectionElement = sectionRefs[item.id].current;
@@ -126,7 +126,6 @@ function Showcase() {
 
             if (currentSection && currentSection !== activeSection) {
                 setActiveSection(currentSection);
-                // Update URL hash to reflect the current active section due to scrolling
                 if (window.history.replaceState) {
                     window.history.replaceState(null, null, `#${currentSection}`);
                 }
@@ -136,7 +135,7 @@ function Showcase() {
         window.addEventListener("scroll", handleScroll);
         handleScroll(); // Initial check
         return () => window.removeEventListener("scroll", handleScroll);
-    }, [activeSection]); // Re-run if activeSection changes (primarily driven by scroll itself)
+    }, [activeSection, sectionRefs]);
 
     return (
         <div className="page-container showcase-page">
@@ -186,7 +185,6 @@ function Showcase() {
                     <div className="section-title-container">
                         <h2 className="section-title">Characters</h2>
                     </div>
-                    {/* 3. CORRECTED: Pass the imported data as a prop */}
                     <CharactersSection charactersData={charactersData} />
                 </section>
 
