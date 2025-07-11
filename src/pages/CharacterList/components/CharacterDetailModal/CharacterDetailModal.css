@@ -257,6 +257,7 @@
 .modal-char-story {
     font-size: 0.9rem;
     line-height: 1.7;
+    margin-top: 1.5rem; /* Added margin to space from voiceline panel */
     margin-bottom: 2rem;
     color: var(--theme-text-secondary);
     border-left: 3px solid var(--theme-border-gold-faint);

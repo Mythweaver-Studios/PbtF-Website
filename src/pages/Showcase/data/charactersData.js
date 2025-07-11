@@ -8,6 +8,30 @@ import Character2Thumb from "../../../assets/showcase/Thumb_YanYan.png";
 import Character3Img from "../../../assets/showcase/Character_Benedict.png";
 import Character3Thumb from "../../../assets/showcase/Thumb_Benedict.png";
 
+// IMPORTANT: Audio files must be placed in the `public/audio/` directory.
+const placeholderAudio = "/audio/placeholder.mp3";
+
+// Timed data for the placeholder audio quote.
+const placeholderTimedQuote = [
+    { word: "they", duration: 200 }, { word: "ask", duration: 200 },
+    { word: "you", duration: 200 }, { word: "how", duration: 200 },
+    { word: "you", duration: 150 }, { word: "are,", duration: 300 },
+    { word: "and", duration: 200 }, { word: "you", duration: 150 },
+    { word: "just", duration: 200 }, { word: "have", duration: 200 },
+    { word: "to", duration: 150 }, { word: "say", duration: 200 },
+    { word: "that", duration: 200 }, { word: "you're", duration: 200 },
+    { word: "fine,", duration: 500 }, { word: "when", duration: 200 },
+    { word: "you're", duration: 200 }, { word: "not", duration: 200 },
+    { word: "really", duration: 300 }, { word: "fine,", duration: 500 },
+    { word: "but", duration: 200 }, { word: "you", duration: 150 },
+    { word: "just", duration: 200 }, { word: "can't", duration: 200 },
+    { word: "get", duration: 150 }, { word: "into", duration: 250 },
+    { word: "it", duration: 200 }, { word: "because", duration: 300 },
+    { word: "they", duration: 150 }, { word: "would", duration: 200 },
+    { word: "never", duration: 300 }, { word: "understand", duration: 600 }
+];
+
+
 // Data for character showcase
 export const charactersData = [
     {
@@ -26,17 +50,27 @@ export const charactersData = [
         thumbnail: Character1Thumb,
         accentColor: "#8b9ff2",
         tier: 4, // Epic
-        specialEffect: 'shadow', // Added effect type
+        specialEffect: 'shadow',
         showcaseStyles: {
             transform: 'scale(1.10) translateY(-20px)',
         },
-        stats: {
-            Strength: 4,
-            Intelligence: 3,
-            HP: 2,
-            Dexterity: 5,
-            Mana: 1,
-        }
+        stats: { Strength: 4, Intelligence: 3, HP: 2, Dexterity: 5, Mana: 1 },
+        voiceLines: [
+            {
+                quote: "Another shadow to cut down.",
+                audioSrc: placeholderAudio,
+                timedQuote: [
+                    { word: "Another", duration: 400 }, { word: "shadow", duration: 400 },
+                    { word: "to", duration: 150 }, { word: "cut", duration: 300 },
+                    { word: "down.", duration: 500 }
+                ]
+            },
+            {
+                quote: "They ask you how you are, and you just have to say that you're fine...",
+                audioSrc: placeholderAudio,
+                timedQuote: placeholderTimedQuote
+            }
+        ]
     },
     {
         id: 2,
@@ -54,18 +88,31 @@ export const charactersData = [
         thumbnail: Character2Thumb,
         accentColor: "#d3e5fe",
         tier: 3, // Rare
-        // specialEffect: 'rain', // Added effect type
         statsBlurred: true,
         showcaseStyles: {
             transform: 'scale(1) translateY(-12px)',
         },
-        stats: {
-            Strength: 2,
-            Intelligence: 4,
-            HP: 3,
-            Dexterity: 4,
-            Mana: 4,
-        }
+        stats: { Strength: 2, Intelligence: 4, HP: 3, Dexterity: 4, Mana: 4 },
+        voiceLines: [
+            {
+                quote: "The elements guide my hand.",
+                audioSrc: placeholderAudio,
+                timedQuote: [
+                    { word: "The", duration: 200 }, { word: "elements", duration: 500 },
+                    { word: "guide", duration: 400 }, { word: "my", duration: 300 },
+                    { word: "hand.", duration: 500 }
+                ]
+            },
+            {
+                quote: "Flow like water, strike like lightning.",
+                audioSrc: placeholderAudio,
+                timedQuote: [
+                    { word: "Flow", duration: 300 }, { word: "like", duration: 200 },
+                    { word: "water,", duration: 600 }, { word: "strike", duration: 400 },
+                    { word: "like", duration: 200 }, { word: "lightning.", duration: 700 }
+                ]
+            }
+        ]
     },
     {
         id: 3,
@@ -85,13 +132,8 @@ export const charactersData = [
         accentColor: "rgba(191, 191, 191, 0.8)",
         tier: 5, // Legendary
         statsBlurred: true,
-        stats: {
-            Strength: 4,
-            Intelligence: 2,
-            HP: 5,
-            Dexterity: 1,
-            Mana: 3,
-        }
+        stats: { Strength: 4, Intelligence: 2, HP: 5, Dexterity: 1, Mana: 3 },
+        // No voiceLines property for Benedict for now
     },
     {
         id: 4,

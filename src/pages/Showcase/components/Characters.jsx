@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./Characters.css";
+import VoiceLinePlayer from "../../../components/VoiceLinePlayer/VoiceLinePlayer";
 
 function CharactersSection({ charactersData }) {
     const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);
@@ -83,8 +84,15 @@ function CharactersSection({ charactersData }) {
                             ></div>
                         )}
                     </div>
-                    {/* Tier badge removed from this view */}
                     <p>{currentCharacter.description}</p>
+                    {/* Simplified Voice Line Player */}
+                    {currentCharacter.voiceLines && currentCharacter.voiceLines.length > 0 && (
+                        <VoiceLinePlayer
+                            voiceLines={currentCharacter.voiceLines}
+                            accentColor={currentCharacter.accentColor}
+                            mode="simple"
+                        />
+                    )}
                 </div>
                 <Link to="/characterlist" className="view-all-chars-btn">
                     View All Characters
@@ -120,6 +128,7 @@ CharactersSection.propTypes = {
             thumbnail: PropTypes.string,
             accentColor: PropTypes.string.isRequired,
             showcaseStyles: PropTypes.object,
+            voiceLines: PropTypes.array, // Added prop type
         })
     ).isRequired,
 };

@@ -1,0 +1,167 @@
+/* src/components/VoiceLinePlayer/VoiceLinePlayer.css */
+
+/* --- Shared Styles --- */
+.voiceline-play-button, .voiceline-simple-play-btn {
+    position: relative; /* For stacking icons */
+}
+
+    .voiceline-play-button svg, .voiceline-simple-play-btn svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        fill: currentColor;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+/* --- Simple Mode (for Showcase Page) --- */
+.voiceline-simple-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding-left: 0.5rem;
+    border-left: 3px solid var(--accent-color, #ffd700);
+}
+
+.voiceline-simple-play-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    color: var(--accent-color, #ffd700);
+    flex-shrink: 0;
+}
+
+    .voiceline-simple-play-btn .play-icon {
+        opacity: 1;
+    }
+
+    .voiceline-simple-play-btn .stop-icon {
+        opacity: 0;
+    }
+
+    .voiceline-simple-play-btn.playing .play-icon {
+        opacity: 0;
+    }
+
+    .voiceline-simple-play-btn.playing .stop-icon {
+        opacity: 1;
+    }
+
+    .voiceline-simple-play-btn:hover {
+        color: #fff;
+    }
+
+.voiceline-simple-wrapper .glowing-quote {
+    margin: 0; /* Override default p margins */
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--theme-text-secondary); /* Set base color for non-glowing text */
+}
+
+/* --- Full Mode (for Character Detail Modal) --- */
+.voicelines-panel {
+    background-color: rgba(10, 8, 7, 0.6);
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    border: 1px solid var(--theme-border-gold-faint);
+}
+
+.voicelines-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.voiceline-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+    .voiceline-item.active {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+.voiceline-play-button {
+    background: none;
+    border: none;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    padding: 0;
+    color: var(--theme-text-secondary);
+    transition: color 0.2s;
+    flex-shrink: 0;
+}
+
+    .voiceline-play-button:hover {
+        color: var(--accent-color);
+    }
+
+.voiceline-item.active .voiceline-play-button {
+    color: var(--accent-color);
+}
+
+.voiceline-play-button .play-icon {
+    opacity: 1;
+}
+
+.voiceline-play-button .speaker-icon {
+    opacity: 0;
+}
+
+.voiceline-item.active .voiceline-play-button .play-icon {
+    opacity: 0;
+}
+
+.voiceline-item.active .voiceline-play-button .speaker-icon {
+    opacity: 1;
+}
+
+.voiceline-play-button .speaker-icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.speaker-icon span {
+    width: 25%;
+    height: 100%;
+    background-color: currentColor;
+    border-radius: 1px;
+    animation: bounce 1.2s ease-in-out infinite;
+}
+
+    .speaker-icon span:nth-child(2) {
+        animation-delay: -1.0s;
+    }
+
+    .speaker-icon span:nth-child(3) {
+        animation-delay: -0.8s;
+    }
+
+@keyframes bounce {
+    50% {
+        transform: scaleY(0.4);
+    }
+}
+
+.voiceline-quote-wrapper .glowing-quote {
+    margin: 0;
+    font-size: 0.9rem;
+}

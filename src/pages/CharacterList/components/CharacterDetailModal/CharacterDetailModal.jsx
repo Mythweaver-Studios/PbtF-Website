@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import "./CharacterDetailModal.css";
 import { TIER_DATA } from "../../../../utils/tierData";
 import ShadowEffect from "./effects/ShadowEffect";
+import VoiceLinePlayer from "../../../../components/VoiceLinePlayer/VoiceLinePlayer";
 
 // Helper to render stat bars
 const StatBar = ({ value }) => (
@@ -133,6 +134,15 @@ function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePr
                             <p><strong>Class:</strong> <span className={character.class.includes("Unknown") ? "blurred-text" : ""}>{character.class}</span></p>
                             <p><strong>World:</strong> <span className={character.world.includes("Unknown") ? "blurred-text" : ""}>{character.world}</span></p>
                         </div>
+
+                        {/* Full Voice Line Player */}
+                        {character.voiceLines && character.voiceLines.length > 0 && (
+                            <VoiceLinePlayer
+                                voiceLines={character.voiceLines}
+                                accentColor={character.accentColor}
+                                mode="full"
+                            />
+                        )}
 
                         <div className="modal-char-story">
                             <p><ParsedStory text={character.longDescription} /></p>
