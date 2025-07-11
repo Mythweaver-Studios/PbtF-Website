@@ -57,19 +57,19 @@ export const charactersData = [
         stats: { Strength: 4, Intelligence: 3, HP: 2, Dexterity: 5, Mana: 1 },
         voiceLines: [
             {
-                quote: "Another shadow to cut down.",
-                audioSrc: placeholderAudio,
-                timedQuote: [
-                    { word: "Another", duration: 400 }, { word: "shadow", duration: 400 },
-                    { word: "to", duration: 150 }, { word: "cut", duration: 300 },
-                    { word: "down.", duration: 500 }
-                ]
-            },
-            {
-                quote: "They ask you how you are, and you just have to say that you're fine...",
+                quote: "They ask you how you are, and you just have to say that you're fine, when you're not really fine, but you just can't get into it because they would never understand.",
                 audioSrc: placeholderAudio,
                 timedQuote: placeholderTimedQuote
-            }
+            },
+            {
+                quote: "This is a second, shorter line.",
+                audioSrc: placeholderAudio,
+                timedQuote: [
+                    { word: "This", duration: 300 }, { word: "is", duration: 200 },
+                    { word: "a", duration: 100 }, { word: "second,", duration: 400 },
+                    { word: "shorter", duration: 500 }, { word: "line.", duration: 500 }
+                ]
+            },
         ]
     },
     {
@@ -133,7 +133,6 @@ export const charactersData = [
         tier: 5, // Legendary
         statsBlurred: true,
         stats: { Strength: 4, Intelligence: 2, HP: 5, Dexterity: 1, Mana: 3 },
-        // No voiceLines property for Benedict for now
     },
     {
         id: 4,
