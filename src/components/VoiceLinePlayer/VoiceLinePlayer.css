@@ -1,20 +1,5 @@
 /* src/components/VoiceLinePlayer/VoiceLinePlayer.css */
 
-/* --- Shared Styles --- */
-.voiceline-play-button, .voiceline-simple-play-btn {
-    position: relative; /* For stacking icons */
-}
-
-    .voiceline-play-button svg, .voiceline-simple-play-btn svg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        fill: currentColor;
-        transition: opacity 0.3s ease-in-out;
-    }
-
 /* --- Simple Mode (for Showcase Page) --- */
 .voiceline-simple-wrapper {
     display: flex;
@@ -26,6 +11,7 @@
 }
 
 .voiceline-simple-play-btn {
+    position: relative;
     background: none;
     border: none;
     padding: 0;
@@ -34,110 +20,169 @@
     height: 28px;
     color: var(--accent-color, #ffd700);
     flex-shrink: 0;
+    transition: color 0.2s ease;
 }
 
-    .voiceline-simple-play-btn .play-icon {
-        opacity: 1;
+    .voiceline-simple-play-btn:hover {
+        color: #fff;
     }
 
-    .voiceline-simple-play-btn .stop-icon {
-        opacity: 0;
+    .voiceline-simple-play-btn .play-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        fill: currentColor;
+        opacity: 1;
+        transition: opacity 0.3s;
     }
 
     .voiceline-simple-play-btn.playing .play-icon {
         opacity: 0;
     }
 
-    .voiceline-simple-play-btn.playing .stop-icon {
-        opacity: 1;
+.simple-speaker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.voiceline-simple-play-btn.playing .simple-speaker {
+    opacity: 1;
+}
+
+.simple-speaker span {
+    width: 20%;
+    height: 100%;
+    background-color: currentColor;
+    border-radius: 1px;
+    animation: bounce 1.2s ease-in-out infinite;
+}
+
+    .simple-speaker span:nth-child(2) {
+        animation-delay: -1.0s;
     }
 
-    .voiceline-simple-play-btn:hover {
-        color: #fff;
+    .simple-speaker span:nth-child(3) {
+        animation-delay: -0.8s;
+    }
+
+
+.voiceline-simple-quote-wrapper {
+    transition: opacity 0.3s ease-in-out;
+}
+
+    .voiceline-simple-quote-wrapper.fading {
+        opacity: 0;
     }
 
 .voiceline-simple-wrapper .glowing-quote {
-    margin: 0; /* Override default p margins */
+    margin: 0;
     font-size: 0.95rem;
     line-height: 1.5;
-    color: var(--theme-text-secondary); /* Set base color for non-glowing text */
+    color: var(--theme-text-secondary);
 }
+
 
 /* --- Full Mode (for Character Detail Modal) --- */
 .voicelines-panel {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
     background-color: rgba(10, 8, 7, 0.6);
-    padding: 1.25rem 1.5rem;
+    padding: 1rem 1.5rem;
     border-radius: 8px;
-    margin-top: 1.5rem;
     border: 1px solid var(--theme-border-gold-faint);
 }
 
-.voicelines-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-.voiceline-item {
+.voiceline-full-quote-display {
+    flex-grow: 1;
+    min-height: 2.5em; /* Prevent layout shift */
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 0.5rem;
-    border-radius: 5px;
-    transition: background-color 0.2s ease-in-out;
-}
-
-    .voiceline-item.active {
-        background-color: rgba(255, 255, 255, 0.05);
-    }
-
-.voiceline-play-button {
-    background: none;
-    border: none;
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    padding: 0;
-    color: var(--theme-text-secondary);
-    transition: color 0.2s;
-    flex-shrink: 0;
-}
-
-    .voiceline-play-button:hover {
-        color: var(--accent-color);
-    }
-
-.voiceline-item.active .voiceline-play-button {
-    color: var(--accent-color);
-}
-
-.voiceline-play-button .play-icon {
-    opacity: 1;
-}
-
-.voiceline-play-button .speaker-icon {
-    opacity: 0;
-}
-
-.voiceline-item.active .voiceline-play-button .play-icon {
-    opacity: 0;
-}
-
-.voiceline-item.active .voiceline-play-button .speaker-icon {
-    opacity: 1;
-}
-
-.voiceline-play-button .speaker-icon {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    width: 100%;
-    height: 100%;
     transition: opacity 0.3s ease-in-out;
 }
+
+    .voiceline-full-quote-display.fading {
+        opacity: 0;
+    }
+
+.voiceline-prompt {
+    font-style: italic;
+    color: var(--theme-text-secondary);
+    font-size: 0.9rem;
+}
+
+.voiceline-full-quote-display .glowing-quote {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.voiceline-main-play-btn {
+    position: relative;
+    background: none;
+    border: 2px solid var(--theme-text-secondary);
+    color: var(--theme-text-secondary);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+    .voiceline-main-play-btn:hover {
+        color: var(--accent-color);
+        border-color: var(--accent-color);
+        transform: scale(1.05);
+    }
+
+    .voiceline-main-play-btn.playing {
+        color: var(--accent-color);
+        border-color: var(--accent-color);
+    }
+
+    .voiceline-main-play-btn svg,
+    .voiceline-main-play-btn .speaker-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+        transition: opacity 0.3s;
+    }
+
+    .voiceline-main-play-btn .play-icon {
+        opacity: 1;
+    }
+
+    .voiceline-main-play-btn .speaker-icon {
+        opacity: 0;
+    }
+
+    .voiceline-main-play-btn.playing .play-icon {
+        opacity: 0;
+    }
+
+    .voiceline-main-play-btn.playing .speaker-icon {
+        opacity: 1;
+    }
+
+    .voiceline-main-play-btn .speaker-icon {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
 
 .speaker-icon span {
     width: 25%;
@@ -159,9 +204,4 @@
     50% {
         transform: scaleY(0.4);
     }
-}
-
-.voiceline-quote-wrapper .glowing-quote {
-    margin: 0;
-    font-size: 0.9rem;
 }

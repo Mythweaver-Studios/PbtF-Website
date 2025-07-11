@@ -128,26 +128,21 @@ function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePr
 
                         <div className="modal-divider"></div>
 
-                        {/* New layout for details and voicelines */}
-                        <div className="details-voicelines-grid">
-                            <div className="modal-char-details">
-                                <p><strong>Full Name:</strong> <span className={character.fullName.includes("Unknown") ? "blurred-text" : ""}>{character.fullName}</span></p>
-                                <p><strong>Species:</strong> <span className={character.species.includes("Unknown") ? "blurred-text" : ""}>{character.species}</span></p>
-                                <p><strong>Class:</strong> <span className={character.class.includes("Unknown") ? "blurred-text" : ""}>{character.class}</span></p>
-                                <p><strong>World:</strong> <span className={character.world.includes("Unknown") ? "blurred-text" : ""}>{character.world}</span></p>
-                            </div>
-
-                            {character.voiceLines && character.voiceLines.length > 0 && (
-                                <>
-                                    <div className="details-divider"></div>
-                                    <VoiceLinePlayer
-                                        voiceLines={character.voiceLines}
-                                        accentColor={character.accentColor}
-                                        mode="full"
-                                    />
-                                </>
-                            )}
+                        {/* Voiceline player has been simplified and moved */}
+                        <div className="modal-char-details">
+                            <p><strong>Full Name:</strong> <span className={character.fullName.includes("Unknown") ? "blurred-text" : ""}>{character.fullName}</span></p>
+                            <p><strong>Species:</strong> <span className={character.species.includes("Unknown") ? "blurred-text" : ""}>{character.species}</span></p>
+                            <p><strong>Class:</strong> <span className={character.class.includes("Unknown") ? "blurred-text" : ""}>{character.class}</span></p>
+                            <p><strong>World:</strong> <span className={character.world.includes("Unknown") ? "blurred-text" : ""}>{character.world}</span></p>
                         </div>
+
+                        {character.voiceLines && character.voiceLines.length > 0 && (
+                            <VoiceLinePlayer
+                                voiceLines={character.voiceLines}
+                                accentColor={character.accentColor}
+                                mode="full"
+                            />
+                        )}
 
                         <div className="modal-char-story">
                             <p><ParsedStory text={character.longDescription} /></p>

@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/NavBar";
+import "../../components/Default.css";
 import "./LegalPage.css";
 
 function PrivacyPolicy() {
@@ -16,15 +17,15 @@ function PrivacyPolicy() {
             </header>
             <main className="legal-content">
                 <h1>Privacy Policy</h1>
-                <p className="last-updated">Last updated: June 26, 2025</p>
+                <p className="last-updated">Last updated: July 10, 2025</p>
 
                 <section>
                     <h2>1. Introduction</h2>
                     <p>
-                        Mythweaver Inc. (&ldquo;we&ldquo;, &ldquo;us&ldquo;, &ldquo;our&ldquo;) is committed to protecting your
+                        Mythweaver Inc. (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is committed to protecting your
                         privacy. This Privacy Policy applies to our game, Paved by the
                         Fallen, our websites, and all related services (collectively, the
-                        &ldquo;Services&ldquo;). This policy explains how we collect, use, and share
+                        &quot;Services&quot;). This policy explains how we collect, use, and share
                         your personal information. By using our Services, you agree to the
                         collection and use of information in accordance with this policy.
                     </p>

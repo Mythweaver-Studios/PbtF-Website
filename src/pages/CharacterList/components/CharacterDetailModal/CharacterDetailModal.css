@@ -234,17 +234,8 @@
     margin-bottom: 1.5rem;
 }
 
-/* New Grid Layout for Details & Voicelines */
-.details-voicelines-grid {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr; /* Left column, divider, right column */
-    gap: 1.5rem;
-    align-items: start;
-    margin-bottom: 1.5rem;
-}
-
 .modal-char-details {
-    margin-bottom: 0;
+    margin-bottom: 1.5rem; /* Space below details section */
     font-size: 0.95rem;
     line-height: 1.6;
 }
@@ -257,13 +248,6 @@
         color: var(--theme-text-primary);
         margin-right: 0.5em;
     }
-
-.details-divider {
-    width: 1px;
-    height: 100%; /* Fills the height of the grid row */
-    background-color: var(--theme-border-gold-faint);
-    align-self: stretch; /* Make sure it stretches full height */
-}
 
 .blurred-text {
     filter: blur(4px);
@@ -418,15 +402,6 @@
 
     .modal-stats-grid {
         grid-template-columns: 1fr;
-    }
-
-    .details-voicelines-grid {
-        grid-template-columns: 1fr; /* Stack on smaller screens */
-        gap: 1rem;
-    }
-
-    .details-divider {
-        display: none; /* Hide divider when stacked */
     }
 }
 

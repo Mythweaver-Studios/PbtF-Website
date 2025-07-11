@@ -11,27 +11,6 @@ import Character3Thumb from "../../../assets/showcase/Thumb_Benedict.png";
 // IMPORTANT: Audio files must be placed in the `public/audio/` directory.
 const placeholderAudio = "/audio/placeholder.mp3";
 
-// Timed data for the placeholder audio quote.
-const placeholderTimedQuote = [
-    { word: "they", duration: 200 }, { word: "ask", duration: 200 },
-    { word: "you", duration: 200 }, { word: "how", duration: 200 },
-    { word: "you", duration: 150 }, { word: "are,", duration: 300 },
-    { word: "and", duration: 200 }, { word: "you", duration: 150 },
-    { word: "just", duration: 200 }, { word: "have", duration: 200 },
-    { word: "to", duration: 150 }, { word: "say", duration: 200 },
-    { word: "that", duration: 200 }, { word: "you're", duration: 200 },
-    { word: "fine,", duration: 500 }, { word: "when", duration: 200 },
-    { word: "you're", duration: 200 }, { word: "not", duration: 200 },
-    { word: "really", duration: 300 }, { word: "fine,", duration: 500 },
-    { word: "but", duration: 200 }, { word: "you", duration: 150 },
-    { word: "just", duration: 200 }, { word: "can't", duration: 200 },
-    { word: "get", duration: 150 }, { word: "into", duration: 250 },
-    { word: "it", duration: 200 }, { word: "because", duration: 300 },
-    { word: "they", duration: 150 }, { word: "would", duration: 200 },
-    { word: "never", duration: 300 }, { word: "understand", duration: 600 }
-];
-
-
 // Data for character showcase
 export const charactersData = [
     {
@@ -57,19 +36,20 @@ export const charactersData = [
         stats: { Strength: 4, Intelligence: 3, HP: 2, Dexterity: 5, Mana: 1 },
         voiceLines: [
             {
-                quote: "They ask you how you are, and you just have to say that you're fine, when you're not really fine, but you just can't get into it because they would never understand.",
+                quote: "Another shadow... another ghost.",
                 audioSrc: placeholderAudio,
-                timedQuote: placeholderTimedQuote
+                timedQuote: [{ word: "Another", duration: 500 }, { word: "shadow...", duration: 1000 }, { word: "another", duration: 600 }, { word: "ghost.", duration: 800 }]
             },
             {
-                quote: "This is a second, shorter line.",
+                quote: "My silence is my deadliest weapon.",
                 audioSrc: placeholderAudio,
-                timedQuote: [
-                    { word: "This", duration: 300 }, { word: "is", duration: 200 },
-                    { word: "a", duration: 100 }, { word: "second,", duration: 400 },
-                    { word: "shorter", duration: 500 }, { word: "line.", duration: 500 }
-                ]
+                timedQuote: [{ word: "My", duration: 200 }, { word: "silence", duration: 600 }, { word: "is", duration: 200 }, { word: "my", duration: 300 }, { word: "deadliest", duration: 700 }, { word: "weapon.", duration: 800 }]
             },
+            {
+                quote: "They should have aimed for the heart.",
+                audioSrc: placeholderAudio,
+                timedQuote: [{ word: "They", duration: 300 }, { word: "should've", duration: 400 }, { word: "aimed", duration: 500 }, { word: "for", duration: 200 }, { word: "the", duration: 150 }, { word: "heart.", duration: 1000 }]
+            }
         ]
     },
     {
@@ -95,22 +75,19 @@ export const charactersData = [
         stats: { Strength: 2, Intelligence: 4, HP: 3, Dexterity: 4, Mana: 4 },
         voiceLines: [
             {
-                quote: "The elements guide my hand.",
+                quote: "The storm answers to me.",
                 audioSrc: placeholderAudio,
-                timedQuote: [
-                    { word: "The", duration: 200 }, { word: "elements", duration: 500 },
-                    { word: "guide", duration: 400 }, { word: "my", duration: 300 },
-                    { word: "hand.", duration: 500 }
-                ]
+                timedQuote: [{ word: "The", duration: 200 }, { word: "storm", duration: 600 }, { word: "answers", duration: 500 }, { word: "to", duration: 200 }, { word: "me.", duration: 700 }]
             },
             {
-                quote: "Flow like water, strike like lightning.",
+                quote: "A single strike is all I need.",
                 audioSrc: placeholderAudio,
-                timedQuote: [
-                    { word: "Flow", duration: 300 }, { word: "like", duration: 200 },
-                    { word: "water,", duration: 600 }, { word: "strike", duration: 400 },
-                    { word: "like", duration: 200 }, { word: "lightning.", duration: 700 }
-                ]
+                timedQuote: [{ word: "A", duration: 100 }, { word: "single", duration: 400 }, { word: "strike", duration: 500 }, { word: "is", duration: 150 }, { word: "all", duration: 250 }, { word: "I", duration: 150 }, { word: "need.", duration: 700 }]
+            },
+            {
+                quote: "Patience... then fury.",
+                audioSrc: placeholderAudio,
+                timedQuote: [{ word: "Patience...", duration: 1200 }, { word: "then", duration: 400 }, { word: "fury.", duration: 900 }]
             }
         ]
     },
@@ -133,6 +110,23 @@ export const charactersData = [
         tier: 5, // Legendary
         statsBlurred: true,
         stats: { Strength: 4, Intelligence: 2, HP: 5, Dexterity: 1, Mana: 3 },
+        voiceLines: [
+            {
+                quote: "By my light, you shall be judged!",
+                audioSrc: placeholderAudio,
+                timedQuote: [{ word: "By", duration: 200 }, { word: "my", duration: 200 }, { word: "light,", duration: 700 }, { word: "you", duration: 200 }, { word: "shall", duration: 300 }, { word: "be", duration: 200 }, { word: "judged!", duration: 1000 }]
+            },
+            {
+                quote: "Doubt is a luxury I cannot afford.",
+                audioSrc: placeholderAudio,
+                timedQuote: [{ word: "Doubt", duration: 500 }, { word: "is", duration: 200 }, { word: "a", duration: 100 }, { word: "luxury", duration: 600 }, { word: "I", duration: 200 }, { word: "cannot", duration: 500 }, { word: "afford.", duration: 800 }]
+            },
+            {
+                quote: "This burden is mine alone.",
+                audioSrc: placeholderAudio,
+                timedQuote: [{ word: "This", duration: 300 }, { word: "burden", duration: 600 }, { word: "is", duration: 200 }, { word: "mine", duration: 400 }, { word: "alone.", duration: 900 }]
+            }
+        ]
     },
     {
         id: 4,

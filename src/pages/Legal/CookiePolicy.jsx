@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/NavBar";
+import "../../components/Default.css";
 import "./LegalPage.css";
 
 function CookiePolicy() {
@@ -16,7 +17,7 @@ function CookiePolicy() {
             </header>
             <main className="legal-content">
                 <h1>Cookie Policy</h1>
-                <p className="last-updated">Last updated: June 26, 2025</p>
+                <p className="last-updated">Last updated: July 10, 2025</p>
 
                 <section>
                     <h2>1. What Are Cookies</h2>
@@ -26,7 +27,7 @@ function CookiePolicy() {
                         computer, to improve your experience. This page describes what
                         information they gather, how we use it, and why we sometimes need to
                         store these cookies. We will also share how you can prevent these
-                        cookies from being stored however this may downgrade or ‘break’
+                        cookies from being stored however this may downgrade or &apos;break&apos;
                         certain elements of the site&apos;s functionality.
                     </p>
                 </section>
