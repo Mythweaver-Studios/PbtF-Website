@@ -11,6 +11,7 @@ const Home = React.lazy(() => import("./pages/Home/Home"));
 const Showcase = React.lazy(() => import("./pages/Showcase/Showcase"));
 const AboutUs = React.lazy(() => import("./pages/AboutUs/AboutUs"));
 const News = React.lazy(() => import("./pages/News/News"));
+const NewsArticle = React.lazy(() => import("./pages/News/NewsArticle"));
 const CharacterList = React.lazy(() => import("./pages/CharacterList/CharacterList"));
 const CookiePolicy = React.lazy(() => import("./pages/Legal/CookiePolicy"));
 const PrivacyPolicy = React.lazy(() => import("./pages/Legal/PrivacyPolicy"));
@@ -68,6 +69,7 @@ function App() {
                         <Route path="/home" element={<Home />} />
                         <Route path="/showcase" element={<Showcase />} />
                         <Route path="/news" element={<News />} />
+                        <Route path="/news/:id" element={<NewsArticle />} />
                         <Route path="/about-us" element={<AboutUs />} />
                         <Route path="/characterlist" element={<CharacterList />} />
                         {/* Legal Routes */}
