@@ -14,53 +14,44 @@ const createPlaceholderTimedQuote = (quote) => {
     return quote.replace(/[^a-zA-Z\s']/g, "").split(' ').map(word => ({ word, duration: 500 }));
 };
 
-// --- TIMED VOICELINE DATA ---
-// The order MUST match the order of the audio files in their folders (e.g., line_01.wav, line_02.wav).
-const TIMED_VOICELINES = {
+// --- TIMED VOICELINE DATA (New Robust Structure) ---
+// The keys here MUST EXACTLY MATCH the audio filenames.
+const VOICELINE_DATA = {
     benedict: {
-        quotes: [
-            "By my light, you shall be judged!", // Placeholder
-            "Doubt is a luxury I cannot afford.", // Placeholder
-        ],
-        timedQuotes: [
-            // TODO: Time Benedict's first line
-            null,
-            // TODO: Time Benedict's second line
-            null,
-        ]
+        // "filename.wav": { quote: "...", timedQuote: [...] }
     },
     seralyth: {
-        quotes: [
-            "Me? I wouldn't really call myself a fighter but, I can turn people around me, into one."
-        ],
-        timedQuotes: [
-            // Timed data for Seralyth_About Self Line.wav
-            [{ "word": "Me", "duration": 493 }, { "word": "I", "duration": 1033 }, { "word": "wouldn't", "duration": 160 }, { "word": "really", "duration": 90 }, { "word": "call", "duration": 415 }, { "word": "myself", "duration": 416 }, { "word": "a", "duration": 352 }, { "word": "fighter", "duration": 413 }, { "word": "but", "duration": 325 }, { "word": "I", "duration": 936 }, { "word": "can", "duration": 299 }, { "word": "turn", "duration": 92 }, { "word": "people", "duration": 399 }, { "word": "around", "duration": 483 }, { "word": "me", "duration": 229 }, { "word": "into", "duration": 527 }, { "word": "one", "duration": 232 }],
-            // TODO: Time Seralyth's second line
-            null,
-            // TODO: Time Seralyth's third line
-            null,
-        ]
+        "Seralyth_About Self Line.wav": {
+            quote: "Me? I wouldn't really call myself a fighter but, I can turn people around me, into one.",
+            timedQuote: [{ "word": "Me", "duration": 493 }, { "word": "I", "duration": 1033 }, { "word": "wouldn't", "duration": 160 }, { "word": "really", "duration": 90 }, { "word": "call", "duration": 415 }, { "word": "myself", "duration": 416 }, { "word": "a", "duration": 352 }, { "word": "fighter", "duration": 413 }, { "word": "but", "duration": 325 }, { "word": "I", "duration": 936 }, { "word": "can", "duration": 299 }, { "word": "turn", "duration": 92 }, { "word": "people", "duration": 399 }, { "word": "around", "duration": 483 }, { "word": "me", "duration": 229 }, { "word": "into", "duration": 527 }, { "word": "one", "duration": 232 }],
+        }
     }
 };
 
-// Function to map manifest files to voiceLines array
 const getVoiceLinesFor = (characterName) => {
     const charKey = characterName.toLowerCase();
     const files = voicelineManifest[charKey] || [];
-    const characterData = TIMED_VOICELINES[charKey];
+    const characterData = VOICELINE_DATA[charKey];
 
     if (!characterData) return [];
 
-    return files.map((file, index) => {
-        const quote = characterData.quotes[index] || "Quote not found...";
-        const timedQuote = characterData.timedQuotes[index];
+    return files.map((file) => {
+        const filename = decodeURIComponent(file.split('/').pop());
+        const data = characterData[filename];
+
+        if (!data) {
+            console.warn(`Data for voiceline "${filename}" not found in charactersData.js.`);
+            return {
+                quote: `Quote for ${filename} not found...`,
+                audioSrc: file,
+                timedQuote: createPlaceholderTimedQuote('Quote not found'),
+            };
+        }
 
         return {
-            quote: quote,
+            quote: data.quote,
             audioSrc: file,
-            // Use real timed data if it exists, otherwise create a placeholder
-            timedQuote: timedQuote || createPlaceholderTimedQuote(quote),
+            timedQuote: data.timedQuote || createPlaceholderTimedQuote(data.quote),
         };
     });
 };

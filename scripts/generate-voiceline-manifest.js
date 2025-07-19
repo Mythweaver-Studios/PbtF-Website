@@ -16,7 +16,8 @@ try {
         if (fs.statSync(charDir).isDirectory()) {
             const files = fs.readdirSync(charDir)
                 .filter(file => file.endsWith('.wav'))
-                .map(file => `/assets/audio/voicelines/${char}/${file}`);
+                .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
+                .map(file => `/assets/audio/voicelines/${char}/${encodeURI(file)}`);
             manifest[char] = files;
         }
     });

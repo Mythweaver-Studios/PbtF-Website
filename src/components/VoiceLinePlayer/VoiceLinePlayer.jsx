@@ -20,28 +20,40 @@ function VoiceLinePlayer({ voiceLines, accentColor, mode = 'full' }) {
     }, []);
 
     const playRandomLine = () => {
-        if (isPlaying) return; // Don't interrupt if already playing
+        if (!voiceLines || voiceLines.length === 0) {
+            console.error("VoiceLinePlayer Error: No voice lines available to play for this character.");
+            return;
+        }
+        if (isPlaying) return;
 
-        // Filter out the current line to avoid playing it twice in a row
         const availableLines = voiceLines.filter(line => line.quote !== currentLine?.quote);
         const linesToChooseFrom = availableLines.length > 0 ? availableLines : voiceLines;
         const randomLine = linesToChooseFrom[Math.floor(Math.random() * linesToChooseFrom.length)];
 
-        setIsFading(true); // Start fade-out
+        setIsFading(true);
 
         setTimeout(() => {
             setCurrentLine(randomLine);
             setIsPlaying(true);
-            setIsFading(false); // Start fade-in
+            setIsFading(false);
 
-            const newAudio = new Audio(randomLine.audioSrc);
-            audioRef.current = newAudio;
-            newAudio.play();
+            // Ensure randomLine and its audioSrc are valid before creating Audio object
+            if (randomLine && randomLine.audioSrc) {
+                const newAudio = new Audio(randomLine.audioSrc);
+                audioRef.current = newAudio;
+                newAudio.play().catch(err => {
+                    console.error("Audio playback error:", err);
+                    setIsPlaying(false);
+                });
 
-            newAudio.onended = () => {
+                newAudio.onended = () => {
+                    setIsPlaying(false);
+                };
+            } else {
+                console.error("Could not play voiceline, invalid data:", randomLine);
                 setIsPlaying(false);
-            };
-        }, 300); // Match CSS transition duration
+            }
+        }, 300);
     };
 
     // This mode is for the main showcase page
