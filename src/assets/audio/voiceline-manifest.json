@@ -1,0 +1,28 @@
+{
+  "benedict": [],
+  "seralyth": [
+    "/assets/audio/voicelines/seralyth/Seralyth_About Ema Line.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_About Self Line.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_About Seradyn.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_About the Bracelet.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Added to Party with Seradyn 1.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Added to party with Seradyn 2.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Annoyances.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Buffed.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Collecting Resources.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Death 1.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Death 2.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Debuffed.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Goodbye Line.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Greetings Line.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Healed above 25.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Healed below 25.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Hit by Heavy Attack.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Hit by Light Attack 1.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Hit by Light Attack 2.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Hobbies.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Idle Line.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Revived.wav",
+    "/assets/audio/voicelines/seralyth/Seralyth_Something to Share.wav"
+  ]
+}

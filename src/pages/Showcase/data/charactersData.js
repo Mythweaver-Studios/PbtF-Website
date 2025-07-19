@@ -8,8 +8,62 @@ import Character2Thumb from "../../../assets/images/characters/yanyan_thumb.png"
 import Character3Img from "../../../assets/images/characters/benedict_full.png";
 import Character3Thumb from "../../../assets/images/characters/benedict_thumb.png";
 
-// IMPORTANT: Audio files must be placed in the `public/` directory.
-// The paths here are absolute from the public folder.
+import voicelineManifest from '../../../assets/audio/voiceline-manifest.json';
+
+const createPlaceholderTimedQuote = (quote) => {
+    return quote.replace(/[^a-zA-Z\s']/g, "").split(' ').map(word => ({ word, duration: 500 }));
+};
+
+// --- TIMED VOICELINE DATA ---
+// The order MUST match the order of the audio files in their folders (e.g., line_01.wav, line_02.wav).
+const TIMED_VOICELINES = {
+    benedict: {
+        quotes: [
+            "By my light, you shall be judged!", // Placeholder
+            "Doubt is a luxury I cannot afford.", // Placeholder
+        ],
+        timedQuotes: [
+            // TODO: Time Benedict's first line
+            null,
+            // TODO: Time Benedict's second line
+            null,
+        ]
+    },
+    seralyth: {
+        quotes: [
+            "Me? I wouldn't really call myself a fighter but, I can turn people around me, into one."
+        ],
+        timedQuotes: [
+            // Timed data for Seralyth_About Self Line.wav
+            [{ "word": "Me", "duration": 493 }, { "word": "I", "duration": 1033 }, { "word": "wouldn't", "duration": 160 }, { "word": "really", "duration": 90 }, { "word": "call", "duration": 415 }, { "word": "myself", "duration": 416 }, { "word": "a", "duration": 352 }, { "word": "fighter", "duration": 413 }, { "word": "but", "duration": 325 }, { "word": "I", "duration": 936 }, { "word": "can", "duration": 299 }, { "word": "turn", "duration": 92 }, { "word": "people", "duration": 399 }, { "word": "around", "duration": 483 }, { "word": "me", "duration": 229 }, { "word": "into", "duration": 527 }, { "word": "one", "duration": 232 }],
+            // TODO: Time Seralyth's second line
+            null,
+            // TODO: Time Seralyth's third line
+            null,
+        ]
+    }
+};
+
+// Function to map manifest files to voiceLines array
+const getVoiceLinesFor = (characterName) => {
+    const charKey = characterName.toLowerCase();
+    const files = voicelineManifest[charKey] || [];
+    const characterData = TIMED_VOICELINES[charKey];
+
+    if (!characterData) return [];
+
+    return files.map((file, index) => {
+        const quote = characterData.quotes[index] || "Quote not found...";
+        const timedQuote = characterData.timedQuotes[index];
+
+        return {
+            quote: quote,
+            audioSrc: file,
+            // Use real timed data if it exists, otherwise create a placeholder
+            timedQuote: timedQuote || createPlaceholderTimedQuote(quote),
+        };
+    });
+};
 
 // Data for character showcase
 export const charactersData = [
@@ -79,18 +133,7 @@ export const charactersData = [
         statsBlurred: true,
         stats: { Strength: 4, Intelligence: 2, HP: 5, Dexterity: 1, Mana: 3 },
         hasVoiceLines: true,
-        voiceLines: [
-            {
-                quote: "By my light, you shall be judged!",
-                audioSrc: "/assets/audio/voicelines/benedict/line_01.wav",
-                timedQuote: [{ word: "By", duration: 200 }, { word: "my", duration: 200 }, { word: "light,", duration: 700 }, { word: "you", duration: 200 }, { word: "shall", duration: 300 }, { word: "be", duration: 200 }, { word: "judged!", duration: 1000 }]
-            },
-            {
-                quote: "Doubt is a luxury I cannot afford.",
-                audioSrc: "/assets/audio/voicelines/benedict/line_02.wav",
-                timedQuote: [{ word: "Doubt", duration: 500 }, { word: "is", duration: 200 }, { word: "a", duration: 100 }, { word: "luxury", duration: 600 }, { word: "I", duration: 200 }, { word: "cannot", duration: 500 }, { word: "afford.", duration: 800 }]
-            }
-        ]
+        voiceLines: getVoiceLinesFor('benedict'),
     },
     {
         id: 4,
@@ -151,18 +194,7 @@ export const charactersData = [
         statsBlurred: true,
         stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 },
         hasVoiceLines: true,
-        voiceLines: [
-            {
-                quote: "The stars have already decided your fate.",
-                audioSrc: "/assets/audio/voicelines/seralyth/line_01.wav",
-                timedQuote: [{ word: "The", duration: 150 }, { word: "stars", duration: 400 }, { word: "have", duration: 200 }, { word: "already", duration: 500 }, { word: "decided", duration: 600 }, { word: "your", duration: 250 }, { word: "fate.", duration: 800 }]
-            },
-            {
-                quote: "Balance must be maintained.",
-                audioSrc: "/assets/audio/voicelines/seralyth/line_02.wav",
-                timedQuote: [{ word: "Balance", duration: 700 }, { word: "must", duration: 300 }, { word: "be", duration: 200 }, { word: "maintained.", duration: 1000 }]
-            }
-        ]
+        voiceLines: getVoiceLinesFor('seralyth'),
     },
     {
         id: 7,
