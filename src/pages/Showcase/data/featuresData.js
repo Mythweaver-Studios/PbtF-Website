@@ -1,9 +1,7 @@
 // src/pages/Showcase/data/featuresData.js
-
-// Image imports
-import featureCombatImg from "../../../assets/showcase/feature_combat.jpg";
-import featureWorldImg from "../../../assets/showcase/feature_world.jpg";
-import featureProgressionImg from "../../../assets/showcase/feature_progression.jpg";
+import CombatImg from "../../../assets/images/showcase_backgrounds/feature_combat.jpg";
+import WorldImg from "../../../assets/images/showcase_backgrounds/feature_world.jpg";
+import ProgressionImg from "../../../assets/images/showcase_backgrounds/feature_progression.jpg";
 
 // Data for game features showcase
 export const featuresData = [
@@ -12,20 +10,20 @@ export const featuresData = [
     title: "Dynamic Combat System",
     description:
       "Master unique skills and abilities for each hero. Engage in strategic, turn-based battles or fast-paced action sequences where every decision counts.",
-    image: featureCombatImg,
+        image: CombatImg,
   },
   {
     id: 2,
     title: "Epic Story & World",
     description:
       "Immerse yourself in a rich narrative, explore vast landscapes, and uncover ancient mysteries that shape the fate of the world.",
-    image: featureWorldImg,
+      image: WorldImg,
   },
   {
     id: 3,
     title: "Character Progression",
     description:
       "Level up your Champions, unlock powerful new abilities, and customize their equipment to build the ultimate party.",
-    image: featureProgressionImg,
+      image: ProgressionImg,
   },
 ];

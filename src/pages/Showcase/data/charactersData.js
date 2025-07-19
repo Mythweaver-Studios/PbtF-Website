@@ -1,15 +1,15 @@
 // src/pages/Showcase/data/charactersData.js
 
 // Image imports
-import Character1Img from "../../../assets/showcase/Character_Noire_3.png";
-import Character1Thumb from "../../../assets/showcase/Thumb_Noire_3.png";
-import Character2Img from "../../../assets/showcase/Character_YanYan.png";
-import Character2Thumb from "../../../assets/showcase/Thumb_YanYan.png";
-import Character3Img from "../../../assets/showcase/Character_Benedict.png";
-import Character3Thumb from "../../../assets/showcase/Thumb_Benedict.png";
+import Character1Img from "../../../assets/images/characters/noire_full.png";
+import Character1Thumb from "../../../assets/images/characters/noire_thumb.png";
+import Character2Img from "../../../assets/images/characters/yanyan_full.png";
+import Character2Thumb from "../../../assets/images/characters/yanyan_thumb.png";
+import Character3Img from "../../../assets/images/characters/benedict_full.png";
+import Character3Thumb from "../../../assets/images/characters/benedict_thumb.png";
 
-// IMPORTANT: Audio files must be placed in the `public/audio/` directory.
-const placeholderAudio = "/audio/placeholder.mp3";
+// IMPORTANT: Audio files must be placed in the `public/` directory.
+// The paths here are absolute from the public folder.
 
 // Data for character showcase
 export const charactersData = [
@@ -34,23 +34,7 @@ export const charactersData = [
             transform: 'scale(1.10) translateY(-20px)',
         },
         stats: { Strength: 4, Intelligence: 3, HP: 2, Dexterity: 5, Mana: 1 },
-        voiceLines: [
-            {
-                quote: "Another shadow... another ghost.",
-                audioSrc: placeholderAudio,
-                timedQuote: [{ word: "Another", duration: 500 }, { word: "shadow...", duration: 1000 }, { word: "another", duration: 600 }, { word: "ghost.", duration: 800 }]
-            },
-            {
-                quote: "My silence is my deadliest weapon.",
-                audioSrc: placeholderAudio,
-                timedQuote: [{ word: "My", duration: 200 }, { word: "silence", duration: 600 }, { word: "is", duration: 200 }, { word: "my", duration: 300 }, { word: "deadliest", duration: 700 }, { word: "weapon.", duration: 800 }]
-            },
-            {
-                quote: "They should have aimed for the heart.",
-                audioSrc: placeholderAudio,
-                timedQuote: [{ word: "They", duration: 300 }, { word: "should've", duration: 400 }, { word: "aimed", duration: 500 }, { word: "for", duration: 200 }, { word: "the", duration: 150 }, { word: "heart.", duration: 1000 }]
-            }
-        ]
+        hasVoiceLines: false,
     },
     {
         id: 2,
@@ -73,23 +57,7 @@ export const charactersData = [
             transform: 'scale(1) translateY(-12px)',
         },
         stats: { Strength: 2, Intelligence: 4, HP: 3, Dexterity: 4, Mana: 4 },
-        voiceLines: [
-            {
-                quote: "The storm answers to me.",
-                audioSrc: placeholderAudio,
-                timedQuote: [{ word: "The", duration: 200 }, { word: "storm", duration: 600 }, { word: "answers", duration: 500 }, { word: "to", duration: 200 }, { word: "me.", duration: 700 }]
-            },
-            {
-                quote: "A single strike is all I need.",
-                audioSrc: placeholderAudio,
-                timedQuote: [{ word: "A", duration: 100 }, { word: "single", duration: 400 }, { word: "strike", duration: 500 }, { word: "is", duration: 150 }, { word: "all", duration: 250 }, { word: "I", duration: 150 }, { word: "need.", duration: 700 }]
-            },
-            {
-                quote: "Patience... then fury.",
-                audioSrc: placeholderAudio,
-                timedQuote: [{ word: "Patience...", duration: 1200 }, { word: "then", duration: 400 }, { word: "fury.", duration: 900 }]
-            }
-        ]
+        hasVoiceLines: false,
     },
     {
         id: 3,
@@ -110,21 +78,17 @@ export const charactersData = [
         tier: 5, // Legendary
         statsBlurred: true,
         stats: { Strength: 4, Intelligence: 2, HP: 5, Dexterity: 1, Mana: 3 },
+        hasVoiceLines: true,
         voiceLines: [
             {
                 quote: "By my light, you shall be judged!",
-                audioSrc: placeholderAudio,
+                audioSrc: "/assets/audio/voicelines/benedict/line_01.wav",
                 timedQuote: [{ word: "By", duration: 200 }, { word: "my", duration: 200 }, { word: "light,", duration: 700 }, { word: "you", duration: 200 }, { word: "shall", duration: 300 }, { word: "be", duration: 200 }, { word: "judged!", duration: 1000 }]
             },
             {
                 quote: "Doubt is a luxury I cannot afford.",
-                audioSrc: placeholderAudio,
+                audioSrc: "/assets/audio/voicelines/benedict/line_02.wav",
                 timedQuote: [{ word: "Doubt", duration: 500 }, { word: "is", duration: 200 }, { word: "a", duration: 100 }, { word: "luxury", duration: 600 }, { word: "I", duration: 200 }, { word: "cannot", duration: 500 }, { word: "afford.", duration: 800 }]
-            },
-            {
-                quote: "This burden is mine alone.",
-                audioSrc: placeholderAudio,
-                timedQuote: [{ word: "This", duration: 300 }, { word: "burden", duration: 600 }, { word: "is", duration: 200 }, { word: "mine", duration: 400 }, { word: "alone.", duration: 900 }]
             }
         ]
     },
@@ -145,7 +109,8 @@ export const charactersData = [
         accentColor: "#ff7b00",
         tier: 6, // Mythic
         statsBlurred: true,
-        stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 }
+        stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 },
+        hasVoiceLines: false,
     },
     {
         id: 5,
@@ -164,7 +129,8 @@ export const charactersData = [
         accentColor: "#6a0dad",
         tier: 7, // Empyrean
         statsBlurred: true,
-        stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 }
+        stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 },
+        hasVoiceLines: false,
     },
     {
         id: 6,
@@ -183,7 +149,20 @@ export const charactersData = [
         accentColor: "#00b5ad",
         tier: 6, // Mythic
         statsBlurred: true,
-        stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 }
+        stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 },
+        hasVoiceLines: true,
+        voiceLines: [
+            {
+                quote: "The stars have already decided your fate.",
+                audioSrc: "/assets/audio/voicelines/seralyth/line_01.wav",
+                timedQuote: [{ word: "The", duration: 150 }, { word: "stars", duration: 400 }, { word: "have", duration: 200 }, { word: "already", duration: 500 }, { word: "decided", duration: 600 }, { word: "your", duration: 250 }, { word: "fate.", duration: 800 }]
+            },
+            {
+                quote: "Balance must be maintained.",
+                audioSrc: "/assets/audio/voicelines/seralyth/line_02.wav",
+                timedQuote: [{ word: "Balance", duration: 700 }, { word: "must", duration: 300 }, { word: "be", duration: 200 }, { word: "maintained.", duration: 1000 }]
+            }
+        ]
     },
     {
         id: 7,
@@ -202,7 +181,8 @@ export const charactersData = [
         accentColor: "#c0c0c0",
         tier: 5, // Legendary
         statsBlurred: true,
-        stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 }
+        stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 },
+        hasVoiceLines: false,
     },
     {
         id: 8,
@@ -221,7 +201,8 @@ export const charactersData = [
         accentColor: "#e53935",
         tier: 5, // Legendary
         statsBlurred: true,
-        stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 }
+        stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 },
+        hasVoiceLines: false,
     },
     {
         id: 9,
@@ -240,6 +221,7 @@ export const charactersData = [
         accentColor: "#7e57c2",
         tier: 4, // Epic
         statsBlurred: true,
-        stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 }
+        stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 },
+        hasVoiceLines: false,
     }
 ];

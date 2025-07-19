@@ -66,7 +66,7 @@ function CharactersSection({ charactersData }) {
             >
                 <div className="character-image-card" style={cardInlineStyles}>
                     <img
-                        src={currentCharacter.image || "../../../assets/placeholders/character_large.png"}
+                        src={currentCharacter.image || "../../../assets/images/placeholders/character_large.png"}
                         alt={currentCharacter.name}
                         className="character-main-image"
                         style={showcaseSpecificStyles}
@@ -85,8 +85,8 @@ function CharactersSection({ charactersData }) {
                         )}
                     </div>
                     <p>{currentCharacter.description}</p>
-                    {/* Simplified Voice Line Player */}
-                    {currentCharacter.voiceLines && currentCharacter.voiceLines.length > 0 && (
+                    {/* Simplified Voice Line Player - Conditionally rendered */}
+                    {currentCharacter.hasVoiceLines && (
                         <VoiceLinePlayer
                             voiceLines={currentCharacter.voiceLines}
                             accentColor={currentCharacter.accentColor}
@@ -106,7 +106,7 @@ function CharactersSection({ charactersData }) {
                             className={`thumbnail-item ${index === currentCharacterIndex ? "active" : ""}`}
                             onClick={() => selectCharacter(index)}
                         >
-                            <img src={char.thumbnail || "../../../assets/placeholders/thumb.png"} alt={char.name} />
+                            <img src={char.thumbnail || "../../../assets/images/placeholders/thumb.png"} alt={char.name} />
                             <span>{char.name}</span>
                         </div>
                     ))}
@@ -128,7 +128,8 @@ CharactersSection.propTypes = {
             thumbnail: PropTypes.string,
             accentColor: PropTypes.string.isRequired,
             showcaseStyles: PropTypes.object,
-            voiceLines: PropTypes.array, // Added prop type
+            hasVoiceLines: PropTypes.bool,
+            voiceLines: PropTypes.array,
         })
     ).isRequired,
 };

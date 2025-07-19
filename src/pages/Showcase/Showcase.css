@@ -59,19 +59,19 @@ $highlight-gold: #f1c40f;
 
     /* Section-specific backgrounds */
     .showcase-section.story-section {
-        background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), url('../../assets/showcase/story_background.jpg') no-repeat center center;
+        background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), url('../../assets/images/showcase_backgrounds/story_background.jpg') no-repeat center center;
         background-size: cover;
         background-attachment: fixed;
     }
 
     .showcase-section.characters-section {
-        background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), url('../../assets/showcase/characters_background.jpg') no-repeat center center;
+        background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), url('../../assets/images/showcase_backgrounds/characters_background.jpg') no-repeat center center;
         background-size: cover;
         background-attachment: fixed;
     }
 
     .showcase-section.features-section {
-        background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), url('../../assets/showcase/features_background.jpg') no-repeat center center;
+        background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), url('../../assets/images/showcase_backgrounds/features_background.jpg') no-repeat center center;
         background-size: cover;
         background-attachment: fixed;
     }
