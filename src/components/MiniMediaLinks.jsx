@@ -13,7 +13,7 @@ function MediaLinks() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="media-link-disabled" // Added class for disabled state
+                className="media-link-disabled"
             >
                 <img src={InstagramIconPath} alt="Instagram Icon" />
             </a>
@@ -22,7 +22,7 @@ function MediaLinks() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Reddit"
-                className="media-link-disabled" // Added class for disabled state
+                className="media-link-disabled"
             >
                 <img src={RedditIconPath} alt="Reddit Icon" />
             </a>
