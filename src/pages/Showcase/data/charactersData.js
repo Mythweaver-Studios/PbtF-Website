@@ -14,11 +14,22 @@ const createPlaceholderTimedQuote = (quote) => {
     return quote.replace(/[^a-zA-Z\s']/g, "").split(' ').map(word => ({ word, duration: 500 }));
 };
 
-// --- TIMED VOICELINE DATA (New Robust Structure) ---
+// --- TIMED VOICELINE DATA ---
 // The keys here MUST EXACTLY MATCH the audio filenames.
 const VOICELINE_DATA = {
     benedict: {
-        // "filename.wav": { quote: "...", timedQuote: [...] }
+        "EvenFlameNeedsAPauseToBurnBrighter.wav": {
+            quote: "Even flame... needs a pause to burn brighter.",
+            timedQuote: [{ "word": "Even", "duration": 1683 }, { "word": "flame", "duration": 267 }, { "word": "needs", "duration": 758 }, { "word": "a", "duration": 271 }, { "word": "pause", "duration": 437 }, { "word": "to", "duration": 219 }, { "word": "burn", "duration": 288 }, { "word": "brighter", "duration": 225 }]
+        },
+        "OneStepThenAnother.wav": {
+            quote: "One step... then another... that's all it ever is...",
+            timedQuote: [{ "word": "One", "duration": 999 }, { "word": "step", "duration": 302 }, { "word": "then", "duration": 1000 }, { "word": "another", "duration": 370 }, { "word": "that's", "duration": 1356 }, { "word": "all", "duration": 295 }, { "word": "it", "duration": 362 }, { "word": "ever", "duration": 211 }, { "word": "is", "duration": 377 }]
+        },
+        "DrawFirstIfYouMustButStrikeLast.wav": {
+            quote: "Draw first if you must, but strike. last.",
+            timedQuote: [{ "word": "Draw", "duration": 798 }, { "word": "first", "duration": 285 }, { "word": "if", "duration": 330 }, { "word": "you", "duration": 174 }, { "word": "must", "duration": 161 }, { "word": "but", "duration": 639 }, { "word": "strike", "duration": 522 }, { "word": "last", "duration": 902 }]
+        }
     },
     seralyth: {
         "Seralyth_About Self Line.wav": {
