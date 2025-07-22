@@ -1,28 +1,27 @@
-// src/pages/CharacterList/components/CharacterEffects/effects/Water.js
+// src/pages/CharacterList/components/CharacterEffects/effects/water.js
 
-// --- Particle Class ---
 class Particle {
     constructor(canvas) {
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
         this.reset();
-        this.y = Math.random() * this.canvas.height; // Start at a random y position initially
+        this.y = Math.random() * this.canvas.height;
     }
 
     reset() {
         this.x = Math.random() * this.canvas.width;
-        this.y = this.canvas.height + Math.random() * 50; // Start just below the screen
+        this.y = this.canvas.height + Math.random() * 50;
         this.radius = Math.random() * 3 + 1;
-        this.speedY = Math.random() * 1 + 0.5; // Upward speed
-        this.opacity = this.radius / 4; // Smaller particles are more transparent
-        this.wobble = Math.random() * 0.02 + 0.01; // Wobble speed
+        this.speedY = Math.random() * 0.4 + 0.2;
+        this.opacity = this.radius / 4;
+        this.wobble = Math.random() * 0.02 + 0.01;
         this.wobbleAngle = Math.random() * Math.PI * 2;
     }
 
     update() {
         this.y -= this.speedY;
         this.wobbleAngle += this.wobble;
-        this.x += Math.sin(this.wobbleAngle) * 0.5; // Apply horizontal wobble
+        this.x += Math.sin(this.wobbleAngle) * 0.5;
 
         if (this.y < -this.radius) {
             this.reset();
@@ -32,15 +31,14 @@ class Particle {
     draw() {
         this.ctx.beginPath();
         this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        this.ctx.fillStyle = `rgba(173, 216, 230, ${this.opacity})`; // Light blue
-        this.ctx.shadowColor = 'rgba(0, 191, 255, 0.7)'; // Cyan glow
+        this.ctx.fillStyle = `rgba(173, 216, 230, ${this.opacity})`;
+        this.ctx.shadowColor = 'rgba(0, 191, 255, 0.7)';
         this.ctx.shadowBlur = 10;
         this.ctx.fill();
         this.ctx.closePath();
     }
 }
 
-// --- Main Effect Logic ---
 export function createWaterEffect(canvas) {
     const ctx = canvas.getContext('2d');
     let particles = [];

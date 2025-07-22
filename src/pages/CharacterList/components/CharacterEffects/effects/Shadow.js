@@ -1,48 +1,40 @@
-// src/pages/CharacterList/components/CharacterEffects/effects/Shadow.js
+// src/pages/CharacterList/components/CharacterEffects/effects/shadow.js
 
-// --- Particle Class ---
-class ShadowParticle {
+class Particle {
     constructor(canvas) {
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
-        this.reset();
-    }
-
-    reset() {
-        this.x = Math.random() * this.canvas.width;
-        this.y = -10; // Start off-screen top
-        this.radius = Math.random() * 6 + 3;
-        this.speedY = Math.random() * 1.5 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.opacity = Math.random() * 0.5 + 0.2;
-        this.life = 1;
-        this.maxLife = 1;
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.radius = Math.random() * 2 + 1;
+        this.speedY = Math.random() * 0.5 + 0.2;
     }
 
     update() {
         this.y += this.speedY;
-        this.x += this.speedX;
-        if (this.y > this.canvas.height + this.radius) {
-            this.reset();
+
+        if (this.y - this.radius > this.canvas.height) {
+            this.y = 0 - this.radius;
+            this.x = Math.random() * this.canvas.width;
+            this.radius = Math.random() * 2 + 1;
         }
     }
 
     draw() {
         this.ctx.beginPath();
-        this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        this.ctx.fillStyle = `rgba(156, 39, 176, ${this.opacity})`;
-        this.ctx.shadowColor = '#9c27b0';
         this.ctx.shadowBlur = 15;
+        this.ctx.shadowColor = "rgba(170, 100, 255, 0.7)";
+        this.ctx.fillStyle = "#000000";
+        this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         this.ctx.fill();
         this.ctx.closePath();
     }
 }
 
-// --- Main Effect Logic ---
 export function createShadowEffect(canvas) {
     const ctx = canvas.getContext('2d');
     let particles = [];
-    const numberOfParticles = 20;
+    const numberOfParticles = 200;
     let animationFrameId;
 
     function init() {
@@ -50,16 +42,16 @@ export function createShadowEffect(canvas) {
         canvas.height = canvas.clientHeight;
         particles = [];
         for (let i = 0; i < numberOfParticles; i++) {
-            particles.push(new ShadowParticle(canvas));
+            particles.push(new Particle(canvas));
         }
     }
 
     function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.shadowBlur = 0;
-        for (const particle of particles) {
-            particle.update();
-            particle.draw();
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
         }
         animationFrameId = requestAnimationFrame(animate);
     }

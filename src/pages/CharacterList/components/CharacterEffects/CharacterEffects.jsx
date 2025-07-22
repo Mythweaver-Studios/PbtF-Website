@@ -2,16 +2,18 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './CharacterEffects.css';
-import { createFlameEffect } from './effects/Flame';
-import { createHolyEffect } from './effects/Holy';
-import { createShadowEffect } from './effects/Shadow';
-import { createWaterEffect } from './effects/Water';
+import { createFlameEffect } from './effects/flame';
+import { createHolyEffect } from './effects/holy';
+import { createShadowEffect } from './effects/shadow';
+import { createWaterEffect } from './effects/water';
+import { createHolyFlameEffect } from './effects/holyFlame';
 
 const effectMap = {
     flame: createFlameEffect,
     holy: createHolyEffect,
     shadow: createShadowEffect,
     water: createWaterEffect,
+    holyFlame: createHolyFlameEffect,
 };
 
 function CharacterEffects({ effectType }) {
@@ -25,7 +27,6 @@ function CharacterEffects({ effectType }) {
         const canvas = canvasRef.current;
         const cleanup = effectMap[effectType](canvas);
 
-        // Return the cleanup function to be called on component unmount or effectType change
         return () => {
             if (cleanup) {
                 cleanup();
@@ -33,7 +34,6 @@ function CharacterEffects({ effectType }) {
         };
     }, [effectType]);
 
-    // If no effect type is specified for the character, render nothing.
     if (!effectType) {
         return null;
     }

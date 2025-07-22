@@ -92,7 +92,7 @@ export const charactersData = [
         world: "Unknown",
         description:
             "A master of elemental sword arts who strikes like a storm. Once a disciple of a legendary order, she now walks a solitary path as a relic diver, seeking the power to challenge fate itself.",
-        longDescription: `Swift as a crashing wave and sharp as lightning’s edge, Yanyan is a master of the elemental sword arts, a relentless duelist who moves like water and strikes like a storm. A former disciple of a legendary order, she now walks her own path as a relic diver, chasing echoes of forgotten worlds and impossible truths.\n\nQuiet, focused, and driven by something she never speaks of, Yanyan carries more than just a blade. She seeks not only ancient power, but a way to challenge the very currents of fate.`,
+        longDescription: `Swift as a crashing wave and sharp as lightning's edge, Yanyan is a master of the elemental sword arts, a relentless duelist who moves like water and strikes like a storm. A former disciple of a legendary order, she now walks her own path as a relic diver, chasing echoes of forgotten worlds and impossible truths.\n\nQuiet, focused, and driven by something she never speaks of, Yanyan carries more than just a blade. She seeks not only ancient power, but a way to challenge the very currents of fate.`,
         image: Character2Img,
         thumbnail: Character2Thumb,
         accentColor: "#d3e5fe",
@@ -122,7 +122,7 @@ export const charactersData = [
         thumbnail: Character3Thumb,
         accentColor: "rgba(191, 191, 191, 0.8)",
         tier: 5, // Legendary
-        specialEffect: 'holy',
+        specialEffect: 'holyFlame',
         statsBlurred: true,
         stats: { Strength: 4, Intelligence: 2, HP: 5, Dexterity: 1, Mana: 3 },
         hasVoiceLines: true,
