@@ -37,7 +37,6 @@ function VoiceLinePlayer({ voiceLines, accentColor, mode = 'full' }) {
             setIsPlaying(true);
             setIsFading(false);
 
-            // Ensure randomLine and its audioSrc are valid before creating Audio object
             if (randomLine && randomLine.audioSrc) {
                 const newAudio = new Audio(randomLine.audioSrc);
                 audioRef.current = newAudio;
@@ -69,6 +68,7 @@ function VoiceLinePlayer({ voiceLines, accentColor, mode = 'full' }) {
                 <div className={`voiceline-simple-quote-wrapper ${isFading ? 'fading' : ''}`}>
                     {currentLine && (
                         <TimedGlowText
+                            fullQuote={currentLine.quote}
                             timedQuote={currentLine.timedQuote}
                             isPlaying={isPlaying}
                             accentColor={accentColor}
@@ -85,6 +85,7 @@ function VoiceLinePlayer({ voiceLines, accentColor, mode = 'full' }) {
             <div className={`voiceline-full-quote-display ${isFading ? 'fading' : ''}`}>
                 {currentLine ? (
                     <TimedGlowText
+                        fullQuote={currentLine.quote}
                         timedQuote={currentLine.timedQuote}
                         isPlaying={isPlaying}
                         accentColor={accentColor}

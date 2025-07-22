@@ -28,7 +28,7 @@ const VOICELINE_DATA = {
         },
         "DrawFirstIfYouMustButStrikeLast.wav": {
             quote: "Draw first if you must, but strike. last.",
-            timedQuote: [{ "word": "Draw", "duration": 798 }, { "word": "first", "duration": 285 }, { "word": "if", "duration": 330 }, { "word": "you", "duration": 174 }, { "word": "must", "duration": 161 }, { "word": "but", "duration": 639 }, { "word": "strike", "duration": 522 }, { "word": "last", "duration": 902 }]
+            timedQuote: [{ "word": "Draw", "duration": 667 }, { "word": "first", "duration": 294 }, { "word": "if", "duration": 345 }, { "word": "you", "duration": 214 }, { "word": "must", "duration": 185 }, { "word": "but", "duration": 755 }, { "word": "strike", "duration": 375 }, { "word": "last", "duration": 695 }]
         }
     },
     seralyth: {
