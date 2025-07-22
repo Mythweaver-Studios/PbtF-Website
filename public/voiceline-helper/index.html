@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voiceline Timing Helper</title>
+    <!-- WaveSurfer.js from a CDN -->
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="card">
+            <h1>Voiceline Timing Helper by Solo</h1>
+            <p>A stable and reliable tool to generate the `timedQuote` JSON for character voicelines.</p>
+        </div>
+
+        <div class="card">
+            <h2>1. Setup</h2>
+            <div class="audio-controls">
+                <input type="file" id="audioFile" accept="audio/*" style="flex-grow: 1;">
+                <button id="playBtn" disabled>Play / Pause</button>
+                <button id="autoplayBtn" disabled>Autoplay</button>
+            </div>
+            <div class="audio-info">
+                <span id="status">Load an audio file to begin.</span>
+                <span id="time-display">0.00s / 0.00s</span>
+            </div>
+            <div id="waveform"></div>
+            <hr>
+            <label for="quoteText">Quote Text</label>
+            <input type="text" id="quoteText" placeholder="Listen to the audio and paste the full quote here...">
+        </div>
+
+        <div class="card">
+            <h2>2. Timing Control</h2>
+            <p>Once the quote is set, click "Play" and use the <strong>G key</strong> or the <strong>Mark Word button</strong> to time each word.</p>
+            <div class="controls">
+                <button id="markBtn" disabled>Mark Word (G)</button>
+                <button id="resetTimingsBtn" class="danger" disabled>Reset Timings</button>
+                <button id="resetAllBtn" class="danger">Reset All</button>
+            </div>
+            <div id="words-display"></div>
+        </div>
+
+        <div class="card">
+            <h2>3. Preview & Result</h2>
+            <div class="preview-controls">
+                <p>See how the timed glow will look in the app.</p>
+                <button id="previewBtn" disabled>Preview Animation</button>
+            </div>
+            <div class="preview-container">
+                <p id="glowing-quote-preview" class="glowing-quote"></p>
+            </div>
+            <hr>
+            <div class="output-header">
+                <label for="output">Result (JSON)</label>
+                <button id="copyBtn" disabled>Copy to Clipboard</button>
+            </div>
+            <textarea id="output" rows="12" readonly></textarea>
+        </div>
+    </div>
+
+    <!-- Link to external script -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -32,9 +32,38 @@ const VOICELINE_DATA = {
         }
     },
     seralyth: {
-        "Seralyth_About Self Line.wav": {
+        "IWouldntReallyCallMyselfAFighter.wav": {
             quote: "Me? I wouldn't really call myself a fighter but, I can turn people around me, into one.",
             timedQuote: [{ "word": "Me", "duration": 493 }, { "word": "I", "duration": 1033 }, { "word": "wouldn't", "duration": 160 }, { "word": "really", "duration": 90 }, { "word": "call", "duration": 415 }, { "word": "myself", "duration": 416 }, { "word": "a", "duration": 352 }, { "word": "fighter", "duration": 413 }, { "word": "but", "duration": 325 }, { "word": "I", "duration": 936 }, { "word": "can", "duration": 299 }, { "word": "turn", "duration": 92 }, { "word": "people", "duration": 399 }, { "word": "around", "duration": 483 }, { "word": "me", "duration": 229 }, { "word": "into", "duration": 527 }, { "word": "one", "duration": 232 }],
+        },
+        "WhenDidMonstersBecomeThisWeak.wav": {
+            quote: "When did monsters become this weak?",
+            timedQuote: [
+                {
+                    "word": "When",
+                    "duration": 466
+                },
+                {
+                    "word": "did",
+                    "duration": 272
+                },
+                {
+                    "word": "monsters",
+                    "duration": 348
+                },
+                {
+                    "word": "become",
+                    "duration": 496
+                },
+                {
+                    "word": "this",
+                    "duration": 406
+                },
+                {
+                    "word": "weak",
+                    "duration": 217
+                }
+            ],
         }
     }
 };
