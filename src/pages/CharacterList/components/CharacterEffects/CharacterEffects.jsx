@@ -1,23 +1,38 @@
 // src/pages/CharacterList/components/CharacterEffects/CharacterEffects.jsx
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './CharacterEffects.css';
+import { createFlameEffect } from './effects/Flame';
+import { createHolyEffect } from './effects/Holy';
+import { createShadowEffect } from './effects/Shadow';
+import { createWaterEffect } from './effects/Water';
 
-// A component to render a specific number of particles for an effect
-const Particles = ({ count, className }) => (
-    <>
-        {Array.from({ length: count }).map((_, i) => (
-            <div key={i} className={className} style={{ '--i': i }}></div>
-        ))}
-    </>
-);
-
-Particles.propTypes = {
-    count: PropTypes.number.isRequired,
-    className: PropTypes.string.isRequired,
+const effectMap = {
+    flame: createFlameEffect,
+    holy: createHolyEffect,
+    shadow: createShadowEffect,
+    water: createWaterEffect,
 };
 
 function CharacterEffects({ effectType }) {
+    const canvasRef = useRef(null);
+
+    useEffect(() => {
+        if (!effectType || !effectMap[effectType] || !canvasRef.current) {
+            return;
+        }
+
+        const canvas = canvasRef.current;
+        const cleanup = effectMap[effectType](canvas);
+
+        // Return the cleanup function to be called on component unmount or effectType change
+        return () => {
+            if (cleanup) {
+                cleanup();
+            }
+        };
+    }, [effectType]);
+
     // If no effect type is specified for the character, render nothing.
     if (!effectType) {
         return null;
@@ -25,9 +40,7 @@ function CharacterEffects({ effectType }) {
 
     return (
         <div className="effects-container">
-            {/* Conditionally render the correct particle effect */}
-            {effectType === 'shadow' && <Particles count={20} className="shadow-dot" />}
-            {/* Add other effects here in the future, e.g., {effectType === 'fire' && <FireEffect />} */}
+            <canvas ref={canvasRef} className="effect-canvas"></canvas>
         </div>
     );
 }

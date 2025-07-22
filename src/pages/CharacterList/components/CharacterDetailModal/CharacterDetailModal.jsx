@@ -3,7 +3,7 @@ import React, { useEffect, Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import "./CharacterDetailModal.css";
 import { TIER_DATA } from "../../../../utils/tierData";
-import ShadowEffect from "./effects/ShadowEffect";
+import CharacterEffects from "../CharacterEffects/CharacterEffects"; // Updated import
 import VoiceLinePlayer from "../../../../components/VoiceLinePlayer/VoiceLinePlayer";
 
 // Helper to render stat bars
@@ -112,7 +112,7 @@ function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePr
                 </div>
                 <div className="modal-right">
                     {/* Render effects based on character data */}
-                    {character.specialEffect === 'shadow' && <ShadowEffect />}
+                    <CharacterEffects effectType={character.specialEffect} />
 
                     <div className={`modal-right-content-wrapper ${isNavigating ? 'navigating' : ''}`}>
                         <div className="modal-title-header">

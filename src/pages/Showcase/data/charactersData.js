@@ -97,6 +97,7 @@ export const charactersData = [
         thumbnail: Character2Thumb,
         accentColor: "#d3e5fe",
         tier: 3, // Rare
+        specialEffect: 'water',
         statsBlurred: true,
         showcaseStyles: {
             transform: 'scale(1) translateY(-12px)',
@@ -121,6 +122,7 @@ export const charactersData = [
         thumbnail: Character3Thumb,
         accentColor: "rgba(191, 191, 191, 0.8)",
         tier: 5, // Legendary
+        specialEffect: 'holy',
         statsBlurred: true,
         stats: { Strength: 4, Intelligence: 2, HP: 5, Dexterity: 1, Mana: 3 },
         hasVoiceLines: true,
