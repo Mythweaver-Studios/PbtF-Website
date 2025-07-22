@@ -1,5 +1,9 @@
 {
-  "benedict": [],
+  "benedict": [
+    "/assets/audio/voicelines/benedict/DrawFirstIfYouMustButStrikeLast.wav",
+    "/assets/audio/voicelines/benedict/EvenFlameNeedsAPauseToBurnBrighter.wav",
+    "/assets/audio/voicelines/benedict/OneStepThenAnother.wav"
+  ],
   "seralyth": [
     "/assets/audio/voicelines/seralyth/Seralyth_About%20Self%20Line.wav"
   ]
