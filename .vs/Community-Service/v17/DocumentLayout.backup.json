@@ -3,32 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterDetailModal\\CharacterDetailModal.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\CharacterList\\components\\CharacterDetailModal\\CharacterDetailModal.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\data\\charactersData.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Showcase\\data\\charactersData.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterDetailModal\\CharacterDetailModal.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\CharacterList\\components\\CharacterDetailModal\\CharacterDetailModal.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterEffects\\effects\\holyFlame.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\CharacterList\\components\\CharacterEffects\\effects\\holyFlame.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterDetailModal\\CharacterDetailModal.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\CharacterList\\components\\CharacterDetailModal\\CharacterDetailModal.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterEffects\\effects\\shadow.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\CharacterList\\components\\CharacterEffects\\effects\\shadow.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\components\\Characters.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Showcase\\components\\Characters.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\data\\charactersData.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Showcase\\data\\charactersData.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\components\\Characters.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Showcase\\components\\Characters.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterEffects\\CharacterEffects.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\CharacterList\\components\\CharacterEffects\\CharacterEffects.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\VoiceActorCredit\\VoiceActorCredit.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\VoiceActorCredit\\VoiceActorCredit.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterEffects\\CharacterEffects.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\CharacterList\\components\\CharacterEffects\\CharacterEffects.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\VoiceActorCredit\\VoiceActorCredit.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\VoiceActorCredit\\VoiceActorCredit.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Showcase\\Showcase.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Showcase\\Showcase.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\CharacterList.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\CharacterList\\CharacterList.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\CharacterList.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\CharacterList\\CharacterList.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,15 +62,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
+              "Title": "VoiceActorCredit.css",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\VoiceActorCredit\\VoiceActorCredit.css",
+              "RelativeDocumentMoniker": "src\\components\\VoiceActorCredit\\VoiceActorCredit.css",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\VoiceActorCredit\\VoiceActorCredit.css",
+              "RelativeToolTip": "src\\components\\VoiceActorCredit\\VoiceActorCredit.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-25T20:12:31.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "VoiceActorCredit.jsx",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\VoiceActorCredit\\VoiceActorCredit.jsx",
+              "RelativeDocumentMoniker": "src\\components\\VoiceActorCredit\\VoiceActorCredit.jsx",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\VoiceActorCredit\\VoiceActorCredit.jsx",
+              "RelativeToolTip": "src\\components\\VoiceActorCredit\\VoiceActorCredit.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-07-25T20:12:23.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Characters.jsx",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\components\\Characters.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\Showcase\\components\\Characters.jsx",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\components\\Characters.jsx",
+              "RelativeToolTip": "src\\pages\\Showcase\\components\\Characters.jsx",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAowIwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-07-25T20:11:28.577Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Characters.css",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\components\\Characters.css",
+              "RelativeDocumentMoniker": "src\\pages\\Showcase\\components\\Characters.css",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\components\\Characters.css",
+              "RelativeToolTip": "src\\pages\\Showcase\\components\\Characters.css",
+              "ViewState": "AgIAADABAAAAAAAAAAAYwFoBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-25T20:11:27.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "CharacterDetailModal.jsx",
               "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterDetailModal\\CharacterDetailModal.jsx",
               "RelativeDocumentMoniker": "src\\pages\\CharacterList\\components\\CharacterDetailModal\\CharacterDetailModal.jsx",
               "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterDetailModal\\CharacterDetailModal.jsx",
               "RelativeToolTip": "src\\pages\\CharacterList\\components\\CharacterDetailModal\\CharacterDetailModal.jsx",
-              "ViewState": "AgIAAKYAAAAAAAAAAAAowM8AAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAALEAAAAAAAAAAAAowLwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-07-25T19:26:55.156Z",
+              "WhenOpened": "2025-07-25T20:11:11.434Z",
               "EditorCaption": ""
             },
             {
@@ -65,74 +133,75 @@
               "RelativeDocumentMoniker": "src\\pages\\CharacterList\\components\\CharacterDetailModal\\CharacterDetailModal.css",
               "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterDetailModal\\CharacterDetailModal.css",
               "RelativeToolTip": "src\\pages\\CharacterList\\components\\CharacterDetailModal\\CharacterDetailModal.css",
-              "ViewState": "AgIAAJMBAAAAAAAAAAAYwL0BAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAJcBAAAAAAAAAAAYwMEBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-07-25T19:26:54.106Z",
+              "WhenOpened": "2025-07-25T20:11:12.497Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "charactersData.js",
               "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\data\\charactersData.js",
               "RelativeDocumentMoniker": "src\\pages\\Showcase\\data\\charactersData.js",
               "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\data\\charactersData.js",
               "RelativeToolTip": "src\\pages\\Showcase\\data\\charactersData.js",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAPkAAAAAAAAAAAAYwAUBAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-07-25T18:47:18.913Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "shadow.js",
-              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterEffects\\effects\\shadow.js",
-              "RelativeDocumentMoniker": "src\\pages\\CharacterList\\components\\CharacterEffects\\effects\\shadow.js",
-              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterEffects\\effects\\shadow.js",
-              "RelativeToolTip": "src\\pages\\CharacterList\\components\\CharacterEffects\\effects\\shadow.js",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAYwEcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-07-22T19:00:45.252Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "holyFlame.js",
-              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterEffects\\effects\\holyFlame.js",
-              "RelativeDocumentMoniker": "src\\pages\\CharacterList\\components\\CharacterEffects\\effects\\holyFlame.js",
-              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterEffects\\effects\\holyFlame.js",
-              "RelativeToolTip": "src\\pages\\CharacterList\\components\\CharacterEffects\\effects\\holyFlame.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-07-22T18:59:01.489Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CharacterEffects.jsx",
-              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterEffects\\CharacterEffects.jsx",
-              "RelativeDocumentMoniker": "src\\pages\\CharacterList\\components\\CharacterEffects\\CharacterEffects.jsx",
-              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterEffects\\CharacterEffects.jsx",
-              "RelativeToolTip": "src\\pages\\CharacterList\\components\\CharacterEffects\\CharacterEffects.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAANAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "Showcase.jsx",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\Showcase\\Showcase.jsx",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.jsx",
+              "RelativeToolTip": "src\\pages\\Showcase\\Showcase.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-07-22T18:23:47.821Z",
+              "WhenOpened": "2025-07-25T20:11:25.954Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CharacterEffects.css",
-              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterEffects\\CharacterEffects.css",
-              "RelativeDocumentMoniker": "src\\pages\\CharacterList\\components\\CharacterEffects\\CharacterEffects.css",
-              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\components\\CharacterEffects\\CharacterEffects.css",
-              "RelativeToolTip": "src\\pages\\CharacterList\\components\\CharacterEffects\\CharacterEffects.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "Showcase.css",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.css",
+              "RelativeDocumentMoniker": "src\\pages\\Showcase\\Showcase.css",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.css",
+              "RelativeToolTip": "src\\pages\\Showcase\\Showcase.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-07-22T18:23:55.307Z"
+              "WhenOpened": "2025-07-25T20:11:24.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CharacterList.jsx",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\CharacterList.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\CharacterList\\CharacterList.jsx",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\CharacterList.jsx",
+              "RelativeToolTip": "src\\pages\\CharacterList\\CharacterList.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-07-25T20:11:16.338Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CharacterList.css",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\CharacterList.css",
+              "RelativeDocumentMoniker": "src\\pages\\CharacterList\\CharacterList.css",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\CharacterList\\CharacterList.css",
+              "RelativeToolTip": "src\\pages\\CharacterList\\CharacterList.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-25T20:11:15.674Z",
+              "EditorCaption": ""
             }
           ]
         }

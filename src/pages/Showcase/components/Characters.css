@@ -71,6 +71,8 @@
 .character-display .character-info {
     max-width: 55%; /* Text area size */
     color: var(--text-color-primary);
+    display: flex; /* Added for flex-direction column */
+    flex-direction: column; /* Stack info vertically */
 }
 
     .character-display .character-info h3 {
@@ -99,13 +101,19 @@
     margin-bottom: 0; /* Margin is now on the wrapper */
 }
 
-/* Tier badge style removed from this file as it is no longer displayed here */
-
 .character-display .character-info p {
     /* Character description */
     font-size: 1rem;
     line-height: 1.7;
 }
+
+/* --- New VA Credit Styling --- */
+.showcase-va-credit {
+    margin-top: auto; /* Pushes the credit to the bottom */
+    padding-top: 1rem; /* Space above the credit */
+}
+/* --- End VA Credit Styling --- */
+
 
 /* --- Progress Bar Styles --- */
 .character-cycle-progress-bar {
@@ -250,6 +258,7 @@
 
     .character-display .character-info {
         max-width: 90%;
+        align-items: center; /* Center items when stacked */
     }
 
     /* Add auto margins to center the table-behaving wrapper */

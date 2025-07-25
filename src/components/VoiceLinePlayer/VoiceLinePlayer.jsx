@@ -10,11 +10,11 @@ function VoiceLinePlayer({ voiceLines, accentColor, mode = 'full' }) {
     const [isFading, setIsFading] = useState(false);
     const audioRef = useRef(null);
 
-    // Cleanup audio on unmount
     useEffect(() => {
         return () => {
             if (audioRef.current) {
                 audioRef.current.pause();
+                audioRef.current = null;
             }
         };
     }, []);
@@ -55,17 +55,42 @@ function VoiceLinePlayer({ voiceLines, accentColor, mode = 'full' }) {
         }, 300);
     };
 
-    // This mode is for the main showcase page
     if (mode === 'simple') {
         return (
-            <div className="voiceline-simple-wrapper" style={{ '--accent-color': accentColor }}>
-                <button className={`voiceline-simple-play-btn ${isPlaying ? 'playing' : ''}`} onClick={playRandomLine} aria-label="Play a random voice line">
-                    <svg className="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
-                    <div className="speaker-icon simple-speaker">
-                        <span></span><span></span><span></span>
+            <div className="voiceline-showcase-panel" style={{ '--accent-color': accentColor }}>
+                <h5 className="voiceline-showcase-title">Voiceline</h5>
+                <div className="voiceline-showcase-content">
+                    <button className={`voiceline-simple-play-btn ${isPlaying ? 'playing' : ''}`} onClick={playRandomLine} aria-label="Play a random voice line">
+                        <svg className="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                        <div className="speaker-icon simple-speaker">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </button>
+                    <div className={`voiceline-simple-quote-wrapper ${isFading ? 'fading' : ''}`}>
+                        {currentLine && (
+                            <TimedGlowText
+                                fullQuote={currentLine.quote}
+                                timedQuote={currentLine.timedQuote}
+                                isPlaying={isPlaying}
+                                accentColor={accentColor}
+                            />
+                        )}
                     </div>
-                </button>
-                <div className={`voiceline-simple-quote-wrapper ${isFading ? 'fading' : ''}`}>
+                </div>
+            </div>
+        );
+    }
+
+    return (
+        <div className="voicelines-panel" style={{ '--accent-color': accentColor }}>
+            <h5 className="voiceline-panel-title">VOICELINE</h5>
+            <div className="voiceline-content-row">
+                <div className={`voiceline-full-quote-display ${isFading ? 'fading' : ''}`}>
+                    <div className={`voiceline-prompt-icon ${currentLine ? 'hidden' : ''}`}>
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm-4 29h8v-4h-8v4zm0-8h8v-14c-4.42 0-8 3.58-8 8v6z" fill="currentColor" />
+                        </svg>
+                    </div>
                     {currentLine && (
                         <TimedGlowText
                             fullQuote={currentLine.quote}
@@ -75,31 +100,13 @@ function VoiceLinePlayer({ voiceLines, accentColor, mode = 'full' }) {
                         />
                     )}
                 </div>
+                <button className={`voiceline-main-play-btn ${isPlaying ? 'playing' : ''}`} onClick={playRandomLine} aria-label="Play a random voice line">
+                    <svg className="play-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"></path></svg>
+                    <div className="speaker-icon">
+                        <span></span><span></span><span></span>
+                    </div>
+                </button>
             </div>
-        );
-    }
-
-    // This mode is for the character detail modal
-    return (
-        <div className="voicelines-panel" style={{ '--accent-color': accentColor }}>
-            <div className={`voiceline-full-quote-display ${isFading ? 'fading' : ''}`}>
-                {currentLine ? (
-                    <TimedGlowText
-                        fullQuote={currentLine.quote}
-                        timedQuote={currentLine.timedQuote}
-                        isPlaying={isPlaying}
-                        accentColor={accentColor}
-                    />
-                ) : (
-                    <span className="voiceline-prompt">Click to hear a voice line</span>
-                )}
-            </div>
-            <button className={`voiceline-main-play-btn ${isPlaying ? 'playing' : ''}`} onClick={playRandomLine} aria-label="Play a random voice line">
-                <svg className="play-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"></path></svg>
-                <div className="speaker-icon">
-                    <span></span><span></span><span></span>
-                </div>
-            </button>
         </div>
     );
 }

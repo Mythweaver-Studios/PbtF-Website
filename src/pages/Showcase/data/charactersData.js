@@ -160,13 +160,17 @@ export const charactersData = [
         appearanceDescription: "A holy knight encased in a full suit of immaculate, off-white plate armor with ornate gold trim and blue cloth underneath. His face is completely hidden by a full helm. A large, eight-pointed star is emblazoned on his chestplate, and a halo of light floats behind his head, complemented by a pair of large, radiant golden wings.",
         image: Character3Img,
         thumbnail: Character3Thumb,
-        accentColor: "rgba(191, 191, 191, 0.8)",
+        accentColor: "rgba(255, 255, 0, 0.8)",
         tier: 5, // Legendary
         specialEffect: 'holyFlame',
         statsBlurred: true,
         stats: { Strength: 4, Intelligence: 2, HP: 5, Dexterity: 1, Mana: 3 },
         hasVoiceLines: true,
         voiceLines: getVoiceLinesFor('benedict'),
+        voiceActor: {
+            name: "Nathan Wagner",
+            url: "https://www.nathanwagnervo.com/",
+        },
     },
     {
         id: 4,
@@ -228,6 +232,10 @@ export const charactersData = [
         stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 },
         hasVoiceLines: true,
         voiceLines: getVoiceLinesFor('seralyth'),
+        voiceActor: {
+            name: "Sullivan Clare Williams",
+            url: "https://www.castingcall.club/Sullivanwilliams",
+        },
     },
     {
         id: 7,

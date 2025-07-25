@@ -1,13 +1,28 @@
 /* src/components/VoiceLinePlayer/VoiceLinePlayer.css */
 
-/* --- Simple Mode (for Showcase Page) --- */
-.voiceline-simple-wrapper {
+/* --- Simple Mode Redesign (Showcase) --- */
+.voiceline-showcase-panel {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--theme-border-gold-faint);
+    border-left: 3px solid var(--accent-color, #ffd700);
+    border-radius: 4px;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.voiceline-showcase-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: var(--theme-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.voiceline-showcase-content {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    margin-top: 1.5rem;
-    padding-left: 0.5rem;
-    border-left: 3px solid var(--accent-color, #ffd700);
 }
 
 .voiceline-simple-play-btn {
@@ -84,7 +99,7 @@
         opacity: 0;
     }
 
-.voiceline-simple-wrapper .glowing-quote {
+.voiceline-showcase-panel .glowing-quote {
     margin: 0;
     font-size: 0.95rem;
     line-height: 1.5;
@@ -92,15 +107,32 @@
 }
 
 
-/* --- Full Mode (for Character Detail Modal) --- */
+/* --- Full Mode Redesign (Modal) --- */
 .voicelines-panel {
     display: flex;
-    align-items: center;
-    gap: 1.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
     background-color: rgba(10, 8, 7, 0.6);
     padding: 1rem 1.5rem;
     border-radius: 8px;
     border: 1px solid var(--theme-border-gold-faint);
+    margin-bottom: 1rem;
+}
+
+.voiceline-panel-title {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--theme-text-secondary);
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid var(--theme-border-gold-faint);
+    padding-bottom: 0.5rem;
+}
+
+.voiceline-content-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 .voiceline-full-quote-display {
@@ -109,17 +141,12 @@
     display: flex;
     align-items: center;
     transition: opacity 0.3s ease-in-out;
+    position: relative;
 }
 
     .voiceline-full-quote-display.fading {
         opacity: 0;
     }
-
-.voiceline-prompt {
-    font-style: italic;
-    color: var(--theme-text-secondary);
-    font-size: 0.9rem;
-}
 
 .voiceline-full-quote-display .glowing-quote {
     margin: 0;
@@ -136,18 +163,20 @@
     border-radius: 50%;
     cursor: pointer;
     flex-shrink: 0;
-    transition: color 0.2s, border-color 0.2s, transform 0.2s;
+    transition: all 0.2s ease-in-out;
 }
 
     .voiceline-main-play-btn:hover {
         color: var(--accent-color);
         border-color: var(--accent-color);
         transform: scale(1.05);
+        box-shadow: 0 0 10px var(--accent-color);
     }
 
     .voiceline-main-play-btn.playing {
         color: var(--accent-color);
         border-color: var(--accent-color);
+        box-shadow: 0 0 15px var(--accent-color);
     }
 
     .voiceline-main-play-btn svg,

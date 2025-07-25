@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./Characters.css";
 import VoiceLinePlayer from "../../../components/VoiceLinePlayer/VoiceLinePlayer";
+import VoiceActorCredit from "../../../components/VoiceActorCredit/VoiceActorCredit";
 
 function CharactersSection({ charactersData }) {
     const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);
@@ -85,12 +86,18 @@ function CharactersSection({ charactersData }) {
                         )}
                     </div>
                     <p>{currentCharacter.description}</p>
-                    {/* Simplified Voice Line Player - Conditionally rendered */}
                     {currentCharacter.hasVoiceLines && (
                         <VoiceLinePlayer
                             voiceLines={currentCharacter.voiceLines}
                             accentColor={currentCharacter.accentColor}
                             mode="simple"
+                        />
+                    )}
+                    {currentCharacter.voiceActor && (
+                        <VoiceActorCredit
+                            name={currentCharacter.voiceActor.name}
+                            url={currentCharacter.voiceActor.url}
+                            className="showcase-va-credit"
                         />
                     )}
                 </div>
@@ -130,6 +137,10 @@ CharactersSection.propTypes = {
             showcaseStyles: PropTypes.object,
             hasVoiceLines: PropTypes.bool,
             voiceLines: PropTypes.array,
+            voiceActor: PropTypes.shape({
+                name: PropTypes.string.isRequired,
+                url: PropTypes.string.isRequired,
+            }),
         })
     ).isRequired,
 };

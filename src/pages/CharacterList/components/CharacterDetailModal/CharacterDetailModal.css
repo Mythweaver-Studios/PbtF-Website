@@ -249,6 +249,10 @@
         margin-right: 0.5em;
     }
 
+.modal-va-credit {
+    margin: -0.5rem 0 1rem 0;
+}
+
 .blurred-text {
     filter: blur(4px);
     pointer-events: none;

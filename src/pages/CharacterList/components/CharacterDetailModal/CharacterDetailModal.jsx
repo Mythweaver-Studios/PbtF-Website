@@ -5,6 +5,7 @@ import "./CharacterDetailModal.css";
 import { TIER_DATA } from "../../../../utils/tierData";
 import CharacterEffects from "../CharacterEffects/CharacterEffects";
 import VoiceLinePlayer from "../../../../components/VoiceLinePlayer/VoiceLinePlayer";
+import VoiceActorCredit from "../../../../components/VoiceActorCredit/VoiceActorCredit";
 
 // Helper to render stat bars
 const StatBar = ({ value }) => (
@@ -43,7 +44,7 @@ const ParsedStory = ({ text }) => {
 
 function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePrevious }) {
     const [isClosing, setIsClosing] = useState(false);
-    const [isNavigating, setIsNavigating] = useState(false); // State for fade animation
+    const [isNavigating, setIsNavigating] = useState(false);
     const tierInfo = TIER_DATA[character.tier] || TIER_DATA[1];
 
     const handleClose = () => {
@@ -53,21 +54,19 @@ function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePr
         }, 300);
     };
 
-    // New handler for smooth navigation
     const handleNavigation = (direction) => {
-        setIsNavigating(true); // Trigger fade-out
+        setIsNavigating(true);
         setTimeout(() => {
             if (direction === "next") {
                 onNavigateNext();
             } else {
                 onNavigatePrevious();
             }
-        }, 250); // Duration should match the CSS transition
+        }, 250);
     };
 
-    // Reset animation state when the character changes
     useEffect(() => {
-        setIsNavigating(false); // Trigger fade-in
+        setIsNavigating(false);
     }, [character.id]);
 
 
@@ -111,9 +110,7 @@ function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePr
                     )}
                 </div>
                 <div className="modal-right">
-                    {/* Render effects based on character data */}
                     <CharacterEffects effectType={character.specialEffect} />
-
                     <div className={`modal-right-content-wrapper ${isNavigating ? 'navigating' : ''}`}>
                         <div className="modal-title-header">
                             <h2 className="modal-char-name">{character.name} {renderGenderIcon(character.gender)}</h2>
@@ -125,17 +122,13 @@ function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePr
                             </div>
                         </div>
                         <h3 className={`modal-char-title ${character.title.includes("?") ? "blurred-text" : ""}`}>{character.title}</h3>
-
                         <div className="modal-divider"></div>
-
                         <div className="modal-char-details">
                             <p><strong>Full Name:</strong> <span className={character.fullName.includes("Unknown") ? "blurred-text" : ""}>{character.fullName}</span></p>
                             <p><strong>Species:</strong> <span className={character.species.includes("Unknown") ? "blurred-text" : ""}>{character.species}</span></p>
                             <p><strong>Class:</strong> <span className={character.class.includes("Unknown") ? "blurred-text" : ""}>{character.class}</span></p>
                             <p><strong>World:</strong> <span className={character.world.includes("Unknown") ? "blurred-text" : ""}>{character.world}</span></p>
                         </div>
-
-                        {/* Voiceline player - conditionally rendered */}
                         {character.hasVoiceLines && (
                             <VoiceLinePlayer
                                 voiceLines={character.voiceLines}
@@ -143,11 +136,16 @@ function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePr
                                 mode="full"
                             />
                         )}
-
+                        {character.voiceActor && (
+                            <VoiceActorCredit
+                                name={character.voiceActor.name}
+                                url={character.voiceActor.url}
+                                className="modal-va-credit"
+                            />
+                        )}
                         <div className="modal-char-story">
                             <p><ParsedStory text={character.longDescription} /></p>
                         </div>
-
                         <div className="modal-stats-section">
                             <h4 className="modal-section-title">Base Stats</h4>
                             {character.statsBlurred ? (
