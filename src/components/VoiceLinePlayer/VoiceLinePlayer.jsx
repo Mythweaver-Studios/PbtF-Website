@@ -86,18 +86,15 @@ function VoiceLinePlayer({ voiceLines, accentColor, mode = 'full' }) {
             <h5 className="voiceline-panel-title">VOICELINE</h5>
             <div className="voiceline-content-row">
                 <div className={`voiceline-full-quote-display ${isFading ? 'fading' : ''}`}>
-                    <div className={`voiceline-prompt-icon ${currentLine ? 'hidden' : ''}`}>
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm-4 29h8v-4h-8v4zm0-8h8v-14c-4.42 0-8 3.58-8 8v6z" fill="currentColor" />
-                        </svg>
-                    </div>
-                    {currentLine && (
+                    {currentLine ? (
                         <TimedGlowText
                             fullQuote={currentLine.quote}
                             timedQuote={currentLine.timedQuote}
                             isPlaying={isPlaying}
                             accentColor={accentColor}
                         />
+                    ) : (
+                        <span className="voiceline-prompt">Click to hear a voice line</span>
                     )}
                 </div>
                 <button className={`voiceline-main-play-btn ${isPlaying ? 'playing' : ''}`} onClick={playRandomLine} aria-label="Play a random voice line">

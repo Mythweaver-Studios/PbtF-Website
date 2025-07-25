@@ -9,10 +9,9 @@ import VoiceActorCredit from "../../../components/VoiceActorCredit/VoiceActorCre
 function CharactersSection({ charactersData }) {
     const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);
     const [isCharacterFading, setIsCharacterFading] = useState(false);
-    const [animationConfig, setAnimationConfig] = useState({
-        duration: 15000,
-        key: 0,
-    });
+
+    // **FIX:** Use a key to force re-render/reset the animation
+    const [animationKey, setAnimationKey] = useState(0);
 
     const characterTimeoutRef = useRef(null);
     const indexRef = useRef(currentCharacterIndex);
@@ -26,10 +25,7 @@ function CharactersSection({ charactersData }) {
         setTimeout(() => {
             setCurrentCharacterIndex(newIndex);
             setIsCharacterFading(false);
-            setAnimationConfig(prev => ({
-                duration: 15000,
-                key: prev.key + 1,
-            }));
+            setAnimationKey(prevKey => prevKey + 1); // Reset animation on character change
         }, 300);
     };
 
@@ -39,16 +35,23 @@ function CharactersSection({ charactersData }) {
         changeCharacter(index);
     };
 
+    // **FIX:** This handler will be attached to the voiceline player
+    const handleVoicelinePlay = () => {
+        // Reset the timer and progress bar animation by changing the key
+        setAnimationKey(prevKey => prevKey + 1);
+    };
+
     useEffect(() => {
         clearTimeout(characterTimeoutRef.current);
         if (charactersData && charactersData.length > 1) {
+            // The 15s countdown for auto-cycling
             characterTimeoutRef.current = setTimeout(() => {
                 const newIndex = (indexRef.current + 1) % 3;
                 changeCharacter(newIndex);
-            }, animationConfig.duration);
+            }, 15000 + 5000); // Total duration is 15s animation + 5s delay
         }
         return () => clearTimeout(characterTimeoutRef.current);
-    }, [animationConfig, charactersData]);
+    }, [animationKey, charactersData]); // animationKey resets the effect
 
     if (!charactersData || charactersData.length === 0) {
         return <div className="characters-content-wrapper">Loading characters...</div>;
@@ -80,18 +83,20 @@ function CharactersSection({ charactersData }) {
                         {charactersData.length > 1 && (
                             <div
                                 className="character-cycle-progress-bar"
-                                key={animationConfig.key}
-                                style={{ animationDuration: `${animationConfig.duration}ms` }}
+                                key={animationKey} // The key is crucial for resetting the animation
+                                style={{ animationDuration: '15s' }} // Static duration
                             ></div>
                         )}
                     </div>
                     <p>{currentCharacter.description}</p>
                     {currentCharacter.hasVoiceLines && (
-                        <VoiceLinePlayer
-                            voiceLines={currentCharacter.voiceLines}
-                            accentColor={currentCharacter.accentColor}
-                            mode="simple"
-                        />
+                        <div onClick={handleVoicelinePlay}>
+                            <VoiceLinePlayer
+                                voiceLines={currentCharacter.voiceLines}
+                                accentColor={currentCharacter.accentColor}
+                                mode="simple"
+                            />
+                        </div>
                     )}
                     {currentCharacter.voiceActor && (
                         <VoiceActorCredit

@@ -148,6 +148,12 @@
         opacity: 0;
     }
 
+.voiceline-prompt {
+    font-style: italic;
+    color: var(--theme-text-secondary);
+    font-size: 0.9rem;
+}
+
 .voiceline-full-quote-display .glowing-quote {
     margin: 0;
     font-size: 0.95rem;

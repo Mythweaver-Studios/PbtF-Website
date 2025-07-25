@@ -1,25 +1,8 @@
 /* src/pages/Showcase/Showcase.css */
 
-/* --- Theme Variable Values (Derived from SCSS) ---
-Original SCSS variables:
-$bg-color: #0a0807;
-$bg-gradient: linear-gradient(135deg, #100e0c 0%, #050403 100%);
-$text-color-primary: #e0c9a6;
-$text-color-titles: #ffd700;
-$text-color-accent-red: #c0392b;
-$border-color-gold: rgba(207, 181, 130, 0.4);
-$side-nav-line-color: rgba(255, 255, 255, 0.2);
-$side-nav-active-color: #ffd700;
-$side-nav-inactive-text: rgba(255, 255, 255, 0.5);
-$side-nav-active-text: #ffffff;
-$highlight-red: #e74c3c;
-$highlight-gold: #f1c40f;
---- */
-
 .showcase-page {
-    /* The main background is now handled globally by the body style in Default.css */
     color: #e0c9a6;
-    position: relative; /* For positioning context of fixed elements like side-nav */
+    position: relative;
 }
 
 .showcase-header {
@@ -39,7 +22,7 @@ $highlight-gold: #f1c40f;
 }
 
 .showcase-content {
-    padding-top: 90px; /* Account for fixed header */
+    padding-top: 90px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -54,10 +37,9 @@ $highlight-gold: #f1c40f;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative; /* Needed for offsetTop calculations */
+    position: relative;
 }
 
-    /* Section-specific backgrounds */
     .showcase-section.story-section {
         background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), url('../../assets/images/showcase_backgrounds/story_background.jpg') no-repeat center center;
         background-size: cover;
@@ -84,12 +66,12 @@ $highlight-gold: #f1c40f;
 .section-title {
     font-family: 'EternalFont', 'Georgia', serif;
     font-size: 3.2rem;
-    color: #ffd700; /* $text-color-titles */
+    color: #ffd700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     position: relative;
     padding-bottom: 0.75rem;
-    text-shadow: 0 0 12px rgba(241, 196, 15, 0.4), 0 0 18px rgba(241, 196, 15, 0.3); /* $highlight-gold related */
+    text-shadow: 0 0 12px rgba(241, 196, 15, 0.4), 0 0 18px rgba(241, 196, 15, 0.3);
 }
 
     .section-title::after {
@@ -100,20 +82,20 @@ $highlight-gold: #f1c40f;
         transform: translateX(-50%);
         width: 100px;
         height: 3px;
-        background: linear-gradient(90deg, transparent, #f1c40f, #c0392b, #f1c40f, transparent); /* $highlight-gold, $text-color-accent-red */
+        background: linear-gradient(90deg, transparent, #f1c40f, #c0392b, #f1c40f, transparent);
         border-radius: 2px;
-        box-shadow: 0 0 10px #f1c40f, 0 0 15px #f1c40f; /* $highlight-gold */
+        box-shadow: 0 0 10px #f1c40f, 0 0 15px #f1c40f;
     }
 
 /* --- Showcase Side Navigation --- */
 .showcase-side-nav {
     position: fixed;
-    left: 35px; /* Spacing from edge */
+    left: 35px;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 900; /* Below header */
+    z-index: 900;
     display: flex;
-    align-items: center; /* Vertically center items with the line */
+    align-items: center;
     padding: 10px 0;
 }
 
@@ -121,18 +103,17 @@ $highlight-gold: #f1c40f;
         list-style: none;
         padding: 0;
         margin: 0;
-        margin-left: 13.4px; /* Space between line and text */
+        margin-left: 13.4px;
         position: relative;
     }
 
 .side-nav-line {
-    width: 2px; /* Thickness of the main vertical line */
-    height: 200px; /* Height of the navigation line */
-    background-color: rgba(255, 255, 255, 0.2); /* $side-nav-line-color */
-    position: relative; /* For dots */
+    width: 2px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.2);
+    position: relative;
 }
 
-    /* Top and bottom dots on the line */
     .side-nav-line::before,
     .side-nav-line::after {
         content: '';
@@ -141,21 +122,21 @@ $highlight-gold: #f1c40f;
         transform: translateX(-50%);
         width: 6px;
         height: 6px;
-        background-color: rgba(255, 255, 255, 0.2); /* $side-nav-line-color */
+        background-color: rgba(255, 255, 255, 0.2);
         border-radius: 50%;
     }
 
     .side-nav-line::before {
-        top: -5px; /* Position of top dot */
+        top: -5px;
     }
 
     .side-nav-line::after {
-        bottom: -5px; /* Position of bottom dot */
+        bottom: -5px;
     }
 
 .side-nav-item {
-    position: relative; /* For positioning indicator and text */
-    margin-bottom: 35px; /* Spacing between items */
+    position: relative;
+    margin-bottom: 35px;
 }
 
     .side-nav-item:last-child {
@@ -166,19 +147,18 @@ $highlight-gold: #f1c40f;
         display: flex;
         align-items: center;
         text-decoration: none;
-        color: rgba(255, 255, 255, 0.5); /* $side-nav-inactive-text */
+        color: rgba(255, 255, 255, 0.5);
         transition: color 0.3s ease;
-        position: relative; /* For indicator's absolute positioning */
-        padding: 5px 0; /* Clickable area */
+        position: relative;
+        padding: 5px 0;
     }
 
     .side-nav-item .side-nav-indicator {
-        /* Notch/segment on the main line */
-        width: 15px; /* Width of the notch */
+        width: 15px;
         height: 2px;
-        background-color: rgba(255, 255, 255, 0.2); /* $side-nav-line-color */
+        background-color: rgba(255, 255, 255, 0.2);
         position: absolute;
-        left: -22px; /* Position to connect with the main line */
+        left: -22px;
         top: 50%;
         transform: translateY(-50%);
         transition: background-color 0.3s ease, width 0.3s ease, box-shadow 0.3s ease;
@@ -188,39 +168,38 @@ $highlight-gold: #f1c40f;
         font-size: 0.9rem;
         font-weight: 500;
         letter-spacing: 0.5px;
-        padding-left: 5px; /* Space from indicator to text */
+        padding-left: 5px;
         white-space: nowrap;
     }
 
     .side-nav-item.active .side-nav-link {
-        color: #ffffff; /* $side-nav-active-text */
+        color: #ffffff;
     }
 
     .side-nav-item.active .side-nav-indicator {
-        background-color: #ffd700; /* $side-nav-active-color */
-        width: 25px; /* Wider active indicator */
-        left: -27px; /* Adjust position for wider indicator */
-        box-shadow: 0 0 8px #ffd700, 0 0 12px rgba(255, 215, 0, 0.7); /* $side-nav-active-color related */
+        background-color: #ffd700;
+        width: 25px;
+        left: -27px;
+        box-shadow: 0 0 8px #ffd700, 0 0 12px rgba(255, 215, 0, 0.7);
     }
 
     .side-nav-item.active .side-nav-text {
-        text-shadow: 0 0 5px rgba(255, 215, 0, 0.7); /* $side-nav-active-color related */
+        text-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
     }
 
     .side-nav-item:hover:not(.active) .side-nav-link {
-        color: #e6e6e6; /* darken(#ffffff, 10%) */
+        color: #e6e6e6;
     }
 
     .side-nav-item:hover:not(.active) .side-nav-indicator {
-        background-color: #997a00; /* darken(#ffd700, 20%) */
+        background-color: #997a00;
     }
 
 
-/* Responsive Adjustments */
+/* --- Responsive Adjustments --- */
 @media (max-width: 1200px) {
-    /* When side nav might overlap content */
     .showcase-side-nav {
-        left: 15px; /* Bring closer to edge */
+        left: 15px;
     }
 }
 
@@ -230,19 +209,18 @@ $highlight-gold: #f1c40f;
     }
 
     .showcase-content {
-        padding-top: 80px; /* Adjust for potentially smaller header */
+        padding-top: 80px;
     }
 
     .showcase-section {
         padding: 4rem 2rem 2rem;
-        background-attachment: scroll; /* Performance on mobile */
+        background-attachment: scroll;
     }
 
     .section-title {
         font-size: 2.6rem;
     }
 
-    /* Reduce size/spacing on tablets for showcase-side-nav */
     .showcase-side-nav ul {
         margin-left: 10px;
     }
@@ -281,7 +259,7 @@ $highlight-gold: #f1c40f;
         }
 
     .showcase-side-nav {
-        display: none; /* Hide side navigation on smaller screens */
+        display: none;
     }
 }
 
@@ -292,7 +270,7 @@ $highlight-gold: #f1c40f;
 
     .showcase-section {
         padding: 2.5rem 1rem 1.2rem;
-        min-height: auto; /* Allow sections to be shorter on small screens */
+        min-height: auto;
     }
 
     .section-title {

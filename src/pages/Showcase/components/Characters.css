@@ -1,21 +1,11 @@
 /* src/pages/Showcase/components/Characters.css */
-/* --- Theme Variables --- */
-:root {
-    --text-color-primary: #e0c9a6;
-    --text-color-titles: #ffd700;
-    --border-color-gold: rgba(207, 181, 130, 0.4);
-    --highlight-red: #e74c3c;
-    --highlight-gold: #f1c40f;
-}
-/* --- End Theme Variables --- */
 
 .characters-content-wrapper {
-    /* Wrapper for the component's content */
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem; /* Space between display and thumbnails */
+    gap: 2rem;
 }
 
 .character-display {
@@ -23,31 +13,29 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 1100px; /* Max width for character card */
+    max-width: 1100px;
     margin-bottom: 1rem;
-    min-height: 480px; /* Ensure consistent height */
+    min-height: 480px;
     position: relative;
-    transition: opacity 0.3s ease-in-out; /* Fade transition */
+    transition: opacity 0.3s ease-in-out;
     padding: 2rem;
-    background-color: rgba(15, 12, 10, 0.5); /* Darker card bg */
+    background-color: rgba(15, 12, 10, 0.5);
     border-radius: 10px;
     border: 1px solid var(--border-color-gold);
-    /* Dynamic accent shadow, with fallback to pre-calculated rgba */
-    box-shadow: 0 0 40px -10px var(--character-accent-color, rgba(241, 196, 15, 0.3)), inset 0 0 20px rgba(0, 0, 0, 0.3); /* Inner shadow for depth */
+    box-shadow: 0 0 40px -10px var(--character-accent-color, rgba(241, 196, 15, 0.3)), inset 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
     .character-display.fading {
-        opacity: 0; /* For fade transition */
+        opacity: 0;
     }
 
-/* --- New Character Card Styles --- */
+/* --- Character Card --- */
 .character-image-card {
     position: relative;
-    max-width: 38%; /* Sizing is now controlled by the card */
+    max-width: 38%;
     max-height: 450px;
-    margin-right: 3rem; /* Space between card and info */
-    flex-shrink: 0; /* Prevent card from shrinking if info text is long */
-
+    margin-right: 3rem;
+    flex-shrink: 0;
     border: 2px solid var(--border-color-gold);
     border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.25);
@@ -56,81 +44,72 @@
     align-items: center;
     justify-content: center;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-    overflow: hidden; /* Ensure image styles (like transforms) don't bleed out */
+    overflow: hidden;
 }
-/* --- End New Character Card Styles --- */
 
 .character-display .character-main-image {
-    max-width: 100%; /* Image now fills the card's padding box */
-    max-height: 100%; /* Image now fills the card's padding box */
-    object-fit: contain; /* Prevents image distortion */
-    /* margin-right has been moved to the card wrapper */
-    filter: drop-shadow(3px 3px 15px rgba(0, 0, 0, 0.7)); /* Image shadow */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(3px 3px 15px rgba(0, 0, 0, 0.7));
 }
 
 .character-display .character-info {
-    max-width: 55%; /* Text area size */
+    max-width: 55%;
     color: var(--text-color-primary);
-    display: flex; /* Added for flex-direction column */
-    flex-direction: column; /* Stack info vertically */
+    display: flex;
+    flex-direction: column;
 }
 
     .character-display .character-info h3 {
-        /* Character name */
         font-family: 'EternalFont', sans-serif;
         font-size: 2.6rem;
         color: var(--text-color-titles);
         margin-bottom: 0.5rem;
-        text-shadow: 0 0 6px var(--character-accent-color, transparent); /* Dynamic accent glow */
+        text-shadow: 0 0 6px var(--character-accent-color, transparent);
     }
 
-/* Wrapper for the title and progress bar */
 .character-title-wrapper {
     position: relative;
-    /* Use table display for robust shrink-wrapping and centering */
     display: table;
-    padding-bottom: 10px; /* Space for progress bar */
-    margin-bottom: 1rem; /* Space between bar and description */
+    padding-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 .character-display .character-info h4 {
-    /* Character title/subtitle */
     font-size: 1.25rem;
-    color: var(--character-accent-color, var(--highlight-gold)); /* Dynamic accent color */
+    color: var(--character-accent-color, var(--highlight-gold));
     font-weight: 500;
-    margin-bottom: 0; /* Margin is now on the wrapper */
+    margin-bottom: 0;
 }
 
 .character-display .character-info p {
-    /* Character description */
     font-size: 1rem;
     line-height: 1.7;
 }
 
-/* --- New VA Credit Styling --- */
+/* --- VA Credit --- */
 .showcase-va-credit {
-    margin-top: auto; /* Pushes the credit to the bottom */
-    padding-top: 1rem; /* Space above the credit */
+    margin-top: auto;
+    padding-top: 1rem;
 }
-/* --- End VA Credit Styling --- */
 
-
-/* --- Progress Bar Styles --- */
+/* --- Progress Bar --- */
 .character-cycle-progress-bar {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%; /* Spans the full width of the parent wrapper */
+    width: 100%;
     height: 2.5px;
     background-color: var(--character-accent-color, var(--highlight-gold));
     box-shadow: 0 0 8px var(--character-accent-color, var(--highlight-gold));
     border-radius: 2px;
-    /* Animation setup */
     transform-origin: left;
     transform: scaleX(0);
     animation-name: characterProgressBarFill;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
+    animation-delay: 5s;
 }
 
 @keyframes characterProgressBarFill {
@@ -142,14 +121,13 @@
         transform: scaleX(1);
     }
 }
-/* --- End Progress Bar Styles --- */
 
-
+/* --- Thumbnails --- */
 .character-thumbnails {
     display: flex;
     justify-content: center;
-    gap: 1rem; /* Space between thumbnails */
-    flex-wrap: wrap; /* Allow thumbnails to wrap */
+    gap: 1rem;
+    flex-wrap: wrap;
     width: 100%;
     max-width: 900px;
 }
@@ -158,14 +136,14 @@
     cursor: pointer;
     border: 2px solid var(--border-color-gold);
     border-radius: 8px;
-    overflow: hidden; /* Clip image scaling */
+    overflow: hidden;
     transition: all 0.3s ease;
     width: 100px;
     height: 130px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(25, 20, 15, 0.8); /* Thumbnail bg */
+    background-color: rgba(25, 20, 15, 0.8);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
 }
 
@@ -173,57 +151,54 @@
         width: 100%;
         height: 100px;
         object-fit: cover;
-        transition: transform 0.3s ease; /* Zoom effect on hover */
+        transition: transform 0.3s ease;
     }
 
     .thumbnail-item span {
-        /* Thumbnail name */
         font-size: 0.8rem;
         color: var(--text-color-primary);
         padding: 0.3rem 0;
         text-align: center;
         width: 100%;
-        background-color: rgba(15, 12, 10, 0.9); /* Darker name bar */
+        background-color: rgba(15, 12, 10, 0.9);
         font-weight: 500;
     }
 
     .thumbnail-item:hover {
-        border-color: var(--highlight-red); /* Hover border */
-        transform: translateY(-5px) scale(1.05); /* Lift and scale effect */
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 0 10px var(--highlight-red); /* Hover shadow */
+        border-color: var(--highlight-red);
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 0 10px var(--highlight-red);
     }
 
         .thumbnail-item:hover img {
-            transform: scale(1.1); /* Zoom image */
+            transform: scale(1.1);
         }
 
     .thumbnail-item.active {
-        /* Active thumbnail style */
         border-color: var(--highlight-gold);
-        /* Active glow, with pre-calculated rgba */
         box-shadow: 0 0 20px var(--highlight-gold), 0 0 25px var(--highlight-red), inset 0 0 8px rgba(241, 196, 15, 0.3);
-        background-color: rgba(40, 30, 20, 0.9); /* Darker active bg */
+        background-color: rgba(40, 30, 20, 0.9);
     }
 
         .thumbnail-item.active span {
             color: var(--text-color-titles);
             font-weight: bold;
-            text-shadow: 0 0 4px var(--highlight-red); /* Active name glow */
+            text-shadow: 0 0 4px var(--highlight-red);
         }
 
-/* --- New Button Style --- */
+/* --- View All Button --- */
 .view-all-chars-btn {
     position: absolute;
     bottom: 1.5rem;
     right: 1.5rem;
-    background-color: transparent; /* No background */
+    background-color: transparent;
     color: var(--theme-text-primary);
     padding: 0.6rem 1.2rem;
     border-radius: 5px;
     font-weight: bold;
     font-size: 1rem;
     letter-spacing: 0.5px;
-    border: none; /* No border */
+    border: none;
     transition: all 0.3s ease;
     text-decoration: none;
     z-index: 10;
@@ -234,34 +209,31 @@
         text-shadow: 0 0 8px var(--theme-highlight-gold);
         transform: translateY(-2px);
     }
-/* --- End New Button Style --- */
 
-/* Responsive Adjustments */
+/* --- Responsive Adjustments --- */
 @media (max-width: 992px) {
     .characters-content-wrapper {
         gap: 1.5rem;
     }
 
     .character-display {
-        flex-direction: column; /* Stack image and info */
-        min-height: auto; /* Auto height for stacked layout */
+        flex-direction: column;
+        min-height: auto;
         text-align: center;
-        padding-bottom: 5rem; /* Make space for button */
+        padding-bottom: 5rem;
     }
 
-    /* Card styles for this breakpoint */
     .character-image-card {
         max-width: 60%;
         margin-right: 0;
-        margin-bottom: 1.5rem; /* Space between stacked card and info */
+        margin-bottom: 1.5rem;
     }
 
     .character-display .character-info {
         max-width: 90%;
-        align-items: center; /* Center items when stacked */
+        align-items: center;
     }
 
-    /* Add auto margins to center the table-behaving wrapper */
     .character-title-wrapper {
         margin-left: auto;
         margin-right: auto;
@@ -279,7 +251,6 @@
 }
 
 @media (max-width: 768px) {
-    /* Card styles for this breakpoint */
     .character-image-card {
         max-width: 65%;
         max-height: 320px;
@@ -307,7 +278,7 @@
         }
 
         .character-thumbnails .thumbnail-item span {
-            font-size: 0.65rem; /* Smaller text for smaller thumbnails */
+            font-size: 0.65rem;
         }
 }
 
@@ -321,9 +292,8 @@
         padding-bottom: 4.5rem;
     }
 
-    /* Card styles for this breakpoint */
     .character-image-card {
-        max-width: 75%; /* Card can be larger part of small screen */
+        max-width: 75%;
         max-height: 280px;
     }
 
@@ -332,7 +302,7 @@
     }
 
     .character-thumbnails {
-        gap: 0.4rem; /* Tighter thumbnail gap */
+        gap: 0.4rem;
     }
 
         .character-thumbnails .thumbnail-item {
