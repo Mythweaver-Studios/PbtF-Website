@@ -3,7 +3,7 @@ import React, { useEffect, Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import "./CharacterDetailModal.css";
 import { TIER_DATA } from "../../../../utils/tierData";
-import CharacterEffects from "../CharacterEffects/CharacterEffects"; // Updated import
+import CharacterEffects from "../CharacterEffects/CharacterEffects";
 import VoiceLinePlayer from "../../../../components/VoiceLinePlayer/VoiceLinePlayer";
 
 // Helper to render stat bars

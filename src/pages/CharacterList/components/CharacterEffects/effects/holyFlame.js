@@ -8,29 +8,26 @@ class HolyFlameParticle {
     }
 
     reset() {
-        // **FIX:** 80% of particles will be flames, 20% will be holy crosses.
-        this.type = Math.random() > 0.2 ? 'flame' : 'cross';
+        this.type = Math.random() > 0.1 ? 'flame' : 'cross';
 
         if (this.type === 'flame') {
             this.x = Math.random() * this.canvas.width;
             this.y = this.canvas.height + Math.random() * 50;
             this.radius = Math.random() * 5 + 2;
             this.initialRadius = this.radius;
-            // **FIX:** Slower, calmer vertical speed.
             this.speedY = Math.random() * 1.0 + 0.5;
-            // **FIX:** Longer lifespan to reach higher.
             this.life = Math.random() * 400 + 250;
             this.maxLife = this.life;
-            const hue = Math.random() * 15 + 40; // Gold/Yellow hue range
+            const hue = Math.random() * 35 + 10;
             this.color = `hsl(${hue}, 100%, 50%)`;
             this.waver = Math.random() * 2 - 1;
             this.waverSpeed = Math.random() * 0.05 + 0.01;
         } else { // Cross type
             this.x = Math.random() * this.canvas.width;
             this.y = Math.random() * this.canvas.height;
-            this.radius = Math.random() * 2.5 + 1;
+            this.radius = Math.random() * 3 + 1.25;
             this.speedY = 0;
-            this.life = Math.random() * 150 + 100;
+            this.life = Math.random() * 300 + 200;
             this.maxLife = this.life;
             this.color = `hsl(50, 100%, ${Math.random() * 40 + 50}%)`;
         }
@@ -67,8 +64,8 @@ class HolyFlameParticle {
             this.ctx.fill();
         } else { // Cross type
             this.ctx.fillStyle = `hsla(${parseInt(this.color.substring(4))}, 100%, 80%, ${opacity})`;
-            const verticalArmLength = this.radius * 5;
-            const horizontalArmLength = this.radius * 3.5;
+            const verticalArmLength = this.radius * 6.25;
+            const horizontalArmLength = this.radius * 4.375;
             const armWidth = this.radius * 0.8;
             const verticalOffset = this.radius * 0.7;
             const horizontalArmY = (this.y - armWidth / 2) - verticalOffset;
@@ -84,7 +81,6 @@ class HolyFlameParticle {
 export function createHolyFlameEffect(canvas) {
     const ctx = canvas.getContext('2d');
     let particles = [];
-    // **FIX:** Reduced particle count by ~15% (from 200 to 170)
     const numberOfParticles = 170;
     let animationFrameId;
 

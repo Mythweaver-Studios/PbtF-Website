@@ -22,8 +22,8 @@ class Particle {
 
     draw() {
         this.ctx.beginPath();
-        this.ctx.shadowBlur = 15;
-        this.ctx.shadowColor = "rgba(170, 100, 255, 0.7)";
+        this.ctx.shadowBlur = 20;
+        this.ctx.shadowColor = "rgba(170, 190, 255, 0.9)";
         this.ctx.fillStyle = "#000000";
         this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         this.ctx.fill();
