@@ -20,7 +20,7 @@ function VoiceActorCredit({ name, url, className = '' }) {
 
     return (
         <p className={`voice-actor-credit ${className} ${isVisible ? 'visible' : ''}`}>
-            Voice Actor:{' '}
+            VA:{' '}
             <a href={url} target="_blank" rel="noopener noreferrer">
                 {name}
             </a>

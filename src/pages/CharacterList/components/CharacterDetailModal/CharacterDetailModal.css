@@ -97,8 +97,13 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    /* **FIX:** Re-added padding that was removed in a previous step */
     padding: 2rem;
-    border-right: 1px solid var(--theme-border-gold-faint);
+    /* **FIX:** Increased border thickness and changed color for visibility */
+    border-right: 2px solid var(--theme-border-gold);
+    box-shadow: inset -5px 0 15px -10px var(--theme-highlight-gold);
+    -webkit-mask-image: radial-gradient(ellipse 85% 95% at 50% 50%, black 50%, transparent 100%);
+    mask-image: radial-gradient(ellipse 85% 95% at 50% 50%, black 50%, transparent 100%);
 }
 
 .modal-char-image {
@@ -108,6 +113,7 @@
     filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
     position: relative;
     z-index: 2;
+    transition: transform 0.3s ease-in-out;
 }
 
 /* --- Appearance Description Style --- */
@@ -136,7 +142,6 @@
     flex-basis: 55%;
     display: flex;
     flex-direction: column;
-    padding: 2.5rem 0 2.5rem 3rem;
     min-height: 0;
     position: relative;
     overflow: hidden;
@@ -151,7 +156,8 @@
     position: relative;
     z-index: 1;
     transition: opacity 0.25s ease-in-out;
-    padding-right: 3rem;
+    padding: 2.5rem 3rem;
+    box-sizing: border-box;
 }
 
     .modal-right-content-wrapper.navigating {
@@ -343,7 +349,6 @@
     padding-top: 1rem;
     margin-top: auto;
     border-top: 1px solid var(--theme-border-gold-faint);
-    padding-right: 3rem;
 }
 
 .nav-character-name {
@@ -382,18 +387,16 @@
     .modal-left {
         flex-basis: 40%;
         border-right: none;
-        border-bottom: 1px solid var(--theme-border-gold-faint);
+        border-bottom: 2px solid var(--theme-border-gold);
         padding: 1rem;
     }
 
     .modal-right {
         flex-basis: 60%;
-        padding: 1.5rem 0 1.5rem 2rem;
     }
 
-    .modal-right-content-wrapper,
-    .modal-navigation {
-        padding-right: 2rem;
+    .modal-right-content-wrapper {
+        padding: 1.5rem 2rem;
     }
 
     .modal-char-name {
@@ -414,13 +417,8 @@
         width: 95%;
     }
 
-    .modal-right {
-        padding: 1rem 0 1rem 1.2rem;
-    }
-
-    .modal-right-content-wrapper,
-    .modal-navigation {
-        padding-right: 1.2rem;
+    .modal-right-content-wrapper {
+        padding: 1.5rem 1.2rem;
     }
 
     .modal-char-name {

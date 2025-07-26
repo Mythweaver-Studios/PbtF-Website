@@ -11,9 +11,9 @@ class Particle {
     reset() {
         this.x = Math.random() * this.canvas.width;
         this.y = this.canvas.height + Math.random() * 50;
-        this.radius = Math.random() * 3 + 1;
-        this.speedY = Math.random() * 0.4 + 0.2;
-        this.opacity = this.radius / 4;
+        this.radius = Math.random() * 2.5 + 1;
+        this.speedY = Math.random() * 0.3 + 0.1;
+        this.opacity = (this.radius / 4) * 0.5; 
         this.wobble = Math.random() * 0.02 + 0.01;
         this.wobbleAngle = Math.random() * Math.PI * 2;
     }
@@ -42,7 +42,7 @@ class Particle {
 export function createWaterEffect(canvas) {
     const ctx = canvas.getContext('2d');
     let particles = [];
-    const numberOfParticles = 150;
+    const numberOfParticles = 80;
     let animationFrameId;
 
     function init() {

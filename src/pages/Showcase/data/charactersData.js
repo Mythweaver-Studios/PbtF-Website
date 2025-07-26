@@ -91,7 +91,10 @@ export const charactersData = [
         tier: 4, // Epic
         specialEffect: 'shadow',
         showcaseStyles: {
-            transform: 'scale(1.10) translateY(-20px)',
+            transform: 'scale(1.1) translateY(18px)',
+        },
+        modalStyles: {
+            transform: 'scale(1.35) translateY(-12px)',
         },
         stats: { Strength: 4, Intelligence: 3, HP: 2, Dexterity: 5, Mana: 1 },
         hasVoiceLines: false,

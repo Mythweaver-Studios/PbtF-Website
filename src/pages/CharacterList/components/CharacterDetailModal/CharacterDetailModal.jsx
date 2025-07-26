@@ -105,7 +105,7 @@ function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePr
                             src={character.image}
                             alt={character.name}
                             className="modal-char-image"
-                            style={character.showcaseStyles || {}}
+                            style={character.modalStyles || {}}
                         />
                     )}
                 </div>
