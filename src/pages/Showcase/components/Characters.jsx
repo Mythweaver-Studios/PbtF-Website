@@ -10,7 +10,6 @@ function CharactersSection({ charactersData }) {
     const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);
     const [isCharacterFading, setIsCharacterFading] = useState(false);
 
-    // **FIX:** Use a key to force re-render/reset the animation
     const [animationKey, setAnimationKey] = useState(0);
 
     const characterTimeoutRef = useRef(null);
@@ -35,7 +34,6 @@ function CharactersSection({ charactersData }) {
         changeCharacter(index);
     };
 
-    // **FIX:** This handler will be attached to the voiceline player
     const handleVoicelinePlay = () => {
         // Reset the timer and progress bar animation by changing the key
         setAnimationKey(prevKey => prevKey + 1);

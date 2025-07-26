@@ -20,15 +20,15 @@ const VOICELINE_DATA = {
     benedict: {
         "EvenFlameNeedsAPauseToBurnBrighter.wav": {
             quote: "Even flame... needs a pause to burn brighter.",
-            timedQuote: [{ "word": "Even", "duration": 1683 }, { "word": "flame", "duration": 267 }, { "word": "needs", "duration": 758 }, { "word": "a", "duration": 271 }, { "word": "pause", "duration": 437 }, { "word": "to", "duration": 219 }, { "word": "burn", "duration": 288 }, { "word": "brighter", "duration": 225 }]
+            timedQuote: [{ "word": "Even", "duration": 1559 }, { "word": "flame", "duration": 596 }, { "word": "needs", "duration": 233 }, { "word": "a", "duration": 141 }, { "word": "pause", "duration": 598 }, { "word": "to", "duration": 102 }, { "word": "burn", "duration": 606 }, { "word": "brighter", "duration": 771 }]
         },
         "OneStepThenAnother.wav": {
             quote: "One step... then another... that's all it ever is...",
-            timedQuote: [{ "word": "One", "duration": 999 }, { "word": "step", "duration": 302 }, { "word": "then", "duration": 1000 }, { "word": "another", "duration": 370 }, { "word": "that's", "duration": 1356 }, { "word": "all", "duration": 295 }, { "word": "it", "duration": 362 }, { "word": "ever", "duration": 211 }, { "word": "is", "duration": 377 }]
+            timedQuote: [{ "word": "One", "duration": 769 }, { "word": "step", "duration": 522 }, { "word": "then", "duration": 1071 }, { "word": "another", "duration": 530 }, { "word": "that's", "duration": 956 }, { "word": "all", "duration": 336 }, { "word": "it", "duration": 172 }, { "word": "ever", "duration": 233 }, { "word": "is", "duration": 522 }]
         },
         "DrawFirstIfYouMustButStrikeLast.wav": {
             quote: "Draw first if you must, but strike. last.",
-            timedQuote: [{ "word": "Draw", "duration": 667 }, { "word": "first", "duration": 294 }, { "word": "if", "duration": 345 }, { "word": "you", "duration": 214 }, { "word": "must", "duration": 185 }, { "word": "but", "duration": 755 }, { "word": "strike", "duration": 375 }, { "word": "last", "duration": 695 }]
+            timedQuote: [{ "word": "Draw", "duration": 622 }, { "word": "first", "duration": 517 }, { "word": "if", "duration": 232 }, { "word": "you", "duration": 181 }, { "word": "must", "duration": 512 }, { "word": "but", "duration": 555 }, { "word": "strike", "duration": 412 }, { "word": "last", "duration": 1234 }]
         }
     },
     seralyth: {
