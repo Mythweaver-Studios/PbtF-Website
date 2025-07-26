@@ -34,36 +34,11 @@ const VOICELINE_DATA = {
     seralyth: {
         "IWouldntReallyCallMyselfAFighter.wav": {
             quote: "Me? I wouldn't really call myself a fighter but, I can turn people around me, into one.",
-            timedQuote: [{ "word": "Me", "duration": 493 }, { "word": "I", "duration": 1033 }, { "word": "wouldn't", "duration": 160 }, { "word": "really", "duration": 90 }, { "word": "call", "duration": 415 }, { "word": "myself", "duration": 416 }, { "word": "a", "duration": 352 }, { "word": "fighter", "duration": 413 }, { "word": "but", "duration": 325 }, { "word": "I", "duration": 936 }, { "word": "can", "duration": 299 }, { "word": "turn", "duration": 92 }, { "word": "people", "duration": 399 }, { "word": "around", "duration": 483 }, { "word": "me", "duration": 229 }, { "word": "into", "duration": 527 }, { "word": "one", "duration": 232 }],
+            timedQuote: [{ "word": "Me", "duration": 728 }, { "word": "I", "duration": 1016 }, { "word": "wouldn't", "duration": 311 }, { "word": "really", "duration": 316 }, { "word": "call", "duration": 314 }, { "word": "myself", "duration": 49 }, { "word": "a", "duration": 350 }, { "word": "fighter", "duration": 497 }, { "word": "but", "duration": 495 }, { "word": "I", "duration": 696 }, { "word": "can", "duration": 221 }, { "word": "turn", "duration": 229 }, { "word": "people", "duration": 669 }, { "word": "around", "duration": 267 }, { "word": "me", "duration": 240 }, { "word": "into", "duration": 383 }, { "word": "one", "duration": 362 }],
         },
         "WhenDidMonstersBecomeThisWeak.wav": {
             quote: "When did monsters become this weak?",
-            timedQuote: [
-                {
-                    "word": "When",
-                    "duration": 466
-                },
-                {
-                    "word": "did",
-                    "duration": 272
-                },
-                {
-                    "word": "monsters",
-                    "duration": 348
-                },
-                {
-                    "word": "become",
-                    "duration": 496
-                },
-                {
-                    "word": "this",
-                    "duration": 406
-                },
-                {
-                    "word": "weak",
-                    "duration": 217
-                }
-            ],
+            timedQuote: [{ "word": "When", "duration": 321 }, { "word": "did", "duration": 179 }, { "word": "monsters", "duration": 614 }, { "word": "become", "duration": 487 }, { "word": "this", "duration": 372 }, { "word": "weak", "duration": 522 }],
         }
     }
 };

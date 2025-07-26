@@ -6,11 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
         quoteText: document.getElementById('quoteText'),
         playBtn: document.getElementById('playBtn'),
         autoplayBtn: document.getElementById('autoplayBtn'),
-        markBtn: document.getElementById('markBtn'),
+        setTimeBtn: document.getElementById('setTimeBtn'),
         resetTimingsBtn: document.getElementById('resetTimingsBtn'),
         resetAllBtn: document.getElementById('resetAllBtn'),
         copyBtn: document.getElementById('copyBtn'),
         previewBtn: document.getElementById('previewBtn'),
+        formatToggleBtn: document.getElementById('formatToggleBtn'),
+        shortcutsPanel: document.getElementById('shortcuts-panel'),
+        shortcutsToggle: document.getElementById('shortcuts-toggle'),
         waveform: document.getElementById('waveform'),
         wordsDisplay: document.getElementById('words-display'),
         output: document.getElementById('output'),
@@ -22,8 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let waveSurfer;
     let words = [];
     let timings = [];
-    let currentIndex = 0;
+    let selectedIndex = -1;
     let isAutoplay = false;
+    let isJsonMinified = false;
 
     function initialize() {
         waveSurfer = WaveSurfer.create({
@@ -48,11 +52,17 @@ document.addEventListener('DOMContentLoaded', () => {
         waveSurfer.on('play', updateUIState);
         waveSurfer.on('pause', updateUIState);
         waveSurfer.on('finish', () => {
-            elements.status.textContent = 'Finished! Click a word to edit timing.';
+            elements.status.textContent = 'Finished!';
             if (isAutoplay) {
                 waveSurfer.play();
             }
         });
+
+        // Sidebar logic
+        const isCollapsed = localStorage.getItem('shortcutsCollapsed') === 'true';
+        if (isCollapsed) {
+            elements.shortcutsPanel.classList.add('collapsed');
+        }
     }
 
     function updateTimeDisplay() {
@@ -73,12 +83,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function resetTimings() {
         timings = [];
-        currentIndex = 0;
+        selectedIndex = -1;
         words = (elements.quoteText.value || '').replace(/[^a-zA-Z\s']/g, "").split(' ').filter(w => w);
         elements.output.value = '';
-        renderWords();
+        if (words.length > 0) {
+            selectWord(0);
+        } else {
+            renderWords();
+        }
         updateUIState();
         elements.previewQuote.innerHTML = '';
+    }
+
+    function selectWord(index) {
+        selectedIndex = index;
+        renderWords();
+        updateUIState();
     }
 
     function renderWords() {
@@ -86,8 +106,11 @@ document.addEventListener('DOMContentLoaded', () => {
         words.forEach((word, index) => {
             const span = document.createElement('span');
             span.textContent = word;
-            if (index < currentIndex) span.classList.add('completed');
-            if (index === currentIndex) span.classList.add('current');
+            span.classList.add('word-span');
+            span.classList.toggle('untimed', timings[index] === undefined);
+            span.classList.toggle('timed', timings[index] !== undefined);
+            span.classList.toggle('selected', index === selectedIndex);
+            span.onclick = () => selectWord(index);
             elements.wordsDisplay.appendChild(span);
         });
     }
@@ -96,79 +119,76 @@ document.addEventListener('DOMContentLoaded', () => {
         const isAudioLoaded = waveSurfer && waveSurfer.getDuration() > 0;
         const isQuoteReady = words.length > 0;
         const isPlaying = waveSurfer && waveSurfer.isPlaying();
-        const isTimingComplete = timings.length === words.length && isQuoteReady;
+        const isTimingComplete = isQuoteReady && timings.length === words.length && timings.every(t => t !== undefined);
 
         elements.playBtn.disabled = !isAudioLoaded;
         elements.autoplayBtn.disabled = !isAudioLoaded;
-        elements.markBtn.disabled = !isAudioLoaded || !isQuoteReady;
+        elements.setTimeBtn.disabled = !isAudioLoaded || !isQuoteReady || selectedIndex === -1;
         elements.resetTimingsBtn.disabled = timings.length === 0;
         elements.copyBtn.disabled = !isTimingComplete;
         elements.previewBtn.disabled = !isTimingComplete;
+        elements.formatToggleBtn.disabled = !isTimingComplete;
 
         elements.status.classList.remove('error');
         if (!isAudioLoaded) {
             elements.status.innerHTML = 'Load an audio file to begin.';
         } else if (!isQuoteReady) {
-            elements.status.innerHTML = 'Audio loaded. Paste the full quote to enable timing.';
-        } else if (!isPlaying) {
-            elements.status.innerHTML = 'Ready to time. Press Play, then use the (G) key or button.';
+            elements.status.innerHTML = 'Audio loaded. Paste the full quote to start timing.';
+        } else if (selectedIndex === -1) {
+            elements.status.innerHTML = 'Click a word to begin timing.';
         } else {
-            elements.status.innerHTML = `Timing word ${currentIndex + 1} of ${words.length}...`;
+            elements.status.innerHTML = `Selected word: <strong>${words[selectedIndex]}</strong>. Scrub audio and set time.`;
         }
     }
 
-    function markWord() {
-        if (!waveSurfer.isPlaying() || currentIndex >= words.length || words.length === 0) return;
+    function setTimeForSelectedWord() {
+        if (selectedIndex === -1 || !waveSurfer) return;
 
-        timings.push(waveSurfer.getCurrentTime());
-        currentIndex++;
-        renderWords();
+        timings[selectedIndex] = waveSurfer.getCurrentTime();
 
-        if (currentIndex >= words.length) {
-            waveSurfer.pause();
-            generateOutput();
-            makeWordsEditable();
+        let nextIndex = -1;
+        for (let i = selectedIndex + 1; i < words.length; i++) {
+            if (timings[i] === undefined) {
+                nextIndex = i;
+                break;
+            }
         }
-        updateUIState();
+        if (nextIndex === -1) {
+            for (let i = 0; i < selectedIndex; i++) {
+                if (timings[i] === undefined) {
+                    nextIndex = i;
+                    break;
+                }
+            }
+        }
+
+        selectWord(nextIndex);
+        generateOutput();
     }
 
     function generateOutput() {
+        if (timings.some(t => t === undefined)) {
+            elements.output.value = 'Timing is not yet complete...';
+            updateUIState();
+            return;
+        }
+
+        const sortedTimings = [...timings].sort((a, b) => a - b);
         const timedQuote = words.map((word, index) => {
-            const startTime = timings[index - 1] || 0;
-            const endTime = timings[index];
-            const duration = Math.round((endTime - startTime) * 1000);
+            const wordEndTime = timings[index];
+            const sortedIndex = sortedTimings.indexOf(wordEndTime);
+            const startTime = sortedTimings[sortedIndex - 1] || 0;
+            const duration = Math.round((wordEndTime - startTime) * 1000);
             return { word, duration };
         });
-        elements.output.value = JSON.stringify(timedQuote, null, 2);
+
+        const space = isJsonMinified ? 0 : 2;
+        elements.output.value = JSON.stringify(timedQuote, null, space);
         updateUIState();
     }
 
-    function makeWordsEditable() {
-        Array.from(elements.wordsDisplay.children).forEach((span, index) => {
-            span.classList.add('editable');
-            span.onclick = () => editTiming(index);
-        });
-    }
-
-    function editTiming(index) {
-        const originalTime = timings[index].toFixed(3);
-        const newTimeStr = prompt(`Editing timing for word "${words[index]}".\nEnter the new END time in seconds (current: ${originalTime}s).`, originalTime);
-
-        if (newTimeStr !== null) {
-            const newTime = parseFloat(newTimeStr);
-            if (!isNaN(newTime) && newTime > (timings[index - 1] || 0)) {
-                timings[index] = newTime;
-                timings.sort((a, b) => a - b);
-                generateOutput();
-                alert('Timings updated!');
-            } else {
-                alert('Invalid time. Must be a number greater than the previous word\'s time.');
-            }
-        }
-    }
-
     function handlePreview() {
-        if (!waveSurfer || timings.length !== words.length) return;
+        if (!waveSurfer || !elements.output.value || elements.output.value.startsWith('Timing')) return;
 
         const fullQuote = elements.quoteText.value;
         const timedQuoteData = JSON.parse(elements.output.value);
@@ -180,8 +200,8 @@ document.addEventListener('DOMContentLoaded', () => {
             elements.previewQuote.innerHTML = `"<span class="glow">${glowingPart}</span><span>${normalPart}</span>"`;
         };
 
-        updatePreview(); // Set initial state
-        waveSurfer.play(0); // Play from start
+        updatePreview();
+        waveSurfer.play(0);
 
         let cumulativeDelay = 0;
         let charCount = 0;
@@ -198,14 +218,15 @@ document.addEventListener('DOMContentLoaded', () => {
             cumulativeDelay += item.duration;
         });
 
-        // Reset at the end
-        waveSurfer.on('finish', () => {
+        const onFinish = () => {
             highlightedLength = 0;
             updatePreview();
-            waveSurfer.un('finish'); // remove this specific listener
-        });
+            waveSurfer.un('finish', onFinish);
+        };
+        waveSurfer.on('finish', onFinish);
     }
 
+    // --- Event Listeners ---
     elements.audioFile.addEventListener('change', (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -224,10 +245,15 @@ document.addEventListener('DOMContentLoaded', () => {
             waveSurfer.play();
         }
     });
-    elements.markBtn.addEventListener('click', markWord);
+    elements.setTimeBtn.addEventListener('click', setTimeForSelectedWord);
     elements.resetTimingsBtn.addEventListener('click', resetTimings);
     elements.resetAllBtn.addEventListener('click', resetAll);
     elements.previewBtn.addEventListener('click', handlePreview);
+    elements.formatToggleBtn.addEventListener('click', () => {
+        isJsonMinified = !isJsonMinified;
+        elements.formatToggleBtn.textContent = isJsonMinified ? 'Prettify JSON' : 'Minify JSON';
+        generateOutput();
+    });
 
     elements.copyBtn.addEventListener('click', () => {
         elements.output.select();
@@ -236,10 +262,40 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => { elements.copyBtn.textContent = 'Copy to Clipboard'; }, 1500);
     });
 
+    elements.shortcutsToggle.addEventListener('click', () => {
+        const isCollapsed = elements.shortcutsPanel.classList.toggle('collapsed');
+        localStorage.setItem('shortcutsCollapsed', isCollapsed);
+    });
+
     document.addEventListener('keydown', (e) => {
-        if (e.code === 'KeyG' && !elements.markBtn.disabled) {
+        if (e.target === elements.quoteText) {
+            return;
+        }
+
+        let handled = true;
+        switch (e.code) {
+            case 'Space':
+                if (!elements.playBtn.disabled) waveSurfer.playPause();
+                break;
+            case 'KeyG':
+                if (!elements.setTimeBtn.disabled) setTimeForSelectedWord();
+                break;
+            case 'KeyR':
+                if (!elements.playBtn.disabled) waveSurfer.seekTo(0);
+                break;
+            case 'ArrowLeft':
+                if (!elements.playBtn.disabled) waveSurfer.skip(-1);
+                break;
+            case 'ArrowRight':
+                if (!elements.playBtn.disabled) waveSurfer.skip(1);
+                break;
+            default:
+                handled = false;
+                break;
+        }
+
+        if (handled) {
             e.preventDefault();
-            markWord();
         }
     });
 

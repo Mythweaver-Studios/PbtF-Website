@@ -11,7 +11,25 @@
 </head>
 <body>
 
-    <div class="app-container">
+    <aside id="shortcuts-panel" class="shortcuts-panel">
+        <button id="shortcuts-toggle" class="shortcuts-toggle" title="Toggle Shortcuts Panel">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+            </svg>
+        </button>
+        <div class="shortcuts-content">
+            <h4>Shortcuts</h4>
+            <ul>
+                <li><span>Space</span> Play / Pause Audio</li>
+                <li><span>G</span> Set Word Time</li>
+                <li><span>R</span> Rewind to Start</li>
+                <li><span>← / →</span> Scrub -/+ 1s</li>
+            </ul>
+            <p class="help-note">Shortcuts are disabled when typing in the Quote Text field.</p>
+        </div>
+    </aside>
+
+    <main class="main-content">
         <div class="card">
             <h1>Voiceline Timing Helper by Solo</h1>
             <p>A stable and reliable tool to generate the `timedQuote` JSON for character voicelines.</p>
@@ -36,9 +54,9 @@
 
         <div class="card">
             <h2>2. Timing Control</h2>
-            <p>Once the quote is set, click "Play" and use the <strong>G key</strong> or the <strong>Mark Word button</strong> to time each word.</p>
+            <p>Click a word to select it. Scrub the audio to the end of that word, then press the <strong>G key</strong> or click the <strong>Set Time</strong> button.</p>
             <div class="controls">
-                <button id="markBtn" disabled>Mark Word (G)</button>
+                <button id="setTimeBtn" disabled>Set Time (G)</button>
                 <button id="resetTimingsBtn" class="danger" disabled>Reset Timings</button>
                 <button id="resetAllBtn" class="danger">Reset All</button>
             </div>
@@ -57,11 +75,14 @@
             <hr>
             <div class="output-header">
                 <label for="output">Result (JSON)</label>
-                <button id="copyBtn" disabled>Copy to Clipboard</button>
+                <div class="controls">
+                    <button id="formatToggleBtn" disabled>Minify JSON</button>
+                    <button id="copyBtn" disabled>Copy to Clipboard</button>
+                </div>
             </div>
             <textarea id="output" rows="12" readonly></textarea>
         </div>
-    </div>
+    </main>
 
     <!-- Link to external script -->
     <script src="script.js"></script>
