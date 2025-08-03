@@ -2,11 +2,11 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './CharacterEffects.css';
-import { createFlameEffect } from './effects/flame';
-import { createHolyEffect } from './effects/holy';
-import { createShadowEffect } from './effects/shadow';
-import { createWaterEffect } from './effects/water';
-import { createHolyFlameEffect } from './effects/holyFlame';
+import { createFlameEffect } from './effects/flame.js';
+import { createHolyEffect } from './effects/holy.js';
+import { createShadowEffect } from './effects/shadow.js';
+import { createWaterEffect } from './effects/water.js';
+import { createHolyFlameEffect } from './effects/holyFlame.js';
 
 const effectMap = {
     flame: createFlameEffect,
@@ -20,12 +20,19 @@ function CharacterEffects({ effectType }) {
     const canvasRef = useRef(null);
 
     useEffect(() => {
-        if (!effectType || !effectMap[effectType] || !canvasRef.current) {
-            return;
-        }
-
+        // Clear previous effect before starting a new one
         const canvas = canvasRef.current;
-        const cleanup = effectMap[effectType](canvas);
+        if (!canvas) return;
+
+        // Get the context and clear the canvas
+        const context = canvas.getContext('2d');
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        
+        let cleanup;
+
+        if (effectType && effectMap[effectType]) {
+            cleanup = effectMap[effectType](canvas);
+        }
 
         return () => {
             if (cleanup) {
