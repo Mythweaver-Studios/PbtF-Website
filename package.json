@@ -8,11 +8,12 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
     "antd": "^5.19.1",
-    "framer-motion": "12.23.12",
+    "cross-env": "^7.0.3",
+    "framer-motion": "^11.3.12",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-icons": "^5.2.1",
-    "react-router-dom": "7.7.1",
+    "react-router-dom": "^6.25.1",
     "react-scripts": "5.0.1",
     "react-select": "^5.10.2",
     "web-vitals": "^5.1.0"
@@ -21,7 +22,7 @@
     "prestart": "node ./scripts/generate-voiceline-manifest.js",
     "start": "react-scripts start",
     "prebuild": "node ./scripts/generate-voiceline-manifest.js",
-    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -43,7 +44,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "cross-env": "10.0.0"
-  }
+  "devDependencies": {}
 }
