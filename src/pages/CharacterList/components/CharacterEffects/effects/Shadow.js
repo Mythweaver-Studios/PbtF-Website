@@ -1,5 +1,3 @@
-// src/pages/CharacterList/components/CharacterEffects/effects/shadow.js
-
 class Particle {
     constructor(canvas) {
         this.canvas = canvas;

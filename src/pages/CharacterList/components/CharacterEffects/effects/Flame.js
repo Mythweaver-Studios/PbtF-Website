@@ -1,6 +1,3 @@
-// src/pages/CharacterList/components/CharacterEffects/effects/Flame.js
-
-// --- Particle Class ---
 class FlameParticle {
     constructor(canvas) {
         this.canvas = canvas;

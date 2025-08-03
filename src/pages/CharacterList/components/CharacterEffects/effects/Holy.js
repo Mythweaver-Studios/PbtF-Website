@@ -1,5 +1,3 @@
-// src/pages/CharacterList/components/CharacterEffects/effects/holy.js
-
 class HolyParticle {
     constructor(canvas) {
         this.canvas = canvas;
