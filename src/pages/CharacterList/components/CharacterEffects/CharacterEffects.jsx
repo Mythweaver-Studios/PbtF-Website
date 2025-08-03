@@ -2,10 +2,10 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './CharacterEffects.css';
-import { createFlameEffect } from './effects/flame.js';
-import { createHolyEffect } from './effects/holy.js';
-import { createShadowEffect } from './effects/shadow.js';
-import { createWaterEffect } from './effects/water.js';
+import { createFlameEffect } from './effects/Flame.js';
+import { createHolyEffect } from './effects/Holy.js';
+import { createShadowEffect } from './effects/Shadow.js';
+import { createWaterEffect } from './effects/Water.js';
 import { createHolyFlameEffect } from './effects/holyFlame.js';
 
 const effectMap = {
