@@ -1,29 +1,6 @@
 /* src/pages/CharacterList/CharacterList.css */
 
-/* --- Page Layout & Header --- */
-.character-list-page {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    /* REMOVED: background: var(--theme-bg-gradient); - This is now handled globally. */
-    color: var(--theme-text-primary);
-}
-
-.character-list-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 1.5rem 3rem;
-    position: sticky;
-    top: 0;
-    background-color: rgba(5, 4, 3, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid var(--theme-border-gold);
-}
+/* .character-list-page and .character-list-header styles have been REMOVED */
 
 .character-list-content {
     width: 100%;
@@ -87,21 +64,11 @@
 }
 
 @media (max-width: 768px) {
-    .character-list-header {
-        padding: 0.8rem 2rem;
-    }
-
     .character-list-content {
         padding: 2rem 1rem;
     }
 
     .character-list-title {
         font-size: 2.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .character-list-header {
-        padding: 0.7rem 1.5rem;
     }
 }

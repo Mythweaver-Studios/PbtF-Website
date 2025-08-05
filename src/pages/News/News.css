@@ -1,54 +1,5 @@
-/* src/pages/News/News.css */
-
-/*
-CSS Variable Strings (from SCSS):
-$text-color-primary-css-var: var(--theme-text-primary, #e0c9a6);
-$text-color-titles-css-var: var(--theme-text-titles, #ffd700);
-$text-color-secondary-css-var: var(--theme-text-secondary, #a89a85);
-$border-color-gold-faint-css-var: var(--theme-border-gold-faint, rgba(207, 181, 130, 0.2));
-
-Sass Color Values (hardcoded in CSS):
-$text-color-primary-sass: #e0c9a6;
-$text-color-titles-sass: #ffd700;
-
-Category colors (consistent with NewsTeaser):
-$news-category-updates-bg: #324a7d;
-$news-category-info-bg: #3c8a5a;
-$news-category-events-bg: #9c5147;
-$news-item-hover-bg: rgba(255, 255, 255, 0.05);
-*/
-
-.news-page {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #080808; /* Dark background for the page */
-}
-
-.news-header-sticky {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 1.5rem 3rem;
-    position: sticky;
-    top: 0;
-    background-color: rgba(5, 4, 3, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid var(--theme-border-gold);
-}
-
-.news-main-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding-bottom: 3rem;
-}
+/* // src/pages/News/News.css */
+/* The .news-page, .news-header-sticky, and .news-main-content rules have been removed. */
 
 .news-title-banner {
     width: 100%;
@@ -56,24 +7,18 @@ $news-item-hover-bg: rgba(255, 255, 255, 0.05);
     margin-bottom: 2.5rem;
     text-align: center;
     position: relative;
-    background-color: #100e0c; /* A slightly different dark background for the banner */
-    border-bottom: 1px solid var(--theme-border-gold-faint, rgba(207, 181, 130, 0.2)); /* Optional subtle border */
-    /* Removed background-image, background-repeat, background-position, background-size */
-    /* Removed ::before and ::after pseudo-elements for angled lines */
+    background-color: #100e0c;
+    border-bottom: 1px solid var(--theme-border-gold-faint, rgba(207, 181, 130, 0.2));
 }
 
 .news-title-banner-overlay {
-    /* This overlay might not be needed anymore if the background is simple,
-  but can be kept for a very subtle darkening effect or future use.
-  If removed, ensure .news-page-title z-index is also removed or adjusted. */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(5, 4, 3, 0.15); /* Reduced opacity or remove */
+    background-color: rgba(5, 4, 3, 0.15);
     z-index: 1;
-    /* display: none; // Option to hide it easily */
 }
 
 .news-page-title {
@@ -83,7 +28,7 @@ $news-item-hover-bg: rgba(255, 255, 255, 0.05);
     text-transform: uppercase;
     letter-spacing: 1.5px;
     position: relative;
-    z-index: 2; /* Ensure title is above overlay if overlay is kept */
+    z-index: 2;
     text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -91,8 +36,10 @@ $news-item-hover-bg: rgba(255, 255, 255, 0.05);
     width: 100%;
     max-width: 900px;
     padding: 0 1rem;
+    margin: 0 auto 3rem; /* Center container and add bottom margin */
 }
 
+/* --- News Item Styles (kept for future use) --- */
 .news-list-item-full {
     display: flex;
     align-items: stretch;
@@ -101,7 +48,7 @@ $news-item-hover-bg: rgba(255, 255, 255, 0.05);
     text-decoration: none;
     color: var(--theme-text-primary, #e0c9a6);
     transition: background-color 0.25s ease-in-out;
-    background-color: rgba(20, 18, 17, 0.6); /* Slightly lighter item background than page */
+    background-color: rgba(20, 18, 17, 0.6);
 }
 
     .news-list-item-full:first-child {
@@ -109,7 +56,7 @@ $news-item-hover-bg: rgba(255, 255, 255, 0.05);
     }
 
     .news-list-item-full:hover {
-        background-color: rgba(255, 255, 255, 0.05); /* $news-item-hover-bg */
+        background-color: rgba(255, 255, 255, 0.05);
     }
 
         .news-list-item-full:hover .news-item-title-full {
@@ -167,15 +114,15 @@ $news-item-hover-bg: rgba(255, 255, 255, 0.05);
     }
 
         .news-list-item-full .news-item-category-full.updates {
-            background-color: #324a7d; /* $news-category-updates-bg */
+            background-color: #324a7d;
         }
 
         .news-list-item-full .news-item-category-full.info {
-            background-color: #3c8a5a; /* $news-category-info-bg */
+            background-color: #3c8a5a;
         }
 
         .news-list-item-full .news-item-category-full.events {
-            background-color: #9c5147; /* $news-category-events-bg */
+            background-color: #9c5147;
         }
 
         .news-list-item-full .news-item-category-full::after {
@@ -209,7 +156,7 @@ $news-item-hover-bg: rgba(255, 255, 255, 0.05);
     }
 
 .btn-load-more {
-    margin-top: 2.5rem;
+    margin: 2.5rem auto 0;
     padding: 0.7rem 2rem;
     background-color: transparent;
     color: var(--theme-text-titles, #ffd700);
@@ -219,33 +166,22 @@ $news-item-hover-bg: rgba(255, 255, 255, 0.05);
     cursor: pointer;
     transition: all 0.25s ease-in-out;
     text-decoration: none;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
     .btn-load-more:hover {
-        background-color: rgba(255, 215, 0, 0.15); /* rgba($text-color-titles-sass, 0.15) */
-        border-color: #ffe333; /* color.scale($text-color-titles-sass, $lightness: 10%) */
-        color: #ffe333; /* color.scale($text-color-titles-sass, $lightness: 10%) */
+        background-color: rgba(255, 215, 0, 0.15);
+        border-color: #ffe333;
+        color: #ffe333;
     }
 
-@media (max-width: 992px) {
-    .news-header-sticky {
-        padding: 1.2rem 2rem;
-    }
-}
-
+/* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
-    .news-header-sticky {
-        padding: 0.8rem 2rem;
-    }
-
     .news-title-banner {
         padding: 2rem 0 1.5rem;
         margin-bottom: 2rem;
-        /* background-size for brush stroke removed */
-        /* ::before, ::after for angled lines removed by being part of the main rule now */
     }
 
     .news-page-title {
@@ -290,13 +226,8 @@ $news-item-hover-bg: rgba(255, 255, 255, 0.05);
 }
 
 @media (max-width: 480px) {
-    .news-header-sticky {
-        padding: 0.7rem 1.5rem;
-    }
-
     .news-title-banner {
         padding: 1.5rem 0 1rem;
-        /* background-size for brush stroke removed */
     }
 
     .news-page-title {

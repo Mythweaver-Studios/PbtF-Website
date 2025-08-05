@@ -1,55 +1,14 @@
-/* src/pages/AboutUs/AboutUs.css */
-
-/*
---- Theme Variable Values (Derived from SCSS) ---
-SCSS variables were defined as CSS variable strings with fallbacks:
-$bg-gradient: linear-gradient(135deg, #100e0c 0%, #050403 100%);
-$text-color-primary: var(--theme-text-primary, #e0c9a6);
-$text-color-titles: var(--theme-text-titles, #ffd700);
-$text-color-secondary: var(--theme-text-secondary, #a89a85);
-$text-color-accent-red: var(--theme-text-accent-red, #c0392b);
-$border-color-gold: var(--theme-border-gold, rgba(207, 181, 130, 0.4));
-$highlight-red: var(--theme-highlight-red, #e74c3c);
-$highlight-gold: var(--theme-highlight-gold, #f1c40f);
-
-Fallback values resolved for SASS functions:
-- For $highlight-gold (fallback #f1c40f -> rgb(241, 196, 15)):
-  rgba($highlight-gold, 0.3) -> rgba(241, 196, 15, 0.3)
-  rgba($highlight-gold, 0.2) -> rgba(241, 196, 15, 0.2)
-- For $border-color-gold (fallback rgba(207, 181, 130, 0.4) -> color part rgb(207, 181, 130)):
-  rgba($border-color-gold, 0.15) -> rgba(207, 181, 130, 0.15)
-- For color.scale(#5865F2, $lightness: -10%): #4553e8
-*/
-
-.about-us-page {
-    /* The main background is now handled globally by the body style in Default.css */
-    color: var(--theme-text-primary, #e0c9a6);
-}
-
-.about-us-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 1.5rem 3rem;
-    position: sticky;
-    top: 0;
-    background-color: rgba(5, 4, 3, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid var(--theme-border-gold);
-}
-
-.about-us-content {
-    padding-top: 120px; /* Account for fixed header height + some breathing room */
-    padding-bottom: 4rem; /* Space before footer */
+/* // src/pages/AboutUs/AboutUs.css */
+/* --- Wrapper for page content --- */
+.about-us-wrapper {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 3rem 1rem; /* Vertical and horizontal padding */
 }
+
+/* The .about-us-page, .about-us-header, and .about-us-content rules have been removed. */
 
 .about-section {
     width: 100%;
@@ -95,7 +54,7 @@ Fallback values resolved for SASS functions:
         box-shadow: 0 0 8px var(--theme-highlight-gold, #f1c40f), 0 0 12px var(--theme-highlight-gold, #f1c40f);
     }
 
-/* Company Section Specifics */
+/* --- Company Section Specifics --- */
 .company-description p {
     font-size: 1.05rem;
     line-height: 1.7;
@@ -179,8 +138,7 @@ Fallback values resolved for SASS functions:
         margin-right: auto;
     }
 
-/* Button for Discord - can reuse .btn styles from Home.scss if globally available
-or define specific ones here. Assuming .btn is somewhat global or available. */
+/* --- Button for Discord --- */
 .btn.btn-discord {
     background-color: #5865F2; /* Discord blurple */
     color: #ffffff;
@@ -201,23 +159,15 @@ or define specific ones here. Assuming .btn is somewhat global or available. */
 }
 
     .btn.btn-discord:hover {
-        background-color: #4553e8; /* color.scale(#5865F2, $lightness: -10%) */
-        border-color: #4553e8; /* color.scale(#5865F2, $lightness: -10%) */
+        background-color: #4553e8;
+        border-color: #4553e8;
         transform: translateY(-2px);
         box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
     }
 
 
-/* Responsive Adjustments */
+/* --- Responsive Adjustments --- */
 @media (max-width: 992px) {
-    .about-us-header {
-        padding: 1.2rem 2rem;
-    }
-
-    .about-us-content {
-        padding-top: 100px; /* Adjust for potentially smaller header */
-    }
-
     .about-section {
         padding: 2.5rem 1.5rem;
     }
@@ -228,14 +178,6 @@ or define specific ones here. Assuming .btn is somewhat global or available. */
 }
 
 @media (max-width: 768px) {
-    .about-us-header {
-        padding: 0.8rem 2rem;
-    }
-
-    .about-us-content {
-        padding-top: 90px;
-    }
-
     .section-title {
         font-size: 2rem;
     }
@@ -246,7 +188,7 @@ or define specific ones here. Assuming .btn is somewhat global or available. */
 
     .company-description p {
         font-size: 1rem;
-        text-align: left; /* Switch from justify on smaller screens if it looks odd */
+        text-align: left;
     }
 
     .recruitment-intro {
@@ -273,10 +215,10 @@ or define specific ones here. Assuming .btn is somewhat global or available. */
 }
 
 @media (max-width: 480px) {
-    .about-us-header {
-        padding: 0.7rem 1.5rem;
+    .about-us-wrapper {
+        padding: 2rem 1rem;
     }
-
+    
     .about-section {
         padding: 2rem 1rem;
         margin-bottom: 2rem;
