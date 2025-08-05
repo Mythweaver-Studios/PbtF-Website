@@ -1,15 +1,11 @@
 // src/pages/Home/Home.jsx
 import React, { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import NavBar from "../../components/NavBar";
-import MediaLinks from "../../components/MiniMediaLinks";
-import Footer from "../../components/Footer";
 import NewsTeaser from "./components/NewsTeaser";
 import ShowcaseTeaser from "./components/ShowcaseTeaser";
-import "../../components/Default.css";
 import "./Home.css";
 
-// Kept for scroll spy logic orchestration
+// This logic remains, as it's specific to the Home page's sections.
 const homeSections = [
     { id: "hero", title: "Top" },
     { id: "news-teaser", title: "News" },
@@ -29,7 +25,8 @@ function Home() {
         "showcase-teaser": useRef(null),
     };
 
-    // Effect for scrolling when hash changes
+    // All the scroll-spy and navigation logic is preserved as it's
+    // unique to the Home page's functionality.
     useEffect(() => {
         if (spyNavigatingRef.current) {
             spyNavigatingRef.current = false;
@@ -56,9 +53,8 @@ function Home() {
             window.scrollTo(0, 0);
         }
         initialLoadScrollRef.current = false;
-    }, [location.hash, location.pathname]);
+    }, [location.hash, location.pathname, sectionRefs]);
 
-    // Scroll spy effect to update URL hash
     useEffect(() => {
         const handleScroll = () => {
             if (location.pathname !== "/home") {
@@ -83,7 +79,7 @@ function Home() {
                 }
             }
             if (
-                sectionRefs["news-teaser"].current && // Ensure ref is available
+                sectionRefs["news-teaser"].current &&
                 window.scrollY <
                 sectionRefs["news-teaser"].current.offsetTop - headerOffset &&
                 window.scrollY < 200
@@ -116,45 +112,42 @@ function Home() {
             window.removeEventListener("scroll", handleScroll);
             clearTimeout(timer);
         };
-    }, [location.pathname, location.hash, navigate, sectionRefs]); // Added sectionRefs to dependency array
+    }, [location.pathname, location.hash, navigate, sectionRefs]);
 
+    // The component now returns ONLY its unique content.
+    // The NavBar and Footer are rendered by MainLayout.
     return (
-        <div className="page-container home-page">
-            <header className="home-header">
-                <NavBar />
-                <MediaLinks />
-            </header>
-            <main className="home-content-wrapper">
-                {/* Hero Section (remains directly in Home.jsx) */}
-                <section id="hero" className="home-main-content" ref={sectionRefs.hero}>
-                    <div className="content-left">
-                        <h1>Paved by the Fallen</h1>
-                        <p className="game-pitch">
-                            <strong>
-                                Paved by the Fallen: A tactical survival game where you
-                                control the fate of summoned heroes battling through a ruthless
-                                tower of trials. No retries. No revives. Just consequences.
-                            </strong>
-                        </p>
-                        <div className="action-buttons">
-                            <div className="button-row-top">
-                                <button className="btn btn-primary btn-disabled">Beta Signup</button>
-                                <button className="btn btn-secondary btn-disabled">Watch Trailer</button>
-                            </div>
-                            <button className="btn btn-tertiary btn-disabled">Add to Wishlist</button>
+        <>
+            {/* Hero Section */}
+            <section id="hero" className="home-main-content" ref={sectionRefs.hero}>
+                <div className="content-left">
+                    <h1>Paved by the Fallen</h1>
+                    <p className="game-pitch">
+                        <strong>
+                            Paved by the Fallen: A tactical survival game where you
+                            control the fate of summoned heroes battling through a ruthless
+                            tower of trials. No retries. No revives. Just consequences.
+                        </strong>
+                    </p>
+                    <div className="action-buttons">
+                        <div className="button-row-top">
+                            <button className="btn btn-primary btn-disabled">Beta Signup</button>
+                            <button className="btn btn-secondary btn-disabled">Watch Trailer</button>
                         </div>
+                        <button className="btn btn-tertiary btn-disabled">Add to Wishlist</button>
                     </div>
-                    <div className="content-right"></div>
-                </section>
+                </div>
+                <div className="content-right">
+                    {/* FloatingSword animation would go here */}
+                </div>
+            </section>
 
-                {/* News Teaser Section Component */}
-                <NewsTeaser sectionRef={sectionRefs["news-teaser"]} />
+            {/* News Teaser Section Component */}
+            <NewsTeaser sectionRef={sectionRefs["news-teaser"]} />
 
-                {/* Showcase Teaser Section Component */}
-                <ShowcaseTeaser sectionRef={sectionRefs["showcase-teaser"]} />
-            </main>
-            <Footer />
-        </div>
+            {/* Showcase Teaser Section Component */}
+            <ShowcaseTeaser sectionRef={sectionRefs["showcase-teaser"]} />
+        </>
     );
 }
 

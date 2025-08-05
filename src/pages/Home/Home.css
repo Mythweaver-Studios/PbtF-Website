@@ -1,24 +1,5 @@
 /* src/pages/Home/Home.css */
 
-/* --- Theme Variable Values (Derived from SCSS) ---
-CSS Variables used directly:
---theme-text-primary: #e0c9a6; (fallback)
---theme-text-titles: #ffd700; (fallback)
---theme-border-gold: rgba(207, 181, 130, 0.4); (fallback)
---theme-border-gold-faint: rgba(207, 181, 130, 0.2); (fallback)
---theme-highlight-red: #e74c3c; (fallback)
---theme-highlight-gold: #f1c40f; (fallback)
---theme-text-accent-red: #c0392b; (fallback)
-
-Sass Color Values (resolved for CSS):
-$text-color-primary-sass: #e0c9a6;
-$text-color-titles-sass: #ffd700;
-$highlight-red-sass: #e74c3c;
-  color.scale($highlight-red-sass, $lightness: -10%) -> #cf392a
-$highlight-gold-sass: #f1c40f;
-  color.scale($highlight-gold-sass, $lightness: 10%) -> #f4d03f
---- */
-
 /* --- Font Definition --- */
 @font-face {
     font-family: 'EternalFont';
@@ -27,29 +8,7 @@ $highlight-gold-sass: #f1c40f;
     font-style: normal;
 }
 
-.home-page.page-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    position: relative;
-    overflow-x: hidden;
-}
-
-.home-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 1.5rem 3rem;
-    position: sticky;
-    top: 0;
-    background-color: rgba(5, 4, 3, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid var(--theme-border-gold);
-}
+/* The .home-header class has been REMOVED from this file */
 
 .home-content-wrapper {
     flex: 1;
@@ -68,7 +27,7 @@ $highlight-gold-sass: #f1c40f;
     padding-bottom: 0.6rem;
     margin-bottom: 2.5rem;
     text-align: center;
-    text-shadow: 0 0 10px rgba(241, 196, 15, 0.3), 0 0 15px rgba(241, 196, 15, 0.2); /* rgba($highlight-gold-sass, ...) */
+    text-shadow: 0 0 10px rgba(241, 196, 15, 0.3), 0 0 15px rgba(241, 196, 15, 0.2);
 }
 
     .section-title::after {
@@ -81,7 +40,7 @@ $highlight-gold-sass: #f1c40f;
         height: 2.5px;
         background: linear-gradient(90deg, transparent, var(--theme-highlight-gold, #f1c40f), var(--theme-text-accent-red, #c0392b), var(--theme-highlight-gold, #f1c40f), transparent);
         border-radius: 1.5px;
-        box-shadow: 0 0 8px #f1c40f, 0 0 12px #f1c40f; /* $highlight-gold-sass */
+        box-shadow: 0 0 8px #f1c40f, 0 0 12px #f1c40f;
     }
 
 .home-main-content {
@@ -107,7 +66,7 @@ $highlight-gold-sass: #f1c40f;
         font-weight: normal;
         color: var(--theme-text-titles, #ffd700);
         letter-spacing: 1.5px;
-        text-shadow: 0 0 15px rgba(241, 196, 15, 0.3), 0 0 20px rgba(241, 196, 15, 0.2); /* rgba($highlight-gold-sass, ...) */
+        text-shadow: 0 0 15px rgba(241, 196, 15, 0.3), 0 0 20px rgba(241, 196, 15, 0.2);
     }
 
     .content-left p {
@@ -182,9 +141,9 @@ $highlight-gold-sass: #f1c40f;
 }
 
     .btn-primary:hover {
-        background-color: #cf392a; /* color.scale($highlight-red-sass, $lightness: -10%) */
-        border-color: #cf392a; /* color.scale($highlight-red-sass, $lightness: -10%) */
-        box-shadow: 0 6px 15px rgba(207, 57, 42, 0.4); /* rgba(color.scale($highlight-red-sass, $lightness: -10%), 0.4) */
+        background-color: #cf392a;
+        border-color: #cf392a;
+        box-shadow: 0 6px 15px rgba(207, 57, 42, 0.4);
     }
 
 .btn-secondary {
@@ -196,10 +155,10 @@ $highlight-gold-sass: #f1c40f;
 }
 
     .btn-secondary:hover {
-        background-color: rgba(241, 196, 15, 0.15); /* rgba($highlight-gold-sass, 0.15) */
-        color: #f4d03f; /* color.scale($highlight-gold-sass, $lightness: 10%) */
-        border-color: #f4d03f; /* color.scale($highlight-gold-sass, $lightness: 10%) */
-        box-shadow: 0 6px 15px rgba(241, 196, 15, 0.2); /* rgba($highlight-gold-sass, 0.2) */
+        background-color: rgba(241, 196, 15, 0.15);
+        color: #f4d03f;
+        border-color: #f4d03f;
+        box-shadow: 0 6px 15px rgba(241, 196, 15, 0.2);
     }
 
 .btn-tertiary {
@@ -211,29 +170,21 @@ $highlight-gold-sass: #f1c40f;
 }
 
     .btn-tertiary:hover {
-        background-color: rgba(224, 201, 166, 0.1); /* rgba($text-color-primary-sass, 0.1) */
+        background-color: rgba(224, 201, 166, 0.1);
         color: var(--theme-text-titles, #ffd700);
         border-color: var(--theme-text-primary, #e0c9a6);
-        box-shadow: 0 6px 15px rgba(224, 201, 166, 0.15); /* rgba($text-color-primary-sass, 0.15) */
+        box-shadow: 0 6px 15px rgba(224, 201, 166, 0.15);
     }
 
-/* Disabled button styles */
 .btn.btn-disabled {
     opacity: 0.5;
     pointer-events: none;
     cursor: not-allowed;
-    /* Optionally, adjust background/color to look more distinctly "greyed out" */
-    /* background-color: #555 !important; /* Example, be careful with !important */
-    /* color: #aaa !important; */
-    /* border-color: #777 !important; */
 }
 
-/* Responsive Adjustments */
+/* --- Responsive Adjustments --- */
+/* Media queries remain unchanged */
 @media (max-width: 992px) {
-    .home-header {
-        padding: 1.2rem 2rem;
-    }
-
     .section-title {
         font-size: 2.4rem;
         margin-bottom: 2rem;
@@ -250,10 +201,6 @@ $highlight-gold-sass: #f1c40f;
 }
 
 @media (max-width: 768px) {
-    .home-header {
-        padding: 0.8rem 2rem;
-    }
-
     .section-title {
         font-size: 2rem;
         margin-bottom: 1.5rem;
@@ -283,10 +230,6 @@ $highlight-gold-sass: #f1c40f;
 }
 
 @media (max-width: 480px) {
-    .home-header {
-        padding: 0.7rem 1.5rem;
-    }
-
     .section-title {
         font-size: 1.8rem;
     }

@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 import CookieBanner from "./components/CookieBanner/CookieBanner";
 import CookieSettingsModal from "./components/CookieSettingsModal/CookieSettingsModal";
+import MainLayout from "./components/MainLayout/MainLayout"; // Import the layout
 import * as CookieService from "./services/CookieService";
 
 // Implement Code-Splitting using React.lazy
@@ -21,7 +22,7 @@ const AuthCallback = React.lazy(() => import("./pages/AuthCallback/AuthCallback"
 // Fallback component for Suspense
 const LoadingFallback = () => (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', background: 'var(--theme-bg-gradient)' }}>
-        {/* You can add a themed spinner here later */}
+        {/* Themed spinner can be added here */}
     </div>
 );
 
@@ -30,7 +31,6 @@ function App() {
     const [isCookieModalOpen, setIsCookieModalOpen] = useState(false);
 
     useEffect(() => {
-        // Check if consent has already been given
         if (!CookieService.getConsent()) {
             setShowCookieBanner(true);
         }
@@ -47,38 +47,40 @@ function App() {
     };
 
     const openCookieSettings = () => {
-        setShowCookieBanner(false); // Hide banner when opening settings
+        setShowCookieBanner(false);
         setIsCookieModalOpen(true);
     };
 
     const closeCookieSettings = () => {
         setIsCookieModalOpen(false);
-        // If user closes without saving, and they never made a choice before, show banner again.
         if (!CookieService.getConsent()) {
             setShowCookieBanner(true);
         }
     };
+
+    // Create the layout element and pass the cookie settings function to it
+    const AppLayout = <MainLayout onOpenCookieSettings={openCookieSettings} />;
 
     return (
         <BrowserRouter>
             <ErrorBoundary>
                 <Suspense fallback={<LoadingFallback />}>
                     <Routes>
-                        <Route path="/" element={<Navigate to="/home" replace />} />
-                        <Route path="/home" element={<Home />} />
-                        <Route path="/showcase" element={<Showcase />} />
-                        <Route path="/news" element={<News />} />
-                        <Route path="/about-us" element={<AboutUs />} />
-                        <Route path="/characterlist" element={<CharacterList />} />
-                        {/* Legal Routes */}
-                        <Route path="/cookie-policy" element={<CookiePolicy />} />
-                        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                        <Route path="/terms-of-service" element={<TermsOfService />} />
+                        {/* Wrap all pages that need a NavBar and Footer in the layout route */}
+                        <Route element={AppLayout}>
+                            <Route path="/" element={<Navigate to="/home" replace />} />
+                            <Route path="/home" element={<Home />} />
+                            <Route path="/showcase" element={<Showcase />} />
+                            <Route path="/news" element={<News />} />
+                            <Route path="/about-us" element={<AboutUs />} />
+                            <Route path="/characterlist" element={<CharacterList />} />
+                            <Route path="/cookie-policy" element={<CookiePolicy />} />
+                            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                            <Route path="/terms-of-service" element={<TermsOfService />} />
+                        </Route>
 
-                        {/* Special Routes */}
+                        {/* Standalone routes without the main layout */}
                         <Route path="/supersecrettunnal" element={<AuthCallback />} />
-
-                        {/* Catch-all 404 Route - This must be the last route */}
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </Suspense>
@@ -92,7 +94,6 @@ function App() {
                 />
             )}
             {isCookieModalOpen && <CookieSettingsModal onClose={closeCookieSettings} />}
-
         </BrowserRouter>
     );
 }

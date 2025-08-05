@@ -1,9 +1,6 @@
 // src/pages/Showcase/Showcase.jsx
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import NavBar from "../../components/NavBar";
-import MediaLinks from "../../components/MiniMediaLinks";
-import Footer from "../../components/Footer";
 import StoryScroller from "./components/Story";
 import FeaturesSlideshow from "./components/Features";
 import CharactersSection from "./components/Characters";
@@ -12,7 +9,7 @@ import { storyText } from "./data/storyText";
 import { featuresData } from "./data/featuresData";
 import { charactersData } from "./data/charactersData";
 
-import "../../components/Default.css";
+import "../../styles/Theme.css";
 import "./Showcase.css";
 
 const showcaseNavItems = [
@@ -140,8 +137,6 @@ function Showcase() {
     return (
         <div className="page-container showcase-page">
             <header className="showcase-header">
-                <NavBar onShowcaseLinkClick={handleShowcaseNavClick} />
-                <MediaLinks />
             </header>
             {/* Side Navigation */}
             <nav className="showcase-side-nav">
@@ -199,7 +194,6 @@ function Showcase() {
                     <FeaturesSlideshow featuresData={featuresData} />
                 </section>
             </main>
-            <Footer /> {/* Site-wide footer */}
         </div>
     );
 }

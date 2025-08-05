@@ -1,7 +1,7 @@
 // src/pages/AuthCallback/AuthCallback.jsx
 import React, { useState, useEffect } from "react";
 import "./AuthCallback.css";
-import "../../components/Default.css";
+import "../../styles/Theme.css";
 
 function AuthCallback() {
     const [status, setStatus] = useState("loading"); // 'loading', 'success', 'error', 'no_token'

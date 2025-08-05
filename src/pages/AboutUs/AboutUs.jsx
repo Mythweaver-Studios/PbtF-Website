@@ -1,9 +1,6 @@
 // src/pages/AboutUs/AboutUs.jsx
 import React, { useEffect } from "react";
-import NavBar from "../../components/NavBar";
-import MediaLinks from "../../components/MiniMediaLinks";
-import Footer from "../../components/Footer";
-import "../../components/Default.css"; // For global styles and theme variables
+import "../../styles/Theme.css";
 import "./AboutUs.css";
 
 const availableTeams = [
@@ -29,8 +26,6 @@ function AboutUs() {
   return (
     <div className="page-container about-us-page">
       <header className="about-us-header">
-        <NavBar />
-        <MediaLinks />
       </header>
       <main className="about-us-content">
         <section id="our-story" className="about-section company-section">
@@ -102,7 +97,6 @@ function AboutUs() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

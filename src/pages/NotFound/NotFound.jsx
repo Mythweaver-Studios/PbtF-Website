@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./NotFound.css";
-import "../../components/Default.css"; // GLOBAL :D
+import "../../styles/Theme.css"; // GLOBAL :D
 import "../../pages/Home/Home.css"; // For button styles
 
 // Expanded array of possible messages

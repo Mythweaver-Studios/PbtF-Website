@@ -1,0 +1,50 @@
+/* // src/components/MainLayout/MainLayout.css */
+/* --- Main Layout Styles --- */
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-layout__content {
+  flex-grow: 1;
+}
+
+/* --- Global Header Styles (Moved from Home.css) --- */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.5rem 3rem;
+  position: sticky;
+  top: 0;
+  background-color: rgba(5, 4, 3, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid var(--theme-border-gold);
+}
+
+/* --- Responsive Adjustments for Header --- */
+@media (max-width: 992px) {
+  .main-header {
+    padding: 1.2rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    padding: 0.8rem 1.5rem;
+    flex-wrap: wrap; /* Allow items to wrap if needed */
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-header {
+    padding: 0.7rem 1rem;
+  }
+}

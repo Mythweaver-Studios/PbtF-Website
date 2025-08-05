@@ -1,8 +1,8 @@
 // src/components/MiniMediaLinks.jsx
 import React from "react";
-import InstagramIconPath from "../assets/icons/Instagram.svg";
-import RedditIconPath from "../assets/icons/Reddit.svg";
-import DiscordIconPath from "../assets/icons/Discord.svg";
+import InstagramIconPath from "../../assets/icons/Instagram.svg";
+import RedditIconPath from "../../assets/icons/Reddit.svg";
+import DiscordIconPath from "../../assets/icons/Discord.svg";
 import "./MiniMediaLinks.css";
 
 function MediaLinks() {

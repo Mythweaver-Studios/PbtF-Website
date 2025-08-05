@@ -1,9 +1,9 @@
-/* src/components/Default.css */
-/* This file now contains global resets, body styles, and theme variables. */
-/* Component-specific styles are in their own CSS files (e.g., NavBar.css, Footer.css). */
-/* THEME: Black/Gold/Red */
+/* --- 1. Centralized Component Style Imports --- */
+@import '../components/NavBar/NavBar.css';
+@import '../components/NavBar/MiniMediaLinks.css';
+@import '../components/Footer/Footer.css';
 
-/* --- Theme Colors (CSS Custom Properties for easier use if needed, or direct values) --- */
+/* --- 2. Global Theme Variables --- */
 :root {
     --theme-bg-gradient: linear-gradient(135deg, #100e0c 0%, #050403 100%);
     --theme-text-primary: #e0c9a6;
@@ -51,8 +51,7 @@
     --theme-footer-lang-dropdown-item-hover-bg: #3a3025;
 }
 
-
-/* Basic Reset & Defaults */
+/* --- 3. Basic Reset & Defaults --- */
 *,
 *::before,
 *::after {

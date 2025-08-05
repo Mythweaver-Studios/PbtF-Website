@@ -1,8 +1,6 @@
 // src/pages/Legal/PrivacyPolicy.jsx
 import React, { useEffect } from "react";
-import Footer from "../../components/Footer";
-import NavBar from "../../components/NavBar";
-import "../../components/Default.css";
+import "../../styles/Theme.css";
 import "./LegalPage.css";
 
 function PrivacyPolicy() {
@@ -13,7 +11,6 @@ function PrivacyPolicy() {
     return (
         <div className="page-container">
             <header className="legal-header">
-                <NavBar />
             </header>
             <main className="legal-content">
                 <h1>Privacy Policy</h1>
@@ -99,7 +96,6 @@ function PrivacyPolicy() {
                     </p>
                 </section>
             </main>
-            <Footer />
         </div>
     );
 }

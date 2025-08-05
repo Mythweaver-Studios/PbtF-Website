@@ -1,8 +1,6 @@
 // src/pages/Legal/TermsOfService.jsx
 import React, { useEffect } from "react";
-import Footer from "../../components/Footer";
-import NavBar from "../../components/NavBar";
-import "../../components/Default.css";
+import "../../styles/Theme.css";
 import "./LegalPage.css";
 
 function TermsOfService() {
@@ -13,7 +11,6 @@ function TermsOfService() {
     return (
         <div className="page-container">
             <header className="legal-header">
-                <NavBar />
             </header>
             <main className="legal-content">
                 <h1>Terms of Service</h1>
@@ -94,7 +91,6 @@ function TermsOfService() {
                     </p>
                 </section>
             </main>
-            <Footer />
         </div>
     );
 }

@@ -10,13 +10,8 @@ import CharacterGrid from "./components/CharacterGrid/CharacterGrid";
 import CharacterDetailModal from "./components/CharacterDetailModal/CharacterDetailModal";
 import { useCharacterFilters } from "./hooks/useCharacterFilters";
 
-// Shared Component Imports
-import NavBar from "../../components/NavBar";
-import MiniMediaLinks from "../../components/MiniMediaLinks";
-import Footer from "../../components/Footer";
-
 // CSS Imports
-import "../../components/Default.css";
+import "../../styles/Theme.css";
 import "./CharacterList.css";
 
 function CharacterList() {
@@ -94,8 +89,6 @@ function CharacterList() {
     return (
         <div className="page-container character-list-page">
             <header className="character-list-header">
-                <NavBar />
-                <MiniMediaLinks />
             </header>
 
             <main className="character-list-content">
@@ -134,7 +127,6 @@ function CharacterList() {
                 />
             )}
 
-            <Footer />
         </div>
     );
 }

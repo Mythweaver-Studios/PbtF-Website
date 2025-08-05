@@ -1,6 +1,4 @@
-/* src/components/Footer.css */
-/* Styles for the Footer component, using theme variables from Default.css */
-
+/* src\components\Footer\Footer.css */
 .site-footer {
     background-color: var(--theme-footer-bg);
     color: var(--theme-footer-text);

@@ -1,11 +1,8 @@
 // src/pages/News/News.jsx
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import NavBar from "../../components/NavBar";
-import MediaLinks from "../../components/MiniMediaLinks";
-import Footer from "../../components/Footer";
 // Import newsItemsData from "./data/News.json";
-import "../../components/Default.css";
+import "../../styles/Theme.css";
 import "./News.css";
 
 // const ITEMS_PER_PAGE = 5; // Commented out as it's not used when no news is displayed
@@ -63,8 +60,6 @@ function News() {
     return (
         <div className="page-container news-page">
             <header className="news-header-sticky">
-                <NavBar />
-                <MediaLinks />
             </header>
 
             <main className="news-main-content">
@@ -136,7 +131,6 @@ function News() {
           )}
         */}
             </main>
-            <Footer />
         </div>
     );
 }

@@ -1,8 +1,6 @@
 // src/pages/Legal/CookiePolicy.jsx
 import React, { useEffect } from "react";
-import Footer from "../../components/Footer";
-import NavBar from "../../components/NavBar";
-import "../../components/Default.css";
+import "../../styles/Theme.css";
 import "./LegalPage.css";
 
 function CookiePolicy() {
@@ -13,7 +11,6 @@ function CookiePolicy() {
     return (
         <div className="page-container">
             <header className="legal-header">
-                <NavBar />
             </header>
             <main className="legal-content">
                 <h1>Cookie Policy</h1>
@@ -88,7 +85,6 @@ function CookiePolicy() {
                     </p>
                 </section>
             </main>
-            <Footer />
         </div>
     );
 }
