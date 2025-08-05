@@ -1,8 +1,8 @@
 // src/pages/Home/Home.jsx
 import React, { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import NewsTeaser from "./components/NewsTeaser";
 import ShowcaseTeaser from "./components/ShowcaseTeaser";
+import FloatingSword from "./animations/FloatingSword";
 import "./Home.css";
 
 // This logic remains, as it's specific to the Home page's sections.
@@ -114,8 +114,6 @@ function Home() {
         };
     }, [location.pathname, location.hash, navigate, sectionRefs]);
 
-    // The component now returns ONLY its unique content.
-    // The NavBar and Footer are rendered by MainLayout.
     return (
         <>
             {/* Hero Section */}
@@ -138,12 +136,9 @@ function Home() {
                     </div>
                 </div>
                 <div className="content-right">
-                    {/* FloatingSword animation would go here */}
+                    <FloatingSword />
                 </div>
             </section>
-
-            {/* News Teaser Section Component */}
-            <NewsTeaser sectionRef={sectionRefs["news-teaser"]} />
 
             {/* Showcase Teaser Section Component */}
             <ShowcaseTeaser sectionRef={sectionRefs["showcase-teaser"]} />
