@@ -12,7 +12,6 @@ function NavBar() {
     const getNavLinkClass = ({ isActive }) => `nav-item ${isActive ? 'active' : ''}`;
     const isShowcaseActive = location.pathname.startsWith('/showcase');
 
-    // The component is now wrapped in a single div that controls its internal layout.
     return (
         <div className="navbar-wrapper">
             <nav className="main-nav">
@@ -44,9 +43,7 @@ function NavBar() {
                 <NavLink to="/about-us" className={getNavLinkClass}>
                     <span>About Us</span>
                 </NavLink>
-                <NavLink to="/news" className={getNavLinkClass}>
-                    <span>News</span>
-                </NavLink>
+                {/* "News" NavLink removed. */}
             </nav>
 
             <div className="navbar__socials">

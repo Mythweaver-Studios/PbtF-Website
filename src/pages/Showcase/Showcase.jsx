@@ -26,48 +26,60 @@ function Showcase() {
         features: useRef(null),
     };
 
+    // Corrected mount effect: Only scroll to top if NO hash is present.
     useEffect(() => {
-        window.scrollTo(0, 0);
+        if (!location.hash) {
+            window.scrollTo(0, 0);
+        }
         if (location.hash) {
             setActiveSection(location.hash.substring(1));
         }
+    }, []); // Empty dependency array ensures this runs only once on mount
+
+    // This effect now correctly handles scrolling when a hash is present on navigation.
+    useEffect(() => {
+        if (location.hash && !internalNavRef.current) {
+            const id = location.hash.substring(1);
+            const timer = setTimeout(() => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+            }, 100); // Small delay to ensure the element is rendered
+            return () => clearTimeout(timer);
+        }
     }, [location.hash]);
 
-    const smoothScrollTo = (elementId) => {
-        const element = document.getElementById(elementId);
+    const handleShowcaseNavClick = (e, sectionId) => {
+        if (e) e.preventDefault();
+        internalNavRef.current = true;
+        const element = document.getElementById(sectionId);
         if (element) {
-            internalNavRef.current = true;
             element.scrollIntoView({ behavior: "smooth", block: "start" });
             if (window.history.pushState) {
-                window.history.pushState(null, null, `#${elementId}`);
+                window.history.pushState(null, null, `#${sectionId}`);
             } else {
-                window.location.hash = elementId;
+                window.location.hash = sectionId;
             }
-            setActiveSection(elementId);
+            setActiveSection(sectionId);
             setTimeout(() => {
                 internalNavRef.current = false;
             }, 1000);
         }
     };
 
-    const handleShowcaseNavClick = (e, sectionId) => {
-        if (e) e.preventDefault();
-        smoothScrollTo(sectionId);
-    };
-
+    // Scroll spy for side navigation remains unchanged
     useEffect(() => {
         const handleScroll = () => {
             if (internalNavRef.current) return;
             let currentSection = "";
             const scrollPosition = window.scrollY + window.innerHeight / 2.5;
-
             showcaseNavItems.forEach((item) => {
                 const sectionElement = sectionRefs[item.id].current;
                 if (sectionElement && sectionElement.offsetTop <= scrollPosition && sectionElement.offsetTop + sectionElement.offsetHeight > scrollPosition) {
                     currentSection = item.id;
                 }
             });
-
             if (currentSection && currentSection !== activeSection) {
                 setActiveSection(currentSection);
                 if (window.history.replaceState) {
@@ -75,7 +87,6 @@ function Showcase() {
                 }
             }
         };
-
         window.addEventListener("scroll", handleScroll);
         handleScroll();
         return () => window.removeEventListener("scroll", handleScroll);
