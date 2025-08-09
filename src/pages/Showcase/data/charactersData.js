@@ -7,6 +7,8 @@ import Character2Img from "../../../assets/images/characters/yanyan_full.png";
 import Character2Thumb from "../../../assets/images/characters/yanyan_thumb.png";
 import Character3Img from "../../../assets/images/characters/benedict_full.png";
 import Character3Thumb from "../../../assets/images/characters/benedict_thumb.png";
+import Character5Img from "../../../assets/images/characters/alzarich_full.png";
+import Character5Thumb from "../../../assets/images/characters/alzarich_thumb.png";
 
 import voicelineManifest from '../../../assets/audio/voiceline-manifest.json';
 
@@ -182,8 +184,8 @@ export const charactersData = [
         description: "The identity and purpose of this individual are yet to be revealed.",
         longDescription: "[[Further details about this enigmatic figure are shrouded in mystery, waiting to be unveiled.]]",
         appearanceDescription: "A young man with black hair and determined blue eyes, clad in a full suit of ornate, light-gray plate armor with intricate gold trim and purple accents. A long purple cape, bearing a golden griffin emblem, flows from his shoulders. His helmet and boots are adorned with elegant wing motifs.",
-        image: null,
-        thumbnail: null,
+        image: Character5Img,
+        thumbnail: Character5Thumb,
         accentColor: "#6a0dad",
         tier: 7, // Empyrean
         statsBlurred: true,
