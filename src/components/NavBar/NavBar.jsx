@@ -1,97 +1,67 @@
 // src/components/NavBar/NavBar.jsx
-import React from "react";
-import PropTypes from "prop-types";
-import { NavLink, useLocation } from "react-router-dom";
-import MiniMediaLinks from "./MiniMediaLinks";
-import "./NavBar.css";
+import React from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { FaDiscord, FaReddit, FaInstagram } from 'react-icons/fa';
+import { IoChevronDown } from 'react-icons/io5';
+import Dropdown from '../Dropdown/Dropdown';
+import './NavBar.css';
 
-// onShowcaseLinkClick is an optional prop for handling showcase section navigation
-function NavBar({ onShowcaseLinkClick }) {
-  const location = useLocation();
+function NavBar() {
+    const location = useLocation();
 
-  const getMainNavLinkClass = ({ isActive }) => {
-    let classes = "nav-item";
-    if (isActive || location.pathname.startsWith("/home#")) {
-      classes += " active";
-    }
-    return classes;
-  };
-  
-  const getNavLinkClass = ({ isActive }) =>
-    `nav-item ${isActive ? "active" : ""}`;
+    const getNavLinkClass = ({ isActive }) => `nav-item ${isActive ? 'active' : ''}`;
+    const isShowcaseActive = location.pathname.startsWith('/showcase');
 
-  const getDropdownToggleClass = ({ isActive }) => {
-    let classes = "nav-item dropdown-toggle";
-    if (isActive || location.pathname.startsWith("/showcase#")) {
-      classes += " active";
-    }
-    return classes;
-  };
+    // The component is now wrapped in a single div that controls its internal layout.
+    return (
+        <div className="navbar-wrapper">
+            <nav className="main-nav">
+                <NavLink to="/home" className={getNavLinkClass} end>
+                    <span>Main</span>
+                </NavLink>
 
-  const getDropdownItemClass = ({ isActive, isPending }) => {
-    return `dropdown-item ${isActive ? "active" : ""} ${
-      isPending ? "pending" : ""
-    }`;
-  };
+                <Dropdown
+                    trigger={
+                        <div className={`nav-item ${isShowcaseActive ? 'active' : ''}`}>
+                            <span>Game Showcase</span>
+                            <IoChevronDown className="arrow-indicator" />
+                        </div>
+                    }
+                >
+                    <ul>
+                        <li>
+                            <NavLink to="/showcase#story" className="dropdown-item">Story</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/showcase#characters" className="dropdown-item">Characters</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/showcase#features" className="dropdown-item">Features</NavLink>
+                        </li>
+                    </ul>
+                </Dropdown>
 
-  const isCurrentlyOnShowcasePage = location.pathname.startsWith("/showcase");
+                <NavLink to="/about-us" className={getNavLinkClass}>
+                    <span>About Us</span>
+                </NavLink>
+                <NavLink to="/news" className={getNavLinkClass}>
+                    <span>News</span>
+                </NavLink>
+            </nav>
 
-  return (
-    <>
-      <nav className="main-nav">
-        <NavLink to="/home" className={getMainNavLinkClass} end>
-          <span>Main</span>
-        </NavLink>
-
-        <div className={`nav-item-dropdown-container ${isCurrentlyOnShowcasePage ? "has-active-path" : ""}`}>
-          <NavLink
-            to="/showcase"
-            className={getDropdownToggleClass}
-            aria-haspopup="true"
-            onClick={(e) => {
-              if (isCurrentlyOnShowcasePage && onShowcaseLinkClick) {
-                onShowcaseLinkClick(e, "story");
-              }
-            }}
-          >
-            <span>Game Showcase</span>
-            <span className="arrow-indicator">▼</span>
-          </NavLink>
-
-          <ul className="dropdown-menu">
-            <li>
-              <NavLink to="/showcase#story" className={getDropdownItemClass} end onClick={(e) => { if (isCurrentlyOnShowcasePage && onShowcaseLinkClick) { onShowcaseLinkClick(e, "story"); } }}>
-                Story
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/showcase#characters" className={getDropdownItemClass} end onClick={(e) => { if (isCurrentlyOnShowcasePage && onShowcaseLinkClick) { onShowcaseLinkClick(e, "characters"); } }}>
-                Characters
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/showcase#features" className={getDropdownItemClass} end onClick={(e) => { if (isCurrentlyOnShowcasePage && onShowcaseLinkClick) { onShowcaseLinkClick(e, "features"); } }}>
-                Features
-              </NavLink>
-            </li>
-          </ul>
+            <div className="navbar__socials">
+                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-link-disabled">
+                    <FaInstagram />
+                </a>
+                <a href="https://www.reddit.com" target="_blank" rel="noopener noreferrer" aria-label="Reddit" className="social-link-disabled">
+                    <FaReddit />
+                </a>
+                <a href="https://discord.gg/pmu" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                    <FaDiscord />
+                </a>
+            </div>
         </div>
-
-        <NavLink to="/about-us" className={getNavLinkClass}>
-          <span>About Us</span>
-        </NavLink>
-        <NavLink to="/news" className={getNavLinkClass}>
-          <span>News</span>
-        </NavLink>
-      </nav>
-      {/* Media links are now part of the header, but positioned by the flex container */}
-      <MiniMediaLinks />
-    </>
-  );
+    );
 }
-
-NavBar.propTypes = {
-  onShowcaseLinkClick: PropTypes.func,
-};
 
 export default NavBar;
