@@ -58,7 +58,7 @@
     line-height: 1.7;
     color: var(--theme-text-primary);
     margin-bottom: 1.5em;
-    text-align: justify;
+    text-align: center;
 }
 
 .company-description p:last-child {
@@ -161,7 +161,6 @@
 
     .company-description p {
         font-size: 1rem;
-        text-align: left; /* Improved readability on mobile */
     }
 
     .recruitment-intro {
