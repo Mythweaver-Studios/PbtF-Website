@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    position: relative; /* Context for absolute positioning */
+    position: relative;
 }
 
 /* --- Main Navigation Styles --- */
@@ -137,13 +137,20 @@
     color: var(--theme-nav-item-hover-color) !important;
 }
 
-.theme-drawer .ant-drawer-content,
-.theme-drawer .ant-drawer-header {
+.theme-drawer .ant-drawer-content {
     background-color: var(--theme-dropdown-bg);
 }
 
 .theme-drawer .ant-drawer-header {
+    background-color: var(--theme-dropdown-bg);
     border-bottom: 1px solid var(--theme-dropdown-border);
+}
+
+.theme-drawer .ant-drawer-body {
+    background-color: var(--theme-dropdown-bg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .theme-drawer .ant-drawer-title {
@@ -157,12 +164,6 @@
 
 .theme-drawer .ant-drawer-close:hover {
     color: var(--theme-nav-item-hover-color);
-}
-
-.theme-drawer .ant-drawer-body {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
 }
 
 .mobile-nav-links {
