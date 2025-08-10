@@ -1,29 +1,27 @@
-/* // src/pages/AboutUs/AboutUs.css */
-/* --- Wrapper for page content --- */
+/* --- Wrapper --- */
 .about-us-wrapper {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3rem 1rem; /* Vertical and horizontal padding */
+    padding: 3rem 1rem;
 }
 
-/* The .about-us-page, .about-us-header, and .about-us-content rules have been removed. */
-
+/* --- Section --- */
 .about-section {
     width: 100%;
-    max-width: 960px; /* Readable content width */
+    max-width: 960px;
     padding: 3rem 2rem;
     margin-bottom: 3rem;
-    background-color: rgba(10, 8, 7, 0.6); /* Subtle dark background for section */
-    border: 1px solid var(--theme-border-gold, rgba(207, 181, 130, 0.4));
+    background-color: rgba(10, 8, 7, 0.6);
+    border: 1px solid var(--theme-border-gold);
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-    .about-section:last-child {
-        margin-bottom: 0;
-    }
+.about-section:last-child {
+    margin-bottom: 0;
+}
 
 .section-title-container {
     margin-bottom: 2.5rem;
@@ -31,51 +29,52 @@
 }
 
 .section-title {
-    font-family: 'EternalFont', 'Georgia', serif; /* From Home.scss */
+    font-family: 'EternalFont', 'Georgia', serif;
     font-size: 2.8rem;
-    color: var(--theme-text-titles, #ffd700);
+    color: var(--theme-text-titles);
     letter-spacing: 1px;
     text-transform: uppercase;
     position: relative;
     padding-bottom: 0.75rem;
-    text-shadow: 0 0 10px rgba(241, 196, 15, 0.3), 0 0 15px rgba(241, 196, 15, 0.2); /* Resolved from rgba($highlight-gold, alpha) */
+    text-shadow: 0 0 10px rgba(241, 196, 15, 0.3), 0 0 15px rgba(241, 196, 15, 0.2);
 }
 
-    .section-title::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 2.5px;
-        background: linear-gradient(90deg, transparent, var(--theme-highlight-gold, #f1c40f), var(--theme-text-accent-red, #c0392b), var(--theme-highlight-gold, #f1c40f), transparent);
-        border-radius: 2px;
-        box-shadow: 0 0 8px var(--theme-highlight-gold, #f1c40f), 0 0 12px var(--theme-highlight-gold, #f1c40f);
-    }
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2.5px;
+    background: linear-gradient(90deg, transparent, var(--theme-highlight-gold), var(--theme-text-accent-red), var(--theme-highlight-gold), transparent);
+    border-radius: 2px;
+    box-shadow: 0 0 8px var(--theme-highlight-gold), 0 0 12px var(--theme-highlight-gold);
+}
 
-/* --- Company Section Specifics --- */
+/* --- Company Section --- */
 .company-description p {
     font-size: 1.05rem;
     line-height: 1.7;
-    color: var(--theme-text-primary, #e0c9a6);
+    color: var(--theme-text-primary);
     margin-bottom: 1.5em;
-    text-align: justify; /* Justified text for a more formal block look */
+    text-align: justify;
 }
 
-    .company-description p:last-child {
-        margin-bottom: 0;
-    }
+.company-description p:last-child {
+    margin-bottom: 0;
+}
 
+/* --- Recruitment Section --- */
 .recruitment-content {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; /* Space between elements */
+    gap: 1.5rem;
 }
 
 .recruitment-intro {
     font-size: 1.1rem;
-    color: var(--theme-text-primary, #e0c9a6);
+    color: var(--theme-text-primary);
     text-align: center;
     line-height: 1.6;
     margin-bottom: 1rem;
@@ -84,10 +83,10 @@
 .available-teams-title {
     font-family: 'EternalFont', sans-serif;
     font-size: 1.6rem;
-    color: var(--theme-text-titles, #ffd700);
+    color: var(--theme-text-titles);
     text-align: center;
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 5px rgba(241, 196, 15, 0.2); /* Resolved from rgba($highlight-gold, 0.2) */
+    text-shadow: 0 0 5px rgba(241, 196, 15, 0.2);
 }
 
 .teams-list {
@@ -96,99 +95,73 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.75rem 1.5rem; /* Row and column gap */
+    gap: 0.75rem 1.5rem;
     margin-bottom: 1.5rem;
 }
 
-    .teams-list .team-item {
-        background-color: rgba(207, 181, 130, 0.15); /* Resolved from rgba($border-color-gold, 0.15) */
-        padding: 0.5rem 1rem;
-        border-radius: 20px; /* Pill shape */
-        font-size: 0.9rem;
-        color: var(--theme-text-primary, #e0c9a6);
-        border: 1px solid var(--theme-border-gold, rgba(207, 181, 130, 0.4));
-        transition: all 0.2s ease-in-out;
-    }
+.teams-list .team-item {
+    background-color: rgba(207, 181, 130, 0.15);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--theme-text-primary);
+    border: 1px solid var(--theme-border-gold);
+    transition: all 0.2s ease-in-out;
+}
 
-        .teams-list .team-item:hover {
-            background-color: rgba(241, 196, 15, 0.2); /* Resolved from rgba($highlight-gold, 0.2) */
-            border-color: var(--theme-highlight-gold, #f1c40f);
-            color: var(--theme-text-titles, #ffd700);
-            transform: translateY(-2px);
-        }
+.teams-list .team-item:hover {
+    background-color: rgba(241, 196, 15, 0.2);
+    border-color: var(--theme-highlight-gold);
+    color: var(--theme-text-titles);
+    transform: translateY(-2px);
+}
 
 .recruitment-how-to {
     text-align: center;
     padding-top: 1rem;
-    border-top: 1px solid var(--theme-border-gold, rgba(207, 181, 130, 0.4));
+    border-top: 1px solid var(--theme-border-gold);
 }
 
-    .recruitment-how-to h4 {
-        font-size: 1.25rem;
-        color: var(--theme-text-titles, #ffd700);
-        margin-bottom: 0.75rem;
-    }
+.recruitment-how-to h4 {
+    font-size: 1.25rem;
+    color: var(--theme-text-titles);
+    margin-bottom: 0.75rem;
+}
 
-    .recruitment-how-to p {
-        font-size: 1rem;
-        color: var(--theme-text-secondary, #a89a85); /* Dimmer text for instructions */
-        margin-bottom: 1.5rem;
-        max-width: 600px; /* Readable width for paragraph */
-        margin-left: auto;
-        margin-right: auto;
-    }
+.recruitment-how-to p {
+    font-size: 1rem;
+    color: var(--theme-text-secondary);
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-/* --- Button for Discord --- */
+/* --- Discord Button --- */
 .btn.btn-discord {
-    background-color: #5865F2; /* Discord blurple */
+    background-color: #5865F2;
     color: #ffffff;
     border-color: #5865F2;
-    padding: 0.8rem 1.7rem;
-    border-radius: 30px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transition: all 0.25s ease-in-out;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
 }
 
-    .btn.btn-discord:hover {
-        background-color: #4553e8;
-        border-color: #4553e8;
-        transform: translateY(-2px);
-        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
-    }
-
+.btn.btn-discord:hover {
+    background-color: #4553e8;
+    border-color: #4553e8;
+}
 
 /* --- Responsive Adjustments --- */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     .about-section {
         padding: 2.5rem 1.5rem;
     }
-
+    
     .section-title {
-        font-size: 2.4rem;
+        font-size: 2.2rem;
     }
-}
-
-@media (max-width: 768px) {
-    .section-title {
-        font-size: 2rem;
-    }
-
-        .section-title::after {
-            width: 60px;
-        }
 
     .company-description p {
         font-size: 1rem;
-        text-align: left;
+        text-align: left; /* Improved readability on mobile */
     }
 
     .recruitment-intro {
@@ -203,15 +176,6 @@
         font-size: 0.85rem;
         padding: 0.4rem 0.8rem;
     }
-
-    .recruitment-how-to h4 {
-        font-size: 1.15rem;
-    }
-
-    .btn.btn-discord {
-        padding: 0.7rem 1.4rem;
-        font-size: 0.9rem;
-    }
 }
 
 @media (max-width: 480px) {
@@ -225,10 +189,6 @@
     }
 
     .section-title {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
     }
-
-        .section-title::after {
-            width: 50px;
-        }
 }

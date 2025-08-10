@@ -3,36 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\MainLayout\\MainLayout.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\MainLayout\\MainLayout.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\data\\charactersData.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Showcase\\data\\charactersData.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\NavBar\\NavBar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\NavBar\\NavBar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Showcase\\Showcase.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\NavBar\\NavBar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\NavBar\\NavBar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\styles\\Theme.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\styles\\Theme.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\Showcase\\Showcase.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\MainLayout\\MainLayout.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\MainLayout\\MainLayout.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\Dropdown\\Dropdown.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\Dropdown\\Dropdown.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\Dropdown\\Dropdown.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\Dropdown\\Dropdown.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\hooks\\useOnClickOutside.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\hooks\\useOnClickOutside.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\NavBar\\NavBar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\NavBar\\NavBar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -51,79 +43,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainLayout.css",
-              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\MainLayout\\MainLayout.css",
-              "RelativeDocumentMoniker": "src\\components\\MainLayout\\MainLayout.css",
-              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\MainLayout\\MainLayout.css",
-              "RelativeToolTip": "src\\components\\MainLayout\\MainLayout.css",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAmwDIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-09T17:32:55.45Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "useOnClickOutside.js",
-              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\hooks\\useOnClickOutside.js",
-              "RelativeDocumentMoniker": "src\\hooks\\useOnClickOutside.js",
-              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\hooks\\useOnClickOutside.js",
-              "RelativeToolTip": "src\\hooks\\useOnClickOutside.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAhAAAAAAAAAA==",
+              "Title": "charactersData.js",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\data\\charactersData.js",
+              "RelativeDocumentMoniker": "src\\pages\\Showcase\\data\\charactersData.js",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\data\\charactersData.js",
+              "RelativeToolTip": "src\\pages\\Showcase\\data\\charactersData.js",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAAAJwAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-08-09T17:17:51.872Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Dropdown.css",
-              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\Dropdown\\Dropdown.css",
-              "RelativeDocumentMoniker": "src\\components\\Dropdown\\Dropdown.css",
-              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\Dropdown\\Dropdown.css",
-              "RelativeToolTip": "src\\components\\Dropdown\\Dropdown.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-09T17:17:27.652Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Dropdown.jsx",
-              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\Dropdown\\Dropdown.jsx",
-              "RelativeDocumentMoniker": "src\\components\\Dropdown\\Dropdown.jsx",
-              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\Dropdown\\Dropdown.jsx",
-              "RelativeToolTip": "src\\components\\Dropdown\\Dropdown.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-08-09T17:17:02.894Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "App.jsx",
-              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\App.jsx",
-              "RelativeDocumentMoniker": "src\\App.jsx",
-              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\App.jsx",
-              "RelativeToolTip": "src\\App.jsx",
-              "ViewState": "AgIAADsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-08-09T17:14:26.271Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Theme.css",
-              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\styles\\Theme.css",
-              "RelativeDocumentMoniker": "src\\styles\\Theme.css",
-              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\styles\\Theme.css",
-              "RelativeToolTip": "src\\styles\\Theme.css",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAEYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-09T17:10:38.559Z",
+              "WhenOpened": "2025-08-09T18:09:17.458Z",
               "EditorCaption": ""
             },
             {
@@ -134,7 +61,7 @@
               "RelativeDocumentMoniker": "src\\components\\NavBar\\NavBar.jsx",
               "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\NavBar\\NavBar.jsx",
               "RelativeToolTip": "src\\components\\NavBar\\NavBar.jsx",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAwwEIAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAwwCwAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2025-08-09T17:02:15.971Z",
               "EditorCaption": ""
@@ -142,6 +69,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Showcase.jsx",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.jsx",
+              "RelativeDocumentMoniker": "src\\pages\\Showcase\\Showcase.jsx",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.jsx",
+              "RelativeToolTip": "src\\pages\\Showcase\\Showcase.jsx",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAwwG4AAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-08-09T17:43:30.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Showcase.css",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.css",
+              "RelativeDocumentMoniker": "src\\pages\\Showcase\\Showcase.css",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\pages\\Showcase\\Showcase.css",
+              "RelativeToolTip": "src\\pages\\Showcase\\Showcase.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-09T17:43:31.538Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainLayout.css",
+              "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\MainLayout\\MainLayout.css",
+              "RelativeDocumentMoniker": "src\\components\\MainLayout\\MainLayout.css",
+              "ToolTip": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\MainLayout\\MainLayout.css",
+              "RelativeToolTip": "src\\components\\MainLayout\\MainLayout.css",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAmwDAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-09T17:32:55.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "NavBar.css",
               "DocumentMoniker": "C:\\Users\\LilGavin\\Documents\\GitHub\\Community-Service\\src\\components\\NavBar\\NavBar.css",
               "RelativeDocumentMoniker": "src\\components\\NavBar\\NavBar.css",

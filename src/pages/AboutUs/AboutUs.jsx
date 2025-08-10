@@ -3,17 +3,9 @@ import React, { useEffect } from "react";
 import "./AboutUs.css";
 
 const availableTeams = [
-  "Animation Team",
-  "Art Team",
-  "Balancing Team",
-  "Concept Team",
-  "Music Team",
-  "Narrative Design Team",
-  "Programming Team",
-  "Story Team",
-  "Visual Implementation Team",
-  "Voice Acting Team",
-  "Web Developer Team",
+  "Animation Team", "Art Team", "Balancing Team", "Concept Team", "Music Team",
+  "Narrative Design Team", "Programming Team", "Story Team", "Visual Implementation Team",
+  "Voice Acting Team", "Web Developer Team",
 ].sort();
 
 function AboutUs() {

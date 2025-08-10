@@ -122,9 +122,9 @@ function Home() {
                     <h1>Paved by the Fallen</h1>
                     <p className="game-pitch">
                         <strong>
-                            Paved by the Fallen: A tactical survival game where you
+                            A tactical survival game where you
                             control the fate of summoned heroes battling through a ruthless
-                            tower of trials. No retries. No revives. Just consequences.
+                            tower of trials. No retries. No revives. Just hardships.
                         </strong>
                     </p>
                     <div className="action-buttons">

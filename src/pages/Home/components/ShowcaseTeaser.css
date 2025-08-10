@@ -1,5 +1,3 @@
-/* src/pages/Home/components/ShowcaseTeaser.css */
-
 .showcase-teaser-section {
     width: 100%;
     padding: 4rem 2rem;
@@ -17,15 +15,15 @@
     gap: 2rem;
     width: 100%;
     max-width: 1200px;
-    flex-wrap: nowrap; /* **FIX:** Prevent cards from wrapping to the next line */
+    flex-wrap: wrap; 
 }
 
 .teaser-panel {
-    flex: 1 1 0; /* **FIX:** Allow flex-grow, but set basis to 0 to respect container width */
+    flex: 1 1 300px;
     min-width: 280px;
     max-width: 380px;
     padding: 2.5rem 2rem;
-    background: linear-gradient(145deg, var(--bg-lighter), var(--bg-light));
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
     border-radius: 12px;
     text-decoration: none;
     color: var(--theme-text-primary);
@@ -38,11 +36,11 @@
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
 }
 
-    .teaser-panel:hover {
-        transform: translateY(-10px);
-        border-color: var(--panel-accent-color);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 20px -5px var(--panel-accent-color);
-    }
+.teaser-panel:hover {
+    transform: translateY(-10px);
+    border-color: var(--panel-accent-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 20px -5px var(--panel-accent-color);
+}
 
 .panel-icon {
     font-size: 3.5rem;
@@ -83,8 +81,6 @@
 
     .teaser-panels-container {
         gap: 1.5rem;
-        /* Allow wrapping on smaller screens */
-        flex-wrap: wrap;
     }
 }
 
@@ -94,12 +90,27 @@
     }
 
     .teaser-panels-container {
-        flex-direction: column;
-        align-items: center;
+        /* side-by-side layout on mobile */
+        flex-direction: row;
+        flex-wrap: nowrap; /* Prevent wrapping on mobile to force sizing */
+        gap: 0.75rem;
     }
 
     .teaser-panel {
-        max-width: 450px;
-        width: 90%;
+        /* Simplify panel for mobile view */
+        flex: 1; /* Allow panels to share space equally */
+        min-width: 0; /* Allow panels to shrink */
+        padding: 1.5rem 0.5rem;
+    }
+
+    .panel-icon,
+    .panel-description {
+        /* Hide elements to save space */
+        display: none;
+    }
+
+    .panel-title {
+        font-size: 1rem;
+        margin: 0;
     }
 }

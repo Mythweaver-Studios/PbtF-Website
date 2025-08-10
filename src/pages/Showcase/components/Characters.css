@@ -21,13 +21,9 @@
     padding: 2rem;
     background-color: rgba(15, 12, 10, 0.5);
     border-radius: 10px;
-    border: 1px solid var(--border-color-gold);
+    border: 1px solid var(--theme-border-gold);
     box-shadow: 0 0 40px -10px var(--character-accent-color, rgba(241, 196, 15, 0.3)), inset 0 0 20px rgba(0, 0, 0, 0.3);
 }
-
-    .character-display.fading {
-        opacity: 0;
-    }
 
 /* --- Character Card --- */
 .character-image-card {
@@ -36,7 +32,7 @@
     max-height: 450px;
     margin-right: 3rem;
     flex-shrink: 0;
-    border: 2px solid var(--border-color-gold);
+    border: 2px solid var(--theme-border-gold);
     border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.25);
     padding: 1rem;
@@ -56,18 +52,18 @@
 
 .character-display .character-info {
     max-width: 55%;
-    color: var(--text-color-primary);
+    color: var(--theme-text-primary);
     display: flex;
     flex-direction: column;
 }
 
-    .character-display .character-info h3 {
-        font-family: 'EternalFont', sans-serif;
-        font-size: 2.6rem;
-        color: var(--text-color-titles);
-        margin-bottom: 0.5rem;
-        text-shadow: 0 0 6px var(--character-accent-color, transparent);
-    }
+.character-display .character-info h3 {
+    font-family: 'EternalFont', sans-serif;
+    font-size: 2.6rem;
+    color: var(--theme-text-titles);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 6px var(--character-accent-color, transparent);
+}
 
 .character-title-wrapper {
     position: relative;
@@ -212,10 +208,6 @@
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 992px) {
-    .characters-content-wrapper {
-        gap: 1.5rem;
-    }
-
     .character-display {
         flex-direction: column;
         min-height: auto;
@@ -245,15 +237,14 @@
         transform: translateX(-50%);
     }
 
-        .view-all-chars-btn:hover {
-            transform: translateX(-50%) translateY(-2px);
-        }
+    .view-all-chars-btn:hover {
+        transform: translateX(-50%) translateY(-2px);
+    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .character-image-card {
-        max-width: 65%;
-        max-height: 320px;
+        max-width: 85%;
     }
 
     .character-display .character-info h3 {

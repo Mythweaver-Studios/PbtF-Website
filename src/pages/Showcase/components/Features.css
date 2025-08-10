@@ -19,12 +19,11 @@
     align-items: center;
 }
 
-/* Wrapper for the slideshow box and its side arrows */
 .features-slideshow-wrapper {
     width: 100%;
-    max-width: 1070px; /* Accommodates slideshow (950px) + arrows & margins */
+    max-width: 1070px;
     display: flex;
-    align-items: center; /* Vertically aligns arrows with the slideshow box */
+    align-items: center;
     justify-content: center;
     position: relative;
 }

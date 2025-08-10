@@ -1,5 +1,3 @@
-/* src/pages/Home/Home.css */
-
 /* --- Font Definition --- */
 @font-face {
     font-family: 'EternalFont';
@@ -7,8 +5,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
-/* The .home-header class has been REMOVED from this file */
 
 .home-content-wrapper {
     flex: 1;
@@ -30,24 +26,23 @@
     text-shadow: 0 0 10px rgba(241, 196, 15, 0.3), 0 0 15px rgba(241, 196, 15, 0.2);
 }
 
-    .section-title::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 2.5px;
-        background: linear-gradient(90deg, transparent, var(--theme-highlight-gold, #f1c40f), var(--theme-text-accent-red, #c0392b), var(--theme-highlight-gold, #f1c40f), transparent);
-        border-radius: 1.5px;
-        box-shadow: 0 0 8px #f1c40f, 0 0 12px #f1c40f;
-    }
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2.5px;
+    background: linear-gradient(90deg, transparent, var(--theme-highlight-gold, #f1c40f), var(--theme-text-accent-red, #c0392b), var(--theme-highlight-gold, #f1c40f), transparent);
+    border-radius: 1.5px;
+    box-shadow: 0 0 8px #f1c40f, 0 0 12px #f1c40f;
+}
 
 .home-main-content {
     display: flex;
     align-items: center;
     position: relative;
-    z-index: 5;
     padding: 3rem 3.5rem;
     min-height: calc(80vh - 70px);
 }
@@ -55,19 +50,18 @@
 .content-left {
     flex-basis: 55%;
     max-width: 700px;
-    z-index: 5;
     color: var(--theme-text-primary, #e0c9a6);
 }
 
-    .content-left h1 {
-        font-family: 'EternalFont', 'Georgia', serif;
-        font-size: 4rem;
-        margin-bottom: 1.2rem;
-        font-weight: normal;
-        color: var(--theme-text-titles, #ffd700);
-        letter-spacing: 1.5px;
-        text-shadow: 0 0 15px rgba(241, 196, 15, 0.3), 0 0 20px rgba(241, 196, 15, 0.2);
-    }
+.content-left h1 {
+    font-family: 'EternalFont', 'Georgia', serif;
+    font-size: 4rem;
+    margin-bottom: 1.2rem;
+    font-weight: normal;
+    color: var(--theme-text-titles, #ffd700);
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 15px rgba(241, 196, 15, 0.3), 0 0 20px rgba(241, 196, 15, 0.2);
+}
 
     .content-left p {
         font-size: 1.05rem;
@@ -80,7 +74,6 @@
         .content-left p.game-pitch {
             font-family: 'Georgia', serif;
             font-size: 1.1rem;
-            color: var(--theme-text-primary, #e0c9a6);
         }
 
             .content-left p.game-pitch strong {
@@ -92,6 +85,9 @@
     flex-basis: 45%;
     height: 100%;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .action-buttons {
@@ -108,91 +104,21 @@
     width: 100%;
 }
 
-.btn {
-    padding: 0.8rem 1.7rem;
-    border: 2px solid transparent;
-    border-radius: 30px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transition: all 0.25s ease-in-out;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex: 0 1 auto;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-    text-decoration: none;
-}
-
-    .btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
-    }
-
-.btn-primary {
-    background-color: var(--theme-highlight-red, #e74c3c);
-    color: #ffffff;
-    border-color: var(--theme-highlight-red, #e74c3c);
-    flex-grow: 1;
-    min-width: 0;
-}
-
-    .btn-primary:hover {
-        background-color: #cf392a;
-        border-color: #cf392a;
-        box-shadow: 0 6px 15px rgba(207, 57, 42, 0.4);
-    }
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--theme-highlight-gold, #f1c40f);
-    border-color: var(--theme-highlight-gold, #f1c40f);
-    flex-grow: 1;
-    min-width: 0;
-}
-
-    .btn-secondary:hover {
-        background-color: rgba(241, 196, 15, 0.15);
-        color: #f4d03f;
-        border-color: #f4d03f;
-        box-shadow: 0 6px 15px rgba(241, 196, 15, 0.2);
-    }
-
-.btn-tertiary {
-    background-color: transparent;
-    color: var(--theme-text-primary, #e0c9a6);
-    border-color: var(--theme-border-gold, rgba(207, 181, 130, 0.4));
-    width: 100%;
-    flex-grow: 0;
-}
-
-    .btn-tertiary:hover {
-        background-color: rgba(224, 201, 166, 0.1);
-        color: var(--theme-text-titles, #ffd700);
-        border-color: var(--theme-text-primary, #e0c9a6);
-        box-shadow: 0 6px 15px rgba(224, 201, 166, 0.15);
-    }
-
-.btn.btn-disabled {
-    opacity: 0.5;
-    pointer-events: none;
-    cursor: not-allowed;
-}
-
 /* --- Responsive Adjustments --- */
-/* Media queries remain unchanged */
 @media (max-width: 992px) {
-    .section-title {
-        font-size: 2.4rem;
-        margin-bottom: 2rem;
+    .home-main-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding: 2rem;
+        min-height: auto;
     }
 
-    .home-main-content {
-        padding: 2rem;
-        min-height: calc(70vh - 60px);
+    .content-left {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .content-left h1 {
@@ -201,62 +127,37 @@
 }
 
 @media (max-width: 768px) {
-    .section-title {
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
-    }
-
     .home-main-content {
         padding: 1.5rem;
-        min-height: auto;
     }
-
+    .home-main-content .content-left h1 {
+        display: none;
+    }
     .content-left h1 {
         font-size: 2.8rem;
     }
 
     .content-left p {
         font-size: 0.95rem;
-    }
-
-        .content-left p.game-pitch {
-            font-size: 1rem;
-        }
-
-    .btn {
-        padding: 0.7rem 1.4rem;
-        font-size: 0.9rem;
+        max-width: 100%;
     }
 }
 
 @media (max-width: 480px) {
-    .section-title {
-        font-size: 1.8rem;
-    }
-
     .home-main-content {
         padding: 1rem;
     }
-
     .content-left h1 {
         font-size: 2.2rem;
     }
-
     .content-left p {
         font-size: 0.85rem;
-        margin-bottom: 1.5rem;
     }
-
-        .content-left p.game-pitch {
-            font-size: 0.9rem;
-        }
-
     .action-buttons {
-        max-width: 100%;
+        width: 100%;
+        max-width: none;
     }
-
-        .action-buttons .button-row-top {
-            flex-direction: column;
-            gap: 0.5rem;
-        }
+    .button-row-top {
+        flex-direction: column;
+    }
 }

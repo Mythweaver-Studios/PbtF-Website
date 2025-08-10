@@ -8,52 +8,38 @@ function FloatingSword() {
     return (
         <motion.div
             className="floating-sword-container"
-            // Define the new, multi-stage keyframe animation sequence
             animate={{
-                // Y-axis (Vertical Movement)
+                // Vertical Levitation (y-axis)
                 y: [
-                    "-15px", // 0% - Start levitation up
-                    "15px",  // 20% - Levitation bottom
-                    "-15px", // 40% - Levitation top
-                    "0px",   // 50% - Settle at center before slash
-                    "-30px", // 60% - Top of circular slash path
-                    "50px",  // 70% - Bottom of circular slash path
-                    "-30px", // 80% - Top of circular slash path again
-                    "0px",   // 90% - Return to center for spin
-                    "-15px", // 100% - Begin next levitation loop seamlessly
+                    "0px",   // Start at center
+                    "-20px", // Float up
+                    "0px",   // Return to center for spin
+                    "0px",   // Hold center during spin
+                    "0px",   // Hold center during spin
+                    "0px",   // Hold center during spin
+                    "20px",  // Float down
+                    "0px",   // Return to center to loop
                 ],
-                // X-axis (Horizontal Movement)
-                x: [
-                    "0px",   // Levitation is purely vertical
-                    "0px",
-                    "0px",
-                    "0px",   // Settle
-                    "50px",  // 60% - Right side of circular slash
-                    "0px",   // 70% - Bottom center of circular slash
-                    "-50px", // 80% - Left side of circular slash
-                    "0px",   // 90% - Return to center
-                    "0px",
-                ],
-                // Z-axis Rotation (Blade Orientation)
+                
+                // Z-axis Spin (rotate)
                 rotate: [
-                    0,       // Levitation
-                    0,
-                    0,
-                    0,       // Settle
-                    45,      // 60% - Blade points down-right as it moves right
-                    180,     // 70% - Blade points up as it hits the bottom
-                    315,     // 80% - Blade points down-left as it moves left
-                    360,     // 90% - Completes the spin back at center
-                    360,     // 100% - Hold rotation for a seamless loop
+                    0,       // Start, no rotation
+                    0,       // No rotation during levitation
+                    0,       // Spin begins
+                    90,      // Easing In: First 90 degrees are slow
+                    990,     // The "Whip": Next 900 degrees are extremely fast
+                    1080,    // Easing Out: Final 90 degrees are slow (3 full rotations)
+                    1080,    // Hold rotation during levitation
+                    1080,    // End of loop (1080 is a multiple of 360, so it loops seamlessly with 0)
                 ],
             }}
-            // Configure the transition properties for the entire sequence
             transition={{
-                duration: 12, // Total duration for one full loop
+                duration: 10, // A 10-second loop feels substantial
                 ease: "easeInOut",
                 repeat: Infinity,
-                // The `times` array maps each value above to a point in the duration.
-                times: [0, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+                // The 'times' array is the key to the custom pacing.
+                // Note how the spin (from 0.4 to 0.6) is broken into three distinct phases.
+                times: [0, 0.2, 0.4, 0.45, 0.55, 0.6, 0.8, 1],
             }}
         >
             <img src={HeroSword} alt="Floating Sword" className="hero-sword-image" />
