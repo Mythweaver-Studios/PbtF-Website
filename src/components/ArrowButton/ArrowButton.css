@@ -1,0 +1,35 @@
+/* --- Reusable Arrow Button Styles --- */
+.arrow-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(20, 18, 17, 0.7);
+    border: 1px solid var(--theme-border-gold-faint);
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.arrow-button:hover {
+    background-color: rgba(30, 28, 27, 0.9);
+    border-color: var(--theme-highlight-gold);
+    transform: scale(1.05);
+}
+
+.arrow-button:active {
+    transform: scale(0.95);
+}
+
+.arrow-button img {
+    width: 14px;
+    height: 14px;
+    filter: invert(85%) sepia(25%) saturate(469%) hue-rotate(345deg) brightness(91%) contrast(87%);
+    transition: filter 0.2s ease-in-out;
+}
+
+.arrow-button:hover img {
+    filter: invert(87%) sepia(31%) saturate(2229%) hue-rotate(345deg) brightness(108%) contrast(102%);
+}

@@ -5,13 +5,12 @@ import { Link } from "react-router-dom";
 import "./Characters.css";
 import VoiceLinePlayer from "../../../components/VoiceLinePlayer/VoiceLinePlayer";
 import VoiceActorCredit from "../../../components/VoiceActorCredit/VoiceActorCredit";
+import ArrowButton from "../../../components/ArrowButton/ArrowButton";
 
 function CharactersSection({ charactersData }) {
     const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);
     const [isCharacterFading, setIsCharacterFading] = useState(false);
-
     const [animationKey, setAnimationKey] = useState(0);
-
     const characterTimeoutRef = useRef(null);
     const indexRef = useRef(currentCharacterIndex);
 
@@ -24,8 +23,18 @@ function CharactersSection({ charactersData }) {
         setTimeout(() => {
             setCurrentCharacterIndex(newIndex);
             setIsCharacterFading(false);
-            setAnimationKey(prevKey => prevKey + 1); // Reset animation on character change
+            setAnimationKey(prevKey => prevKey + 1);
         }, 300);
+    };
+    
+    const nextCharacter = () => {
+        const newIndex = (currentCharacterIndex + 1) % 3;
+        selectCharacter(newIndex);
+    };
+    
+    const previousCharacter = () => {
+        const newIndex = (currentCharacterIndex - 1 + 3) % 3;
+        selectCharacter(newIndex);
     };
 
     const selectCharacter = (index) => {
@@ -35,28 +44,25 @@ function CharactersSection({ charactersData }) {
     };
 
     const handleVoicelinePlay = () => {
-        // Reset the timer and progress bar animation by changing the key
         setAnimationKey(prevKey => prevKey + 1);
     };
 
     useEffect(() => {
         clearTimeout(characterTimeoutRef.current);
         if (charactersData && charactersData.length > 1) {
-            // The 15s countdown for auto-cycling
             characterTimeoutRef.current = setTimeout(() => {
                 const newIndex = (indexRef.current + 1) % 3;
                 changeCharacter(newIndex);
-            }, 15000 + 5000); // Total duration is 15s animation + 5s delay
+            }, 15000 + 5000);
         }
         return () => clearTimeout(characterTimeoutRef.current);
-    }, [animationKey, charactersData]); // animationKey resets the effect
+    }, [animationKey, charactersData]);
 
     if (!charactersData || charactersData.length === 0) {
         return <div className="characters-content-wrapper">Loading characters...</div>;
     }
 
     const currentCharacter = charactersData[currentCharacterIndex];
-
     const { maxWidth: characterMaxWidth, ...showcaseSpecificStyles } = currentCharacter.showcaseStyles || {};
     const cardInlineStyles = characterMaxWidth ? { maxWidth: characterMaxWidth } : {};
 
@@ -67,61 +73,32 @@ function CharactersSection({ charactersData }) {
                 style={{ "--character-accent-color": currentCharacter.accentColor }}
             >
                 <div className="character-image-card" style={cardInlineStyles}>
-                    <img
-                        src={currentCharacter.image || "../../../assets/images/placeholders/character_large.png"}
-                        alt={currentCharacter.name}
-                        className="character-main-image"
-                        style={showcaseSpecificStyles}
-                    />
+                    <img src={currentCharacter.image || "../../../assets/images/placeholders/character_large.png"} alt={currentCharacter.name} className="character-main-image" style={showcaseSpecificStyles} />
                 </div>
                 <div className="character-info">
                     <h3>{currentCharacter.name}</h3>
                     <div className="character-title-wrapper">
                         <h4>{currentCharacter.title}</h4>
-                        {charactersData.length > 1 && (
-                            <div
-                                className="character-cycle-progress-bar"
-                                key={animationKey} // The key is crucial for resetting the animation
-                                style={{ animationDuration: '15s' }} // Static duration
-                            ></div>
-                        )}
+                        {charactersData.length > 1 && (<div className="character-cycle-progress-bar" key={animationKey} style={{ animationDuration: '15s' }}></div>)}
                     </div>
                     <p>{currentCharacter.description}</p>
-                    {currentCharacter.hasVoiceLines && (
-                        <div onClick={handleVoicelinePlay}>
-                            <VoiceLinePlayer
-                                voiceLines={currentCharacter.voiceLines}
-                                accentColor={currentCharacter.accentColor}
-                                mode="simple"
-                            />
-                        </div>
-                    )}
-                    {currentCharacter.voiceActor && (
-                        <VoiceActorCredit
-                            name={currentCharacter.voiceActor.name}
-                            url={currentCharacter.voiceActor.url}
-                            className="showcase-va-credit"
-                        />
-                    )}
+                    {currentCharacter.hasVoiceLines && (<div onClick={handleVoicelinePlay}><VoiceLinePlayer voiceLines={currentCharacter.voiceLines} accentColor={currentCharacter.accentColor} mode="simple" /></div>)}
+                    {currentCharacter.voiceActor && (<VoiceActorCredit name={currentCharacter.voiceActor.name} url={currentCharacter.voiceActor.url} className="showcase-va-credit" />)}
+                    <Link to="/characterlist" className="view-all-chars-btn">View All</Link>
                 </div>
-                <Link to="/characterlist" className="view-all-chars-btn">
-                    View All Characters
-                </Link>
             </div>
-            {charactersData.length > 1 && (
-                <div className="character-thumbnails">
-                    {charactersData.slice(0, 3).map((char, index) => (
-                        <div
-                            key={char.id}
-                            className={`thumbnail-item ${index === currentCharacterIndex ? "active" : ""}`}
-                            onClick={() => selectCharacter(index)}
-                        >
-                            <img src={char.thumbnail || "../../../assets/images/placeholders/thumb.png"} alt={char.name} />
-                            <span>{char.name}</span>
-                        </div>
-                    ))}
+
+            <div className="character-thumbnails">
+                {charactersData.slice(0, 3).map((char, index) => (<div key={char.id} className={`thumbnail-item ${index === currentCharacterIndex ? "active" : ""}`} onClick={() => selectCharacter(index)}><img src={char.thumbnail || "../../../assets/images/placeholders/thumb.png"} alt={char.name} /><span>{char.name}</span></div>))}
+            </div>
+
+            <div className="character-nav-controls">
+                <ArrowButton onClick={previousCharacter} direction="left" />
+                <div className="character-dots">
+                    {charactersData.slice(0, 3).map((char, index) => (<button key={char.id} className={`dot ${index === currentCharacterIndex ? "active" : ""}`} onClick={() => selectCharacter(index)} aria-label={`Select character ${char.name}`} />))}
                 </div>
-            )}
+                <ArrowButton onClick={nextCharacter} direction="right" />
+            </div>
         </div>
     );
 }
