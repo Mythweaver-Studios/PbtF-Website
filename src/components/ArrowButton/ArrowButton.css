@@ -1,4 +1,3 @@
-/* --- Reusable Arrow Button Styles --- */
 .arrow-button {
     display: flex;
     justify-content: center;
@@ -17,10 +16,6 @@
     background-color: rgba(30, 28, 27, 0.9);
     border-color: var(--theme-highlight-gold);
     transform: scale(1.05);
-}
-
-.arrow-button:active {
-    transform: scale(0.95);
 }
 
 .arrow-button img {

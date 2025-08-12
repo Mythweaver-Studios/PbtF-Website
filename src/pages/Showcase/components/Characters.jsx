@@ -84,7 +84,7 @@ function CharactersSection({ charactersData }) {
                     <p>{currentCharacter.description}</p>
                     {currentCharacter.hasVoiceLines && (<div onClick={handleVoicelinePlay}><VoiceLinePlayer voiceLines={currentCharacter.voiceLines} accentColor={currentCharacter.accentColor} mode="simple" /></div>)}
                     {currentCharacter.voiceActor && (<VoiceActorCredit name={currentCharacter.voiceActor.name} url={currentCharacter.voiceActor.url} className="showcase-va-credit" />)}
-                    <Link to="/characterlist" className="view-all-chars-btn">View All</Link>
+                    <Link to="/characterlist" className="view-all-chars-btn">View Champions</Link>
                 </div>
             </div>
 

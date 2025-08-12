@@ -7,8 +7,12 @@ import Character2Img from "../../../assets/images/characters/yanyan_full.png";
 import Character2Thumb from "../../../assets/images/characters/yanyan_thumb.png";
 import Character3Img from "../../../assets/images/characters/benedict_full.png";
 import Character3Thumb from "../../../assets/images/characters/benedict_thumb.png";
+import Character4Img from "../../../assets/images/characters/oriane_full.png";
+import Character4Thumb from "../../../assets/images/characters/oriane_thumb.png";
 import Character5Img from "../../../assets/images/characters/alzarich_full.png";
 import Character5Thumb from "../../../assets/images/characters/alzarich_thumb.png";
+import Character10Img from "../../../assets/images/characters/seralyth_full.png";
+import Character10Thumb from "../../../assets/images/characters/seralyth_thumb.png";
 
 import voicelineManifest from '../../../assets/audio/voiceline-manifest.json';
 
@@ -164,8 +168,8 @@ export const charactersData = [
         description: "The identity and purpose of this individual are yet to be revealed.",
         longDescription: "[[Further details about this enigmatic figure are shrouded in mystery, waiting to be unveiled.]]",
         appearanceDescription: "A celestial being with angelic wings and a halo, both appearing to be made of living flame. She has long, wavy white hair that transitions into fire at the ends. Her eyes are a warm, glowing orange. She wears an elegant, form-fitting white dress with gold trim and a plunging neckline, which dissolves into a fiery red gradient at the hem.",
-        image: null,
-        thumbnail: null,
+        image: Character4Img,
+        thumbnail: Character4Thumb,
         accentColor: "#ff7b00",
         tier: 6, // Mythic
         statsBlurred: true,
@@ -204,8 +208,8 @@ export const charactersData = [
         description: "The identity and purpose of this individual are yet to be revealed.",
         longDescription: "[[Further details about this enigmatic figure are shrouded in mystery, waiting to be unveiled.]]",
         appearanceDescription: "An elegant woman with serene blue eyes and light blue hair styled in a bob, with a longer section tied back. A distinctive tattoo marks her face below her left eye. She is dressed in a sophisticated white robe with deep blue and gold lining, featuring a high collar and a large celestial crest on the back.",
-        image: null,
-        thumbnail: null,
+        image: Character10Img,
+        thumbnail: Character10Thumb,
         accentColor: "#00b5ad",
         tier: 6, // Mythic
         statsBlurred: true,
@@ -273,6 +277,26 @@ export const charactersData = [
         thumbnail: null,
         accentColor: "#7e57c2",
         tier: 4, // Epic
+        statsBlurred: true,
+        stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 },
+        hasVoiceLines: false,
+    },
+        {
+        id: 10,
+        name: "Sylvia Bloodfallen",
+        fullName: "Unknown",
+        title: "???",
+        class: "Unknown",
+        species: "Unknown",
+        gender: "Female",
+        world: "Unknown",
+        description: "The identity and purpose of this individual are yet to be revealed.",
+        longDescription: "[[Further details about this enigmatic figure are shrouded in mystery, waiting to be unveiled.]]",
+        appearanceDescription: "Unknown",
+        image: null,
+        thumbnail: null,
+        accentColor: "#ff7a7aff",
+        tier: 5, // Legendary
         statsBlurred: true,
         stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 },
         hasVoiceLines: false,
