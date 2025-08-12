@@ -48,11 +48,15 @@ const VOICELINE_DATA = {
             timedQuote: [{ "word": "When", "duration": 321 }, { "word": "did", "duration": 179 }, { "word": "monsters", "duration": 614 }, { "word": "become", "duration": 487 }, { "word": "this", "duration": 372 }, { "word": "weak", "duration": 522 }],
         }
     },
-    
+
     sylvia: {
         "YouThinkThisIsEnoughToStopMe.wav": {
             quote: "You think this is enough to stop me?!",
             timedQuote: [{"word":"You","duration":492},{"word":"think","duration":591},{"word":"this","duration":145},{"word":"is","duration":208},{"word":"enough","duration":398},{"word":"to","duration":174},{"word":"stop","duration":423},{"word":"me","duration":378}],
+        },
+        "DoYouThinkSheWillLikeThis.wav": {
+            quote: "Do you think she'll like this?",
+            timedQuote: [{"word":"Do","duration":589},{"word":"you","duration":166},{"word":"think","duration":339},{"word":"she'll","duration":205},{"word":"like","duration":272},{"word":"this","duration":851}],
         }
     }
 };
@@ -119,7 +123,7 @@ export const charactersData = [
     {
         id: 2,
         name: "YanYan",
-        showcased: true,
+        showcased: false,
         fullName: "YanYan, Blade of the Azure",
         title: "The Azure Tempest",
         class: "Unknown",
