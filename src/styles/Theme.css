@@ -30,6 +30,8 @@ a {
 img {
     max-width: 100%;
     display: block;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 /* --- 2. Global Button Styles (Moved from Home.css) --- */

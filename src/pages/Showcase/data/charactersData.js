@@ -3,11 +3,11 @@
 // Image imports
 import Character1Img from "../../../assets/images/characters/noire_full.png";
 import Character1Thumb from "../../../assets/images/characters/noire_thumb.png";
-import Character2Img from "../../../assets/images/characters/yanyan_full.png";
-import Character2Thumb from "../../../assets/images/characters/yanyan_thumb.png";
+// import Character2Img from "../../../assets/images/characters/yanyan_full.png";
+// import Character2Thumb from "../../../assets/images/characters/yanyan_thumb.png";
 import Character3Img from "../../../assets/images/characters/benedict_full.png";
 import Character3Thumb from "../../../assets/images/characters/benedict_thumb.png";
-import Character4Img from "../../../assets/images/characters/oriane_full.png";
+import Character4Img from "../../../assets/images/characters/oriane_full2.png";
 import Character4Thumb from "../../../assets/images/characters/oriane_thumb.png";
 import Character5Img from "../../../assets/images/characters/alzarich_full.png";
 import Character5Thumb from "../../../assets/images/characters/alzarich_thumb.png";
@@ -100,7 +100,7 @@ export const charactersData = [
             transform: 'scale(1.1) translateY(18px)',
         },
         modalStyles: {
-            transform: 'scale(1.35) translateY(-12px)',
+            transform: 'scale(1.45) translateY(5px)',
         },
         stats: { Strength: 4, Intelligence: 3, HP: 2, Dexterity: 5, Mana: 1 },
         hasVoiceLines: false,
@@ -117,8 +117,8 @@ export const charactersData = [
         description:
             "A master of elemental sword arts who strikes like a storm. Once a disciple of a legendary order, she now walks a solitary path as a relic diver, seeking the power to challenge fate itself.",
         longDescription: `Swift as a crashing wave and sharp as lightning's edge, Yanyan is a master of the elemental sword arts, a relentless duelist who moves like water and strikes like a storm. A former disciple of a legendary order, she now walks her own path as a relic diver, chasing echoes of forgotten worlds and impossible truths.\n\nQuiet, focused, and driven by something she never speaks of, Yanyan carries more than just a blade. She seeks not only ancient power, but a way to challenge the very currents of fate.`,
-        image: Character2Img,
-        thumbnail: Character2Thumb,
+        image: null,
+        thumbnail: null,
         accentColor: "#d3e5fe",
         tier: 3, // Rare
         specialEffect: 'water',
@@ -192,6 +192,9 @@ export const charactersData = [
         thumbnail: Character5Thumb,
         accentColor: "#6a0dad",
         tier: 7, // Empyrean
+        modalStyles: {
+            transform: 'scale(1.15) translateY(12px)',
+        },
         statsBlurred: true,
         stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 },
         hasVoiceLines: false,
@@ -219,6 +222,10 @@ export const charactersData = [
         voiceActor: {
             name: "Sullivan Clare Williams",
             url: "https://www.castingcall.club/Sullivanwilliams",
+        },
+        gridCardStyles: {
+            transform: 'scale(1.2)',
+            objectPosition: '50% 20%', // Focus more on the upper part of the image
         },
     },
     {
