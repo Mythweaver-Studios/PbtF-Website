@@ -5,7 +5,6 @@ import ShowcaseTeaser from "./components/ShowcaseTeaser";
 import FloatingSword from "./animations/FloatingSword";
 import "./Home.css";
 
-// This logic remains, as it's specific to the Home page's sections.
 const homeSections = [
     { id: "hero", title: "Top" },
     { id: "news-teaser", title: "News" },

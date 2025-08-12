@@ -1,7 +1,7 @@
 // src/pages/Showcase/components/Features.jsx
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import ArrowButton from "../../../components/ArrowButton/ArrowButton";
+import ArrowButton from "../../../components/ui/ArrowButton/ArrowButton";
 import "./Features.css";
 
 const FEATURE_SLIDE_DURATION = 18500;

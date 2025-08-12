@@ -1,0 +1,15 @@
+.glowing-quote {
+    font-style: italic;
+    color: var(--theme-text-primary);
+}
+
+    /* Base style for each word span */
+    .glowing-quote span {
+        transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+    }
+
+        /* The class that applies the glow effect */
+        .glowing-quote span.glow {
+            color: var(--accent-color, #ffd700);
+            text-shadow: 0 0 8px var(--accent-color, #ffd700);
+        }

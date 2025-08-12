@@ -3,9 +3,9 @@ import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./Characters.css";
-import VoiceLinePlayer from "../../../components/VoiceLinePlayer/VoiceLinePlayer";
-import VoiceActorCredit from "../../../components/VoiceActorCredit/VoiceActorCredit";
-import ArrowButton from "../../../components/ArrowButton/ArrowButton";
+import VoiceLinePlayer from "../../../components/features/VoiceLinePlayer/VoiceLinePlayer";
+import VoiceActorCredit from "../../../components/ui/VoiceActorCredit/VoiceActorCredit";
+import ArrowButton from "../../../components/ui/ArrowButton/ArrowButton";
 
 function CharactersSection({ charactersData }) {
     const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);

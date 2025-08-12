@@ -1,0 +1,30 @@
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-trigger {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px); /* Position below the trigger with a small gap */
+    left: 0;
+    min-width: 220px;
+    background-color: var(--theme-dropdown-bg);
+    border: 1px solid var(--theme-dropdown-border);
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+    padding: 0.5rem 0;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+    /* This targets the UL inside NavBar that will be passed as children */
+    .dropdown-menu > ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }

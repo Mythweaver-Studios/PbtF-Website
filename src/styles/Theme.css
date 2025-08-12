@@ -34,7 +34,7 @@ img {
     -webkit-user-drag: none;
 }
 
-/* --- 2. Global Button Styles (Moved from Home.css) --- */
+/* --- 2. Global Button Styles --- */
 .btn {
     padding: 0.8rem 1.7rem;
     border: 2px solid transparent;
@@ -139,6 +139,6 @@ img {
 }
 
 /* --- 3. Centralized Component Style Imports --- */
-@import '../components/NavBar/NavBar.css';
-@import '../components/Footer/Footer.css';
-@import '../components/ArrowButton/ArrowButton.css';
+@import '../components/layout/NavBar/NavBar.css';
+@import '../components/layout/Footer/Footer.css';
+@import '../components/ui/ArrowButton/ArrowButton.css';

@@ -1,0 +1,31 @@
+.error-boundary-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--theme-text-primary);
+    text-align: center;
+    padding: 2rem;
+}
+
+.error-boundary-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 50ch;
+}
+
+.error-boundary-title {
+    font-family: 'EternalFont', 'Georgia', serif;
+    font-size: 3rem;
+    color: var(--theme-highlight-red);
+    text-shadow: 0 0 8px var(--theme-highlight-red);
+}
+
+.error-boundary-message {
+    font-size: 1.1rem;
+    color: var(--theme-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}

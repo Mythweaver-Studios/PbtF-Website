@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import "./CharacterDetailModal.css";
 import { TIER_DATA } from "../../../../utils/tierData";
 import CharacterEffects from "../CharacterEffects/CharacterEffects";
-import VoiceLinePlayer from "../../../../components/VoiceLinePlayer/VoiceLinePlayer";
-import VoiceActorCredit from "../../../../components/VoiceActorCredit/VoiceActorCredit";
+import VoiceLinePlayer from "../../../../components/features/VoiceLinePlayer/VoiceLinePlayer";
+import VoiceActorCredit from "../../../../components/ui/VoiceActorCredit/VoiceActorCredit";
 
 // Helper to render stat bars
 const StatBar = ({ value }) => (

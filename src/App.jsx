@@ -1,10 +1,10 @@
 // src/App.jsx
 import React, { useState, useEffect, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
-import CookieBanner from "./components/CookieBanner/CookieBanner";
-import CookieSettingsModal from "./components/CookieSettingsModal/CookieSettingsModal";
-import MainLayout from "./components/MainLayout/MainLayout"; // Import the layout
+import ErrorBoundary from "./components/ui/ErrorBoundary/ErrorBoundary";
+import CookieBanner from "./components/features/CookieBanner/CookieBanner";
+import CookieSettingsModal from "./components/features/CookieSettingsModal/CookieSettingsModal";
+import MainLayout from "./components/layout/MainLayout/MainLayout"; // Import the layout
 import * as CookieService from "./services/CookieService";
 
 // Implement Code-Splitting using React.lazy
