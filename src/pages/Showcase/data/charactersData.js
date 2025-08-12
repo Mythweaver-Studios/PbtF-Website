@@ -3,7 +3,7 @@
 // Image imports
 import Character1Img from "../../../assets/images/characters/noire_full.png";
 import Character1Thumb from "../../../assets/images/characters/noire_thumb.png";
-// import Character2Img from "../../../assets/images/characters/yanyan_full.png";
+import Character2Img from "../../../assets/images/characters/yanyan_full.png";
 // import Character2Thumb from "../../../assets/images/characters/yanyan_thumb.png";
 import Character3Img from "../../../assets/images/characters/benedict_full.png";
 import Character3Thumb from "../../../assets/images/characters/benedict_thumb.png";
@@ -37,6 +37,7 @@ const VOICELINE_DATA = {
             timedQuote: [{ "word": "Draw", "duration": 622 }, { "word": "first", "duration": 517 }, { "word": "if", "duration": 232 }, { "word": "you", "duration": 181 }, { "word": "must", "duration": 512 }, { "word": "but", "duration": 555 }, { "word": "strike", "duration": 412 }, { "word": "last", "duration": 1234 }]
         }
     },
+
     seralyth: {
         "IWouldntReallyCallMyselfAFighter.wav": {
             quote: "Me? I wouldn't really call myself a fighter but, I can turn people around me, into one.",
@@ -46,11 +47,20 @@ const VOICELINE_DATA = {
             quote: "When did monsters become this weak?",
             timedQuote: [{ "word": "When", "duration": 321 }, { "word": "did", "duration": 179 }, { "word": "monsters", "duration": 614 }, { "word": "become", "duration": 487 }, { "word": "this", "duration": 372 }, { "word": "weak", "duration": 522 }],
         }
+    },
+    
+    sylvia: {
+        "YouThinkThisIsEnoughToStopMe.wav": {
+            quote: "You think this is enough to stop me?!",
+            timedQuote: [{"word":"You","duration":492},{"word":"think","duration":591},{"word":"this","duration":145},{"word":"is","duration":208},{"word":"enough","duration":398},{"word":"to","duration":174},{"word":"stop","duration":423},{"word":"me","duration":378}],
+        }
     }
 };
 
-const getVoiceLinesFor = (characterName) => {
-    const charKey = characterName.toLowerCase();
+const getVoiceLinesFor = (voicelineKey) => {
+    if (!voicelineKey) return [];
+    
+    const charKey = voicelineKey.toLowerCase();
     const files = voicelineManifest[charKey] || [];
     const characterData = VOICELINE_DATA[charKey];
 
@@ -82,19 +92,20 @@ export const charactersData = [
     {
         id: 1,
         name: "Noire Three",
+        showcased: true,
         fullName: "Project N-03, 'Noire'",
         title: "Nameless Rose",
         class: "Assassin",
         species: "Horned One (Demon)",
         gender: "Female",
         world: "Unknown",
-        description:
-            "A living weapon forged in darkness, she broke her chains and vanished after claiming her revenge. Her purpose is now her own, a mystery to all who cross her path.",
-        longDescription: `Born into captivity under the Fourfold Circle's black market, she was a nameless child taken from the ruins of forgotten villages. Stripped of identity and forged through relentless training, she was starved of kindness and saturated with violence, honed into a perfect weapon. Her masters carved skill into her bones, obedience into her mind, and death into her hands. Each mission survived reinforced a single truth: she was replaceable, a shadow meant to fight till she broke. In the Circle's cold halls, affection was treason, and failure meant erasure.\n\nBut even a broken blade can turn. Captured after a mission and marked for execution by her masters, she bit through her own hand to escape. Slowly, each of her captors met a gruesome death. Some say she perished after her revenge. Others whispered she joined Echo of a Dream. But no one knows.`,
+        description: "A living weapon forged in darkness, she broke her chains and vanished after claiming her revenge. Her purpose is now her own, a mystery to all who cross her path.",
+        longDescription: `...`,
         image: Character1Img,
+        showcaseImage: Character1Img,
         thumbnail: Character1Thumb,
         accentColor: "#8b9ff2",
-        tier: 4, // Epic
+        tier: 4,
         specialEffect: 'shadow',
         showcaseStyles: {
             transform: 'scale(1.1) translateY(18px)',
@@ -108,19 +119,20 @@ export const charactersData = [
     {
         id: 2,
         name: "YanYan",
+        showcased: true,
         fullName: "YanYan, Blade of the Azure",
         title: "The Azure Tempest",
         class: "Unknown",
         species: "Human",
         gender: "Female",
         world: "Unknown",
-        description:
-            "A master of elemental sword arts who strikes like a storm. Once a disciple of a legendary order, she now walks a solitary path as a relic diver, seeking the power to challenge fate itself.",
-        longDescription: `Swift as a crashing wave and sharp as lightning's edge, Yanyan is a master of the elemental sword arts, a relentless duelist who moves like water and strikes like a storm. A former disciple of a legendary order, she now walks her own path as a relic diver, chasing echoes of forgotten worlds and impossible truths.\n\nQuiet, focused, and driven by something she never speaks of, Yanyan carries more than just a blade. She seeks not only ancient power, but a way to challenge the very currents of fate.`,
-        image: null,
+        description: "A master of elemental sword arts who strikes like a storm. Once a disciple of a legendary order, she now walks a solitary path as a relic diver, seeking the power to challenge fate itself.",
+        longDescription: `...`,
+        image: Character2Img,
+        showcaseImage: null,
         thumbnail: null,
         accentColor: "#d3e5fe",
-        tier: 3, // Rare
+        tier: 3,
         specialEffect: 'water',
         statsBlurred: true,
         showcaseStyles: {
@@ -132,20 +144,22 @@ export const charactersData = [
     {
         id: 3,
         name: "Benedict",
+        showcased: true,
+        voicelineKey: "benedict",
         fullName: "Sir Benedict the Bright",
         title: "Brightblade of Auravell",
         class: "Paladin",
         species: "Human",
         gender: "Male",
         world: "Unknown",
-        description:
-            "A paladin sculpted into a perfect blade, he sacrificed love and peace for duty. Now he walks a solitary path toward a fate he knows he cannot avoid.",
-        longDescription: `Benedict is a warrior born in a crucible of flame, a paladin whose soul has been scoured clean of love, peace, and doubt. Chosen from a young age and raised without compassion, he was sculpted into a perfect blade, a Bright Lord meant to illuminate the world's darkest hours.\n\nUnder his helmet and shimmering armor lies a man who has given up everything in service of his duty. His past is marked by sacrifice and regret, love turned ashes, and comrades fallen by his side. His future promises only a solitary path, a showdown against a fate he cannot avoid.`,
+        description: "A paladin sculpted into a perfect blade, he sacrificed love and peace for duty. Now he walks a solitary path toward a fate he knows he cannot avoid.",
+        longDescription: `...`,
         appearanceDescription: "A holy knight encased in a full suit of immaculate, off-white plate armor with ornate gold trim and blue cloth underneath. His face is completely hidden by a full helm. A large, eight-pointed star is emblazoned on his chestplate, and a halo of light floats behind his head, complemented by a pair of large, radiant golden wings.",
         image: Character3Img,
+        showcaseImage: Character3Img,
         thumbnail: Character3Thumb,
         accentColor: "rgba(255, 255, 0, 0.8)",
-        tier: 5, // Legendary
+        tier: 5,
         specialEffect: 'holyFlame',
         statsBlurred: true,
         stats: { Strength: 4, Intelligence: 2, HP: 5, Dexterity: 1, Mana: 3 },
@@ -159,6 +173,7 @@ export const charactersData = [
     {
         id: 4,
         name: "Oriane",
+        showcased: false,
         fullName: "Unknown",
         title: "???",
         class: "Unknown",
@@ -179,6 +194,7 @@ export const charactersData = [
     {
         id: 5,
         name: "Alzarich",
+        showcased: false,
         fullName: "Unknown",
         title: "???",
         class: "Unknown",
@@ -202,6 +218,8 @@ export const charactersData = [
     {
         id: 6,
         name: "Seralyth",
+        showcased: false,
+        voicelineKey: "seralyth",
         fullName: "Unknown",
         title: "???",
         class: "Unknown",
@@ -231,6 +249,7 @@ export const charactersData = [
     {
         id: 7,
         name: "Valkara",
+        showcased: false,
         fullName: "Unknown",
         title: "???",
         class: "Unknown",
@@ -251,6 +270,7 @@ export const charactersData = [
     {
         id: 8,
         name: "Ragna",
+        showcased: false,
         fullName: "Unknown",
         title: "???",
         class: "Unknown",
@@ -271,6 +291,7 @@ export const charactersData = [
     {
         id: 9,
         name: "Roxan Everblack",
+        showcased: false,
         fullName: "Unknown",
         title: "???",
         class: "Unknown",
@@ -291,6 +312,8 @@ export const charactersData = [
         {
         id: 10,
         name: "Sylvia Bloodfallen",
+        showcased: false,
+        voicelineKey: "sylvia",
         fullName: "Unknown",
         title: "???",
         class: "Unknown",
@@ -299,13 +322,18 @@ export const charactersData = [
         world: "Unknown",
         description: "The identity and purpose of this individual are yet to be revealed.",
         longDescription: "[[Further details about this enigmatic figure are shrouded in mystery, waiting to be unveiled.]]",
-        appearanceDescription: "Unknown",
+        appearanceDescription: "An appearance of unknown origins, yet to be revealed.",
         image: null,
         thumbnail: null,
         accentColor: "#ff7a7aff",
         tier: 5, // Legendary
         statsBlurred: true,
         stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 },
-        hasVoiceLines: false,
+        hasVoiceLines: true,
+        voiceLines: getVoiceLinesFor("sylvia"),
+        voiceActor: {
+            name: "Jennifer Müller",
+            url: "https://www.instagram.com/justjenny.exe/reels/",
+        },
     }
 ];

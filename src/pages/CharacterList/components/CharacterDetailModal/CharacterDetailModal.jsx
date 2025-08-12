@@ -7,7 +7,6 @@ import CharacterEffects from "../CharacterEffects/CharacterEffects";
 import VoiceLinePlayer from "../../../../components/features/VoiceLinePlayer/VoiceLinePlayer";
 import VoiceActorCredit from "../../../../components/ui/VoiceActorCredit/VoiceActorCredit";
 
-// Helper to render stat bars
 const StatBar = ({ value }) => (
     <div className="stat-bar-container">
         {Array.from({ length: 5 }, (_, i) => (
@@ -16,26 +15,17 @@ const StatBar = ({ value }) => (
     </div>
 );
 
-// Helper to render story with blurred parts
 const ParsedStory = ({ text }) => {
     if (!text) return null;
     const parts = text.split(/(\[\[.*?\]\])/g);
-
     return (
         <>
             {parts.map((part, index) => {
                 if (part.startsWith('[[') && part.endsWith(']]')) {
-                    return (
-                        <span key={index} className="blurred-text">
-                            {part.substring(2, part.length - 2)}
-                        </span>
-                    );
+                    return <span key={index} className="blurred-text">{part.substring(2, part.length - 2)}</span>;
                 }
                 return part.split('\n').map((line, lineIndex) => (
-                    <Fragment key={`${index}-${lineIndex}`}>
-                        {line}
-                        {lineIndex < part.split('\n').length - 1 && <br />}
-                    </Fragment>
+                    <Fragment key={`${index}-${lineIndex}`}>{line}{lineIndex < part.split('\n').length - 1 && <br />}</Fragment>
                 ));
             })}
         </>
@@ -49,19 +39,14 @@ function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePr
 
     const handleClose = () => {
         setIsClosing(true);
-        setTimeout(() => {
-            onClose();
-        }, 300);
+        setTimeout(() => onClose(), 300);
     };
 
     const handleNavigation = (direction) => {
         setIsNavigating(true);
         setTimeout(() => {
-            if (direction === "next") {
-                onNavigateNext();
-            } else {
-                onNavigatePrevious();
-            }
+            if (direction === "next") onNavigateNext();
+            else onNavigatePrevious();
         }, 250);
     };
 
@@ -69,17 +54,12 @@ function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePr
         setIsNavigating(false);
     }, [character.id]);
 
-
     useEffect(() => {
         const handleEsc = (event) => {
-            if (event.keyCode === 27) {
-                handleClose();
-            }
+            if (event.keyCode === 27) handleClose();
         };
         window.addEventListener("keydown", handleEsc);
-        return () => {
-            window.removeEventListener("keydown", handleEsc);
-        };
+        return () => window.removeEventListener("keydown", handleEsc);
     }, []);
 
     const renderGenderIcon = (gender) => {
@@ -88,7 +68,7 @@ function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePr
         return null;
     };
 
-    const shouldShowAppearance = !character.image || character.id === 3;
+    const shouldShowAppearance = character.appearanceDescription && (!character.image || character.id === 3);
 
     return (
         <div className={`modal-backdrop ${isClosing ? 'closing' : ''}`} onClick={handleClose}>
@@ -101,12 +81,7 @@ function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePr
                             <p>{character.appearanceDescription}</p>
                         </div>
                     ) : (
-                        <img
-                            src={character.image}
-                            alt={character.name}
-                            className="modal-char-image"
-                            style={character.modalStyles || {}}
-                        />
+                        <img src={character.image} alt={character.name} className="modal-char-image" style={character.modalStyles || {}} />
                     )}
                 </div>
                 <div className="modal-right">
@@ -114,12 +89,7 @@ function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePr
                     <div className={`modal-right-content-wrapper ${isNavigating ? 'navigating' : ''}`}>
                         <div className="modal-title-header">
                             <h2 className="modal-char-name">{character.name} {renderGenderIcon(character.gender)}</h2>
-                            <div
-                                className="modal-char-tier"
-                                style={{ background: tierInfo.color, color: tierInfo.textColor }}
-                            >
-                                {tierInfo.name}
-                            </div>
+                            <div className="modal-char-tier" style={{ background: tierInfo.color, color: tierInfo.textColor }}>{tierInfo.name}</div>
                         </div>
                         <h3 className={`modal-char-title ${character.title.includes("?") ? "blurred-text" : ""}`}>{character.title}</h3>
                         <div className="modal-divider"></div>
@@ -129,57 +99,21 @@ function CharacterDetailModal({ character, onClose, onNavigateNext, onNavigatePr
                             <p><strong>Class:</strong> <span className={character.class.includes("Unknown") ? "blurred-text" : ""}>{character.class}</span></p>
                             <p><strong>World:</strong> <span className={character.world.includes("Unknown") ? "blurred-text" : ""}>{character.world}</span></p>
                         </div>
-                        {character.hasVoiceLines && (
-                            <VoiceLinePlayer
-                                voiceLines={character.voiceLines}
-                                accentColor={character.accentColor}
-                                mode="full"
-                            />
-                        )}
-                        {character.voiceActor && (
-                            <VoiceActorCredit
-                                name={character.voiceActor.name}
-                                url={character.voiceActor.url}
-                                className="modal-va-credit"
-                            />
-                        )}
-                        <div className="modal-char-story">
-                            <p><ParsedStory text={character.longDescription} /></p>
-                        </div>
+                        {character.hasVoiceLines && <VoiceLinePlayer voiceLines={character.voiceLines} accentColor={character.accentColor} mode="full" />}
+                        {character.voiceActor && <VoiceActorCredit name={character.voiceActor.name} url={character.voiceActor.url} className="modal-va-credit" />}
+                        <div className="modal-char-story"><p><ParsedStory text={character.longDescription} /></p></div>
                         <div className="modal-stats-section">
                             <h4 className="modal-section-title">Base Stats</h4>
                             {character.statsBlurred ? (
-                                <div className="modal-stats-grid">
-                                    {Object.keys(character.stats).map((statName) => (
-                                        <div key={statName} className="stat-item">
-                                            <span className="stat-name">{statName}</span>
-                                            <div className="stat-bar-unknown">?</div>
-                                        </div>
-                                    ))}
-                                </div>
+                                <div className="modal-stats-grid">{Object.keys(character.stats).map((statName) => (<div key={statName} className="stat-item"><span className="stat-name">{statName}</span><div className="stat-bar-unknown">?</div></div>))}</div>
                             ) : (
-                                <div className="modal-stats-grid">
-                                    {Object.entries(character.stats).map(([statName, statValue]) => (
-                                        <div key={statName} className="stat-item">
-                                            <span className="stat-name">{statName}</span>
-                                            <StatBar value={statValue} />
-                                        </div>
-                                    ))}
-                                </div>
+                                <div className="modal-stats-grid">{Object.entries(character.stats).map(([statName, statValue]) => (<div key={statName} className="stat-item"><span className="stat-name">{statName}</span><StatBar value={statValue} /></div>))}</div>
                             )}
                         </div>
                         <div className="modal-navigation">
-                            <button className="nav-arrow-button" onClick={() => handleNavigation("prev")} aria-label="Previous Character">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-                                </svg>
-                            </button>
+                            <button className="nav-arrow-button" onClick={() => handleNavigation("prev")} aria-label="Previous Character"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" /></svg></button>
                             <p className="nav-character-name">{character.name.split(' ')[0]}</p>
-                            <button className="nav-arrow-button" onClick={() => handleNavigation("next")} aria-label="Next Character">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-                                </svg>
-                            </button>
+                            <button className="nav-arrow-button" onClick={() => handleNavigation("next")} aria-label="Next Character"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" /></svg></button>
                         </div>
                     </div>
                 </div>

@@ -1,13 +1,15 @@
 ﻿// src/pages/Showcase/components/Characters.jsx
 import React, { useState, useEffect, useRef } from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./Characters.css";
+import { charactersData } from "../data/charactersData";
 import VoiceLinePlayer from "../../../components/features/VoiceLinePlayer/VoiceLinePlayer";
 import VoiceActorCredit from "../../../components/ui/VoiceActorCredit/VoiceActorCredit";
 import ArrowButton from "../../../components/ui/ArrowButton/ArrowButton";
 
-function CharactersSection({ charactersData }) {
+const showcasedCharacters = charactersData.filter(char => char.showcased);
+
+function CharactersSection() {
     const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);
     const [isCharacterFading, setIsCharacterFading] = useState(false);
     const [animationKey, setAnimationKey] = useState(0);
@@ -28,12 +30,12 @@ function CharactersSection({ charactersData }) {
     };
     
     const nextCharacter = () => {
-        const newIndex = (currentCharacterIndex + 1) % 3;
+        const newIndex = (currentCharacterIndex + 1) % showcasedCharacters.length;
         selectCharacter(newIndex);
     };
     
     const previousCharacter = () => {
-        const newIndex = (currentCharacterIndex - 1 + 3) % 3;
+        const newIndex = (currentCharacterIndex - 1 + showcasedCharacters.length) % showcasedCharacters.length;
         selectCharacter(newIndex);
     };
 
@@ -49,20 +51,20 @@ function CharactersSection({ charactersData }) {
 
     useEffect(() => {
         clearTimeout(characterTimeoutRef.current);
-        if (charactersData && charactersData.length > 1) {
+        if (showcasedCharacters.length > 1) {
             characterTimeoutRef.current = setTimeout(() => {
-                const newIndex = (indexRef.current + 1) % 3;
+                const newIndex = (indexRef.current + 1) % showcasedCharacters.length;
                 changeCharacter(newIndex);
             }, 15000 + 5000);
         }
         return () => clearTimeout(characterTimeoutRef.current);
-    }, [animationKey, charactersData]);
+    }, [animationKey]);
 
-    if (!charactersData || charactersData.length === 0) {
+    if (showcasedCharacters.length === 0) {
         return <div className="characters-content-wrapper">Loading characters...</div>;
     }
 
-    const currentCharacter = charactersData[currentCharacterIndex];
+    const currentCharacter = showcasedCharacters[currentCharacterIndex];
     const { maxWidth: characterMaxWidth, ...showcaseSpecificStyles } = currentCharacter.showcaseStyles || {};
     const cardInlineStyles = characterMaxWidth ? { maxWidth: characterMaxWidth } : {};
 
@@ -73,13 +75,13 @@ function CharactersSection({ charactersData }) {
                 style={{ "--character-accent-color": currentCharacter.accentColor }}
             >
                 <div className="character-image-card" style={cardInlineStyles}>
-                    <img src={currentCharacter.image || "../../../assets/images/placeholders/character_large.png"} alt={currentCharacter.name} className="character-main-image" style={showcaseSpecificStyles} />
+                    <img src={currentCharacter.showcaseImage || "../../../assets/images/placeholders/character_large.png"} alt={currentCharacter.name} className="character-main-image" style={showcaseSpecificStyles} />
                 </div>
                 <div className="character-info">
                     <h3>{currentCharacter.name}</h3>
                     <div className="character-title-wrapper">
                         <h4>{currentCharacter.title}</h4>
-                        {charactersData.length > 1 && (<div className="character-cycle-progress-bar" key={animationKey} style={{ animationDuration: '15s' }}></div>)}
+                        {showcasedCharacters.length > 1 && (<div className="character-cycle-progress-bar" key={animationKey} style={{ animationDuration: '15s' }}></div>)}
                     </div>
                     <p>{currentCharacter.description}</p>
                     {currentCharacter.hasVoiceLines && (<div onClick={handleVoicelinePlay}><VoiceLinePlayer voiceLines={currentCharacter.voiceLines} accentColor={currentCharacter.accentColor} mode="simple" /></div>)}
@@ -89,40 +91,18 @@ function CharactersSection({ charactersData }) {
             </div>
 
             <div className="character-thumbnails">
-                {charactersData.slice(0, 3).map((char, index) => (<div key={char.id} className={`thumbnail-item ${index === currentCharacterIndex ? "active" : ""}`} onClick={() => selectCharacter(index)}><img src={char.thumbnail || "../../../assets/images/placeholders/thumb.png"} alt={char.name} /><span>{char.name}</span></div>))}
+                {showcasedCharacters.map((char, index) => (<div key={char.id} className={`thumbnail-item ${index === currentCharacterIndex ? "active" : ""}`} onClick={() => selectCharacter(index)}><img src={char.thumbnail || "../../../assets/images/placeholders/thumb.png"} alt={char.name} /><span>{char.name}</span></div>))}
             </div>
 
             <div className="character-nav-controls">
                 <ArrowButton onClick={previousCharacter} direction="left" />
                 <div className="character-dots">
-                    {charactersData.slice(0, 3).map((char, index) => (<button key={char.id} className={`dot ${index === currentCharacterIndex ? "active" : ""}`} onClick={() => selectCharacter(index)} aria-label={`Select character ${char.name}`} />))}
+                    {showcasedCharacters.map((char, index) => (<button key={char.id} className={`dot ${index === currentCharacterIndex ? "active" : ""}`} onClick={() => selectCharacter(index)} aria-label={`Select character ${char.name}`} />))}
                 </div>
                 <ArrowButton onClick={nextCharacter} direction="right" />
             </div>
         </div>
     );
 }
-
-CharactersSection.propTypes = {
-    charactersData: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            name: PropTypes.string.isRequired,
-            title: PropTypes.string.isRequired,
-            description: PropTypes.string.isRequired,
-            tier: PropTypes.number.isRequired,
-            image: PropTypes.string,
-            thumbnail: PropTypes.string,
-            accentColor: PropTypes.string.isRequired,
-            showcaseStyles: PropTypes.object,
-            hasVoiceLines: PropTypes.bool,
-            voiceLines: PropTypes.array,
-            voiceActor: PropTypes.shape({
-                name: PropTypes.string.isRequired,
-                url: PropTypes.string.isRequired,
-            }),
-        })
-    ).isRequired,
-};
 
 export default CharactersSection;

@@ -6,7 +6,6 @@ import FeaturesSlideshow from "./components/Features";
 import CharactersSection from "./components/Characters";
 import { storyText } from "./data/storyText";
 import { featuresData } from "./data/featuresData";
-import { charactersData } from "./data/charactersData";
 import "./Showcase.css";
 
 const showcaseNavItems = [
@@ -119,7 +118,7 @@ function Showcase() {
                 <div className="section-title-container">
                     <h2 className="section-title">Characters</h2>
                 </div>
-                <CharactersSection charactersData={charactersData} />
+                <CharactersSection />
             </section>
 
             <section id="features" className="showcase-section features-section" ref={sectionRefs.features}>
