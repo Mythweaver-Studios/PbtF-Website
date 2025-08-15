@@ -97,9 +97,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    /* **FIX:** Re-added padding that was removed in a previous step */
     padding: 2rem;
-    /* **FIX:** Increased border thickness and changed color for visibility */
     border-right: 2px solid var(--theme-border-gold);
     box-shadow: inset -5px 0 15px -10px var(--theme-highlight-gold);
     -webkit-mask-image: radial-gradient(ellipse 85% 95% at 50% 50%, black 50%, transparent 100%);

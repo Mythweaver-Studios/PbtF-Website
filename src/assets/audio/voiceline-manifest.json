@@ -9,8 +9,7 @@
     "/assets/audio/voicelines/seralyth/WhenDidMonstersBecomeThisWeak.wav"
   ],
   "sylvia": [
-    "/assets/audio/voicelines/sylvia/YouThinkThisIsEnoughToStopMe.wav",
-    "/assets/audio/voicelines/sylvia/DoYouThinkSheWillLikeThis.wav"
-
+    "/assets/audio/voicelines/sylvia/DoYouThinkSheWillLikeThis.wav",
+    "/assets/audio/voicelines/sylvia/YouThinkThisIsEnoughToStopMe.wav"
   ]
 }

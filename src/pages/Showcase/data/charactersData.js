@@ -157,13 +157,16 @@ export const charactersData = [
         gender: "Male",
         world: "Unknown",
         description: "A paladin sculpted into a perfect blade, he sacrificed love and peace for duty. Now he walks a solitary path toward a fate he knows he cannot avoid.",
-        longDescription: `...`,
+        longDescription: `Benedict is a warrior born in a crucible of flame, a paladin whose soul has been scoured clean of love, peace, and doubt. Chosen from a young age and raised without compassion, he was sculpted into a perfect blade, a Bright Lord meant to illuminate the world's darkest hours.\n\nUnder his helmet and shimmering armor lies a man who has given up everything in service of his duty. His past is marked by sacrifice and regret, love turned ashes, and comrades fallen by his side. His future promises only a solitary path, a showdown against a fate he cannot avoid.`,
         appearanceDescription: "A holy knight encased in a full suit of immaculate, off-white plate armor with ornate gold trim and blue cloth underneath. His face is completely hidden by a full helm. A large, eight-pointed star is emblazoned on his chestplate, and a halo of light floats behind his head, complemented by a pair of large, radiant golden wings.",
         image: Character3Img,
         showcaseImage: Character3Img,
         thumbnail: Character3Thumb,
         accentColor: "rgba(255, 255, 0, 0.8)",
-        tier: 5,
+        tier: 5, // Legendary
+        gridCardStyles: {
+            transform: 'scale(1.5) translateY(20px) translateX(18px)',
+        },
         specialEffect: 'holyFlame',
         statsBlurred: true,
         stats: { Strength: 4, Intelligence: 2, HP: 5, Dexterity: 1, Mana: 3 },
@@ -191,6 +194,9 @@ export const charactersData = [
         thumbnail: Character4Thumb,
         accentColor: "#ff7b00",
         tier: 6, // Mythic
+        gridCardStyles: {
+            transform: 'scale(1) translateY(0px)',
+        },
         statsBlurred: true,
         stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 },
         hasVoiceLines: false,
@@ -214,6 +220,9 @@ export const charactersData = [
         tier: 7, // Empyrean
         modalStyles: {
             transform: 'scale(1.15) translateY(12px)',
+        },
+        gridCardStyles: {
+            transform: 'scale(3.0) translateY(50px) translateX(-8px)',
         },
         statsBlurred: true,
         stats: { Strength: 0, Intelligence: 0, HP: 0, Dexterity: 0, Mana: 0 },
@@ -246,8 +255,8 @@ export const charactersData = [
             url: "https://www.castingcall.club/Sullivanwilliams",
         },
         gridCardStyles: {
-            transform: 'scale(1.2)',
-            objectPosition: '50% 20%', // Focus more on the upper part of the image
+            transform: 'scale(1)',
+            objectPosition: '50% 1%', // Focus more on the upper part of the image
         },
     },
     {
