@@ -1,3 +1,5 @@
+/* src/styles/Theme.css */
+
 /* --- 1. Basic Reset & Defaults --- */
 html, 
 body {
@@ -63,6 +65,8 @@ img {
     background-color: var(--theme-highlight-red);
     color: #ffffff;
     border-color: var(--theme-highlight-red);
+    flex-grow: 1;
+    min-width: 0;
 }
 
 .btn-primary:hover {
@@ -75,6 +79,8 @@ img {
     background-color: transparent;
     color: var(--theme-highlight-gold);
     border-color: var(--theme-highlight-gold);
+    flex-grow: 1;
+    min-width: 0;
 }
 
 .btn-secondary:hover {
@@ -88,6 +94,7 @@ img {
     background-color: transparent;
     color: var(--theme-text-primary);
     border-color: var(--theme-border-gold);
+    width: 100%; /* CORRECTED: Makes the button span the full width of its container */
 }
 
 .btn-tertiary:hover {
@@ -103,7 +110,7 @@ img {
     cursor: not-allowed;
 }
 
-/* --- 2. Global Theme Variables --- */
+/* --- 3. Global Theme Variables --- */
 :root {
     --theme-bg-gradient: linear-gradient(135deg, #100e0c 0%, #050403 100%);
     --theme-text-primary: #e0c9a6;
@@ -138,7 +145,7 @@ img {
     --theme-footer-lang-dropdown-item-hover-bg: #3a3025;
 }
 
-/* --- 3. Centralized Component Style Imports --- */
+/* --- 4. Centralized Component Style Imports --- */
 @import '../components/layout/NavBar/NavBar.css';
 @import '../components/layout/Footer/Footer.css';
 @import '../components/ui/ArrowButton/ArrowButton.css';
