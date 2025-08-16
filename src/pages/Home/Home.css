@@ -1,4 +1,3 @@
-/* --- Font Definition --- */
 @font-face {
     font-family: 'EternalFont';
     src: url('../../assets/fonts/Eternal.ttf') format('truetype');
@@ -45,6 +44,7 @@
     position: relative;
     padding: 3rem 3.5rem;
     min-height: calc(80vh - 70px);
+    /* z-index unnecessary */
 }
 
 .content-left {

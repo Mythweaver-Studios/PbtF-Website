@@ -1,4 +1,4 @@
-// src/pages/Home/components/ShowcaseTeaser.jsx
+// src/pages/Home/components/ShowcaseTeaser/ShowcaseTeaser.jsx
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
@@ -6,8 +6,6 @@ import { motion } from "framer-motion";
 import { GiScrollQuill } from "react-icons/gi";
 import { FaUsers, FaCogs } from "react-icons/fa";
 import "./ShowcaseTeaser.css";
-
-// The deprecated motion() factory function removed.
 
 const showcaseTeaserData = [
     {
@@ -73,19 +71,16 @@ function ShowcaseTeaser({ sectionRef }) {
                 viewport={{ once: true, amount: 0.3 }}
             >
                 {showcaseTeaserData.map((item) => (
-                    // motion.div with the polymorphic 'as' prop.
-                    // This renders a Link component with motion capabilities.
-                    <motion.div
-                        key={item.id}
-                        as={Link}
-                        variants={itemVariants}
-                        to={item.link}
-                        className="teaser-panel"
-                        style={{ "--panel-accent-color": item.accentColor }}
-                    >
-                        <div className="panel-icon">{item.icon}</div>
-                        <h3 className="panel-title">{item.title}</h3>
-                        <p className="panel-description">{item.description}</p>
+                    <motion.div key={item.id} variants={itemVariants}>
+                        <Link
+                            to={item.link}
+                            className="teaser-panel"
+                            style={{ "--panel-accent-color": item.accentColor }}
+                        >
+                            <div className="panel-icon">{item.icon}</div>
+                            <h3 className="panel-title">{item.title}</h3>
+                            <p className="panel-description">{item.description}</p>
+                        </Link>
                     </motion.div>
                 ))}
             </motion.div>
