@@ -1,3 +1,5 @@
+/* src/pages/Showcase/components/Characters.css */
+
 .characters-content-wrapper {
     width: 100%;
     display: flex;
@@ -27,10 +29,11 @@
     opacity: 0;
 }
 
+/* --- Character Card --- */
 .character-image-card {
     position: relative;
     max-width: 38%;
-    max-height: 450px;
+    height: 450px;
     margin-right: 3rem;
     flex-shrink: 0;
     border: 2px solid var(--theme-border-gold);
@@ -44,6 +47,14 @@
     overflow: hidden;
 }
 
+.character-image-framer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .character-display .character-main-image {
     max-width: 100%;
     max-height: 100%;
@@ -53,6 +64,7 @@
 
 .character-display .character-info {
     max-width: 55%;
+    align-self: stretch;
     color: var(--theme-text-primary);
     display: flex;
     flex-direction: column;
@@ -110,6 +122,7 @@
 
 @keyframes characterProgressBarFill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
+/* --- Thumbnails & Nav --- */
 .character-thumbnails {
     display: flex;
     justify-content: center;
@@ -123,20 +136,24 @@
     cursor: pointer;
     border: 2px solid var(--theme-border-gold);
     border-radius: 8px;
-    overflow: hidden;
     transition: all 0.3s ease;
     width: 100px;
-    height: 130px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     background-color: rgba(25, 20, 15, 0.8);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+.thumbnail-image-container {
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
 }
 
 .thumbnail-item img {
     width: 100%;
-    height: 100px;
+    height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
@@ -144,7 +161,7 @@
 .thumbnail-item span {
     font-size: 0.8rem;
     color: var(--theme-text-primary);
-    padding: 0.3rem 0;
+    padding: 0.5rem 0.25rem;
     text-align: center;
     width: 100%;
     background-color: rgba(15, 12, 10, 0.9);
@@ -153,7 +170,7 @@
 
 .thumbnail-item:hover {
     border-color: var(--theme-highlight-red);
-    transform: translateY(-5px) scale(1.05);
+    transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 0 10px var(--theme-highlight-red);
 }
 
@@ -164,7 +181,6 @@
 .thumbnail-item.active {
     border-color: var(--theme-highlight-gold);
     box-shadow: 0 0 20px var(--theme-highlight-gold), 0 0 25px var(--theme-highlight-red), inset 0 0 8px rgba(241, 196, 15, 0.3);
-    background-color: rgba(40, 30, 20, 0.9);
 }
 
 .thumbnail-item.active span {

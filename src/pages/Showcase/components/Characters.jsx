@@ -65,8 +65,7 @@ function CharactersSection() {
     }
 
     const currentCharacter = showcasedCharacters[currentCharacterIndex];
-    const { maxWidth: characterMaxWidth, ...showcaseSpecificStyles } = currentCharacter.showcaseStyles || {};
-    const cardInlineStyles = characterMaxWidth ? { maxWidth: characterMaxWidth } : {};
+    const cardInlineStyles = currentCharacter.showcaseStyles?.maxWidth ? { maxWidth: currentCharacter.showcaseStyles.maxWidth } : {};
 
     return (
         <div className="characters-content-wrapper">
@@ -75,7 +74,13 @@ function CharactersSection() {
                 style={{ "--character-accent-color": currentCharacter.accentColor }}
             >
                 <div className="character-image-card" style={cardInlineStyles}>
-                    <img src={currentCharacter.showcaseImage || "../../../assets/images/placeholders/character_large.png"} alt={currentCharacter.name} className="character-main-image" style={showcaseSpecificStyles} />
+                    <div className="character-image-framer" style={currentCharacter.showcaseStyles || {}}>
+                        <img
+                            src={currentCharacter.showcaseImage || "../../../assets/images/placeholders/character_large.png"}
+                            alt={currentCharacter.name}
+                            className="character-main-image"
+                        />
+                    </div>
                 </div>
                 <div className="character-info">
                     <h3>{currentCharacter.name}</h3>
@@ -91,7 +96,18 @@ function CharactersSection() {
             </div>
 
             <div className="character-thumbnails">
-                {showcasedCharacters.map((char, index) => (<div key={char.id} className={`thumbnail-item ${index === currentCharacterIndex ? "active" : ""}`} onClick={() => selectCharacter(index)}><img src={char.thumbnail || "../../../assets/images/placeholders/thumb.png"} alt={char.name} /><span>{char.name}</span></div>))}
+                {showcasedCharacters.map((char, index) => (
+                    <div
+                        key={char.id}
+                        className={`thumbnail-item ${index === currentCharacterIndex ? "active" : ""}`}
+                        onClick={() => selectCharacter(index)}
+                    >
+                        <div className="thumbnail-image-container">
+                            <img src={char.thumbnail || "../../../assets/images/placeholders/thumb.png"} alt={char.name} />
+                        </div>
+                        <span>{char.name.split(' ')[0]}</span>
+                    </div>
+                ))}
             </div>
 
             <div className="character-nav-controls">

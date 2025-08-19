@@ -164,8 +164,8 @@ export const charactersData = [
         thumbnail: Character3Thumb,
         accentColor: "rgba(255, 255, 0, 0.8)",
         tier: 5, // Legendary
-                showcaseStyles: {
-            transform: 'scale(1.5) translateY(5px)',
+        showcaseStyles: {
+            transform: 'scale(2) translateY(10px) translateX(10px)',
         },
         gridCardStyles: {
             transform: 'scale(1.5) translateY(20px) translateX(18px)',
