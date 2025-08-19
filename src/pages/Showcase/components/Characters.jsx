@@ -101,11 +101,14 @@ function CharactersSection() {
                         key={char.id}
                         className={`thumbnail-item ${index === currentCharacterIndex ? "active" : ""}`}
                         onClick={() => selectCharacter(index)}
+                        style={{ '--char-accent-color': char.accentColor }}
                     >
-                        <div className="thumbnail-image-container">
-                            <img src={char.thumbnail || "../../../assets/images/placeholders/thumb.png"} alt={char.name} />
+                        <div className="thumbnail-visuals">
+                            <div className="thumbnail-image-container">
+                                <img src={char.thumbnail || "../../../assets/images/placeholders/thumb.png"} alt={char.name} />
+                            </div>
                         </div>
-                        <span>{char.name.split(' ')[0]}</span>
+                        <span className="thumbnail-name">{char.name.split(' ')[0]}</span>
                     </div>
                 ))}
             </div>
