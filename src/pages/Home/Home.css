@@ -1,3 +1,6 @@
+/* src/pages/Home/Home.css */
+
+/* --- Font Definition --- */
 @font-face {
     font-family: 'EternalFont';
     src: url('../../assets/fonts/Eternal.ttf') format('truetype');
@@ -44,7 +47,6 @@
     position: relative;
     padding: 3rem 3.5rem;
     min-height: calc(80vh - 70px);
-    /* z-index unnecessary */
 }
 
 .content-left {
@@ -55,12 +57,13 @@
 
     .content-left h1 {
         font-family: 'EternalFont', 'Georgia', serif;
-        font-size: 4rem;
+        font-size: clamp(2.5rem, 5vw, 4rem);
         margin-bottom: 1.2rem;
         font-weight: normal;
         color: var(--theme-text-titles, #ffd700);
         letter-spacing: 1.5px;
         text-shadow: 0 0 15px rgba(241, 196, 15, 0.3), 0 0 20px rgba(241, 196, 15, 0.2);
+        white-space: nowrap; /* Ensures the title never breaks onto a new line */
     }
 
     .content-left p {
@@ -146,9 +149,6 @@
 @media (max-width: 480px) {
     .home-main-content {
         padding: 1rem;
-    }
-    .content-left h1 {
-        font-size: 2.2rem;
     }
     .content-left p {
         font-size: 0.85rem;
