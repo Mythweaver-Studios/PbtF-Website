@@ -1,6 +1,8 @@
+// src/components/layout/Footer/Footer.jsx
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom"; // Import Link for internal navigation
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { IoSettingsSharp } from "react-icons/io5";
 import "./Footer.css";
 
 // Define supported languages outside the component
@@ -8,9 +10,8 @@ const supportedLanguages = [
     { code: "en", name: "English" },
 ];
 
-function Footer({ onOpenCookieSettings }) { // Accept the function as a prop
+function Footer({ onOpenCookieSettings }) {
     const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
-    // Removed local state for cookie modal: const [isCookieModalOpen, setIsCookieModalOpen] = useState(false);
     const [currentLanguage, setCurrentLanguage] = useState(supportedLanguages[0]);
     const langDropdownRef = useRef(null);
 
@@ -27,7 +28,7 @@ function Footer({ onOpenCookieSettings }) { // Accept the function as a prop
 
     const handleCookieSettingsClick = (e) => {
         e.preventDefault();
-        onOpenCookieSettings(); // Call the function passed down from App.jsx
+        onOpenCookieSettings();
     };
 
     useEffect(() => {
@@ -63,7 +64,7 @@ function Footer({ onOpenCookieSettings }) { // Accept the function as a prop
         <footer className="site-footer">
             <div className="footer-top-row">
                 <div className="footer-links">
-                    {/* Use Link component for internal routes */}
+                    <Link to="/faq">FAQ</Link>
                     <Link to="/terms-of-service">Terms of Service</Link>
                     <Link to="/privacy-policy">Privacy Policy</Link>
                     <Link to="/cookie-policy">Cookie Policy</Link>
@@ -91,38 +92,41 @@ function Footer({ onOpenCookieSettings }) { // Accept the function as a prop
                         trademarks of their respective owners.
                     </p>
                 </div>
-
-                <div className="language-selector-container" ref={langDropdownRef}>
-                    <button
-                        type="button"
-                        className="language-selector-toggle"
-                        onClick={toggleLangDropdown}
-                    >
-                        <span>{currentLanguage.name}</span>
-                        <span
-                            className={`arrow-down-icon ${isLangDropdownOpen ? "open" : ""}`}
+                <div className="footer-controls">
+                    <div className="language-selector-container" ref={langDropdownRef}>
+                        <button
+                            type="button"
+                            className="language-selector-toggle"
+                            onClick={toggleLangDropdown}
                         >
-                            ▼
-                        </span>
-                    </button>
-                    {isLangDropdownOpen && (
-                        <ul className="language-dropdown">
-                            {availableLanguages.length > 0 ? (
-                                availableLanguages.map((lang) => (
-                                    <li key={lang.code} onClick={() => selectLanguage(lang.code)}>
-                                        {lang.name}
+                            <span>{currentLanguage.name}</span>
+                            <span
+                                className={`arrow-down-icon ${isLangDropdownOpen ? "open" : ""}`}
+                            >
+                                ▼
+                            </span>
+                        </button>
+                        {isLangDropdownOpen && (
+                            <ul className="language-dropdown">
+                                {availableLanguages.length > 0 ? (
+                                    availableLanguages.map((lang) => (
+                                        <li key={lang.code} onClick={() => selectLanguage(lang.code)}>
+                                            {lang.name}
+                                        </li>
+                                    ))
+                                ) : (
+                                    <li className="lang-dropdown-info">
+                                        More languages coming soon.
                                     </li>
-                                ))
-                            ) : (
-                                <li className="lang-dropdown-info">
-                                    More languages coming soon.
-                                </li>
-                            )}
-                        </ul>
-                    )}
+                                )}
+                            </ul>
+                        )}
+                    </div>
+                     <Link to="/admin" className="footer-admin-button" aria-label="Admin Dashboard">
+                        <IoSettingsSharp />
+                    </Link>
                 </div>
             </div>
-            {/* The modal is no longer rendered here, it's handled by App.jsx */}
         </footer>
     );
 }

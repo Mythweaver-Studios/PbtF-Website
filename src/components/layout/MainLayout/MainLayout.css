@@ -1,3 +1,4 @@
+/* src/components/layout/MainLayout.css */
 /* --- Main Layout Styles --- */
 .main-layout {
     display: flex;
@@ -5,9 +6,15 @@
     min-height: 100vh;
 }
 
+.page-wrapper {
+    flex-grow: 1;
+    display: flex; /* Required for the main content to fill the space */
+    flex-direction: column;
+}
+
 .main-layout__content {
     flex-grow: 1;
-    padding-top: 80px; 
+    padding-top: 70px; /* ADJUSTED: Reduced from 80px */
 }
 
 /* --- Global Header Styles (Simplified) --- */
@@ -15,7 +22,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 1.5rem 3rem;
+    padding: 1.2rem 3rem; /* ADJUSTED: Reduced from 1.5rem */
     position: fixed;
     top: 0;
     left: 0;
@@ -31,24 +38,24 @@
 /* --- Responsive Adjustments for Header --- */
 @media (max-width: 992px) {
     .main-header {
-        padding: 1.2rem 2rem;
+        padding: 1rem 2rem; /* ADJUSTED: Reduced from 1.2rem */
     }
     .main-layout__content {
-        padding-top: 70px;
+        padding-top: 65px; /* ADJUSTED: Reduced from 70px */
     }
 }
 
 @media (max-width: 768px) {
     .main-header {
-        padding: 0.8rem 1.5rem;
+        padding: 0.8rem 1.5rem; /* No change here, was already compact */
     }
     .main-layout__content {
-        padding-top: 60px;
+        padding-top: 60px; /* No change here */
     }
 }
 
 @media (max-width: 480px) {
     .main-header {
-        padding: 0.7rem 1rem;
+        padding: 0.6rem 1rem; /* ADJUSTED: Reduced from 0.7rem */
     }
 }

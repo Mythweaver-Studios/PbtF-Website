@@ -13,11 +13,13 @@ const Showcase = React.lazy(() => import("./pages/Showcase/Showcase"));
 const AboutUs = React.lazy(() => import("./pages/AboutUs/AboutUs"));
 const News = React.lazy(() => import("./pages/News/News"));
 const CharacterList = React.lazy(() => import("./pages/CharacterList/CharacterList"));
+const FAQ = React.lazy(() => import("./pages/FAQ/FAQ"));
 const CookiePolicy = React.lazy(() => import("./pages/Legal/CookiePolicy"));
 const PrivacyPolicy = React.lazy(() => import("./pages/Legal/PrivacyPolicy"));
 const TermsOfService = React.lazy(() => import("./pages/Legal/TermsOfService"));
 const NotFound = React.lazy(() => import("./pages/NotFound/NotFound"));
 const AuthCallback = React.lazy(() => import("./pages/AuthCallback/AuthCallback"));
+const Admin = React.lazy(() => import("./pages/Admin/Admin"));
 
 // Fallback component for Suspense
 const LoadingFallback = () => (
@@ -74,6 +76,7 @@ function App() {
                             <Route path="/news" element={<News />} />
                             <Route path="/about-us" element={<AboutUs />} />
                             <Route path="/characterlist" element={<CharacterList />} />
+                            <Route path="/faq" element={<FAQ />} />
                             <Route path="/cookie-policy" element={<CookiePolicy />} />
                             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                             <Route path="/terms-of-service" element={<TermsOfService />} />
@@ -81,6 +84,7 @@ function App() {
 
                         {/* Standalone routes without the main layout */}
                         <Route path="/supersecrettunnal" element={<AuthCallback />} />
+                        <Route path="/admin" element={<Admin />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </Suspense>

@@ -1,3 +1,4 @@
+// src/components/layout/NavBar/NavBar.jsx
 import React, { useState } from 'react';
 import { NavLink, useLocation, Link } from 'react-router-dom';
 import { Drawer, Button } from 'antd';
@@ -6,6 +7,12 @@ import { IoChevronDown } from 'react-icons/io5';
 import { HiMenu } from 'react-icons/hi';
 import Dropdown from '../../ui/Dropdown/Dropdown';
 import './NavBar.css';
+
+const socialLinksData = [
+    { name: 'Instagram', href: 'https://www.instagram.com', icon: <FaInstagram />, disabled: true, visible: false },
+    { name: 'Reddit', href: 'https://www.reddit.com', icon: <FaReddit />, disabled: true, visible: false },
+    { name: 'Discord', href: 'https://discord.gg/pmu', icon: <FaDiscord />, disabled: false, visible: true },
+];
 
 function NavBar() {
     const location = useLocation();
@@ -20,9 +27,18 @@ function NavBar() {
 
     const socialLinks = (
         <div className="navbar__socials">
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-link-disabled"><FaInstagram /></a>
-            <a href="https://www.reddit.com" target="_blank" rel="noopener noreferrer" aria-label="Reddit" className="social-link-disabled"><FaReddit /></a>
-            <a href="https://discord.gg/pmu" target="_blank" rel="noopener noreferrer" aria-label="Discord"><FaDiscord /></a>
+            {socialLinksData.filter(link => link.visible).map(link => (
+                <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.name}
+                    className={link.disabled ? 'social-link-disabled' : ''}
+                >
+                    {link.icon}
+                </a>
+            ))}
         </div>
     );
 

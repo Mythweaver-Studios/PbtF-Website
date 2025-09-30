@@ -1,20 +1,34 @@
+// src/components/layout/MainLayout/MainLayout.jsx
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { motion, AnimatePresence } from 'framer-motion';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import './MainLayout.css';
 
 function MainLayout({ onOpenCookieSettings }) {
+  const location = useLocation();
+
   return (
     <div className="main-layout">
-      {/* The header element now lives here, wrapping the NavBar */}
       <header className="main-header">
         <NavBar />
       </header>
-      <main className="main-layout__content">
-        <Outlet />
-      </main>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={location.pathname}
+          className="page-wrapper"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          <main className="main-layout__content">
+            <Outlet />
+          </main>
+        </motion.div>
+      </AnimatePresence>
       <Footer onOpenCookieSettings={onOpenCookieSettings} />
     </div>
   );
