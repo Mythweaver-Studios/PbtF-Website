@@ -1,7 +1,5 @@
 /* src/pages/CharacterList/CharacterList.css */
 
-/* .character-list-page and .character-list-header styles have been REMOVED */
-
 .character-list-content {
     width: 100%;
     max-width: 1600px;
@@ -17,8 +15,8 @@
 }
 
 .character-list-title {
-    font-family: 'EternalFont', 'Georgia', serif;
-    font-size: 3rem;
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
     color: var(--theme-text-titles);
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -47,10 +45,6 @@
     top: 120px; /* Adjust based on header height + padding */
 }
 
-.grid-content {
-    /* This will contain the character grid */
-}
-
 /* --- Responsive Media Queries --- */
 @media (max-width: 992px) {
     .layout-container {
@@ -69,6 +63,6 @@
     }
 
     .character-list-title {
-        font-size: 2.2rem;
+        font-size: var(--font-size-2xl);
     }
 }

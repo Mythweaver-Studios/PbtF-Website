@@ -1,7 +1,7 @@
+/* src/components/ui/VoiceActorCredit/VoiceActorCredit.css */
 .voice-actor-credit {
-    /* **FIX:** Reduced font size for a more subtle look */
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
     color: var(--theme-text-secondary);
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
@@ -13,7 +13,7 @@
 
     .voice-actor-credit a {
         color: var(--theme-highlight-gold);
-        font-weight: bold;
+        font-weight: var(--font-weight-bold);
         text-decoration: none;
         transition: text-shadow 0.3s, color 0.3s;
     }

@@ -1,3 +1,5 @@
+/* src/pages/AboutUs/AboutUs.css */
+
 /* --- Wrapper --- */
 .about-us-wrapper {
     width: 100%;
@@ -29,8 +31,8 @@
 }
 
 .section-title {
-    font-family: 'EternalFont', 'Georgia', serif;
-    font-size: 2.8rem;
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
     color: var(--theme-text-titles);
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -54,7 +56,7 @@
 
 /* --- Company Section --- */
 .company-description p {
-    font-size: 1.05rem;
+    font-size: var(--font-size-base);
     line-height: 1.7;
     color: var(--theme-text-primary);
     margin-bottom: 1.5em;
@@ -73,7 +75,7 @@
 }
 
 .recruitment-intro {
-    font-size: 1.1rem;
+    font-size: var(--font-size-md);
     color: var(--theme-text-primary);
     text-align: center;
     line-height: 1.6;
@@ -81,8 +83,8 @@
 }
 
 .available-teams-title {
-    font-family: 'EternalFont', sans-serif;
-    font-size: 1.6rem;
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
     color: var(--theme-text-titles);
     text-align: center;
     margin-bottom: 0.5rem;
@@ -103,7 +105,7 @@
     background-color: rgba(207, 181, 130, 0.15);
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
     color: var(--theme-text-primary);
     border: 1px solid var(--theme-border-gold);
     transition: all 0.2s ease-in-out;
@@ -123,13 +125,13 @@
 }
 
 .recruitment-how-to h4 {
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
     color: var(--theme-text-titles);
     margin-bottom: 0.75rem;
 }
 
 .recruitment-how-to p {
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     color: var(--theme-text-secondary);
     margin-bottom: 1.5rem;
     max-width: 600px;
@@ -156,23 +158,23 @@
     }
     
     .section-title {
-        font-size: 2.2rem;
+        font-size: var(--font-size-2xl);
     }
 
     .company-description p {
-        font-size: 1rem;
+        font-size: var(--font-size-base);
     }
 
     .recruitment-intro {
-        font-size: 1rem;
+        font-size: var(--font-size-base);
     }
 
     .available-teams-title {
-        font-size: 1.4rem;
+        font-size: var(--font-size-lg);
     }
 
     .teams-list .team-item {
-        font-size: 0.85rem;
+        font-size: var(--font-size-sm);
         padding: 0.4rem 0.8rem;
     }
 }
@@ -188,6 +190,6 @@
     }
 
     .section-title {
-        font-size: 1.8rem;
+        font-size: var(--font-size-xl);
     }
 }

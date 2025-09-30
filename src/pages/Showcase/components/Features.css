@@ -1,3 +1,4 @@
+/* src/pages/Showcase/components/Features.css */
 .features-section-container {
     width: 100%;
     display: flex;
@@ -93,15 +94,15 @@
 }
 
 .feature-slide .feature-info h3 {
-    font-family: 'EternalFont', sans-serif;
-    font-size: 2.2rem;
+    font-family: var(--font-display);
+    font-size: var(--font-size-2xl);
     color: var(--theme-text-titles);
     margin-bottom: 0.75rem;
     text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
 }
 
 .feature-slide .feature-info p {
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     max-width: 70%;
     margin: 0 auto;
     line-height: 1.6;

@@ -1,3 +1,4 @@
+/* src/components/features/CookieBanner/CookieBanner.css */
 .cookie-banner-container {
     position: fixed;
     bottom: 1rem;
@@ -33,7 +34,7 @@
 
 .cookie-banner-text {
     color: var(--theme-text-secondary);
-    font-size: 0.85rem;
+    font-size: var(--font-size-sm);
     line-height: 1.6;
 }
 
@@ -44,20 +45,20 @@
     .cookie-banner-text a {
         color: var(--theme-highlight-gold);
         text-decoration: underline;
-        font-weight: 500;
+        font-weight: var(--font-weight-medium);
     }
 
 .cookie-settings-link {
     background: none;
     border: none;
     color: var(--theme-text-primary);
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
     cursor: pointer;
     padding: 0;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
 }
 
     .cookie-settings-link:hover {
@@ -65,7 +66,7 @@
     }
 
     .cookie-settings-link .settings-icon {
-        font-size: 1rem;
+        font-size: var(--font-size-base);
     }
 
 .cookie-banner-actions {
@@ -79,7 +80,7 @@
         padding: 0.7rem 1rem;
         border: 1px solid var(--theme-border-gold);
         border-radius: 5px;
-        font-weight: bold;
+        font-weight: var(--font-weight-bold);
         cursor: pointer;
         transition: all 0.2s;
     }

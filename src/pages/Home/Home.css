@@ -16,8 +16,8 @@
 }
 
 .section-title {
-    font-family: 'EternalFont', 'Georgia', serif;
-    font-size: 2.8rem;
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
     color: var(--theme-text-titles, #ffd700);
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -56,10 +56,10 @@
 }
 
     .content-left h1 {
-        font-family: 'EternalFont', 'Georgia', serif;
+        font-family: var(--font-display);
         font-size: clamp(2.5rem, 5vw, 4rem);
         margin-bottom: 1.2rem;
-        font-weight: normal;
+        font-weight: var(--font-weight-normal);
         color: var(--theme-text-titles, #ffd700);
         letter-spacing: 1.5px;
         text-shadow: 0 0 15px rgba(241, 196, 15, 0.3), 0 0 20px rgba(241, 196, 15, 0.2);
@@ -67,7 +67,7 @@
     }
 
     .content-left p {
-        font-size: 1.05rem;
+        font-size: var(--font-size-base);
         margin-bottom: 2rem;
         color: var(--theme-text-primary, #e0c9a6);
         max-width: 90%;
@@ -76,11 +76,11 @@
 
         .content-left p.game-pitch {
             font-family: 'Georgia', serif;
-            font-size: 1.1rem;
+            font-size: var(--font-size-md);
         }
 
             .content-left p.game-pitch strong {
-                font-weight: 600;
+                font-weight: var(--font-weight-bold);
                 color: var(--theme-text-titles, #ffd700);
             }
 
@@ -125,7 +125,7 @@
     }
 
     .content-left h1 {
-        font-size: 3.5rem;
+        font-size: var(--font-size-display);
     }
 }
 
@@ -137,11 +137,11 @@
         display: none;
     }
     .content-left h1 {
-        font-size: 2.8rem;
+        font-size: var(--font-size-3xl);
     }
 
     .content-left p {
-        font-size: 0.95rem;
+        font-size: var(--font-size-base);
         max-width: 100%;
     }
 }
@@ -151,7 +151,7 @@
         padding: 1rem;
     }
     .content-left p {
-        font-size: 0.85rem;
+        font-size: var(--font-size-sm);
     }
     .action-buttons {
         width: 100%;

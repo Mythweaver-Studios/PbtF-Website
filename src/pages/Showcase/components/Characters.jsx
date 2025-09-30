@@ -6,6 +6,7 @@ import { charactersData } from "../data/charactersData";
 import VoiceLinePlayer from "../../../components/features/VoiceLinePlayer/VoiceLinePlayer";
 import VoiceActorCredit from "../../../components/ui/VoiceActorCredit/VoiceActorCredit";
 import ArrowButton from "../../../components/ui/ArrowButton/ArrowButton";
+import useBreakpoint from "../../../hooks/useBreakpoint";
 
 const showcasedCharacters = charactersData.filter(char => char.showcased);
 
@@ -13,6 +14,7 @@ function CharactersSection() {
     const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);
     const [isCharacterFading, setIsCharacterFading] = useState(false);
     const [animationKey, setAnimationKey] = useState(0);
+    const { isMobile } = useBreakpoint();
     const characterTimeoutRef = useRef(null);
     const indexRef = useRef(currentCharacterIndex);
 
@@ -95,31 +97,33 @@ function CharactersSection() {
                 </div>
             </div>
 
-            <div className="character-thumbnails">
-                {showcasedCharacters.map((char, index) => (
-                    <div
-                        key={char.id}
-                        className={`thumbnail-item ${index === currentCharacterIndex ? "active" : ""}`}
-                        onClick={() => selectCharacter(index)}
-                        style={{ '--char-accent-color': char.accentColor }}
-                    >
-                        <div className="thumbnail-visuals">
-                            <div className="thumbnail-image-container">
-                                <img src={char.thumbnail || "../../../assets/images/placeholders/thumb.png"} alt={char.name} />
+            {!isMobile ? (
+                <div className="character-thumbnails">
+                    {showcasedCharacters.map((char, index) => (
+                        <div
+                            key={char.id}
+                            className={`thumbnail-item ${index === currentCharacterIndex ? "active" : ""}`}
+                            onClick={() => selectCharacter(index)}
+                            style={{ '--char-accent-color': char.accentColor }}
+                        >
+                            <div className="thumbnail-visuals">
+                                <div className="thumbnail-image-container">
+                                    <img src={char.thumbnail || "../../../assets/images/placeholders/thumb.png"} alt={char.name} />
+                                </div>
                             </div>
+                            <span className="thumbnail-name">{char.name.split(' ')[0]}</span>
                         </div>
-                        <span className="thumbnail-name">{char.name.split(' ')[0]}</span>
-                    </div>
-                ))}
-            </div>
-
-            <div className="character-nav-controls">
-                <ArrowButton onClick={previousCharacter} direction="left" />
-                <div className="character-dots">
-                    {showcasedCharacters.map((char, index) => (<button key={char.id} className={`dot ${index === currentCharacterIndex ? "active" : ""}`} onClick={() => selectCharacter(index)} aria-label={`Select character ${char.name}`} />))}
+                    ))}
                 </div>
-                <ArrowButton onClick={nextCharacter} direction="right" />
-            </div>
+            ) : (
+                <div className="character-nav-controls">
+                    <ArrowButton onClick={previousCharacter} direction="left" />
+                    <div className="character-dots">
+                        {showcasedCharacters.map((char, index) => (<button key={char.id} className={`dot ${index === currentCharacterIndex ? "active" : ""}`} onClick={() => selectCharacter(index)} aria-label={`Select character ${char.name}`} />))}
+                    </div>
+                    <ArrowButton onClick={nextCharacter} direction="right" />
+                </div>
+            )}
         </div>
     );
 }

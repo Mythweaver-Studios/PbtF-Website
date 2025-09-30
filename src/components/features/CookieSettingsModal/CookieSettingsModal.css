@@ -1,3 +1,4 @@
+/* src/components/features/CookieSettingsModal/CookieSettingsModal.css */
 .cookie-modal-backdrop {
     position: fixed;
     top: 0;
@@ -27,7 +28,7 @@
     width: 90%;
     max-width: 550px;
     color: var(--theme-text-secondary);
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
     transform: scale(0.95);
     opacity: 0;
     animation: fadeInScaleUp 0.4s 0.1s forwards cubic-bezier(0.19, 1, 0.22, 1);
@@ -50,7 +51,7 @@
 
     .cookie-modal-header h2 {
         margin: 0;
-        font-size: 1.2rem;
+        font-size: var(--font-size-lg);
         color: var(--theme-text-primary);
     }
 
@@ -58,7 +59,7 @@
     background: none;
     border: none;
     color: var(--theme-text-secondary);
-    font-size: 1.8rem;
+    font-size: var(--font-size-xl);
     line-height: 1;
     cursor: pointer;
     transition: color 0.2s, transform 0.2s;
@@ -80,7 +81,7 @@
     .cookie-modal-body a {
         color: var(--theme-highlight-gold);
         text-decoration: underline;
-        font-weight: 500;
+        font-weight: var(--font-weight-medium);
     }
 
 .cookie-option {
@@ -94,14 +95,14 @@
 }
 
 .cookie-option-label {
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     color: var(--theme-text-primary);
 }
 
 .cookie-option-status {
     color: var(--theme-highlight-gold);
-    font-weight: bold;
-    font-size: 0.8rem;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
 }
 
 .cookie-modal-footer {
@@ -116,7 +117,7 @@
     padding: 0.6rem 1.5rem;
     border: 1px solid var(--theme-border-gold);
     border-radius: 5px;
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
     cursor: pointer;
     transition: all 0.2s;
 }

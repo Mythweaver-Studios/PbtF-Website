@@ -7,8 +7,8 @@
 }
 
 .faq-page-title {
-    font-family: 'EternalFont', 'Georgia', serif;
-    font-size: 2.8rem;
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
     color: var(--theme-text-titles);
     text-align: center;
     margin-bottom: 3rem;
@@ -27,14 +27,14 @@
 }
 
 .faq-question {
-    font-size: 1.4rem;
+    font-size: var(--font-size-lg);
     color: var(--theme-text-titles);
     margin-bottom: 1rem;
-    font-weight: 600;
+    font-weight: var(--font-weight-bold);
 }
 
 .faq-answer {
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     color: var(--theme-text-secondary);
     line-height: 1.7;
 }
@@ -46,15 +46,15 @@
     }
 
     .faq-page-title {
-        font-size: 2.2rem;
+        font-size: var(--font-size-2xl);
         margin-bottom: 2rem;
     }
 
     .faq-question {
-        font-size: 1.2rem;
+        font-size: var(--font-size-md);
     }
 
     .faq-answer {
-        font-size: 0.95rem;
+        font-size: var(--font-size-sm);
     }
 }

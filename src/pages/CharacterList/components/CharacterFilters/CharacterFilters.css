@@ -26,9 +26,9 @@
 }
 
 .filter-label {
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
     color: var(--theme-text-secondary);
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
     text-align: left;
 }
 
@@ -36,8 +36,8 @@
     background-color: transparent;
     border: 2px solid var(--theme-border-gold);
     color: var(--theme-text-primary);
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
     padding: 0.6rem 1.25rem;
     height: 50px;
     border-radius: 0.5rem;
@@ -59,8 +59,8 @@
     border: 0.125rem solid #d94f4f;
     background-color: transparent;
     color: #d94f4f;
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
     padding: 0.6rem 1.25rem;
     height: 50px;
     border-radius: 0.5rem;

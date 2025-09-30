@@ -71,8 +71,8 @@
 }
 
 .character-display .character-info h3 {
-    font-family: 'EternalFont', sans-serif;
-    font-size: 2.6rem;
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
     color: var(--theme-text-titles);
     margin-bottom: 0.5rem;
     text-shadow: 0 0 6px var(--character-accent-color, transparent);
@@ -86,14 +86,14 @@
 }
 
 .character-display .character-info h4 {
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
     color: var(--character-accent-color, var(--highlight-gold));
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     margin-bottom: 0;
 }
 
 .character-display .character-info p {
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     line-height: 1.7;
     margin-bottom: 1.5rem;
 }
@@ -184,19 +184,19 @@
 }
 
 .thumbnail-name {
-    font-size: 0.8rem;
+    font-size: var(--font-size-sm);
     color: var(--theme-text-primary);
     padding: 0 0.25rem;
     text-align: center;
     width: 100%;
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     transition: color 0.3s ease;
 }
 
 .thumbnail-item:hover .thumbnail-name,
 .thumbnail-item.active .thumbnail-name {
     color: var(--theme-text-titles);
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
     text-shadow: 0 0 4px var(--char-accent-color);
 }
 
@@ -204,8 +204,8 @@
     background-color: transparent;
     color: var(--theme-text-primary);
     padding: 0.6rem 0;
-    font-weight: bold;
-    font-size: 1rem;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-base);
     letter-spacing: 0.5px;
     border: none;
     transition: all 0.3s ease;
@@ -221,11 +221,11 @@
 }
 
 .character-nav-controls {
-    display: none;
     width: 100%;
     max-width: 300px;
     justify-content: space-between;
     align-items: center;
+    display: flex;
 }
 
 .character-dots {
@@ -277,14 +277,5 @@
     .view-all-chars-btn {
         margin-top: 1rem;
         align-self: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .character-thumbnails {
-        display: none;
-    }
-    .character-nav-controls {
-        display: flex;
     }
 }

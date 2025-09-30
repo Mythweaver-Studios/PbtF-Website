@@ -15,8 +15,10 @@ body {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--font-primary);
     color: var(--theme-text-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
@@ -41,8 +43,8 @@ img {
     padding: 0.8rem 1.7rem;
     border: 2px solid transparent;
     border-radius: 30px;
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     cursor: pointer;
@@ -112,6 +114,7 @@ img {
 
 /* --- 3. Global Theme Variables --- */
 :root {
+    /* Colors */
     --theme-bg-gradient: linear-gradient(135deg, #100e0c 0%, #050403 100%);
     --theme-text-primary: #e0c9a6;
     --theme-text-secondary: #a89a85;
@@ -145,7 +148,30 @@ img {
     --theme-footer-lang-dropdown-item-hover-bg: #3a3025;
 }
 
-/* --- 4. Centralized Component Style Imports --- */
+/* --- 4. Typography System --- */
+:root {
+    /* Font Families */
+    --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-display: 'EternalFont', 'Georgia', serif;
+
+    /* Font Weights */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 600;
+
+    /* Font Sizes */
+    --font-size-xs: 0.75rem;   /* 12px */
+    --font-size-sm: 0.875rem;  /* 14px */
+    --font-size-base: 1rem;      /* 16px */
+    --font-size-md: 1.125rem; /* 18px */
+    --font-size-lg: 1.25rem;   /* 20px */
+    --font-size-xl: 1.5rem;    /* 24px */
+    --font-size-2xl: 2rem;     /* 32px */
+    --font-size-3xl: 2.5rem;   /* 40px */
+    --font-size-display: 3.5rem; /* 56px */
+}
+
+/* --- 5. Centralized Component Style Imports --- */
 @import '../components/layout/NavBar/NavBar.css';
 @import '../components/layout/Footer/Footer.css';
 @import '../components/ui/ArrowButton/ArrowButton.css';

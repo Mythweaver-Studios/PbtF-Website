@@ -1,3 +1,4 @@
+/* src/components/ui/ErrorBoundary/ErrorBoundary.css */
 .error-boundary-page {
     display: flex;
     justify-content: center;
@@ -17,14 +18,14 @@
 }
 
 .error-boundary-title {
-    font-family: 'EternalFont', 'Georgia', serif;
-    font-size: 3rem;
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
     color: var(--theme-highlight-red);
     text-shadow: 0 0 8px var(--theme-highlight-red);
 }
 
 .error-boundary-message {
-    font-size: 1.1rem;
+    font-size: var(--font-size-md);
     color: var(--theme-text-secondary);
     line-height: 1.7;
     margin-bottom: 1rem;

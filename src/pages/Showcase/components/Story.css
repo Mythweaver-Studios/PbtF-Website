@@ -1,22 +1,13 @@
 /* src/pages/Showcase/components/Story.css */
-
-/* --- Theme Variables (copied for self-containment, ideally import from shared file) --- */
-:root {
-    --text-color-primary-story: #e0c9a6;
-    --border-color-gold-story: rgba(207, 181, 130, 0.4);
-    --highlight-gold-story: #f1c40f;
-}
-
 .story-box {
     width: 100%;
     max-width: 750px; /* Readable width for text */
     height: 380px; /* Fixed height for scroller */
     background-color: rgba(10, 8, 7, 0.75); /* Dark semi-transparent box */
-    border: 1px solid var(--border-color-gold-story);
+    border: 1px solid var(--theme-border-gold);
     border-radius: 10px;
     padding: 2rem;
     overflow: hidden; /* Hides scrollbar parts extending beyond padding */
-    /* Replaced color.scale() with static, pre-calculated values */
     box-shadow: 0 0 30px rgba(193, 157, 12, 0.2), inset 0 0 15px rgba(169, 137, 10, 0.1);
     position: relative; /* For gradient overlays */
 }
@@ -59,9 +50,9 @@
     }
 
     .story-text-scroller p {
-        font-size: 1.1rem;
+        font-size: var(--font-size-md);
         line-height: 1.9;
-        color: var(--text-color-primary-story);
+        color: var(--theme-text-primary);
         margin-bottom: 1.8em; /* Space between paragraphs */
         text-align: center; /* Centered text for cinematic feel */
         text-shadow: 0 0 3px rgba(0, 0, 0, 0.6); /* Readability shadow */
@@ -79,7 +70,7 @@
     }
 
     .story-text-scroller p {
-        font-size: 1rem;
+        font-size: var(--font-size-base);
         line-height: 1.8;
         margin-bottom: 1.6em;
     }
@@ -88,7 +79,7 @@
 @media (max-width: 768px) {
     /* .story-box height is maintained from 992px breakpoint */
     .story-text-scroller p {
-        font-size: 0.9rem;
+        font-size: var(--font-size-sm);
         line-height: 1.7;
         margin-bottom: 1.5em;
     }
@@ -109,7 +100,7 @@
         }
 
     .story-text-scroller p {
-        font-size: 0.85rem;
+        font-size: var(--font-size-sm);
         line-height: 1.6;
         margin-bottom: 1.4em;
     }

@@ -87,15 +87,15 @@
 .unknown-char-icon {
     font-family: 'Georgia', serif;
     font-size: 4rem;
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
     color: var(--theme-border-gold);
     text-shadow: 0 0 15px var(--theme-border-gold);
 }
 /* --- End Unknown Character Card Styles --- */
 
 .grid-card-name {
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
     color: var(--theme-text-primary);
     text-align: center;
 }

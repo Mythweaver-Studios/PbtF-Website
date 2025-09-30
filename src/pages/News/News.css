@@ -1,6 +1,4 @@
-/* // src/pages/News/News.css */
-/* The .news-page, .news-header-sticky, and .news-main-content rules have been removed. */
-
+/* src/pages/News/News.css */
 .news-title-banner {
     width: 100%;
     padding: 2.5rem 0 2rem;
@@ -22,8 +20,8 @@
 }
 
 .news-page-title {
-    font-family: 'EternalFont', 'Georgia', serif;
-    font-size: 3.5rem;
+    font-family: var(--font-display);
+    font-size: var(--font-size-display);
     color: var(--theme-text-titles, #ffd700);
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -37,6 +35,13 @@
     max-width: 900px;
     padding: 0 1rem;
     margin: 0 auto 3rem; /* Center container and add bottom margin */
+}
+
+.no-news-message {
+    font-size: var(--font-size-md);
+    color: var(--theme-text-secondary);
+    text-align: center;
+    padding: 3rem 0;
 }
 
 /* --- News Item Styles (kept for future use) --- */
@@ -69,7 +74,7 @@
         }
 
     .news-list-item-full .news-item-date-full {
-        font-size: 0.9rem;
+        font-size: var(--font-size-sm);
         color: var(--theme-text-primary, #e0c9a6);
         min-width: 90px;
         margin-right: 1.5rem;
@@ -85,22 +90,22 @@
     }
 
     .news-list-item-full .news-item-title-full {
-        font-size: 1.1rem;
-        font-weight: 600;
+        font-size: var(--font-size-md);
+        font-weight: var(--font-weight-bold);
         margin: 0 0 0.3rem 0;
         color: var(--theme-text-primary, #e0c9a6);
         transition: color 0.2s ease-in-out;
     }
 
     .news-list-item-full .news-item-summary {
-        font-size: 0.85rem;
+        font-size: var(--font-size-sm);
         color: var(--theme-text-secondary, #a89a85);
         line-height: 1.5;
     }
 
     .news-list-item-full .news-item-category-full {
-        font-size: 0.75rem;
-        font-weight: 600;
+        font-size: var(--font-size-xs);
+        font-weight: var(--font-weight-bold);
         color: #fff;
         padding: 0.4em 1.3em 0.4em 0.9em;
         margin-left: 1rem;
@@ -162,7 +167,7 @@
     color: var(--theme-text-titles, #ffd700);
     border: 2px solid var(--theme-text-titles, #ffd700);
     border-radius: 25px;
-    font-weight: 600;
+    font-weight: var(--font-weight-bold);
     cursor: pointer;
     transition: all 0.25s ease-in-out;
     text-decoration: none;
@@ -185,7 +190,7 @@
     }
 
     .news-page-title {
-        font-size: 2.5rem;
+        font-size: var(--font-size-3xl);
     }
 
     .news-list-item-full {
@@ -217,11 +222,11 @@
         }
 
     .news-item-title-full {
-        font-size: 1rem;
+        font-size: var(--font-size-base);
     }
 
     .news-item-summary {
-        font-size: 0.8rem;
+        font-size: var(--font-size-sm);
     }
 }
 
@@ -231,7 +236,7 @@
     }
 
     .news-page-title {
-        font-size: 2rem;
+        font-size: var(--font-size-2xl);
     }
 
     .news-list-item-full {

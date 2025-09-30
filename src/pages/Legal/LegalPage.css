@@ -25,14 +25,14 @@
 }
 
     .legal-content h1 {
-        font-family: 'EternalFont', 'Georgia', serif;
-        font-size: 2.5rem;
+        font-family: var(--font-display);
+        font-size: var(--font-size-3xl);
         color: var(--theme-text-titles);
         margin-bottom: 0.5rem;
     }
 
     .legal-content .last-updated {
-        font-size: 0.9rem;
+        font-size: var(--font-size-sm);
         color: var(--theme-text-secondary);
         margin-bottom: 2rem;
         border-bottom: 1px solid var(--theme-border-gold-faint);
@@ -40,7 +40,7 @@
     }
 
     .legal-content h2 {
-        font-size: 1.5rem;
+        font-size: var(--font-size-xl);
         color: var(--theme-text-primary);
         margin-top: 2rem;
         margin-bottom: 1rem;
@@ -50,7 +50,7 @@
 
     .legal-content p,
     .legal-content li {
-        font-size: 0.95rem;
+        font-size: var(--font-size-base);
         line-height: 1.7;
         margin-bottom: 1rem;
     }

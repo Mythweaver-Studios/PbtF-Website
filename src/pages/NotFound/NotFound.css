@@ -45,7 +45,7 @@
     /* Use a standard, thematic font that supports numerals */
     font-family: 'Georgia', 'Times New Roman', serif;
     font-size: 10rem;
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
     color: var(--theme-text-titles);
     text-shadow: 0 0 10px var(--theme-highlight-gold), 0 0 20px var(--theme-highlight-gold), 0 0 40px rgba(241, 196, 15, 0.5), 0 0 80px rgba(207, 181, 130, 0.3);
     line-height: 1;
@@ -65,7 +65,7 @@
 }
 
 .not-found-message {
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
     color: var(--theme-text-secondary);
     max-width: 40ch; /* Limit line length for readability */
     line-height: 1.6;
@@ -118,7 +118,7 @@
     }
 
     .not-found-message {
-        font-size: 1.1rem;
+        font-size: var(--font-size-md);
         min-height: 70px;
     }
 }
@@ -129,7 +129,7 @@
     }
 
     .not-found-message {
-        font-size: 1rem;
+        font-size: var(--font-size-base);
         min-height: 60px;
     }
 }

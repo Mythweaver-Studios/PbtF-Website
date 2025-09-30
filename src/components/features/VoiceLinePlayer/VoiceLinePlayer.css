@@ -1,3 +1,4 @@
+/* src/components/features/VoiceLinePlayer/VoiceLinePlayer.css */
 /* --- Simple Mode Redesign (Showcase) --- */
 .voiceline-showcase-panel {
     margin-top: 1.5rem;
@@ -10,8 +11,8 @@
 
 .voiceline-showcase-title {
     margin: 0 0 0.5rem 0;
-    font-size: 0.7rem;
-    font-weight: bold;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
     color: var(--theme-text-secondary);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -99,7 +100,7 @@
 
 .voiceline-showcase-panel .glowing-quote {
     margin: 0;
-    font-size: 0.95rem;
+    font-size: var(--font-size-base);
     line-height: 1.5;
     color: var(--theme-text-secondary);
 }
@@ -119,8 +120,8 @@
 
 .voiceline-panel-title {
     margin: 0;
-    font-size: 0.8rem;
-    font-weight: bold;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
     color: var(--theme-text-secondary);
     letter-spacing: 1.5px;
     border-bottom: 1px solid var(--theme-border-gold-faint);
@@ -149,12 +150,12 @@
 .voiceline-prompt {
     font-style: italic;
     color: var(--theme-text-secondary);
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
 }
 
 .voiceline-full-quote-display .glowing-quote {
     margin: 0;
-    font-size: 0.95rem;
+    font-size: var(--font-size-base);
 }
 
 .voiceline-main-play-btn {

@@ -1,3 +1,4 @@
+/* src/pages/Home/components/ShowcaseTeaser/ShowcaseTeaser.css */
 .showcase-teaser-section {
     width: 100%;
     padding: 4rem 2rem;
@@ -43,7 +44,7 @@
 }
 
 .panel-icon {
-    font-size: 3.5rem;
+    font-size: var(--font-size-display);
     color: var(--panel-accent-color);
     margin-bottom: 1.5rem;
     transition: transform 0.3s ease-out, filter 0.3s ease-out;
@@ -55,8 +56,8 @@
 }
 
 .panel-title {
-    font-family: 'EternalFont', sans-serif;
-    font-size: 1.8rem;
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
     color: var(--theme-text-titles);
     margin: 0 0 1rem 0;
     transition: color 0.3s ease-out;
@@ -67,7 +68,7 @@
 }
 
 .panel-description {
-    font-size: 0.95rem;
+    font-size: var(--font-size-base);
     color: var(--theme-text-secondary);
     line-height: 1.6;
     margin: 0;
@@ -107,7 +108,7 @@
     }
 
     .panel-title {
-        font-size: 1rem;
+        font-size: var(--font-size-base);
         margin: 0;
     }
 }

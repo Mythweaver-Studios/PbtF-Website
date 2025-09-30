@@ -1,3 +1,5 @@
+/* src/components/layout/NavBar/NavBar.css */
+
 /* --- NavBar Wrapper --- */
 .navbar-wrapper {
     display: flex;
@@ -16,8 +18,8 @@
 
 .nav-item {
     color: var(--theme-nav-item-color);
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
     position: relative;
     padding-bottom: 8px;
     transition: color 0.3s ease-in-out;
@@ -71,8 +73,8 @@
     padding: 0.7rem 1.5rem;
     color: var(--theme-nav-item-color);
     text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
     white-space: nowrap;
     transition: color 0.2s ease-out, transform 0.2s ease-out, background-color 0.2s ease-out;
 }
@@ -96,7 +98,7 @@
     align-items: center;
     width: 36px;
     height: 36px;
-    font-size: 20px;
+    font-size: var(--font-size-lg);
     background-color: var(--theme-media-link-bg);
     border-radius: 50%;
     color: var(--theme-media-link-icon);
@@ -121,8 +123,8 @@
 /* --- Mobile Navigation --- */
 .mobile-header-title {
     display: none;
-    font-family: 'EternalFont', 'Georgia', serif;
-    font-size: 1.5rem;
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
     color: var(--theme-text-titles);
     text-decoration: none;
 }
@@ -155,7 +157,7 @@
 
 .theme-drawer .ant-drawer-title {
     color: var(--theme-text-titles);
-    font-family: 'EternalFont', 'Georgia', serif;
+    font-family: var(--font-display);
 }
 
 .theme-drawer .ant-drawer-close {
@@ -175,8 +177,8 @@
 
 .mobile-nav-link {
     color: var(--theme-nav-item-color);
-    font-size: 1.2rem;
-    font-weight: 500;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
     padding: 0.75rem 0;
     transition: color 0.2s ease-out;
 }
