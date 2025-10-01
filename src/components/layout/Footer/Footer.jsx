@@ -116,7 +116,7 @@ function Footer({ onOpenCookieSettings }) {
                                     ))
                                 ) : (
                                     <li className="lang-dropdown-info">
-                                        More languages coming soon.
+                                        TBD.
                                     </li>
                                 )}
                             </ul>
