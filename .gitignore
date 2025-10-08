@@ -1,6 +1,4 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
+## dependencies
 /node_modules
 /.pnp
 .pnp.js
@@ -17,23 +15,11 @@
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Visual Studio / VS Code
+/.vs/
 *.vsidx
 *.sqlite
-/.vs/
-.vs/Community-Service/CopilotIndices/17.14.786.1071/SemanticSymbols.db-shm
-.vs/Community-Service/CopilotIndices/17.14.786.1071/CodeChunks.db-wal
-.vs/Community-Service/CopilotIndices/17.14.786.1071/CodeChunks.db-shm
-.vs/Community-Service/CopilotIndices/17.14.786.1071/CodeChunks.db
-.vs/Community-Service/CopilotIndices/17.14.786.1071/SemanticSymbols.db-wal
-.vs/Community-Service/CopilotIndices/17.14.786.1071/SemanticSymbols.db-shm
-.vs/Community-Service/CopilotIndices/17.14.786.1071/CodeChunks.db-wal
-.vs/Community-Service/CopilotIndices/17.14.786.1071/CodeChunks.db-shm
-.vs/Community-Service/CopilotIndices/17.14.786.1071/CodeChunks.db
-*.db-wal
-*.db-shm
 *.db
-*.db-wal
-*.db-shm
 *.db-shm
 *.db-wal
-*.sqlite
