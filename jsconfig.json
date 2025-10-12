@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
+    "ignoreDeprecations": "6.0",
     "paths": {
-      "components/*": ["src/components/*"],
-      "pages/*": ["src/pages/*"],
-      "hooks/*": ["src/hooks/*"],
-      "services/*": ["src/services/*"],
-      "styles/*": ["src/styles/*"],
-      "assets/*": ["src/assets/*"],
-      "utils/*": ["src/utils/*"]
+      "components/*": ["components/*"],
+      "pages/*": ["pages/*"],
+      "hooks/*": ["hooks/*"],
+      "services/*": ["services/*"],
+      "styles/*": ["styles/*"],
+      "assets/*": ["assets/*"],
+      "utils/*": ["utils/*"]
     }
   },
   "include": [

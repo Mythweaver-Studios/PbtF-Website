@@ -65,10 +65,11 @@ function Footer({ onOpenCookieSettings }) {
             <div className="footer-top-row">
                 <div className="footer-links">
                     <Link to="/faq">FAQ</Link>
+                    <a href="https://discord.gg/pmu" target="_blank" rel="noopener noreferrer">Discord</a>
                     <Link to="/terms-of-service">Terms of Service</Link>
                     <Link to="/privacy-policy">Privacy Policy</Link>
                     <Link to="/cookie-policy">Cookie Policy</Link>
-                    <a href="#" onClick={handleCookieSettingsClick}>Cookie Settings</a>
+                    <button type="button" className="footer-link-button" onClick={handleCookieSettingsClick}>Cookie Settings</button>
                 </div>
                 <button type="button" className="back-to-top" onClick={scrollToTop}>
                     <span className="arrow-up-icon">↑</span> Back to Top

@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import ShowcaseTeaser from "./components/ShowcaseTeaser";
-import FloatingSword from "./animations/FloatingSword";
+/* import FloatingSword from "./animations/FloatingSword"; */
 import "./Home.css";
 
 const homeSections = [
@@ -117,25 +117,20 @@ function Home() {
         <>
             {/* Hero Section */}
             <section id="hero" className="home-main-content" ref={sectionRefs.hero}>
-                <div className="content-left">
-                    <h1>Paved by the Fallen</h1>
-                    <p className="game-pitch">
-                        <strong>
-                            A tactical survival game where you
-                            control the fate of summoned heroes battling through a ruthless
-                            tower of trials. No retries. No revives. Just hardships.
-                        </strong>
-                    </p>
-                    <div className="action-buttons">
-                        <div className="button-row-top">
-                            <button className="btn btn-primary btn-disabled">Beta Signup</button>
-                            <button className="btn btn-secondary btn-disabled">Watch Trailer</button>
-                        </div>
-                        <button className="btn btn-tertiary btn-disabled">Add to Wishlist</button>
+                <h1>Paved by the Fallen</h1>
+                <p className="game-pitch">
+                    <strong>
+                        A tactical survival game where you
+                        control the fate of summoned heroes battling through a ruthless
+                        tower of trials. No retries. No revives. Just hardships.
+                    </strong>
+                </p>
+                <div className="action-buttons">
+                    <div className="button-row-top">
+                        <button className="btn btn-primary btn-disabled">Beta Signup</button>
+                        <button className="btn btn-secondary btn-disabled">Watch Trailer</button>
                     </div>
-                </div>
-                <div className="content-right">
-                    <FloatingSword />
+                    <button className="btn btn-tertiary btn-disabled">Add to Wishlist</button>
                 </div>
             </section>
 

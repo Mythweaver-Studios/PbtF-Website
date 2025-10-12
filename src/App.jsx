@@ -1,10 +1,11 @@
 // src/App.jsx
 import React, { useState, useEffect, Suspense } from "react";
+import { AnimatePresence } from "framer-motion";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ErrorBoundary from "./components/ui/ErrorBoundary/ErrorBoundary";
 import CookieBanner from "./components/features/CookieBanner/CookieBanner";
 import CookieSettingsModal from "./components/features/CookieSettingsModal/CookieSettingsModal";
-import MainLayout from "./components/layout/MainLayout/MainLayout"; // Import the layout
+import MainLayout from "./components/layout/MainLayout/MainLayout";
 import * as CookieService from "./services/CookieService";
 
 // Implement Code-Splitting using React.lazy
@@ -18,7 +19,6 @@ const CookiePolicy = React.lazy(() => import("./pages/Legal/CookiePolicy"));
 const PrivacyPolicy = React.lazy(() => import("./pages/Legal/PrivacyPolicy"));
 const TermsOfService = React.lazy(() => import("./pages/Legal/TermsOfService"));
 const NotFound = React.lazy(() => import("./pages/NotFound/NotFound"));
-const AuthCallback = React.lazy(() => import("./pages/AuthCallback/AuthCallback"));
 const Admin = React.lazy(() => import("./pages/Admin/Admin"));
 
 // Fallback component for Suspense
@@ -83,7 +83,6 @@ function App() {
                         </Route>
 
                         {/* Standalone routes without the main layout */}
-                        <Route path="/supersecrettunnal" element={<AuthCallback />} />
                         <Route path="/admin" element={<Admin />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
@@ -97,7 +96,9 @@ function App() {
                     onOpenSettings={openCookieSettings}
                 />
             )}
-            {isCookieModalOpen && <CookieSettingsModal onClose={closeCookieSettings} />}
+            <AnimatePresence>
+                {isCookieModalOpen && <CookieSettingsModal onClose={closeCookieSettings} />}
+            </AnimatePresence>
         </BrowserRouter>
     );
 }

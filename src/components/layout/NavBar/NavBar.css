@@ -3,7 +3,7 @@
 /* --- NavBar Wrapper --- */
 .navbar-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* MODIFIED: Was space-between */
     align-items: center;
     width: 100%;
     position: relative;
@@ -35,7 +35,6 @@
 
 .nav-item span {
     display: inline-block;
-    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .nav-item::after {
@@ -53,10 +52,6 @@
 
 .nav-item:hover, .nav-item.active {
     color: var(--theme-nav-item-hover-color);
-}
-
-.nav-item:hover span, .nav-item.active span {
-    transform: translateY(-3px);
 }
 
 .nav-item:hover::after, .nav-item.active::after {
@@ -90,6 +85,14 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+
+/* ADDED: New rule to absolutely position the desktop social icons */
+.desktop-socials {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .navbar__socials a {
