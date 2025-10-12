@@ -1,0 +1,52 @@
+/* src/pages/InteractiveMap/components/MapControls.css */
+.map-controls-panel {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 200px;
+    background-color: rgba(5, 4, 3, 0.9);
+    border: 1px solid var(--theme-border-gold);
+    border-radius: 8px;
+    z-index: 20; /* Ensure it's above map markers */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.map-controls-title {
+    font-size: var(--font-size-base);
+    color: var(--theme-text-titles);
+    text-align: center;
+    padding: 0.75rem 0;
+    margin: 0;
+    border-bottom: 1px solid var(--theme-border-gold-faint);
+}
+
+.map-controls-list {
+    list-style: none;
+    padding: 0.5rem;
+    margin: 0;
+}
+
+.map-control-button {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--theme-text-primary);
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.map-control-button:hover {
+    background-color: var(--theme-dropdown-item-hover-bg);
+    color: var(--theme-highlight-gold);
+}
+
+.map-control-button.active {
+    background-color: var(--theme-highlight-gold);
+    color: var(--theme-dropdown-bg);
+    font-weight: var(--font-weight-bold);
+}

@@ -38,7 +38,7 @@ skillTreeData.forEach(skill => {
     }
 });
 
-function SkillTreeGraph({ activeArchetype, onNodeClick }) {
+function SkillTreeGraph({ activeArchetype, onNodeClick, searchTerm }) {
     const { nodes: layoutedNodes, edges: layoutedEdges } = useMemo(
         () => getRadialLayoutedElements(baseNodes, baseEdges),
         []
@@ -49,8 +49,9 @@ function SkillTreeGraph({ activeArchetype, onNodeClick }) {
 
     useEffect(() => {
         const isVisible = (skill) => {
-            if (activeArchetype === 'All' || skill.archetype === 'Global') return true;
-            return skill.archetype === activeArchetype;
+            const archetypeMatch = activeArchetype === 'All' || skill.archetype === 'Global' || skill.archetype === activeArchetype;
+            const searchMatch = !searchTerm || skill.name.toLowerCase().includes(searchTerm.toLowerCase());
+            return archetypeMatch && searchMatch;
         };
 
         setNodes(layoutedNodes.map(node => ({
@@ -66,7 +67,7 @@ function SkillTreeGraph({ activeArchetype, onNodeClick }) {
                 style: { ...edge.style, opacity: isVisible(sourceNode.data) ? 1 : 0.1, transition: 'opacity 0.3s ease' },
             };
         }));
-    }, [activeArchetype, onNodeClick, layoutedNodes, layoutedEdges]);
+    }, [activeArchetype, onNodeClick, layoutedNodes, layoutedEdges, searchTerm]);
 
     return (
         <div style={{ flexGrow: 1, height: '100%' }}>
@@ -93,10 +94,12 @@ function SkillTreeGraph({ activeArchetype, onNodeClick }) {
 SkillTreeGraph.propTypes = {
     activeArchetype: PropTypes.string.isRequired,
     onNodeClick: PropTypes.func,
+    searchTerm: PropTypes.string,
 };
 
 SkillTreeGraph.defaultProps = {
     onNodeClick: () => {},
+    searchTerm: '',
 };
 
 export default SkillTreeGraph;

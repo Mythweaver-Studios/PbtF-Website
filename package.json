@@ -19,6 +19,7 @@
     "react-router-dom": "7.9.3",
     "react-scripts": "5.0.1",
     "react-select": "^5.10.2",
+    "react-zoom-pan-pinch": "^3.7.0",
     "reactflow": "^11.11.4",
     "web-vitals": "^5.1.0"
   },
