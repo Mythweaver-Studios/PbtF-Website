@@ -1,7 +1,7 @@
 // src/pages/Showcase/components/Features.jsx
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import ArrowButton from "../../../components/ui/ArrowButton/ArrowButton";
+// REMOVED: Unused ArrowButton import
 import "./Features.css";
 
 const FEATURE_SLIDE_DURATION = 18500;
@@ -14,9 +14,7 @@ function FeaturesSection({ featuresData }) {
     setCurrentFeatureIndex((prevIndex) => (prevIndex + 1) % featuresData.length);
   };
 
-  const previousFeature = () => {
-    setCurrentFeatureIndex((prevIndex) => (prevIndex - 1 + featuresData.length) % featuresData.length);
-  };
+  // REMOVED: Unused previousFeature function
 
   useEffect(() => {
     clearTimeout(featureTimeoutRef.current);
@@ -59,13 +57,12 @@ function FeaturesSection({ featuresData }) {
 
       {featuresData.length > 1 && (
         <div className="features-nav-controls">
-          <ArrowButton onClick={previousFeature} direction="left" />
+          {/* MODIFIED: Removed commented out ArrowButtons */}
           <div className="feature-dots">
             {featuresData.map((_, index) => (
               <button key={`dot-${index}`} className={`dot ${index === currentFeatureIndex ? "active" : ""}`} onClick={() => selectFeature(index)} aria-label={`Go to feature ${index + 1}`} />
             ))}
           </div>
-          <ArrowButton onClick={nextFeature} direction="right" />
         </div>
       )}
     </div>

@@ -114,14 +114,12 @@
     max-width: 600px;
     margin-top: 1.5rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* MODIFIED: Was space-between */
     align-items: center;
-    padding: 0 1rem;
+    /* REMOVED: Unnecessary padding */
 }
 
-.feature-nav-controls {
-    display: none; /* Hide mobile controls by default */
-}
+/* REMOVED: .feature-nav-controls rule, as it was hiding mobile controls */
 
 .feature-dots {
     display: flex;
@@ -150,64 +148,7 @@
     transform: scale(1.1);
 }
 
-/* --- DESKTOP Arrow Styles --- */
-.desktop-arrow {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(15, 12, 10, 0.85);
-    border: 2px solid var(--theme-border-gold);
-    position: relative;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    transform: rotate(45deg);
-    flex-shrink: 0;
-    margin: 0 20px;
-    z-index: 5;
-}
-
-.desktop-arrow::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 10px;
-    height: 10px;
-    border-style: solid;
-    border-color: var(--theme-highlight-red);
-    transform: translate(-50%, -50%) rotate(-90deg);
-    transition: border-color 0.3s ease;
-}
-
-.desktop-arrow.left::before {
-    border-width: 3px 0 0 3px;
-}
-
-.desktop-arrow.right::before {
-    border-width: 0 3px 3px 0;
-}
-
-.desktop-arrow:hover {
-    border-color: var(--theme-highlight-gold);
-    box-shadow: 0 0 8px rgba(241, 196, 15, 0.7);
-}
-
-.desktop-arrow:hover::before {
-    border-color: var(--theme-highlight-gold);
-}
+/* REMOVED: Unused .desktop-arrow styles */
 
 /* --- Responsive Adjustments --- */
-@media (max-width: 768px) {
-    .desktop-arrow {
-        display: none; /* Hide desktop arrows on mobile */
-    }
-
-    .features-nav-controls {
-        display: flex; /* Show mobile controls */
-        width: 100%;
-        max-width: 300px;
-        margin-top: 1.5rem;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 1rem;
-    }
-}
+/* REMOVED: Unnecessary media query for nav controls, as the new default works for all sizes */
