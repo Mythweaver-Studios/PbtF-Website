@@ -33,7 +33,6 @@ const archetypeIcons = {
 function SkillNode({ data }) {
     const icon = archetypeIcons[data.archetype] || <FaStar />;
 
-    // MODIFIED: Added a check to prevent calling onClick if it doesn't exist
     const handleClick = () => {
         if (data.onClick) {
             data.onClick(data);
@@ -42,6 +41,7 @@ function SkillNode({ data }) {
 
     return (
         <div className="skill-node" data-archetype={data.archetype} onClick={handleClick}>
+            <div className="skill-star-rating">{'★'.repeat(data.star)}</div>
             <Handle type="target" position={Position.Top} style={{ background: 'transparent', border: 'none' }} />
             
             <div className="skill-node-icon">{icon}</div>
@@ -65,7 +65,8 @@ SkillNode.propTypes = {
         type: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
         archetype: PropTypes.string.isRequired,
-        onClick: PropTypes.func, // MODIFIED: No longer required
+        star: PropTypes.number.isRequired,
+        onClick: PropTypes.func,
     }).isRequired,
 };
 

@@ -9,6 +9,18 @@
     border-radius: 10px;
 }
 
+.skill-detail-panel {
+    width: 350px; /* Fixed width for the sidebar */
+    flex-shrink: 0; /* Prevent the panel from shrinking */
+    height: 70vh; /* Match the height of the graph container */
+    padding: 1.5rem;
+    background-color: #100e0c;
+    border: 1px solid var(--theme-border-gold);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
 .detail-header {
     display: flex;
     justify-content: space-between;
@@ -30,9 +42,10 @@
 }
 
 .detail-body {
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-base); /* Slightly smaller for the panel */
     color: var(--theme-text-primary);
-    line-height: 1.8;
+    line-height: 1.7;
+    overflow-y: auto; /* Allow scrolling for long descriptions */
 }
 
 .detail-close-btn {

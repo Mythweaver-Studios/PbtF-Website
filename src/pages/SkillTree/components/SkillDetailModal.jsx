@@ -1,13 +1,27 @@
 // src/pages/SkillTree/components/SkillDetailModal.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
+import { motion } from 'framer-motion';
 import './SkillDetailModal.css';
+
+const panelVariants = {
+    hidden: { x: 50, opacity: 0 },
+    visible: { x: 0, opacity: 1 },
+    exit: { x: 50, opacity: 0 }
+};
 
 function SkillDetailModal({ skill, onClose }) {
     if (!skill) return null;
 
     return (
-        <div className="skill-detail-modal">
+        <motion.div
+            className="skill-detail-panel"
+            variants={panelVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            transition={{ ease: 'easeInOut', duration: 0.3 }}
+        >
             <div className="detail-header">
                 <div>
                     <h2 className="detail-name">{skill.name}</h2>
@@ -18,7 +32,7 @@ function SkillDetailModal({ skill, onClose }) {
             <div className="detail-body">
                 <p>{skill.description}</p>
             </div>
-        </div>
+        </motion.div>
     );
 }
 
