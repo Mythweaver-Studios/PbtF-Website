@@ -15,6 +15,8 @@ const AboutUs = React.lazy(() => import("./pages/AboutUs/AboutUs"));
 const News = React.lazy(() => import("./pages/News/News"));
 const CharacterList = React.lazy(() => import("./pages/CharacterList/CharacterList"));
 const FAQ = React.lazy(() => import("./pages/FAQ/FAQ"));
+const InteractiveMap = React.lazy(() => import("./pages/InteractiveMap/InteractiveMap")); // ADDED
+const SkillTree = React.lazy(() => import("./pages/SkillTree/SkillTree")); // ADDED
 const CookiePolicy = React.lazy(() => import("./pages/Legal/CookiePolicy"));
 const PrivacyPolicy = React.lazy(() => import("./pages/Legal/PrivacyPolicy"));
 const TermsOfService = React.lazy(() => import("./pages/Legal/TermsOfService"));
@@ -77,6 +79,8 @@ function App() {
                             <Route path="/about-us" element={<AboutUs />} />
                             <Route path="/characterlist" element={<CharacterList />} />
                             <Route path="/faq" element={<FAQ />} />
+                            <Route path="/interactive-map" element={<InteractiveMap />} /> {/* ADDED */}
+                            <Route path="/skill-tree" element={<SkillTree />} /> {/* ADDED */}
                             <Route path="/cookie-policy" element={<CookiePolicy />} />
                             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                             <Route path="/terms-of-service" element={<TermsOfService />} />

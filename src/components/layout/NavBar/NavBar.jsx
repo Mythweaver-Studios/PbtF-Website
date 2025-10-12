@@ -11,7 +11,7 @@ import './NavBar.css';
 const socialLinksData = [
     { name: 'Instagram', href: 'https://www.instagram.com', icon: <FaInstagram />, disabled: true, visible: false },
     { name: 'Reddit', href: 'https://www.reddit.com', icon: <FaReddit />, disabled: true, visible: false },
-    { name: 'Discord', href: 'https://discord.gg/pmu', icon: <FaDiscord />, disabled: false, visible: true },
+    { name: 'Discord', href: 'https://discord.gg/pmu', icon: <FaDiscord />, disabled: false, visible: false },
 ];
 
 function NavBar() {
@@ -23,7 +23,8 @@ function NavBar() {
 
     const getNavLinkClass = ({ isActive }) => `nav-item ${isActive ? 'active' : ''}`;
     const getMobileNavLinkClass = ({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`;
-    const isShowcaseActive = location.pathname.startsWith('/showcase');
+    const isShowcaseActive = location.pathname.startsWith('/showcase') || location.pathname === '/skill-tree' || location.pathname === '/interactive-map';
+    const isCommunityActive = location.pathname === '/faq';
 
     const socialLinks = (
         <div className="navbar__socials">
@@ -49,9 +50,16 @@ function NavBar() {
                 trigger={<div className={`nav-item ${isShowcaseActive ? 'active' : ''}`}><span>Game Showcase</span><IoChevronDown className="arrow-indicator" /></div>}
             >
                 <ul>
-                    <li><NavLink to="/showcase#story" className="dropdown-item">Story</NavLink></li>
-                    <li><NavLink to="/showcase#characters" className="dropdown-item">Characters</NavLink></li>
-                    <li><NavLink to="/showcase#features" className="dropdown-item">Features</NavLink></li>
+                    <li><NavLink to="/showcase" className="dropdown-item">Overview</NavLink></li>
+                    <li><NavLink to="/skill-tree" className="dropdown-item">Skill Tree</NavLink></li>
+                    <li><NavLink to="/interactive-map" className="dropdown-item">Interactive Map</NavLink></li>
+                </ul>
+            </Dropdown>
+            <Dropdown
+                trigger={<div className={`nav-item ${isCommunityActive ? 'active' : ''}`}><span>Community</span><IoChevronDown className="arrow-indicator" /></div>}
+            >
+                <ul>
+                    <li><NavLink to="/faq" className="dropdown-item">FAQ</NavLink></li>
                 </ul>
             </Dropdown>
             <NavLink to="/about-us" className={getNavLinkClass}><span>About Us</span></NavLink>
@@ -62,6 +70,9 @@ function NavBar() {
         <nav className="mobile-nav-links">
             <NavLink to="/home" className={getMobileNavLinkClass} onClick={closeDrawer} end>Main</NavLink>
             <NavLink to="/showcase" className={getMobileNavLinkClass} onClick={closeDrawer}>Game Showcase</NavLink>
+            <NavLink to="/skill-tree" className={getMobileNavLinkClass} onClick={closeDrawer}>Skill Tree</NavLink>
+            <NavLink to="/interactive-map" className={getMobileNavLinkClass} onClick={closeDrawer}>Interactive Map</NavLink>
+            <NavLink to="/faq" className={getMobileNavLinkClass} onClick={closeDrawer}>FAQ</NavLink>
             <NavLink to="/about-us" className={getMobileNavLinkClass} onClick={closeDrawer}>About Us</NavLink>
         </nav>
     );

@@ -1,0 +1,16 @@
+/* src/pages/InteractiveMap/InteractiveMap.css */
+.interactive-map-page {
+    background: linear-gradient(rgba(10, 8, 7, 0.8), rgba(5, 4, 3, 0.9)), url('../../assets/images/showcase_backgrounds/features_background.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.placeholder-content {
+    text-align: center;
+    color: var(--theme-text-secondary);
+    font-size: var(--font-size-md);
+    padding: 2rem;
+    background-color: rgba(10, 8, 7, 0.75);
+    border: 1px solid var(--theme-border-gold);
+    border-radius: 10px;
+    max-width: 600px;
+}
