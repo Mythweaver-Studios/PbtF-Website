@@ -26,6 +26,8 @@
   "scripts": {
     "prestart": "node ./scripts/generate-voiceline-manifest.js && node ./scripts/validate-skill-tree.js",
     "start": "react-scripts start",
+    "predev": "node ./scripts/generate-voiceline-manifest.js && node ./scripts/validate-skill-tree.js",
+    "dev": "react-scripts start",
     "prebuild": "node ./scripts/generate-voiceline-manifest.js && node ./scripts/validate-skill-tree.js",
     "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",

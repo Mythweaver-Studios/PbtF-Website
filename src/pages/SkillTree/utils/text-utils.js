@@ -4,7 +4,6 @@ import React from 'react';
 // with specific keywords and numbers wrapped in styled spans.
 export const colorizeText = (text) => {
     // A centralized map for all keywords, patterns, and their corresponding CSS classes.
-    // MODIFIED: Added word boundaries (\b) to most single-word keywords to prevent substring matching.
     const keywordMap = {
         // Phrases (do not need word boundaries)
         'max HP': 'keyword-unit',
@@ -13,6 +12,8 @@ export const colorizeText = (text) => {
         'crit rate': 'keyword-stat',
         'crit damage': 'keyword-stat',
         'mobility boost': 'keyword-stat',
+        'damage reduction': 'keyword-stat',
+        'bonus damage': 'keyword-unit',
         // Attributes
         '\\bstrength\\b': 'keyword-stat',
         '\\bdexterity\\b': 'keyword-stat',
@@ -31,11 +32,20 @@ export const colorizeText = (text) => {
         '\\bdazed\\b': 'keyword-slow',
         '\\bsnare(s)?\\b': 'keyword-slow',
         '\\broot(s)?\\b': 'keyword-slow',
-        // Units
+        '\\bCC\\b': 'keyword-slow',
+        '\\bcrowd control\\b': 'keyword-slow',
+        '\\baggro\\b': 'keyword-slow',
+        // Units & Game Terms
         '\\bseconds?\\b': 'keyword-unit',
         '\\bdamage\\b': 'keyword-unit',
         '\\bHP\\b': 'keyword-unit',
         '\\bSP\\b': 'keyword-unit',
+        '\\bmana\\b': 'keyword-unit',
+        '\\bstamina\\b': 'keyword-unit',
+        '\\bcooldown\\b': 'keyword-unit',
+        '\\bstack(s)?\\b': 'keyword-unit',
+        '\\bradius\\b': 'keyword-unit',
+        '\\bmeters?\\b': 'keyword-unit',
     };
 
     // Sort keys by length, descending, to ensure longer phrases are matched first (e.g., "max HP" before "HP").

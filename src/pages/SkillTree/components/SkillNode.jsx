@@ -3,7 +3,7 @@ import React from 'react';
 import { Handle, Position } from 'reactflow';
 import PropTypes from 'prop-types';
 import { FaKhanda, FaUserNinja, FaStar } from 'react-icons/fa'; 
-import { colorizeText } from '../utils/text-utils'; // MODIFIED: Import from new utility file
+import { colorizeText } from '../utils/text-utils';
 import './SkillNode.css';
 
 const archetypeIcons = {
