@@ -1,7 +1,7 @@
 // src/pages/InteractiveMap/InteractiveMap.jsx
 import React, { useEffect } from 'react';
 import './InteractiveMap.css';
-import '../../Showcase/Showcase.css'; // Re-using showcase styles for consistency
+import '../Showcase/Showcase.css'; // Re-using showcase styles for consistency
 
 function InteractiveMap() {
     useEffect(() => {

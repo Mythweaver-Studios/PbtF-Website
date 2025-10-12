@@ -1,0 +1,89 @@
+/* src/pages/SkillTree/components/SkillNode.css */
+.skill-node {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #3a3025 0%, #1f1b16 100%);
+    border: 3px solid var(--theme-border-gold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.skill-node:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--glow-color, var(--theme-highlight-gold));
+    border-color: var(--glow-color, var(--theme-highlight-gold));
+}
+
+.skill-node-icon {
+    font-size: 2.5rem;
+    color: var(--theme-text-primary);
+    transition: color 0.3s ease;
+}
+
+.skill-node:hover .skill-node-icon {
+    color: var(--glow-color, var(--theme-highlight-gold));
+}
+
+/* Archetype-specific styling */
+.skill-node[data-archetype="Warrior"] { --glow-color: var(--theme-highlight-red); }
+.skill-node[data-archetype="Assassin"] { --glow-color: #42a5f5; } /* A cool blue for contrast */
+.skill-node[data-archetype="Global"] { --glow-color: var(--theme-highlight-gold); }
+
+/* --- Tooltip --- */
+.skill-tooltip {
+    position: absolute;
+    bottom: 110%; /* Position above the node */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    background-color: var(--theme-dropdown-bg);
+    border: 1px solid var(--theme-border-gold);
+    border-radius: 8px;
+    padding: 1rem;
+    color: var(--theme-text-secondary);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+}
+
+.skill-node:hover .skill-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.skill-tooltip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid var(--theme-border-gold-faint);
+    padding-bottom: 0.5rem;
+}
+
+.skill-tooltip-name {
+    font-size: var(--font-size-md);
+    color: var(--theme-text-titles);
+    font-weight: var(--font-weight-bold);
+}
+
+.skill-tooltip-type {
+    font-size: var(--font-size-xs);
+    color: var(--theme-text-secondary);
+    background-color: #100e0c;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--theme-border-gold-faint);
+}
+
+.skill-tooltip-desc {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+}

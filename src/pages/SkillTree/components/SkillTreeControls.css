@@ -1,0 +1,33 @@
+/* src/pages/SkillTree/components/SkillTreeControls.css */
+.skill-tree-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.skill-tree-controls button {
+    padding: 0.6rem 1.5rem;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 2px solid var(--theme-border-gold);
+    border-radius: 20px;
+    background-color: transparent;
+    color: var(--theme-text-primary);
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+.skill-tree-controls button:hover {
+    background-color: rgba(241, 196, 15, 0.15);
+    border-color: var(--theme-highlight-gold);
+}
+
+.skill-tree-controls button.active {
+    color: #100e0c;
+    border-color: var(--theme-highlight-gold);
+    background-color: var(--theme-highlight-gold);
+    box-shadow: 0 0 15px var(--theme-highlight-gold);
+}

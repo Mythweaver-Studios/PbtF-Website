@@ -4,4 +4,28 @@
     background-size: cover;
 }
 
-/* The .placeholder-content class from InteractiveMap.css will be used here as well */
+.skill-tree-container {
+    width: 100%;
+    height: 70vh; /* Give the container a defined height */
+    max-width: 1200px;
+    border: 1px solid var(--theme-border-gold);
+    border-radius: 10px;
+    background-color: rgba(5, 4, 3, 0.7);
+}
+
+/* Theming for React Flow controls to match our site */
+.react-flow-themed .react-flow__controls button {
+    background-color: var(--theme-dropdown-bg);
+    border-bottom: 1px solid var(--theme-border-gold-faint);
+    fill: var(--theme-text-primary);
+}
+.react-flow-themed .react-flow__controls button:hover {
+    background-color: var(--theme-dropdown-item-hover-bg);
+}
+.react-flow-themed .react-flow__minimap {
+    background-color: var(--theme-dropdown-bg);
+    border: 1px solid var(--theme-border-gold-faint);
+}
+.react-flow-themed .react-flow__background {
+    background-color: #100e0c;
+}

@@ -1,33 +1,7 @@
 // src/pages/FAQ/FAQ.jsx
 import React from 'react';
+import { faqData } from './faqData'; // Import data from the new file
 import './FAQ.css';
-
-const faqData = [
-    {
-        question: 'How will the combat system work?',
-        answer: 'TBD'
-    },
-    {
-        question: 'Will this game be pay-to-win?',
-        answer: 'TBD'
-    },
-    {
-        question: 'Will you implement Perma-death?',
-        answer: 'TBD'
-    },
-    {
-        question: 'When will the game be released?',
-        answer: 'TBD'
-    },
-    {
-        question: 'How can I support you guys?',
-        answer: 'TBD'
-    },
-    {
-        question: 'How can I help with the development?',
-        answer: 'TBD'
-    },
-];
 
 function FAQ() {
     return (
