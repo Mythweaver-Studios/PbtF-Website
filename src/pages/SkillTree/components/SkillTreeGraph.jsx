@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import 'reactflow/dist/style.css';
 import { skillTreeData } from '../skillTreeData';
 import SkillNode from './SkillNode';
-import { getRadialLayoutedElements } from '../layout-utils';
+import { getHybridRadialLayoutedElements } from '../layout-utils'; // MODIFIED: Import new hybrid function
 
 const nodeTypes = { skillNode: SkillNode };
 
@@ -40,7 +40,7 @@ skillTreeData.forEach(skill => {
 
 function SkillTreeGraph({ activeArchetype, onNodeClick, searchTerm }) {
     const { nodes: layoutedNodes, edges: layoutedEdges } = useMemo(
-        () => getRadialLayoutedElements(baseNodes, baseEdges),
+        () => getHybridRadialLayoutedElements(baseNodes, baseEdges), // MODIFIED: Call new layout function
         []
     );
     
@@ -62,9 +62,13 @@ function SkillTreeGraph({ activeArchetype, onNodeClick, searchTerm }) {
 
         setEdges(layoutedEdges.map(edge => {
             const sourceNode = layoutedNodes.find(n => n.id === edge.source);
+            const targetNode = layoutedNodes.find(n => n.id === edge.target);
+            const sourceVisible = isVisible(sourceNode.data);
+            const targetVisible = isVisible(targetNode.data);
+
             return {
                 ...edge,
-                style: { ...edge.style, opacity: isVisible(sourceNode.data) ? 1 : 0.1, transition: 'opacity 0.3s ease' },
+                style: { ...edge.style, opacity: (sourceVisible && targetVisible) ? 1 : 0.1, transition: 'opacity 0.3s ease' },
             };
         }));
     }, [activeArchetype, onNodeClick, layoutedNodes, layoutedEdges, searchTerm]);

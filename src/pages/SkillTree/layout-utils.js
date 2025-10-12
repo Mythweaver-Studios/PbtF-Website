@@ -1,44 +1,75 @@
 // src/pages/SkillTree/layout-utils.js
 
-const STAR1_RADIUS = 350;
-const STAR2_RADIUS = 700;
-// MODIFIED: Increased spacing for the central column of global skills
-const GLOBAL_NODE_SPACING = 200; 
+const RADIUS_GLOBAL = 150;
+const RADIUS_STAR1 = 450;
+const RADIUS_STAR2 = 750;
 
-export const getRadialLayoutedElements = (nodes, edges) => {
-    const star1Nodes = nodes.filter(n => n.data.star === 1 && n.data.archetype !== 'Global');
-    const star2Nodes = nodes.filter(n => n.data.star === 2);
-    const globalNodes = nodes.filter(n => n.data.archetype === 'Global');
+// Define angular "sectors" for each archetype to occupy on the circle
+const SECTORS = {
+    // Each sector is [startAngle, endAngle] in degrees
+    Warrior: [0, 120],
+    Assassin: [120, 240],
+    // Add more archetypes here, e.g., Mage: [240, 360]
+};
 
-    // Position global nodes vertically in the center with increased and proper centered spacing
-    const globalNodesCount = globalNodes.length;
-    globalNodes.forEach((node, i) => {
-        node.position = { 
-            x: 0, 
-            // This formula centers the column of nodes around the y=0 axis
-            y: (i - (globalNodesCount - 1) / 2) * GLOBAL_NODE_SPACING 
-        };
-    });
+const toRadians = (degrees) => degrees * (Math.PI / 180);
 
-    // Position Star 1 nodes on the inner circle
-    const angleStep1 = 360 / star1Nodes.length;
-    star1Nodes.forEach((node, i) => {
-        const angle = (angleStep1 * i) * (Math.PI / 180); // Convert to radians
+export const getHybridRadialLayoutedElements = (nodes, edges) => {
+    const layoutedNodes = [];
+    const nodeGroups = {
+        Global: nodes.filter(n => n.data.archetype === 'Global'),
+        Warrior: {
+            star1: nodes.filter(n => n.data.archetype === 'Warrior' && n.data.star === 1),
+            star2: nodes.filter(n => n.data.archetype === 'Warrior' && n.data.star === 2),
+        },
+        Assassin: {
+            star1: nodes.filter(n => n.data.archetype === 'Assassin' && n.data.star === 1),
+            star2: nodes.filter(n => n.data.archetype === 'Assassin' && n.data.star === 2),
+        },
+    };
+
+    // 1. Position Global nodes in a central circle
+    const globalAngleStep = 360 / nodeGroups.Global.length;
+    nodeGroups.Global.forEach((node, i) => {
+        const angle = toRadians(globalAngleStep * i);
         node.position = {
-            x: STAR1_RADIUS * Math.cos(angle),
-            y: STAR1_RADIUS * Math.sin(angle),
+            x: RADIUS_GLOBAL * Math.cos(angle),
+            y: RADIUS_GLOBAL * Math.sin(angle),
         };
+        layoutedNodes.push(node);
     });
 
-    // Position Star 2 nodes on the outer circle
-    const angleStep2 = 360 / star2Nodes.length;
-    star2Nodes.forEach((node, i) => {
-        const angle = (angleStep2 * i) * (Math.PI / 180); // Convert to radians
-        node.position = {
-            x: STAR2_RADIUS * Math.cos(angle),
-            y: STAR2_RADIUS * Math.sin(angle),
-        };
+    // 2. Position Archetype nodes within their sectors and on their tiered rings
+    Object.keys(SECTORS).forEach(archetype => {
+        const sector = SECTORS[archetype];
+        const sectorStartAngle = sector[0];
+        const sectorAngleSpan = sector[1] - sector[0];
+
+        const star1Nodes = nodeGroups[archetype].star1;
+        const star2Nodes = nodeGroups[archetype].star2;
+
+        // Position Star 1 nodes for this archetype
+        const star1AngleStep = sectorAngleSpan / (star1Nodes.length + 1);
+        star1Nodes.forEach((node, i) => {
+            const angle = toRadians(sectorStartAngle + star1AngleStep * (i + 1));
+            node.position = {
+                x: RADIUS_STAR1 * Math.cos(angle),
+                y: RADIUS_STAR1 * Math.sin(angle),
+            };
+            layoutedNodes.push(node);
+        });
+
+        // Position Star 2 nodes for this archetype
+        const star2AngleStep = sectorAngleSpan / (star2Nodes.length + 1);
+        star2Nodes.forEach((node, i) => {
+            const angle = toRadians(sectorStartAngle + star2AngleStep * (i + 1));
+            node.position = {
+                x: RADIUS_STAR2 * Math.cos(angle),
+                y: RADIUS_STAR2 * Math.sin(angle),
+            };
+            layoutedNodes.push(node);
+        });
     });
 
-    return { nodes: [...globalNodes, ...star1Nodes, ...star2Nodes], edges };
+    return { nodes: layoutedNodes, edges };
 };
