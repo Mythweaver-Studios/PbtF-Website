@@ -16,7 +16,7 @@ export const regions = [
     {
         id: 'lerdant_coast',
         name: 'Lerdant Coast',
-        coords: { top: '53%', left: '34%' },
+        coords: { top: '53%', left: '32.5%' },
         lore: `The Lerdant Coast is a vast vault of secrets, its mysteries buried deep beneath the waves. Legends speak of a goddess resting in its darkest depths. The region’s inhabitants are as unusual as the coast itself, amphibious beings capable of surviving both on land and in the sea. It's a place of constant change as new settlers from Ark’Thal arrive in search of fortune, drawn by whispers of hidden treasures scattered along the ocean floor. Yet, not all that glitters is a blessing, for among those treasures lies a sickening rot buried and waiting to be unearthed.`
     },
     {

@@ -6,7 +6,6 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    /* z-index unnecessary */
 }
 
 .teaser-panels-container {
@@ -15,13 +14,13 @@
     align-items: stretch;
     gap: 2rem;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px; /* MODIFIED: Increased max-width for more items */
     flex-wrap: wrap; 
 }
 
 .teaser-panel {
-    flex: 1 1 300px;
-    min-width: 280px;
+    flex: 1 1 250px; /* MODIFIED: Adjusted flex-basis for up to 5 items */
+    min-width: 220px; /* MODIFIED: Adjusted min-width */
     max-width: 380px;
     padding: 2.5rem 2rem;
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
@@ -91,14 +90,15 @@
     }
 
     .teaser-panels-container {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        gap: 0.75rem;
+        /* MODIFIED: Allow wrapping for smaller screens */
+        flex-wrap: wrap; 
+        gap: 1rem;
     }
 
     .teaser-panel {
-        flex: 1;
-        min-width: 0;
+        /* MODIFIED: Set a new basis for a 2-column layout */
+        flex-basis: calc(50% - 0.5rem);
+        min-width: 150px;
         padding: 1.5rem 0.5rem;
     }
 

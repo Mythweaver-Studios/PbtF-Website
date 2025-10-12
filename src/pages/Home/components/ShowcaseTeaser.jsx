@@ -3,8 +3,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { GiScrollQuill } from "react-icons/gi";
-import { FaUsers, FaCogs } from "react-icons/fa";
+import { GiScrollQuill, GiCompass } from "react-icons/gi"; // MODIFIED: GiCompass for Map
+import { FaUsers, FaSitemap } from "react-icons/fa"; // MODIFIED: FaSitemap for Skill Tree
 import "./ShowcaseTeaser.css";
 
 const showcaseTeaserData = [
@@ -25,11 +25,27 @@ const showcaseTeaserData = [
         accentColor: "var(--theme-highlight-red)",
     },
     {
+        id: "skill-tree",
+        title: "Skill Tree",
+        description: "Forge your path with a vast, branching skill system.",
+        link: "/skill-tree",
+        icon: <FaSitemap />,
+        accentColor: "#4db6ac", // Teal
+    },
+    {
+        id: "interactive-map",
+        title: "Interactive Map",
+        description: "Discover the world, its regions, and hidden lore.",
+        link: "/interactive-map",
+        icon: <GiCompass />,
+        accentColor: "#42a5f5", // Blue
+    },
+    {
         id: "features",
         title: "Features",
         description: "Explore the unique mechanics that define your journey.",
         link: "/showcase#features",
-        icon: <FaCogs />,
+        icon: <FaSitemap />, // Using a generic icon, can be updated
         accentColor: "var(--theme-text-titles)",
     },
 ];
@@ -38,7 +54,7 @@ const containerVariants = {
     hidden: {},
     visible: {
         transition: {
-            staggerChildren: 0.2,
+            staggerChildren: 0.15, // Adjusted stagger for more items
         },
     },
 };
@@ -62,13 +78,13 @@ function ShowcaseTeaser({ sectionRef }) {
             className="showcase-teaser-section"
             ref={sectionRef}
         >
-            <h2 className="section-title">Game Showcase</h2>
+            <h2 className="section-title">Explore the Game</h2>
             <motion.div
                 className="teaser-panels-container"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.2 }} // Adjusted amount for a larger container
             >
                 {showcaseTeaserData.map((item) => (
                     <motion.div key={item.id} variants={itemVariants}>

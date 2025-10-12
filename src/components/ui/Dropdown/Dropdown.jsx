@@ -34,6 +34,11 @@ function Dropdown({ trigger, children }) {
     // Use the custom hook to close the dropdown when clicking outside
     useOnClickOutside(dropdownRef, () => setIsOpen(false));
 
+    // MODIFIED: This handler will close the dropdown when any item inside is clicked.
+    const handleMenuClick = () => {
+        setIsOpen(false);
+    };
+
     return (
         <div ref={dropdownRef} className="dropdown-container">
             <div className="dropdown-trigger" onClick={toggleDropdown} role="button" tabIndex={0} onKeyDown={toggleDropdown}>
@@ -43,6 +48,7 @@ function Dropdown({ trigger, children }) {
                 {isOpen && (
                     <motion.div
                         className="dropdown-menu"
+                        onClick={handleMenuClick} // MODIFIED: Added onClick handler here
                         variants={menuVariants}
                         initial="hidden"
                         animate="visible"
