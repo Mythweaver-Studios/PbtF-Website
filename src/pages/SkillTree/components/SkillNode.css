@@ -43,7 +43,7 @@
 
 /* Archetype-specific styling */
 .skill-node[data-archetype="Warrior"] { --glow-color: var(--theme-highlight-red); }
-.skill-node[data-archetype="Assassin"] { --glow-color: #42a5f5; } /* A cool blue for contrast */
+.skill-node[data-archetype="Assassin"] { --glow-color: #4db6ac; } /* A cool teal for contrast */
 .skill-node[data-archetype="Global"] { --glow-color: var(--theme-highlight-gold); }
 
 /* --- Tooltip --- */
@@ -59,7 +59,7 @@
     padding: 1rem;
     color: var(--theme-text-secondary);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    z-index: 1000; /* MODIFIED: Was 10, increased to ensure it's on top of other nodes */
+    z-index: 1000;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -100,6 +100,7 @@
     line-height: 1.6;
 }
 
+/* --- Keyword Highlighting --- */
 .keyword-burn {
     color: #ffa726; /* Orange */
     font-weight: var(--font-weight-bold);
@@ -109,6 +110,23 @@
     font-weight: var(--font-weight-bold);
 }
 .keyword-poison {
-    color: #00962d; /* Green/Teal */
+    color: #00962d; /* Green */
     font-weight: var(--font-weight-bold);
+}
+.keyword-slow { /* ADDED: For CC effects */
+    color: #42a5f5; /* Light Blue */
+    font-weight: var(--font-weight-bold);
+}
+.keyword-number {
+    color: #78909c; /* Blue Grey */
+    font-weight: var(--font-weight-bold);
+}
+.keyword-stat {
+    color: #ab47bc; /* Purple */
+    font-style: italic;
+    font-weight: 500;
+}
+.keyword-unit { /* ADDED: For units like HP, damage, seconds */
+    color: #ce93d8; /* Lighter Purple */
+    font-style: italic;
 }

@@ -24,16 +24,22 @@
 .detail-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start; /* MODIFIED: Align items to the top for better control */
     border-bottom: 1px solid var(--theme-border-gold-faint);
     padding-bottom: 1rem;
     margin-bottom: 1rem;
+    gap: 1rem; /* ADDED: Add space between title group and button */
+}
+
+.detail-title-group {
+    flex-grow: 1; /* ADDED: Allow title to take up available space */
 }
 
 .detail-name {
     font-family: var(--font-display);
     font-size: var(--font-size-2xl);
     color: var(--theme-text-titles);
+    margin-bottom: 0.25rem; /* ADDED: Spacing between name and archetype */
 }
 
 .detail-archetype {
@@ -42,10 +48,15 @@
 }
 
 .detail-body {
-    font-size: var(--font-size-base); /* Slightly smaller for the panel */
+    font-size: var(--font-size-base);
     color: var(--theme-text-primary);
     line-height: 1.7;
     overflow-y: auto; /* Allow scrolling for long descriptions */
+    flex-grow: 1; /* ADDED: Ensure body takes up remaining space */
+}
+
+.detail-body p {
+    margin: 0; /* Remove default paragraph margin */
 }
 
 .detail-close-btn {
@@ -56,6 +67,8 @@
     cursor: pointer;
     line-height: 1;
     transition: color 0.2s;
+    padding: 0; /* MODIFIED: Remove default padding */
+    margin-top: -0.25rem; /* MODIFIED: Nudge button up for better alignment with the title */
 }
 .detail-close-btn:hover {
     color: var(--theme-highlight-red);

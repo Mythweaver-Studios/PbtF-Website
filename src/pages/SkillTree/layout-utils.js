@@ -2,15 +2,22 @@
 
 const STAR1_RADIUS = 350;
 const STAR2_RADIUS = 700;
+// MODIFIED: Increased spacing for the central column of global skills
+const GLOBAL_NODE_SPACING = 200; 
 
 export const getRadialLayoutedElements = (nodes, edges) => {
     const star1Nodes = nodes.filter(n => n.data.star === 1 && n.data.archetype !== 'Global');
     const star2Nodes = nodes.filter(n => n.data.star === 2);
     const globalNodes = nodes.filter(n => n.data.archetype === 'Global');
 
-    // Position global nodes vertically in the center
+    // Position global nodes vertically in the center with increased and proper centered spacing
+    const globalNodesCount = globalNodes.length;
     globalNodes.forEach((node, i) => {
-        node.position = { x: 0, y: i * 180 - 180 };
+        node.position = { 
+            x: 0, 
+            // This formula centers the column of nodes around the y=0 axis
+            y: (i - (globalNodesCount - 1) / 2) * GLOBAL_NODE_SPACING 
+        };
     });
 
     // Position Star 1 nodes on the inner circle

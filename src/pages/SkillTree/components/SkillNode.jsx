@@ -3,26 +3,8 @@ import React from 'react';
 import { Handle, Position } from 'reactflow';
 import PropTypes from 'prop-types';
 import { FaKhanda, FaUserNinja, FaStar } from 'react-icons/fa'; 
+import { colorizeText } from '../utils/text-utils'; // MODIFIED: Import from new utility file
 import './SkillNode.css';
-
-const colorizeText = (text) => {
-    const keywords = {
-        burn: 'keyword-burn',
-        bleed: 'keyword-bleed',
-        poison: 'keyword-poison',
-    };
-    const regex = new RegExp(`\\b(${Object.keys(keywords).join('|')})\\b`, 'gi');
-    
-    const parts = text.split(regex);
-
-    return parts.map((part, index) => {
-        const lowerPart = part.toLowerCase();
-        if (keywords[lowerPart]) {
-            return <span key={index} className={keywords[lowerPart]}>{part}</span>;
-        }
-        return part;
-    });
-};
 
 const archetypeIcons = {
     Warrior: <FaKhanda  />,

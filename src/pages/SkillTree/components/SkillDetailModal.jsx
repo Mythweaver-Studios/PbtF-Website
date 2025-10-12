@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
+import { colorizeText } from '../utils/text-utils'; // MODIFIED: Import and use colorizeText
 import './SkillDetailModal.css';
 
 const panelVariants = {
@@ -23,14 +24,14 @@ function SkillDetailModal({ skill, onClose }) {
             transition={{ ease: 'easeInOut', duration: 0.3 }}
         >
             <div className="detail-header">
-                <div>
+                <div className="detail-title-group">
                     <h2 className="detail-name">{skill.name}</h2>
                     <p className="detail-archetype">{skill.archetype} / {skill.type}</p>
                 </div>
                 <button onClick={onClose} className="detail-close-btn" aria-label="Close">&times;</button>
             </div>
             <div className="detail-body">
-                <p>{skill.description}</p>
+                <p>{colorizeText(skill.description)}</p>
             </div>
         </motion.div>
     );
