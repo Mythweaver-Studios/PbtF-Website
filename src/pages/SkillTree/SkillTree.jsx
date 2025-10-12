@@ -2,11 +2,13 @@
 import React, { useEffect, useState } from 'react';
 import SkillTreeGraph from './components/SkillTreeGraph';
 import SkillTreeControls from './components/SkillTreeControls';
+// import SkillDetailModal from './components/SkillDetailModal'; // Commented out
 import './SkillTree.css';
 import '../Showcase/Showcase.css';
 
 function SkillTree() {
     const [activeArchetype, setActiveArchetype] = useState('All');
+    // const [selectedSkill, setSelectedSkill] = useState(null); // Commented out
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -20,7 +22,9 @@ function SkillTree() {
             <SkillTreeControls activeArchetype={activeArchetype} setActiveArchetype={setActiveArchetype} />
             <div className="skill-tree-container">
                 <SkillTreeGraph activeArchetype={activeArchetype} />
+                {/* <SkillTreeGraph activeArchetype={activeArchetype} onNodeClick={setSelectedSkill} /> // Original line */}
             </div>
+            {/* <SkillDetailModal skill={selectedSkill} onClose={() => setSelectedSkill(null)} /> // Commented out */}
         </div>
     );
 }

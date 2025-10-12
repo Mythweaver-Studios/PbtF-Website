@@ -1,0 +1,49 @@
+/* src/pages/SkillTree/components/SkillDetailModal.css */
+.skill-detail-modal {
+    width: 100%;
+    max-width: 900px;
+    margin: 2rem auto 0;
+    padding: 2rem;
+    background-color: #100e0c;
+    border: 1px solid var(--theme-border-gold);
+    border-radius: 10px;
+}
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--theme-border-gold-faint);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.detail-name {
+    font-family: var(--font-display);
+    font-size: var(--font-size-2xl);
+    color: var(--theme-text-titles);
+}
+
+.detail-archetype {
+    font-size: var(--font-size-base);
+    color: var(--theme-text-secondary);
+}
+
+.detail-body {
+    font-size: var(--font-size-md);
+    color: var(--theme-text-primary);
+    line-height: 1.8;
+}
+
+.detail-close-btn {
+    background: none;
+    border: none;
+    color: var(--theme-text-secondary);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+.detail-close-btn:hover {
+    color: var(--theme-highlight-red);
+}

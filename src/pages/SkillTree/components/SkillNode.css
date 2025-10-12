@@ -37,7 +37,7 @@
 /* --- Tooltip --- */
 .skill-tooltip {
     position: absolute;
-    bottom: 110%; /* Position above the node */
+    bottom: 110%;
     left: 50%;
     transform: translateX(-50%);
     width: 280px;
@@ -47,7 +47,7 @@
     padding: 1rem;
     color: var(--theme-text-secondary);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    z-index: 10;
+    z-index: 1000; /* MODIFIED: Was 10, increased to ensure it's on top of other nodes */
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -86,4 +86,17 @@
 .skill-tooltip-desc {
     font-size: var(--font-size-sm);
     line-height: 1.6;
+}
+
+.keyword-burn {
+    color: #ffa726; /* Orange */
+    font-weight: var(--font-weight-bold);
+}
+.keyword-bleed {
+    color: #ef5350; /* Red */
+    font-weight: var(--font-weight-bold);
+}
+.keyword-poison {
+    color: #4db6ac; /* Green/Teal */
+    font-weight: var(--font-weight-bold);
 }

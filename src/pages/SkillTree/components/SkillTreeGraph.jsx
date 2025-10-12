@@ -1,6 +1,6 @@
 // src/pages/SkillTree/components/SkillTreeGraph.jsx
 import React, { useState, useEffect } from 'react';
-import ReactFlow, { Background, Controls, MiniMap } from 'reactflow'; // Corrected: all lowercase
+import ReactFlow, { Background, Controls, MiniMap } from 'reactflow';
 import PropTypes from 'prop-types';
 import 'reactflow/dist/style.css';
 import { skillTreeData } from '../skillTreeData';
@@ -12,7 +12,7 @@ const baseNodes = skillTreeData.map(skill => ({
     id: skill.id,
     type: 'skillNode',
     position: skill.position,
-    draggable: false, // Prevent nodes from being moved by the user
+    draggable: false,
     data: {
         name: skill.name,
         type: skill.type,
@@ -36,11 +36,10 @@ skillTreeData.forEach(skill => {
     }
 });
 
-function SkillTreeGraph({ activeArchetype }) {
+function SkillTreeGraph({ activeArchetype, onNodeClick }) { // onNodeClick is now optional
     const [nodes, setNodes] = useState(baseNodes);
     const [edges, setEdges] = useState(baseEdges);
 
-    // This effect handles the filtering logic when the activeArchetype changes
     useEffect(() => {
         const isVisible = (skill) => {
             if (activeArchetype === 'All' || skill.archetype === 'Global') {
@@ -52,20 +51,24 @@ function SkillTreeGraph({ activeArchetype }) {
         setNodes(baseNodes.map(node => ({
             ...node,
             style: { ...node.style, opacity: isVisible(node.data) ? 1 : 0.25, transition: 'opacity 0.3s ease' },
+            data: {
+                ...node.data,
+                onClick: onNodeClick, 
+            }
         })));
 
         setEdges(baseEdges.map(edge => {
             const sourceNode = baseNodes.find(n => n.id === edge.source);
             return {
                 ...edge,
-                style: { 
+                style: {
                     ...edge.style,
                     opacity: isVisible(sourceNode.data) ? 1 : 0.1,
                     transition: 'opacity 0.3s ease',
                 },
             };
         }));
-    }, [activeArchetype]);
+    }, [activeArchetype, onNodeClick]);
 
     return (
         <ReactFlow
@@ -78,6 +81,7 @@ function SkillTreeGraph({ activeArchetype }) {
             proOptions={{ hideAttribution: true }}
             nodesDraggable={false}
             zoomOnScroll={false}
+            preventScrolling={false} // ADDED: Allows page to scroll over the component
         >
             <Background />
             <Controls />
@@ -88,6 +92,12 @@ function SkillTreeGraph({ activeArchetype }) {
 
 SkillTreeGraph.propTypes = {
     activeArchetype: PropTypes.string.isRequired,
+    onNodeClick: PropTypes.func, // MODIFIED: No longer required
+};
+
+// ADDED: Default prop for when onNodeClick is not provided
+SkillTreeGraph.defaultProps = {
+    onNodeClick: () => {},
 };
 
 export default SkillTreeGraph;

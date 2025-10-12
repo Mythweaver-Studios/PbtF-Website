@@ -5,6 +5,25 @@ import PropTypes from 'prop-types';
 import { FaKhanda, FaUserNinja, FaStar } from 'react-icons/fa'; 
 import './SkillNode.css';
 
+const colorizeText = (text) => {
+    const keywords = {
+        burn: 'keyword-burn',
+        bleed: 'keyword-bleed',
+        poison: 'keyword-poison',
+    };
+    const regex = new RegExp(`\\b(${Object.keys(keywords).join('|')})\\b`, 'gi');
+    
+    const parts = text.split(regex);
+
+    return parts.map((part, index) => {
+        const lowerPart = part.toLowerCase();
+        if (keywords[lowerPart]) {
+            return <span key={index} className={keywords[lowerPart]}>{part}</span>;
+        }
+        return part;
+    });
+};
+
 const archetypeIcons = {
     Warrior: <FaKhanda  />,
     Assassin: <FaUserNinja />,
@@ -14,8 +33,15 @@ const archetypeIcons = {
 function SkillNode({ data }) {
     const icon = archetypeIcons[data.archetype] || <FaStar />;
 
+    // MODIFIED: Added a check to prevent calling onClick if it doesn't exist
+    const handleClick = () => {
+        if (data.onClick) {
+            data.onClick(data);
+        }
+    };
+
     return (
-        <div className="skill-node" data-archetype={data.archetype}>
+        <div className="skill-node" data-archetype={data.archetype} onClick={handleClick}>
             <Handle type="target" position={Position.Top} style={{ background: 'transparent', border: 'none' }} />
             
             <div className="skill-node-icon">{icon}</div>
@@ -25,7 +51,7 @@ function SkillNode({ data }) {
                     <span className="skill-tooltip-name">{data.name}</span>
                     <span className="skill-tooltip-type">{data.type}</span>
                 </div>
-                <p className="skill-tooltip-desc">{data.description}</p>
+                <p className="skill-tooltip-desc">{colorizeText(data.description)}</p>
             </div>
 
             <Handle type="source" position={Position.Bottom} style={{ background: 'transparent', border: 'none' }} />
@@ -39,6 +65,7 @@ SkillNode.propTypes = {
         type: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
         archetype: PropTypes.string.isRequired,
+        onClick: PropTypes.func, // MODIFIED: No longer required
     }).isRequired,
 };
 
