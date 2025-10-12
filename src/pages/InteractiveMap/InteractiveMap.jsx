@@ -18,26 +18,32 @@ function InteractiveMap() {
         window.scrollTo(0, 0);
     }, []);
 
+    const handleRegionSelection = (regionId) => {
+        // If the clicked region is already selected, deselect it.
+        if (selectedRegion?.id === regionId) {
+            setSelectedRegion(null);
+            if (transformRef.current) {
+                // MODIFIED: Added 800ms duration for a smoother zoom-out.
+                transformRef.current.resetTransform(800);
+            }
+        } else {
+            // Otherwise, select the new region and zoom to it.
+            if (transformRef.current) {
+                const { zoomToElement } = transformRef.current;
+                zoomToElement(`marker-${regionId}`, 2, 800);
+                const region = regions.find(r => r.id === regionId);
+                setSelectedRegion(region);
+            }
+        }
+    };
+
     const handleMarkerClick = (region) => {
-        setSelectedRegion(region);
-        zoomToRegion(region.id);
+        handleRegionSelection(region.id);
     };
 
     const handlePanelClose = () => {
-        setSelectedRegion(null);
-        if (transformRef.current) {
-            transformRef.current.resetTransform(); // Zooms out to default view
-        }
-    };
-
-    const zoomToRegion = (regionId) => {
-        if (transformRef.current) {
-            const { zoomToElement } = transformRef.current;
-            // The third argument is the zoom scale (e.g., 2 = 200% zoom), the fourth is animation time in ms.
-            zoomToElement(`marker-${regionId}`, 2, 800);
-            const region = regions.find(r => r.id === regionId);
-            setSelectedRegion(region);
-        }
+        // The close button's action is equivalent to deselecting the current region.
+        handleRegionSelection(selectedRegion?.id);
     };
 
     return (
@@ -54,11 +60,11 @@ function InteractiveMap() {
                         limitToBounds={true}
                         doubleClick={{ disabled: true }}
                     >
-                        {() => ( // MODIFIED: Removed unused zoomIn and zoomOut variables
+                        {() => (
                             <>
                                 <MapControls
                                     regions={regions}
-                                    onRegionSelect={zoomToRegion}
+                                    onRegionSelect={handleRegionSelection}
                                     activeRegionId={selectedRegion?.id}
                                 />
                                 <TransformComponent
