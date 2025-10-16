@@ -1,5 +1,5 @@
 // src/pages/FAQ/faqData.js
-import React from 'react'; // ADDED: To support JSX in the data file
+import React from 'react';
 
 export const faqData = [
     {
@@ -8,15 +8,15 @@ export const faqData = [
     },
     {
         question: 'Will this game be pay-to-win?',
-        answer: 'No. The game will not be pay-to-win. Our primary goal is a fair and balanced player experience. We may introduce cosmetic items in the future to support ongoing development, but these will not provide any gameplay advantage.'
+        answer: 'No. While you will be able to pay for summons, the game is designed so that more summons are helpful but not required for success. Common characters can be just as powerful as rare characters, ensuring a fair and balanced player experience. We may introduce cosmetic items in the future, but these will not provide any gameplay advantage.'
     },
     {
         question: 'Will you implement perma-death?',
-        answer: 'Perma-death is a feature we are strongly considering for the future, as it aligns with the game\'s high-stakes theme. It will likely be an optional mode for players seeking the ultimate challenge, offering unique rewards. However, it will not be present in the initial release builds.'
+        answer: 'Yes, permadeath WILL be a feature in the alpha release. It will likely be an optional mode for players seeking the ultimate challenge, offering unique rewards for those who brave the risk.'
     },
     {
         question: 'When will the game be released?',
-        answer: 'We do not have a specific release date yet. Our current focus is on delivering a high-quality, polished experience. We are targeting a playable release sometime between 2026 and 2027.'
+        answer: 'Our goal is an alpha release in early-to-mid 2026. This initial release will feature 10 playable stages, working leaderboards, and multiplayer PvP.'
     },
     {
         question: 'How can I support you guys?',
