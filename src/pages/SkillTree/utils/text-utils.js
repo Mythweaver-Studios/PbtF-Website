@@ -4,6 +4,7 @@ import React from 'react';
 // with specific keywords and numbers wrapped in styled spans.
 export const colorizeText = (text) => {
     // A centralized map for all keywords, patterns, and their corresponding CSS classes.
+    // MODIFIED: All optional suffix groups are now non-capturing (?:...) to prevent split() duplication.
     const keywordMap = {
         // Phrases (do not need word boundaries)
         'max HP': 'keyword-unit',
@@ -23,15 +24,15 @@ export const colorizeText = (text) => {
         '\\bdefense\\b': 'keyword-stat',
         '\\bevasion\\b': 'keyword-stat',
         // Status Effects
-        '\\bbleed(ing)?\\b': 'keyword-bleed',
+        '\\bbleed(?:ing)?\\b': 'keyword-bleed',
         '\\bpoison\\b': 'keyword-poison',
         '\\bburn\\b': 'keyword-burn',
         // Crowd Control / Debuffs
-        '\\bslow(ing)?\\b': 'keyword-slow',
-        '\\bstun(ned)?\\b': 'keyword-slow',
+        '\\bslow(?:ing)?\\b': 'keyword-slow',
+        '\\bstun(?:ned)?\\b': 'keyword-slow',
         '\\bdazed\\b': 'keyword-slow',
-        '\\bsnare(s)?\\b': 'keyword-slow',
-        '\\broot(s)?\\b': 'keyword-slow',
+        '\\bsnare(?:s)?\\b': 'keyword-slow',
+        '\\broot(?:s)?\\b': 'keyword-slow',
         '\\bCC\\b': 'keyword-slow',
         '\\bcrowd control\\b': 'keyword-slow',
         '\\baggro\\b': 'keyword-slow',
@@ -43,7 +44,7 @@ export const colorizeText = (text) => {
         '\\bmana\\b': 'keyword-unit',
         '\\bstamina\\b': 'keyword-unit',
         '\\bcooldown\\b': 'keyword-unit',
-        '\\bstack(s)?\\b': 'keyword-unit',
+        '\\bstack(?:s)?\\b': 'keyword-unit',
         '\\bradius\\b': 'keyword-unit',
         '\\bmeters?\\b': 'keyword-unit',
     };
