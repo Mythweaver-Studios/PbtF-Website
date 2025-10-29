@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
-import MapMarker from './components/MapMarker';
+/* import MapMarker from './components/MapMarker'; */
 import MapInfoPanel from './components/MapInfoPanel';
 import MapControls from './components/MapControls';
 import { regions } from './data/mapData';
@@ -37,9 +37,9 @@ function InteractiveMap() {
         }
     };
 
-    const handleMarkerClick = (region) => {
+/*     const handleMarkerClick = (region) => {
         handleRegionSelection(region.id);
-    };
+    }; */
 
     const handlePanelClose = () => {
         // The close button's action is equivalent to deselecting the current region.
@@ -73,14 +73,14 @@ function InteractiveMap() {
                                 >
                                     <div className="map-image-wrapper">
                                         <img src={worldMapImage} alt="World Map of Paved by the Fallen" className="world-map-image" />
-                                        {regions.map(region => (
+{/*                                         {regions.map(region => (
                                             <MapMarker
                                                 key={region.id}
                                                 region={region}
                                                 onClick={handleMarkerClick}
                                                 isActive={selectedRegion?.id === region.id}
                                             />
-                                        ))}
+                                        ))} */}
                                     </div>
                                 </TransformComponent>
                             </>

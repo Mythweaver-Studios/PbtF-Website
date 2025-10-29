@@ -1,0 +1,49 @@
+name: Discord Commit Notifier
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Format Commit List
+        id: format_commits
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const commits = context.payload.commits;
+            if (!commits) {
+              return "No commit information found.";
+            }
+            
+            const commit_messages = commits.map(commit => {
+              const hash = commit.id.substring(0, 7);
+              const lines = commit.message.split('\n');
+              const title = lines[0];
+              const body = lines.slice(1).filter(line => line.trim() !== '').map(line => `> ${line}`).join('\n');
+              
+              let message = `• [\`${hash}\`](${commit.url}) **${title}**`;
+              if (body) {
+                message += `\n${body}`;
+              }
+              return message;
+            });
+
+            return commit_messages.join('\n\n');
+
+      - name: Discord Webhook Notification
+        uses: sarisia/actions-status-discord@v1
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          username: "Mythweaver Studios | Website"
+          title: "New Push to `${{ github.ref_name }}`"
+          description: |
+            **Commits:**
+            ${{ steps.format_commits.outputs.result }}
+
+            **Pushed by:** `${{ github.actor }}`
+          url: "${{ github.event.compare }}"
+          color: 39423
